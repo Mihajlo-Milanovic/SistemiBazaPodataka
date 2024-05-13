@@ -9,14 +9,13 @@ using PolicijskaUprava.Entiteti;
 
 namespace PolicijskaUprava.Mapiranja
 {
-    class PolicajacMapiranja : ClassMap<PolicijskaUprava.Entiteti.Policajac>
+    class PolicajacMapiranja : ClassMap<Policajac>
     {
         public PolicajacMapiranja() 
         {
             Table("POLICAJAC");
 
             Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();/// proveriti!!!!!!
-
 
             Map(x => x.Ime, "IME");
             Map(x => x.Ime_roditelja, "IME_RODITELJA");

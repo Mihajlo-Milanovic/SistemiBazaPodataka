@@ -26,10 +26,45 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                //Ucitavaju se podaci o prodavnici za zadatim brojem
-                PolicijskaUprava.Entiteti.Policajac p = s.Load<PolicijskaUprava.Entiteti.Policajac>(3);
+                Policajac p = s.Load<Policajac>(3);
 
                 MessageBox.Show(p.ToString());
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void btnUcitajVozilo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Vozilo v = s.Load<Vozilo>("NI420GA"); // ne radi :(, ispitati Vozilo i VoziloMapiranja
+
+                MessageBox.Show(v.ToString());
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void btnUcitavanjeTehnickogLica_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Tehnicko_lice tl = s.Load<Tehnicko_lice>(1); // ne radi :(, ispitati Vozilo i VoziloMapiranja
+
+                MessageBox.Show(tl.ToString());
 
                 s.Close();
             }

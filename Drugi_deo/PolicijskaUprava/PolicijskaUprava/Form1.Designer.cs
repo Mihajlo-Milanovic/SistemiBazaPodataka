@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.btnUcitavanjePolicajca = new System.Windows.Forms.Button();
+            this.btnUcitajVozilo = new System.Windows.Forms.Button();
+            this.btnUcitavanjeTehnickogLica = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnUcitavanjePolicajca
@@ -41,11 +43,33 @@
             this.btnUcitavanjePolicajca.UseVisualStyleBackColor = true;
             this.btnUcitavanjePolicajca.Click += new System.EventHandler(this.btnUcitavanjePolicajca_Click);
             // 
+            // btnUcitajVozilo
+            // 
+            this.btnUcitajVozilo.Location = new System.Drawing.Point(13, 43);
+            this.btnUcitajVozilo.Name = "btnUcitajVozilo";
+            this.btnUcitajVozilo.Size = new System.Drawing.Size(132, 23);
+            this.btnUcitajVozilo.TabIndex = 1;
+            this.btnUcitajVozilo.Text = "Ucitavanje vozila";
+            this.btnUcitajVozilo.UseVisualStyleBackColor = true;
+            this.btnUcitajVozilo.Click += new System.EventHandler(this.btnUcitajVozilo_Click);
+            // 
+            // btnUcitavanjeTehnickogLica
+            // 
+            this.btnUcitavanjeTehnickogLica.Location = new System.Drawing.Point(13, 72);
+            this.btnUcitavanjeTehnickogLica.Name = "btnUcitavanjeTehnickogLica";
+            this.btnUcitavanjeTehnickogLica.Size = new System.Drawing.Size(132, 23);
+            this.btnUcitavanjeTehnickogLica.TabIndex = 2;
+            this.btnUcitavanjeTehnickogLica.Text = "Ucitaj Tehnicko Lice";
+            this.btnUcitavanjeTehnickogLica.UseVisualStyleBackColor = true;
+            this.btnUcitavanjeTehnickogLica.Click += new System.EventHandler(this.btnUcitavanjeTehnickogLica_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnUcitavanjeTehnickogLica);
+            this.Controls.Add(this.btnUcitajVozilo);
             this.Controls.Add(this.btnUcitavanjePolicajca);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -56,6 +80,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnUcitavanjePolicajca;
+        private System.Windows.Forms.Button btnUcitajVozilo;
+        private System.Windows.Forms.Button btnUcitavanjeTehnickogLica;
     }
 }
 

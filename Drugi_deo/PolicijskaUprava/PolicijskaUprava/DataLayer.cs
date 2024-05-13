@@ -13,8 +13,7 @@ namespace PolicijskaUprava
     {
         private static ISessionFactory _factory = null;
         private static object objLock = new object();
-
-
+        
         //funkcija na zahtev otvara sesiju
         public static ISession GetSession()
         {

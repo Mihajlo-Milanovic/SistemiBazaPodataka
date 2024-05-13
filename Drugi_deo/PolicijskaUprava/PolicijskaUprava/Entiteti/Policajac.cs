@@ -17,13 +17,23 @@ namespace PolicijskaUprava.Entiteti
        public virtual string Adresa {  get; set; }
        public virtual DateTime Datum_prijema_u_sluzbu {  get; set; }
 
+       //public virtual Stanica Stanice { get; set; }
+
+       //public virtual Stanica Je_sef { get; set; }
 
         public override string ToString()
         {
             return "Ime: " + Ime + "\nPrezime:" + Prezime + "\nDatum rodnjenja:" + Datum_rodjenja + "\nJMBG: " + JMBG + "\nAdresa: " + Adresa; 
         }
 
-        public Policajac() { }
+        public Policajac() 
+        {
+            Ime = string.Empty;
+            Prezime = string.Empty;
+            Ime_roditelja = string.Empty;
+            JMBG = string.Empty;
+            Adresa = string.Empty;
+        }
     }  
 }      
        
