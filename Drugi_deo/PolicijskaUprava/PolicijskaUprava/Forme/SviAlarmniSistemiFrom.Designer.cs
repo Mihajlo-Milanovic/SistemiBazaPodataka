@@ -73,6 +73,7 @@
             this.lvLista.FullRowSelect = true;
             this.lvLista.GridLines = true;
             this.lvLista.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvLista.HideSelection = false;
             this.lvLista.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lvLista.Location = new System.Drawing.Point(12, 12);
             this.lvLista.MultiSelect = false;
@@ -164,10 +165,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Sitka Banner", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(502, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 80);
+            this.label1.Size = new System.Drawing.Size(138, 95);
             this.label1.TabIndex = 3;
             this.label1.Text = "U tabeli su prikazani\r\n svi alarmni sistemi.\r\nBrisanjem alarmnog\r\nsistema iz ove " +
     "tabele bice \r\ntrajno izbrisan iz sistema.";
@@ -181,7 +182,7 @@
             this.btnObrisiAlarmniSistem.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnObrisiAlarmniSistem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnObrisiAlarmniSistem.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnObrisiAlarmniSistem.Location = new System.Drawing.Point(505, 105);
+            this.btnObrisiAlarmniSistem.Location = new System.Drawing.Point(505, 119);
             this.btnObrisiAlarmniSistem.Name = "btnObrisiAlarmniSistem";
             this.btnObrisiAlarmniSistem.Size = new System.Drawing.Size(160, 49);
             this.btnObrisiAlarmniSistem.TabIndex = 4;

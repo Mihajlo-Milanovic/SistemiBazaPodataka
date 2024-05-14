@@ -46,7 +46,7 @@ namespace PolicijskaUprava.Forme
             if (result == DialogResult.OK)
             {
                 //DTOManager.obrisiRadnikaIzSistema(idZaposleni);
-                MessageBox.Show("Brisanje zaposlenog je uspesno obavljeno!");
+                MessageBox.Show("Brisanje alarmnog sistema je uspesno obavljeno!");
                 //this.popuniPodacima();
             }
         }

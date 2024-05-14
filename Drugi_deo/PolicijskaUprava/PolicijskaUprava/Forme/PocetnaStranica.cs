@@ -58,7 +58,8 @@ namespace PolicijskaUprava.Forme
 
         private void btnTehnickoLice_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Ovde ide forma TehnickaLicaFrom...");
+            SvaTehnickaLicaFrom STLF = new SvaTehnickaLicaFrom();
+            STLF.ShowDialog();
         }
     }
 }
