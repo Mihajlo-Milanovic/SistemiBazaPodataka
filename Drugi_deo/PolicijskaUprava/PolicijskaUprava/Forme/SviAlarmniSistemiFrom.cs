@@ -30,9 +30,25 @@ namespace PolicijskaUprava.Forme
   
         }
 
-        private void zaposleni_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnObrisiAlarmniSistem_Click(object sender, EventArgs e)
         {
+            if (this.lvLista.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Izaberite alarmni sistem koga zelite da obrisete!");
+                return;
+            }
 
+            string poruka = "Da li zelite da obrisete alarmni sistem?";
+            string title = "Pitanje";
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            DialogResult result = MessageBox.Show(poruka, title, buttons);
+
+            if (result == DialogResult.OK)
+            {
+                //DTOManager.obrisiRadnikaIzSistema(idZaposleni);
+                MessageBox.Show("Brisanje zaposlenog je uspesno obavljeno!");
+                //this.popuniPodacima();
+            }
         }
     }
 }
