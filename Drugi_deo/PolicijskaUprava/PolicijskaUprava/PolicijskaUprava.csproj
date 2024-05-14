@@ -114,6 +114,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\PocetnaStranica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PocetnaStranica.Designer.cs">
+      <DependentUpon>PocetnaStranica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\PolicijskeStaniceFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PolicijskeStaniceFrom.Designer.cs">
+      <DependentUpon>PolicijskeStaniceFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\SviAlarmniSistemiFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\SviAlarmniSistemiFrom.Designer.cs">
+      <DependentUpon>SviAlarmniSistemiFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mapiranja\PolicajacMapiranja.cs" />
     <Compile Include="Mapiranja\Tehnicko_liceMapiranja.cs" />
     <Compile Include="Mapiranja\VoziloMapiranja.cs" />
@@ -121,6 +139,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PocetnaStranica.resx">
+      <DependentUpon>PocetnaStranica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PolicijskeStaniceFrom.resx">
+      <DependentUpon>PolicijskeStaniceFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\SviAlarmniSistemiFrom.resx">
+      <DependentUpon>SviAlarmniSistemiFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,6 +157,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
@@ -151,6 +179,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\pngtree-prison-bars-vector-png-image_6633246.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\569040.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
