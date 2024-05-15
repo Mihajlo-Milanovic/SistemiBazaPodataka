@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentNHibernate" Version="3.3.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="NHibernate" Version="5.5.1" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="23.4.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\PocetnaStranica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\PolicijskeStaniceFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\SvaTehnickaLicaFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\SviAlarmniSistemiFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
