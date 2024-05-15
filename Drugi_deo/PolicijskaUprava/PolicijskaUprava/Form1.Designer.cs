@@ -31,6 +31,7 @@
             this.btnUcitavanjePolicajca = new System.Windows.Forms.Button();
             this.btnUcitajVozilo = new System.Windows.Forms.Button();
             this.btnUcitavanjeTehnickogLica = new System.Windows.Forms.Button();
+            this.btnUcitajStanicu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnUcitavanjePolicajca
@@ -63,11 +64,22 @@
             this.btnUcitavanjeTehnickogLica.UseVisualStyleBackColor = true;
             this.btnUcitavanjeTehnickogLica.Click += new System.EventHandler(this.btnUcitavanjeTehnickogLica_Click);
             // 
+            // btnUcitajStanicu
+            // 
+            this.btnUcitajStanicu.Location = new System.Drawing.Point(12, 101);
+            this.btnUcitajStanicu.Name = "btnUcitajStanicu";
+            this.btnUcitajStanicu.Size = new System.Drawing.Size(132, 23);
+            this.btnUcitajStanicu.TabIndex = 3;
+            this.btnUcitajStanicu.Text = "Ucitaj staniocu";
+            this.btnUcitajStanicu.UseVisualStyleBackColor = true;
+            this.btnUcitajStanicu.Click += new System.EventHandler(this.btnUcitajStanicu_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnUcitajStanicu);
             this.Controls.Add(this.btnUcitavanjeTehnickogLica);
             this.Controls.Add(this.btnUcitajVozilo);
             this.Controls.Add(this.btnUcitavanjePolicajca);
@@ -82,6 +94,7 @@
         private System.Windows.Forms.Button btnUcitavanjePolicajca;
         private System.Windows.Forms.Button btnUcitajVozilo;
         private System.Windows.Forms.Button btnUcitavanjeTehnickogLica;
+        private System.Windows.Forms.Button btnUcitajStanicu;
     }
 }
 

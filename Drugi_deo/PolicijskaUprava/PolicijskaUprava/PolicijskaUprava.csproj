@@ -106,6 +106,8 @@
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
     <Compile Include="Entiteti\Policajac.cs" />
+    <Compile Include="Entiteti\Policijska_stanica.cs" />
+    <Compile Include="Entiteti\P_za_vanredne_situacije.cs" />
     <Compile Include="Entiteti\Tehnicko_lice.cs" />
     <Compile Include="Entiteti\Vozilo.cs" />
     <Compile Include="Form1.cs">
@@ -139,6 +141,8 @@
       <DependentUpon>SviAlarmniSistemiFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="Mapiranja\PolicajacMapiranja.cs" />
+    <Compile Include="Mapiranja\Policijska_stanicaMapiranja.cs" />
+    <Compile Include="Mapiranja\P_za_vanredne_situacijeMapiranja.cs" />
     <Compile Include="Mapiranja\Tehnicko_liceMapiranja.cs" />
     <Compile Include="Mapiranja\VoziloMapiranja.cs" />
     <Compile Include="Program.cs" />

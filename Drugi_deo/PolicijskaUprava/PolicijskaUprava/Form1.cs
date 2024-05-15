@@ -44,7 +44,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                Vozilo v = s.Load<Vozilo>("NI420GA"); // ne radi :(, ispitati Vozilo i VoziloMapiranja
+                Vozilo v = s.Load<Vozilo>("NI420GA"); 
 
                 MessageBox.Show(v.ToString());
 
@@ -62,9 +62,27 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                Tehnicko_lice tl = s.Load<Tehnicko_lice>(1); // ne radi :(, ispitati Vozilo i VoziloMapiranja
+                Tehnicko_lice tl = s.Load<Tehnicko_lice>(1);
 
                 MessageBox.Show(tl.ToString());
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void btnUcitajStanicu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Policijska_stanica ps = s.Load<Policijska_stanica>(1); 
+
+                MessageBox.Show(ps.ToString());
 
                 s.Close();
             }

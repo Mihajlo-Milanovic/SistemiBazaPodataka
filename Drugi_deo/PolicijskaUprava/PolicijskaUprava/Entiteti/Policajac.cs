@@ -23,7 +23,7 @@ namespace PolicijskaUprava.Entiteti
 
         //public virtual Stanica Zamenik { get; set; }
 
-        //public virtual string Tip { get; set; }
+        public virtual string Tip { get; set; }
 
         public override string ToString()
         {

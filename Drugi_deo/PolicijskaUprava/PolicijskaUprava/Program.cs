@@ -17,7 +17,7 @@ namespace PolicijskaUprava
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PocetnaStranica());
+            Application.Run(new Form1());
         }
     }
 }
