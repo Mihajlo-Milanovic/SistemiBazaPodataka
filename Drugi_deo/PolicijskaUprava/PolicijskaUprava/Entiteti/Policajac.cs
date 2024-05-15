@@ -17,19 +17,20 @@
 
         //public virtual Stanica Zamenik { get; set; }
 
-        //public virtual string Tip { get; set; }
+        public virtual string Tip { get; set; }
 
         public override string ToString() {
             return "Ime: " + Ime + "\nPrezime:" + Prezime + "\nDatum rodnjenja:" + Datum_rodjenja + "\nJMBG: " + JMBG + "\nAdresa: " + Adresa;
         }
 
-        public Policajac() {
-            Ime = string.Empty;
-            Prezime = string.Empty;
-            Ime_roditelja = string.Empty;
-            JMBG = string.Empty;
-            Adresa = string.Empty;
-        }
+        //public Policajac()
+        //{
+        //    Ime = string.Empty;
+        //    Prezime = string.Empty;
+        //    Ime_roditelja = string.Empty;
+        //    JMBG = string.Empty;
+        //    Adresa = string.Empty;
+        //}
     }
 }  
        

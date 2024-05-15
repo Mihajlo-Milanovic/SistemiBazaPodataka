@@ -26,7 +26,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-				Policajac p = s.Load<Policajac>(3);
+				Policajac p = s.Load<Policajac>(8);
 
                 MessageBox.Show(p.ToString());
 
@@ -95,7 +95,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                P_za_vanredne_situacije ps = s.Load<P_za_vanredne_situacije>(6);
+                P_za_vanredne_situacije ps = s.Load<P_za_vanredne_situacije>(8);
 
                 MessageBox.Show(ps.ToString());
 

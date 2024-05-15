@@ -7,14 +7,6 @@ using System.Transactions;
 
 namespace PolicijskaUprava.Entiteti
 {
-    /*
-       POLICAJAC_ID NUMBER PRIMARY KEY REFERENCES POLICAJAC(ID),
-    KURS VARCHAR2(30),
-    VESTINA VARCHAR2(30),
-    DATUM_ZAVRSETKA_KURSA DATE,
-    SERTIFIKAT VARCHAR2(20),
-    DATUM_STICANJA_SERTIFIKATA DATE
-*/
     public class P_za_vanredne_situacije : Policajac
     {
 
@@ -24,16 +16,15 @@ namespace PolicijskaUprava.Entiteti
         public virtual string Sertifikat {  get; set; }
         public virtual DateTime Datum_sticanja_sertifikata { get; set; }
 
-        public P_za_vanredne_situacije() : base()
-        {
-            
-            Kurs = string.Empty;
-            Vestina = string.Empty;
-            Sertifikat = string.Empty;
-        }
+        //public P_za_vanredne_situacije()
+        //{
+        //    Kurs = string.Empty;
+        //    Vestina = string.Empty;
+        //    Sertifikat = string.Empty;
+        //}
         public override string ToString()
         {
-            return base.ToString() + "Kurs: " + Kurs + "\nVestina:" + Vestina
+            return base.ToString() + "\nKurs: " + Kurs + "\nVestina:" + Vestina
                                    + "\nDatum zavrsetka kursa:" + Datum_zavrsetka_kursa
                                    + "\nSertifikat: " + Sertifikat
                                    + "\nDatum sticanja sertifikata:" + Datum_sticanja_sertifikata;
