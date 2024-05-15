@@ -137,7 +137,7 @@
             // 
             // picPolicajskaStanica
             // 
-            this.picPolicajskaStanica.Image = global::PolicijskaUprava.Properties.Resources._569040;
+            this.picPolicajskaStanica.ImageLocation = "./.Resources/569040.png";
             this.picPolicajskaStanica.Location = new System.Drawing.Point(175, 44);
             this.picPolicajskaStanica.Name = "picPolicajskaStanica";
             this.picPolicajskaStanica.Size = new System.Drawing.Size(190, 175);

@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentNHibernate.Conventions.Helpers;
-using FluentNHibernate.Mapping;
-using PolicijskaUprava.Entiteti;
+﻿namespace PolicijskaUprava.Mapiranja {
 
-namespace PolicijskaUprava.Mapiranja
-{
-    class PolicajacMapiranja : ClassMap<Policajac>
-    {
-        public PolicajacMapiranja() 
-        {
+    class PolicajacMapiranja : ClassMap<Policajac> {
+    
+        public PolicajacMapiranja() {
             Table("POLICAJAC");
 
             Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();/// proveriti!!!!!!

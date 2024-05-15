@@ -26,7 +26,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                Policajac p = s.Load<Policajac>(56986);
+				Policajac p = s.Load<Policajac>(3);
 
                 MessageBox.Show(p.ToString());
 
@@ -34,7 +34,7 @@ namespace PolicijskaUprava
             }
             catch (Exception ec)
             {
-                MessageBox.Show(ec.Message);
+                MessageBox.Show(ec.FormatExceptionMessage());
             }
         }
 
@@ -44,7 +44,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                Vozilo v = s.Load<Vozilo>("NI420GA"); 
+                Vozilo v = s.Load<Vozilo>("NI420GA"); // ne radi :(, ispitati Vozilo i VoziloMapiranja
 
                 MessageBox.Show(v.ToString());
 
@@ -52,7 +52,7 @@ namespace PolicijskaUprava
             }
             catch (Exception ec)
             {
-                MessageBox.Show(ec.Message);
+                MessageBox.Show(ec.FormatExceptionMessage());
             }
         }
 
@@ -62,7 +62,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                Tehnicko_lice tl = s.Load<Tehnicko_lice>(1);
+                Tehnicko_lice tl = s.Load<Tehnicko_lice>(1); // ne radi :(, ispitati Vozilo i VoziloMapiranja
 
                 MessageBox.Show(tl.ToString());
 
@@ -70,29 +70,26 @@ namespace PolicijskaUprava
             }
             catch (Exception ec)
             {
-                MessageBox.Show(ec.Message);
+                MessageBox.Show(ec.FormatExceptionMessage());
             }
         }
 
-        private void btnUcitajStanicu_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+		private void btnUcitajStanicu_Click(object sender, EventArgs e) {
+			try {
+				ISession s = DataLayer.GetSession();
 
-                Policijska_stanica ps = s.Load<Policijska_stanica>(1); 
+				Policijska_stanica ps = s.Load<Policijska_stanica>(1);
 
-                MessageBox.Show(ps.ToString());
+				MessageBox.Show(ps.ToString());
 
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
-        }
+				s.Close();
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.FormatExceptionMessage());
+			}
+		}
 
-        private void btnUcitajPZaVanredneSituacije_Click(object sender, EventArgs e)
+		private void btnUcitajPZaVanredneSituacije_Click(object sender, EventArgs e)
         {
             try
             {
