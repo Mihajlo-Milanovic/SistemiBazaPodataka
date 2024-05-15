@@ -26,7 +26,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                Policajac p = s.Load<Policajac>(3);
+                Policajac p = s.Load<Policajac>(56986);
 
                 MessageBox.Show(p.ToString());
 
@@ -81,6 +81,24 @@ namespace PolicijskaUprava
                 ISession s = DataLayer.GetSession();
 
                 Policijska_stanica ps = s.Load<Policijska_stanica>(1); 
+
+                MessageBox.Show(ps.ToString());
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void btnUcitajPZaVanredneSituacije_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                P_za_vanredne_situacije ps = s.Load<P_za_vanredne_situacije>(6);
 
                 MessageBox.Show(ps.ToString());
 

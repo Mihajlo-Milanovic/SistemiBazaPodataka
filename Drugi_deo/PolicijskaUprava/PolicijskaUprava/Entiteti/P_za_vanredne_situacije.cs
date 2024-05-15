@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace PolicijskaUprava.Entiteti
 {
@@ -23,18 +24,19 @@ namespace PolicijskaUprava.Entiteti
         public virtual string Sertifikat {  get; set; }
         public virtual DateTime Datum_sticanja_sertifikata { get; set; }
 
-        public P_za_vanredne_situacije()
+        public P_za_vanredne_situacije() : base()
         {
+            
             Kurs = string.Empty;
             Vestina = string.Empty;
             Sertifikat = string.Empty;
         }
         public override string ToString()
         {
-            return base.ToString() + "Kurs: " + Kurs + "\nVestina:" + Vestina 
+            return base.ToString() + "Kurs: " + Kurs + "\nVestina:" + Vestina
                                    + "\nDatum zavrsetka kursa:" + Datum_zavrsetka_kursa
                                    + "\nSertifikat: " + Sertifikat
-                                   + "\nDatum sticanja sertifikata:" + Datum_sticanja_sertifikata
+                                   + "\nDatum sticanja sertifikata:" + Datum_sticanja_sertifikata;
         }
 
     }

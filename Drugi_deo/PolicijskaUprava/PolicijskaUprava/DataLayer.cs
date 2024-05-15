@@ -38,7 +38,7 @@ namespace PolicijskaUprava
                 var cfg = OracleManagedDataClientConfiguration.Oracle10
                 .ShowSql()
                 .ConnectionString(c =>
-                    c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18972;Password=vorkraft1"));
+                    c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18842;Password=S18842"));
 
                 return Fluently.Configure()
                     .Database(cfg)

@@ -32,6 +32,7 @@
             this.btnUcitajVozilo = new System.Windows.Forms.Button();
             this.btnUcitavanjeTehnickogLica = new System.Windows.Forms.Button();
             this.btnUcitajStanicu = new System.Windows.Forms.Button();
+            this.btnUcitajPZaVanredneSituacije = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnUcitavanjePolicajca
@@ -74,11 +75,22 @@
             this.btnUcitajStanicu.UseVisualStyleBackColor = true;
             this.btnUcitajStanicu.Click += new System.EventHandler(this.btnUcitajStanicu_Click);
             // 
+            // btnUcitajPZaVanredneSituacije
+            // 
+            this.btnUcitajPZaVanredneSituacije.Location = new System.Drawing.Point(12, 131);
+            this.btnUcitajPZaVanredneSituacije.Name = "btnUcitajPZaVanredneSituacije";
+            this.btnUcitajPZaVanredneSituacije.Size = new System.Drawing.Size(202, 23);
+            this.btnUcitajPZaVanredneSituacije.TabIndex = 4;
+            this.btnUcitajPZaVanredneSituacije.Text = "Ucitaj policajca za vanredne situacije";
+            this.btnUcitajPZaVanredneSituacije.UseVisualStyleBackColor = true;
+            this.btnUcitajPZaVanredneSituacije.Click += new System.EventHandler(this.btnUcitajPZaVanredneSituacije_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnUcitajPZaVanredneSituacije);
             this.Controls.Add(this.btnUcitajStanicu);
             this.Controls.Add(this.btnUcitavanjeTehnickogLica);
             this.Controls.Add(this.btnUcitajVozilo);
@@ -95,6 +107,7 @@
         private System.Windows.Forms.Button btnUcitajVozilo;
         private System.Windows.Forms.Button btnUcitavanjeTehnickogLica;
         private System.Windows.Forms.Button btnUcitajStanicu;
+        private System.Windows.Forms.Button btnUcitajPZaVanredneSituacije;
     }
 }
 

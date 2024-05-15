@@ -15,9 +15,6 @@ namespace PolicijskaUprava.Mapiranja
         public Policijska_stanicaMapiranja()
         {
             Table("POLICIJSKA_STANICA");
-            //return "Naziv: " + Naziv + "\nOpstina:" +
-            //Opstina + "\nAdresa:" + Adresa + "\nDatum osnivanja:
-            //" + Datum_osnivanja + "\nBroj vozila: " + Broj_vozila;
 
             Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();/// proveriti!!!!!!
 

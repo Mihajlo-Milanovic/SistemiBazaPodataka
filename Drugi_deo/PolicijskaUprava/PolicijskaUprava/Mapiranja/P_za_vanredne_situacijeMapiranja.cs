@@ -22,11 +22,13 @@ namespace PolicijskaUprava.Mapiranja
         {
             Table("P_ZA_VANREDNE_SITUACIJE");
 
-            KeyColumn("ID");
+            KeyColumn("POLICAJAC_ID");
 
             Map(x => x.Kurs).Column("KURS");
-            Map(x => x.Vestina).Column("VESTINA");
-            Map(x => x.OsetljivaDodir).Column("OSETLJIVA_DODIR");
+            Map(x => x.Datum_zavrsetka_kursa).Column("DATUM_ZAVRSETKA_KURSA");
+            Map(x => x.Sertifikat).Column("SERTIFIKAT");
+            Map(x => x.Datum_sticanja_sertifikata).Column("DATUM_STICANJE_SERTIFIKATA");
+
         }
     }
 }
