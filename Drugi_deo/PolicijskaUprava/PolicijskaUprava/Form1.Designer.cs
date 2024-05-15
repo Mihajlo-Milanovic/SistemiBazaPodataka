@@ -33,7 +33,6 @@
             this.btnUcitavanjeTehnickogLica = new System.Windows.Forms.Button();
             this.btnUcitajStanicu = new System.Windows.Forms.Button();
             this.btnUcitajPZaVanredneSituacije = new System.Windows.Forms.Button();
-
             this.SuspendLayout();
             // 
             // btnUcitavanjePolicajca
@@ -66,7 +65,6 @@
             this.btnUcitavanjeTehnickogLica.UseVisualStyleBackColor = true;
             this.btnUcitavanjeTehnickogLica.Click += new System.EventHandler(this.btnUcitavanjeTehnickogLica_Click);
             // 
-
             // btnUcitajStanicu
             // 
             this.btnUcitajStanicu.Location = new System.Drawing.Point(12, 101);
@@ -87,7 +85,6 @@
             this.btnUcitajPZaVanredneSituacije.UseVisualStyleBackColor = true;
             this.btnUcitajPZaVanredneSituacije.Click += new System.EventHandler(this.btnUcitajPZaVanredneSituacije_Click);
             // 
-
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
