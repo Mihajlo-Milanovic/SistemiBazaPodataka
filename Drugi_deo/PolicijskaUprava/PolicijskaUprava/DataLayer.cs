@@ -1,56 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NHibernate;
-using FluentNHibernate.Cfg;
-using FluentNHibernate.Cfg.Db;
-using PolicijskaUprava.Mapiranja;
+﻿namespace PolicijskaUprava {
 
-namespace PolicijskaUprava
-{
-    class DataLayer
-    {
-        private static ISessionFactory _factory = null;
-        private static object objLock = new object();
-        
-        //funkcija na zahtev otvara sesiju
-        public static ISession GetSession()
-        {
-            //ukoliko session factory nije kreiran
-            if (_factory == null)
-            {
-                lock (objLock)
-                {
-                    if (_factory == null)
-                        _factory = CreateSessionFactory();
-                }
-            }
+	class DataLayer {
+		private static ISessionFactory? _factory;
+		private static object lockObj;
 
-            return _factory.OpenSession();
-        }
+		static DataLayer() {
+			_factory = null;
+			lockObj = new object();
+		}
 
-        //konfiguracija i kreiranje session factory
-        private static ISessionFactory CreateSessionFactory()
-        {
-            try
-            {
-                var cfg = OracleManagedDataClientConfiguration.Oracle10
-                .ShowSql()
-                .ConnectionString(c =>
-                    c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18842;Password=S18842"));
+		//funkcija na zahtev otvara sesiju
+		public static ISession GetSession() {
+			if (_factory == null) {
+				lock (lockObj) {
+					if (_factory == null) {
+						_factory = CreateSessionFactory();
+					}
+				}
+			}
 
-                return Fluently.Configure()
-                    .Database(cfg)
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<PolicajacMapiranja>())
-                    .BuildSessionFactory();
-            }
-            catch (Exception ec)
-            {
-                System.Windows.Forms.MessageBox.Show(ec.Message);
-                return null;
-            }
+			return _factory?.OpenSession();
+		}
 
-        }
-    }
+		//konfiguracija i kreiranje session factory
+		private static ISessionFactory CreateSessionFactory() {			
+
+			try {
+				// ShowSql prikazuje SQL koji je generisan, ali u .NET Core aplikacijama se prikazuju u konzoli.
+				// Ako se aplikacija pokrene sa dotnet bin\Debug\net8.0-windows\ProdavnicaIgracaka.dll, mogu da se vide
+				string cs = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18972;Password=vorkraft1";
+						//*/ConfigurationManager.ConnectionStrings["OracleCS"].ConnectionString;
+				var cfg = OracleManagedDataClientConfiguration.Oracle10
+							.ShowSql()
+							.ConnectionString(c => c.Is(cs));
+
+				return Fluently.Configure()
+						.Database(cfg)
+						.Mappings(m => m.FluentMappings.AddFromAssemblyOf<Mapiranja.PolicajacMapiranja>())
+						//.ExposeConfiguration(BuildSchema)
+						.BuildSessionFactory();
+			}
+			catch (Exception e) {
+				MessageBox.Show(e.FormatExceptionMessage());
+				return null;
+			}
+
+		}
+	}
 }

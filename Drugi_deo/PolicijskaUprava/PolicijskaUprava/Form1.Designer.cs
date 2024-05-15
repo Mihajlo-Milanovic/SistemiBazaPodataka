@@ -31,8 +31,11 @@
             this.btnUcitavanjePolicajca = new System.Windows.Forms.Button();
             this.btnUcitajVozilo = new System.Windows.Forms.Button();
             this.btnUcitavanjeTehnickogLica = new System.Windows.Forms.Button();
+<<<<<<< HEAD
             this.btnUcitajStanicu = new System.Windows.Forms.Button();
             this.btnUcitajPZaVanredneSituacije = new System.Windows.Forms.Button();
+=======
+>>>>>>> core
             this.SuspendLayout();
             // 
             // btnUcitavanjePolicajca
@@ -65,6 +68,7 @@
             this.btnUcitavanjeTehnickogLica.UseVisualStyleBackColor = true;
             this.btnUcitavanjeTehnickogLica.Click += new System.EventHandler(this.btnUcitavanjeTehnickogLica_Click);
             // 
+<<<<<<< HEAD
             // btnUcitajStanicu
             // 
             this.btnUcitajStanicu.Location = new System.Drawing.Point(12, 101);
@@ -85,13 +89,18 @@
             this.btnUcitajPZaVanredneSituacije.UseVisualStyleBackColor = true;
             this.btnUcitajPZaVanredneSituacije.Click += new System.EventHandler(this.btnUcitajPZaVanredneSituacije_Click);
             // 
+=======
+>>>>>>> core
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+<<<<<<< HEAD
             this.Controls.Add(this.btnUcitajPZaVanredneSituacije);
             this.Controls.Add(this.btnUcitajStanicu);
+=======
+>>>>>>> core
             this.Controls.Add(this.btnUcitavanjeTehnickogLica);
             this.Controls.Add(this.btnUcitajVozilo);
             this.Controls.Add(this.btnUcitavanjePolicajca);
@@ -108,6 +117,7 @@
         private System.Windows.Forms.Button btnUcitavanjeTehnickogLica;
         private System.Windows.Forms.Button btnUcitajStanicu;
         private System.Windows.Forms.Button btnUcitajPZaVanredneSituacije;
+
     }
 }
 

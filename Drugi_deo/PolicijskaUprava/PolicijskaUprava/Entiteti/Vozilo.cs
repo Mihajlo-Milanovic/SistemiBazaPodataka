@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace PolicijskaUprava.Entiteti {
 
-namespace PolicijskaUprava.Entiteti
-{
-    public class Vozilo
-    {
+    public class Vozilo {
+
         public virtual String Reg_oznaka { get; set; }
-        public virtual String Boja {  get; set; }
+        public virtual String Boja { get; set; }
         public virtual String Tip { get; set; }
-        public virtual String Proizvodjac {  get; set; }
-        public virtual String Model {  get; set; }
-    
-        public Vozilo()
-        { 
+        public virtual String Proizvodjac { get; set; }
+        public virtual String Model { get; set; }
+
+        public Vozilo() {
             Reg_oznaka = string.Empty;
             Boja = string.Empty;
             Tip = string.Empty;
@@ -32,8 +25,7 @@ namespace PolicijskaUprava.Entiteti
         //    Model = model;
         //}
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return "Registarska oznaka: " + Reg_oznaka + "\nBoja: " + Boja + "\nTip: " + Tip + "\nProizvodjac: " + Proizvodjac + "\nModel: " + Model;
         }
     }

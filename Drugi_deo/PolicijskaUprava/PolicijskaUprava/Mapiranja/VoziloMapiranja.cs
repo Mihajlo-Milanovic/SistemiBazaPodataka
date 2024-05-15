@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentNHibernate.Conventions.Helpers;
-using FluentNHibernate.Mapping;
-using PolicijskaUprava.Entiteti;
+﻿namespace PolicijskaUprava.Mapiranja {
 
-namespace PolicijskaUprava.Mapiranja
-{
-    class VoziloMapiranja : ClassMap<Vozilo>
-    {
-        public VoziloMapiranja()
-        {
+    class VoziloMapiranja : ClassMap<Vozilo> {
+    
+        public VoziloMapiranja() {
             Table("VOZILO");
 
             Id(x => x.Reg_oznaka, "REG_OZNAKA");
