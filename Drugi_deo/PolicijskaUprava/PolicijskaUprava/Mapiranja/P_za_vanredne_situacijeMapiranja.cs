@@ -13,7 +13,6 @@
             Map(x => x.Vestina).Column("DATUM_ZAVRSETKA_KURSA");
             Map(x => x.Sertifikat).Column("SERTIFIKAT");
             Map(x => x.Datum_sticanja_sertifikata).Column("DATUM_STICANJA_SERTIFIKATA");
-
         }
     }
 }

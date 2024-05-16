@@ -27,7 +27,7 @@ namespace PolicijskaUprava.Forme
             ListViewItem LVI2 = new ListViewItem(AS2);
             lista.Items.Add(LVI1);
             lista.Items.Add(LVI2);
-  
+
         }
 
         private void btnObrisiAlarmniSistem_Click(object sender, EventArgs e)
@@ -49,6 +49,11 @@ namespace PolicijskaUprava.Forme
                 MessageBox.Show("Brisanje alarmnog sistema je uspesno obavljeno!");
                 //this.popuniPodacima();
             }
+        }
+
+        private void lvLista_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

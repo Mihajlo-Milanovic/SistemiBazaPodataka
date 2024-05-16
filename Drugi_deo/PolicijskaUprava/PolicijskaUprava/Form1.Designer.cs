@@ -34,14 +34,15 @@
             btnUcitajStanicu = new Button();
             btnUcitajPZaVanredneSituacije = new Button();
             btnUcitaj_Skolskog_policajca = new Button();
+            btnObjekti = new Button();
             SuspendLayout();
             // 
             // btnUcitavanjePolicajca
             // 
-            btnUcitavanjePolicajca.Location = new System.Drawing.Point(15, 15);
-            btnUcitavanjePolicajca.Margin = new Padding(4, 3, 4, 3);
+            btnUcitavanjePolicajca.Location = new System.Drawing.Point(17, 20);
+            btnUcitavanjePolicajca.Margin = new Padding(5, 4, 5, 4);
             btnUcitavanjePolicajca.Name = "btnUcitavanjePolicajca";
-            btnUcitavanjePolicajca.Size = new System.Drawing.Size(154, 27);
+            btnUcitavanjePolicajca.Size = new System.Drawing.Size(176, 36);
             btnUcitavanjePolicajca.TabIndex = 0;
             btnUcitavanjePolicajca.Text = "Ucitavanje policajca";
             btnUcitavanjePolicajca.UseVisualStyleBackColor = true;
@@ -49,10 +50,10 @@
             // 
             // btnUcitajVozilo
             // 
-            btnUcitajVozilo.Location = new System.Drawing.Point(15, 50);
-            btnUcitajVozilo.Margin = new Padding(4, 3, 4, 3);
+            btnUcitajVozilo.Location = new System.Drawing.Point(17, 67);
+            btnUcitajVozilo.Margin = new Padding(5, 4, 5, 4);
             btnUcitajVozilo.Name = "btnUcitajVozilo";
-            btnUcitajVozilo.Size = new System.Drawing.Size(154, 27);
+            btnUcitajVozilo.Size = new System.Drawing.Size(176, 36);
             btnUcitajVozilo.TabIndex = 1;
             btnUcitajVozilo.Text = "Ucitavanje vozila";
             btnUcitajVozilo.UseVisualStyleBackColor = true;
@@ -60,10 +61,10 @@
             // 
             // btnUcitavanjeTehnickogLica
             // 
-            btnUcitavanjeTehnickogLica.Location = new System.Drawing.Point(15, 83);
-            btnUcitavanjeTehnickogLica.Margin = new Padding(4, 3, 4, 3);
+            btnUcitavanjeTehnickogLica.Location = new System.Drawing.Point(17, 111);
+            btnUcitavanjeTehnickogLica.Margin = new Padding(5, 4, 5, 4);
             btnUcitavanjeTehnickogLica.Name = "btnUcitavanjeTehnickogLica";
-            btnUcitavanjeTehnickogLica.Size = new System.Drawing.Size(154, 27);
+            btnUcitavanjeTehnickogLica.Size = new System.Drawing.Size(176, 36);
             btnUcitavanjeTehnickogLica.TabIndex = 2;
             btnUcitavanjeTehnickogLica.Text = "Ucitaj Tehnicko Lice";
             btnUcitavanjeTehnickogLica.UseVisualStyleBackColor = true;
@@ -71,10 +72,10 @@
             // 
             // btnUcitajStanicu
             // 
-            btnUcitajStanicu.Location = new System.Drawing.Point(14, 117);
-            btnUcitajStanicu.Margin = new Padding(4, 3, 4, 3);
+            btnUcitajStanicu.Location = new System.Drawing.Point(16, 156);
+            btnUcitajStanicu.Margin = new Padding(5, 4, 5, 4);
             btnUcitajStanicu.Name = "btnUcitajStanicu";
-            btnUcitajStanicu.Size = new System.Drawing.Size(154, 27);
+            btnUcitajStanicu.Size = new System.Drawing.Size(176, 36);
             btnUcitajStanicu.TabIndex = 3;
             btnUcitajStanicu.Text = "Ucitaj staniocu";
             btnUcitajStanicu.UseVisualStyleBackColor = true;
@@ -82,10 +83,10 @@
             // 
             // btnUcitajPZaVanredneSituacije
             // 
-            btnUcitajPZaVanredneSituacije.Location = new System.Drawing.Point(14, 151);
-            btnUcitajPZaVanredneSituacije.Margin = new Padding(4, 3, 4, 3);
+            btnUcitajPZaVanredneSituacije.Location = new System.Drawing.Point(16, 201);
+            btnUcitajPZaVanredneSituacije.Margin = new Padding(5, 4, 5, 4);
             btnUcitajPZaVanredneSituacije.Name = "btnUcitajPZaVanredneSituacije";
-            btnUcitajPZaVanredneSituacije.Size = new System.Drawing.Size(236, 27);
+            btnUcitajPZaVanredneSituacije.Size = new System.Drawing.Size(270, 36);
             btnUcitajPZaVanredneSituacije.TabIndex = 4;
             btnUcitajPZaVanredneSituacije.Text = "Ucitaj policajca za vanredne situacije";
             btnUcitajPZaVanredneSituacije.UseVisualStyleBackColor = true;
@@ -93,28 +94,42 @@
             // 
             // btnUcitaj_Skolskog_policajca
             // 
-            btnUcitaj_Skolskog_policajca.Location = new System.Drawing.Point(15, 184);
+            btnUcitaj_Skolskog_policajca.Location = new System.Drawing.Point(17, 245);
+            btnUcitaj_Skolskog_policajca.Margin = new Padding(3, 4, 3, 4);
             btnUcitaj_Skolskog_policajca.Name = "btnUcitaj_Skolskog_policajca";
-            btnUcitaj_Skolskog_policajca.Size = new System.Drawing.Size(235, 23);
+            btnUcitaj_Skolskog_policajca.Size = new System.Drawing.Size(269, 31);
             btnUcitaj_Skolskog_policajca.TabIndex = 5;
             btnUcitaj_Skolskog_policajca.Text = "Ucitaj skolskog policajca";
             btnUcitaj_Skolskog_policajca.UseVisualStyleBackColor = true;
             btnUcitaj_Skolskog_policajca.Click += btnUcitaj_Skolskog_policajca_Click;
             // 
+            // btnObjekti
+            // 
+            btnObjekti.Location = new System.Drawing.Point(17, 284);
+            btnObjekti.Margin = new Padding(5, 4, 5, 4);
+            btnObjekti.Name = "btnObjekti";
+            btnObjekti.Size = new System.Drawing.Size(176, 36);
+            btnObjekti.TabIndex = 6;
+            btnObjekti.Text = "Ucitavanje objekta";
+            btnObjekti.UseVisualStyleBackColor = true;
+            btnObjekti.Click += btnObjekti_Click;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(933, 519);
+            ClientSize = new System.Drawing.Size(1066, 692);
+            Controls.Add(btnObjekti);
             Controls.Add(btnUcitaj_Skolskog_policajca);
             Controls.Add(btnUcitajPZaVanredneSituacije);
             Controls.Add(btnUcitajStanicu);
             Controls.Add(btnUcitavanjeTehnickogLica);
             Controls.Add(btnUcitajVozilo);
             Controls.Add(btnUcitavanjePolicajca);
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(5, 4, 5, 4);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
         }
 
@@ -126,6 +141,7 @@
         private System.Windows.Forms.Button btnUcitajStanicu;
         private System.Windows.Forms.Button btnUcitajPZaVanredneSituacije;
         private Button btnUcitaj_Skolskog_policajca;
+        private Button btnObjekti;
     }
 }
 
