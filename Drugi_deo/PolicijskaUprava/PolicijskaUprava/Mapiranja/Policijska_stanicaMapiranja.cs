@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentNHibernate.Conventions.Helpers;
-using FluentNHibernate.Mapping;
-using PolicijskaUprava.Entiteti;
-
-
-namespace PolicijskaUprava.Mapiranja
+﻿namespace PolicijskaUprava.Mapiranja
 {
     class Policijska_stanicaMapiranja : ClassMap<Policijska_stanica>
     {

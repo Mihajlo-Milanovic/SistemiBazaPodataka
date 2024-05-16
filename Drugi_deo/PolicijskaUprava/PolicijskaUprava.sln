@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolicijskaUpravaCore", "PolicijskaUprava\PolicijskaUpravaCore.csproj", "{E468F4B4-B6BB-44CB-9048-2EF86E4C134D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolicijskaUprava", "PolicijskaUprava\PolicijskaUprava.csproj", "{E468F4B4-B6BB-44CB-9048-2EF86E4C134D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

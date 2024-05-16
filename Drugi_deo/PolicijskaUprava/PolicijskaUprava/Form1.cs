@@ -26,7 +26,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-				Policajac p = s.Load<Policajac>(8);
+                Policajac p = s.Load<Policajac>(8);
 
                 MessageBox.Show(p.ToString());
 
@@ -74,28 +74,49 @@ namespace PolicijskaUprava
             }
         }
 
-		private void btnUcitajStanicu_Click(object sender, EventArgs e) {
-			try {
-				ISession s = DataLayer.GetSession();
+        private void btnUcitajStanicu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
 
-				Policijska_stanica ps = s.Load<Policijska_stanica>(1);
+                Policijska_stanica ps = s.Load<Policijska_stanica>(1);
 
-				MessageBox.Show(ps.ToString());
+                MessageBox.Show(ps.ToString());
 
-				s.Close();
-			}
-			catch (Exception ec) {
-				MessageBox.Show(ec.FormatExceptionMessage());
-			}
-		}
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.FormatExceptionMessage());
+            }
+        }
 
-		private void btnUcitajPZaVanredneSituacije_Click(object sender, EventArgs e)
+        private void btnUcitajPZaVanredneSituacije_Click(object sender, EventArgs e)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
 
                 P_za_vanredne_situacije ps = s.Load<P_za_vanredne_situacije>(8);
+
+                MessageBox.Show(ps.ToString());
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void btnUcitaj_Skolskog_policajca_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Skolski_policajac ps = s.Load<Skolski_policajac>(10);
 
                 MessageBox.Show(ps.ToString());
 

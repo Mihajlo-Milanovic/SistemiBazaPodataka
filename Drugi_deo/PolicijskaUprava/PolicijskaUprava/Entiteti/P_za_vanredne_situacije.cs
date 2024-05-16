@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-
-namespace PolicijskaUprava.Entiteti
+﻿namespace PolicijskaUprava.Entiteti
 {
     public class P_za_vanredne_situacije : Policajac
     {
