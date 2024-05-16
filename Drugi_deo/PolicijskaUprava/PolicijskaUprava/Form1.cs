@@ -116,7 +116,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                Skolski_policajac ps = s.Load<Skolski_policajac>(10);
+                Skolski_policajac ps = s.Load<Skolski_policajac>(11);
 
                 MessageBox.Show(ps.ToString());
 
@@ -133,6 +133,22 @@ namespace PolicijskaUprava
 
         }
 
+        private void btnUcitajRadnikaUUpravi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Radnik_u_upravi ruu = s.Load<Radnik_u_upravi>(13);
+
+                MessageBox.Show(ruu.ToString());
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
         private void btnObjekti_Click(object sender, EventArgs e)
         {
             try
