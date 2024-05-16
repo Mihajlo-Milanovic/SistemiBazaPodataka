@@ -28,5 +28,15 @@
             Kontakt_prezime =kontakt_prezime;
             Telefon_skole =telefon_skole;
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + "\nNaziv skole: " + Naziv_skole
+                                   + "\nTip skole: " + Tip_skole 
+                                   +"\nAdresa skole: " + Adresa_skole
+                                   + "\nKontakt ime: " + Kontakt_ime
+                                   + "\nKontakt prezime: " + Kontakt_prezime
+                                   + "\nTelefon: " + Telefon_skole;
+        }
     }
 }
