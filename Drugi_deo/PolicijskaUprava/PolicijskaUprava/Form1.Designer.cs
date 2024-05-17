@@ -36,6 +36,7 @@
             btnUcitaj_Skolskog_policajca = new Button();
             btnObjekti = new Button();
             btnUcitajRadnikaUUpravi = new Button();
+            btnBrojTelefona = new Button();
             SuspendLayout();
             // 
             // btnUcitavanjePolicajca
@@ -125,11 +126,22 @@
             btnUcitajRadnikaUUpravi.UseVisualStyleBackColor = true;
             btnUcitajRadnikaUUpravi.Click += btnUcitajRadnikaUUpravi_Click;
             // 
+            // btnBrojTelefona
+            // 
+            btnBrojTelefona.Location = new System.Drawing.Point(17, 372);
+            btnBrojTelefona.Name = "btnBrojTelefona";
+            btnBrojTelefona.Size = new System.Drawing.Size(238, 29);
+            btnBrojTelefona.TabIndex = 7;
+            btnBrojTelefona.Text = "Ucitaj Broj Telefona";
+            btnBrojTelefona.UseVisualStyleBackColor = true;
+            btnBrojTelefona.Click += btnBrojTelefona_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1066, 692);
+            Controls.Add(btnBrojTelefona);
             Controls.Add(btnObjekti);
             Controls.Add(btnUcitajRadnikaUUpravi);
             Controls.Add(btnUcitaj_Skolskog_policajca);
@@ -155,6 +167,7 @@
         private Button btnUcitaj_Skolskog_policajca;
         private Button btnObjekti;
         private Button btnUcitajRadnikaUUpravi;
+        private Button btnBrojTelefona;
     }
 }
 

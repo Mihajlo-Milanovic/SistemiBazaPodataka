@@ -160,11 +160,33 @@ namespace PolicijskaUprava
                 MessageBox.Show(ps.ToString());
 
                 s.Close();
-            }   
+            }
             catch (Exception ec)
             {
                 MessageBox.Show(ec.Message);
             }
+        }
+
+        private void btnBrojTelefona_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                /*ISession s = DataLayer.GetSession();
+                BrojTelefonaId bid = new BrojTelefonaId();
+                bid.Broj = 5;
+                Objekat ps = s.Load<Objekat>(1);
+                bid.ObjekatZaBroj = ps;
+                BrojTelefona bt = s.Load<BrojTelefona>(bid);*/
+
+                MessageBox.Show("Ne ucitava nista iz nepoznatih razloga !");
+
+                //s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+
         }
     }
 }
