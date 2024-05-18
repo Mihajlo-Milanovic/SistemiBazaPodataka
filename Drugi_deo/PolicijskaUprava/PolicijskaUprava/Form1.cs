@@ -171,16 +171,16 @@ namespace PolicijskaUprava
         {
             try
             {
-                /*ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.GetSession();
                 BrojTelefonaId bid = new BrojTelefonaId();
                 bid.Broj = 5;
                 Objekat ps = s.Load<Objekat>(1);
                 bid.ObjekatZaBroj = ps;
-                BrojTelefona bt = s.Load<BrojTelefona>(bid);*/
+                BrojTelefona bt = s.Load<BrojTelefona>(bid);
 
-                MessageBox.Show("Ne ucitava nista iz nepoznatih razloga !");
+                MessageBox.Show(bt.ToString());
 
-                //s.Close();
+                s.Close();
             }
             catch (Exception ec)
             {

@@ -28,7 +28,7 @@
 			try {
 				// ShowSql prikazuje SQL koji je generisan, ali u .NET Core aplikacijama se prikazuju u konzoli.
 				// Ako se aplikacija pokrene sa dotnet bin\Debug\net8.0-windows\ProdavnicaIgracaka.dll, mogu da se vide
-				string cs = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18972;Password=vorkraft1";
+				string cs = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18842;Password=S18842";
 						//*/ConfigurationManager.ConnectionStrings["OracleCS"].ConnectionString;
 				var cfg = OracleManagedDataClientConfiguration.Oracle10
 							.ShowSql()

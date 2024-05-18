@@ -13,9 +13,9 @@ namespace PolicijskaUprava.Entiteti
     {
         public virtual BrojTelefonaId Id { get; set; }
 
-        public BrojTelefona(BrojTelefonaId id)
+        public BrojTelefona(int id, Objekat obj)
         {
-            Id = id;
+            Id = new BrojTelefonaId(id, obj);
         }
 
         public BrojTelefona() 
@@ -33,6 +33,14 @@ namespace PolicijskaUprava.Entiteti
     {
         public virtual int Broj { get; set; }
         public virtual Objekat ObjekatZaBroj { get; set; }
+
+        public BrojTelefonaId(int broj, Objekat obj)
+        {
+            Broj = broj;
+            ObjekatZaBroj = obj;
+        }
+
+        public BrojTelefonaId() { }
         public override bool Equals(object obj)
         {
             if (Object.ReferenceEquals(this, obj))
@@ -42,7 +50,7 @@ namespace PolicijskaUprava.Entiteti
 
             BrojTelefonaId recievedObject = (BrojTelefonaId)obj;
 
-            if ((ObjekatZaBroj.Id == recievedObject.ObjekatZaBroj.Id) && (Broj == recievedObject.Broj))
+            if ((this.ObjekatZaBroj == recievedObject.ObjekatZaBroj) && (this.Broj == recievedObject.Broj))
                 return true;
             return false;
         }
