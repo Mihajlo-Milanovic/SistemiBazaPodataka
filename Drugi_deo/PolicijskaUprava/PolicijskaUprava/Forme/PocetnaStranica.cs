@@ -27,7 +27,8 @@ namespace PolicijskaUprava.Forme {
         }
 
         private void btnPolicajac_Click(object sender, EventArgs e) {
-            MessageBox.Show("Ovde ide forma PolicajciFrom...");
+            Policajci P = new Policajci();
+            P.ShowDialog();
         }
 
         private void btnObjekat_Click(object sender, EventArgs e) {

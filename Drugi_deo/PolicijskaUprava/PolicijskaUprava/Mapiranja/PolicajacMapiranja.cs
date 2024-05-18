@@ -14,6 +14,7 @@
             Map(x => x.JMBG, "JMBG");
             Map(x => x.Adresa, "ADRESA");
             Map(x => x.Datum_prijema_u_sluzbu, "DATUM_PRIJEMA_U_SLUZBU");
+            Map(x => x.Tip, "TIP");
 
 
 			//STANICA_ID,SEF_STANICE,ZAMENIK_STANICE

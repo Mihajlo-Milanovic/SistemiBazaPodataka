@@ -13,7 +13,7 @@ namespace PolicijskaUprava.Entiteti
     {
         public virtual BrojTelefonaId Id { get; set; }
 
-        public BrojTelefona(int id, Objekat obj)
+        public BrojTelefona(string id, Objekat obj)
         {
             Id = new BrojTelefonaId(id, obj);
         }
@@ -31,10 +31,10 @@ namespace PolicijskaUprava.Entiteti
     }
     public class BrojTelefonaId
     {
-        public virtual int Broj { get; set; }
+        public virtual string Broj { get; set; }
         public virtual Objekat ObjekatZaBroj { get; set; }
 
-        public BrojTelefonaId(int broj, Objekat obj)
+        public BrojTelefonaId(string broj, Objekat obj)
         {
             Broj = broj;
             ObjekatZaBroj = obj;

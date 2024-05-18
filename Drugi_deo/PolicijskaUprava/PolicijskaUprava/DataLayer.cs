@@ -53,7 +53,7 @@ namespace PolicijskaUprava {
 		///
 		/// VAZNO: Zavukla nam se greska pri projektovanju baze u tabeli BROJ_TELEFONA kolona broj telefona je stavljena kao NUMBER umesto VARCHAR2
 		///
-									OVO JE OSTAVLJENO DA VIDITE OBAVESTENJE
+		////							OVO JE OSTAVLJENO DA VIDITE OBAVESTENJE
 		/// 
 		/// Potebno je da svako ponaosob update-uje bazu ili cu da to urdaim ja (Mihajlo) od ponedeljka jer nije hitno mala je greskica.
 		/// 

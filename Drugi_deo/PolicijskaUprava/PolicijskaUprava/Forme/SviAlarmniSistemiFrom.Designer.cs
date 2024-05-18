@@ -28,183 +28,168 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.oracleDataAdapter1 = new Oracle.ManagedDataAccess.Client.OracleDataAdapter();
-            this.lvLista = new System.Windows.Forms.ListView();
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnObrisiAlarmniSistem = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            oracleDataAdapter1 = new Oracle.ManagedDataAccess.Client.OracleDataAdapter();
+            lvLista = new ListView();
+            ID = new ColumnHeader();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
+            columnHeader6 = new ColumnHeader();
+            columnHeader7 = new ColumnHeader();
+            columnHeader8 = new ColumnHeader();
+            columnHeader9 = new ColumnHeader();
+            columnHeader10 = new ColumnHeader();
+            columnHeader11 = new ColumnHeader();
+            columnHeader12 = new ColumnHeader();
+            columnHeader13 = new ColumnHeader();
+            columnHeader14 = new ColumnHeader();
+            columnHeader15 = new ColumnHeader();
+            label1 = new Label();
+            btnObrisiAlarmniSistem = new Button();
+            SuspendLayout();
             // 
             // lvLista
             // 
-            this.lvLista.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID,
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11,
-            this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader14,
-            this.columnHeader15});
-            this.lvLista.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lvLista.FullRowSelect = true;
-            this.lvLista.GridLines = true;
-            this.lvLista.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lvLista.HideSelection = false;
-            this.lvLista.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lvLista.Location = new System.Drawing.Point(12, 12);
-            this.lvLista.MultiSelect = false;
-            this.lvLista.Name = "lvLista";
-            this.lvLista.Size = new System.Drawing.Size(484, 355);
-            this.lvLista.TabIndex = 0;
-            this.lvLista.UseCompatibleStateImageBehavior = false;
-            this.lvLista.View = System.Windows.Forms.View.Details;
+            lvLista.Columns.AddRange(new ColumnHeader[] { ID, columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7, columnHeader8, columnHeader9, columnHeader10, columnHeader11, columnHeader12, columnHeader13, columnHeader14, columnHeader15 });
+            lvLista.ForeColor = System.Drawing.SystemColors.MenuText;
+            lvLista.FullRowSelect = true;
+            lvLista.GridLines = true;
+            lvLista.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            lvLista.ImeMode = ImeMode.NoControl;
+            lvLista.Location = new System.Drawing.Point(14, 14);
+            lvLista.Margin = new Padding(4, 3, 4, 3);
+            lvLista.MultiSelect = false;
+            lvLista.Name = "lvLista";
+            lvLista.Size = new System.Drawing.Size(564, 409);
+            lvLista.TabIndex = 0;
+            lvLista.UseCompatibleStateImageBehavior = false;
+            lvLista.View = View.Details;
             // 
             // ID
             // 
-            this.ID.Text = "ID";
+            ID.Text = "ID";
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Serijski broj";
-            this.columnHeader1.Width = 75;
+            columnHeader1.Text = "Serijski broj";
+            columnHeader1.Width = 75;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Proizvodjac";
-            this.columnHeader2.Width = 75;
+            columnHeader2.Text = "Proizvodjac";
+            columnHeader2.Width = 75;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Model";
-            this.columnHeader3.Width = 75;
+            columnHeader3.Text = "Model";
+            columnHeader3.Width = 75;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Godina proizvodnje";
-            this.columnHeader4.Width = 120;
+            columnHeader4.Text = "Godina proizvodnje";
+            columnHeader4.Width = 120;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Objekat";
-            this.columnHeader5.Width = 75;
+            columnHeader5.Text = "Objekat";
+            columnHeader5.Width = 75;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Datum instalacije";
-            this.columnHeader6.Width = 120;
+            columnHeader6.Text = "Datum instalacije";
+            columnHeader6.Width = 120;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Datum poslednjeg atesta";
-            this.columnHeader7.Width = 140;
+            columnHeader7.Text = "Datum poslednjeg atesta";
+            columnHeader7.Width = 140;
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "Datum poslednjeg servisiranja";
-            this.columnHeader8.Width = 155;
+            columnHeader8.Text = "Datum poslednjeg servisiranja";
+            columnHeader8.Width = 155;
             // 
             // columnHeader9
             // 
-            this.columnHeader9.Text = "Opis otklonjenog kvara";
-            this.columnHeader9.Width = 140;
+            columnHeader9.Text = "Opis otklonjenog kvara";
+            columnHeader9.Width = 140;
             // 
             // columnHeader10
             // 
-            this.columnHeader10.Text = "Tip";
-            this.columnHeader10.Width = 75;
+            columnHeader10.Text = "Tip";
+            columnHeader10.Width = 75;
             // 
             // columnHeader11
             // 
-            this.columnHeader11.Text = "Horizontalna razolucija kamere";
-            this.columnHeader11.Width = 150;
+            columnHeader11.Text = "Horizontalna razolucija kamere";
+            columnHeader11.Width = 150;
             // 
             // columnHeader12
             // 
-            this.columnHeader12.Text = "Vertikalna rezolucija kamere";
-            this.columnHeader12.Width = 150;
+            columnHeader12.Text = "Vertikalna rezolucija kamere";
+            columnHeader12.Width = 150;
             // 
             // columnHeader13
             // 
-            this.columnHeader13.Text = "Osetljivost";
-            this.columnHeader13.Width = 75;
+            columnHeader13.Text = "Osetljivost";
+            columnHeader13.Width = 75;
             // 
             // columnHeader14
             // 
-            this.columnHeader14.Text = "Gornja granica";
-            this.columnHeader14.Width = 120;
+            columnHeader14.Text = "Gornja granica";
+            columnHeader14.Width = 120;
             // 
             // columnHeader15
             // 
-            this.columnHeader15.Text = "Dornja granica";
-            this.columnHeader15.Width = 120;
+            columnHeader15.Text = "Dornja granica";
+            columnHeader15.Width = 120;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sitka Banner", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(502, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 95);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "U tabeli su prikazani\r\n svi alarmni sistemi.\r\nBrisanjem alarmnog\r\nsistema iz ove " +
-    "tabele bice \r\ntrajno izbrisan iz sistema.";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Sitka Banner", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            label1.Location = new System.Drawing.Point(586, 14);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(138, 95);
+            label1.TabIndex = 3;
+            label1.Text = "U tabeli su prikazani\r\n svi alarmni sistemi.\r\nBrisanjem alarmnog\r\nsistema iz ove tabele bice \r\ntrajno izbrisan iz sistema.";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnObrisiAlarmniSistem
             // 
-            this.btnObrisiAlarmniSistem.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnObrisiAlarmniSistem.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
-            this.btnObrisiAlarmniSistem.FlatAppearance.BorderSize = 3;
-            this.btnObrisiAlarmniSistem.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnObrisiAlarmniSistem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnObrisiAlarmniSistem.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnObrisiAlarmniSistem.Location = new System.Drawing.Point(505, 119);
-            this.btnObrisiAlarmniSistem.Name = "btnObrisiAlarmniSistem";
-            this.btnObrisiAlarmniSistem.Size = new System.Drawing.Size(160, 49);
-            this.btnObrisiAlarmniSistem.TabIndex = 4;
-            this.btnObrisiAlarmniSistem.Text = "Obrisi alarmni sistem";
-            this.btnObrisiAlarmniSistem.UseVisualStyleBackColor = false;
-            this.btnObrisiAlarmniSistem.Click += new System.EventHandler(this.btnObrisiAlarmniSistem_Click);
+            btnObrisiAlarmniSistem.BackColor = System.Drawing.Color.DeepSkyBlue;
+            btnObrisiAlarmniSistem.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
+            btnObrisiAlarmniSistem.FlatAppearance.BorderSize = 3;
+            btnObrisiAlarmniSistem.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
+            btnObrisiAlarmniSistem.FlatStyle = FlatStyle.Flat;
+            btnObrisiAlarmniSistem.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            btnObrisiAlarmniSistem.Location = new System.Drawing.Point(589, 137);
+            btnObrisiAlarmniSistem.Margin = new Padding(4, 3, 4, 3);
+            btnObrisiAlarmniSistem.Name = "btnObrisiAlarmniSistem";
+            btnObrisiAlarmniSistem.Size = new System.Drawing.Size(187, 57);
+            btnObrisiAlarmniSistem.TabIndex = 4;
+            btnObrisiAlarmniSistem.Text = "Obrisi alarmni sistem";
+            btnObrisiAlarmniSistem.UseVisualStyleBackColor = false;
+            btnObrisiAlarmniSistem.Click += btnObrisiAlarmniSistem_Click;
             // 
             // SviAlarmniSistemiFrom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(677, 379);
-            this.Controls.Add(this.btnObrisiAlarmniSistem);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lvLista);
-            this.Name = "SviAlarmniSistemiFrom";
-            this.Text = "Alarmni sistem";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            BackColor = System.Drawing.Color.SkyBlue;
+            ClientSize = new System.Drawing.Size(790, 437);
+            Controls.Add(btnObrisiAlarmniSistem);
+            Controls.Add(label1);
+            Controls.Add(lvLista);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "SviAlarmniSistemiFrom";
+            Text = "Alarmni sistem";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

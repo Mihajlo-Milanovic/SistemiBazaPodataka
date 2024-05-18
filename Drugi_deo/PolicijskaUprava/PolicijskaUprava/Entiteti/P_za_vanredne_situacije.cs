@@ -9,12 +9,26 @@
         public virtual string Sertifikat {  get; set; }
         public virtual DateTime Datum_sticanja_sertifikata { get; set; }
 
-        //public P_za_vanredne_situacije()
-        //{
-        //    Kurs = string.Empty;
-        //    Vestina = string.Empty;
-        //    Sertifikat = string.Empty;
-        //}
+        public P_za_vanredne_situacije() : base()
+        {
+            Kurs = string.Empty;
+            Vestina = string.Empty;
+            Sertifikat = string.Empty;
+        }
+        public P_za_vanredne_situacije(int id, string ime, string ime_roditelja, string prezime, DateTime datum_rodjenja,
+            string jmbg, string adresa, DateTime datum_prijema_u_sluzbu, Policijska_stanica stanica, Policijska_stanica sefuje,
+            Policijska_stanica zamenik, string tip, string kurs, string vestina, DateTime datum_zavrsetka_kursa, string sertifikat,
+            DateTime datum_sticanja_sertifikata)
+            : base(id,ime, ime_roditelja, prezime, datum_rodjenja,
+             jmbg, adresa, datum_prijema_u_sluzbu, stanica, sefuje, zamenik, tip)
+        {
+            Kurs = kurs;
+            Vestina = vestina;
+            Datum_zavrsetka_kursa = datum_zavrsetka_kursa;
+            Sertifikat = sertifikat;
+            Datum_sticanja_sertifikata = datum_sticanja_sertifikata;
+        }
+
         public override string ToString()
         {
             return base.ToString() + "\nKurs: " + Kurs + "\nVestina:" + Vestina
