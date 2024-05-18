@@ -36,6 +36,7 @@
 			btnObjekti = new Button();
 			btnUcitajRadnikaUUpravi = new Button();
 			btnUnapredjenje = new Button();
+			btnBrojTelefona = new Button();
 			SuspendLayout();
 			// 
 			// btnUcitavanjePolicajca
@@ -43,7 +44,7 @@
 			btnUcitavanjePolicajca.Location = new System.Drawing.Point(17, 20);
 			btnUcitavanjePolicajca.Margin = new Padding(5, 4, 5, 4);
 			btnUcitavanjePolicajca.Name = "btnUcitavanjePolicajca";
-			btnUcitavanjePolicajca.Size = new System.Drawing.Size(176, 36);
+			btnUcitavanjePolicajca.Size = new System.Drawing.Size(270, 36);
 			btnUcitavanjePolicajca.TabIndex = 0;
 			btnUcitavanjePolicajca.Text = "Ucitavanje policajca";
 			btnUcitavanjePolicajca.UseVisualStyleBackColor = true;
@@ -54,7 +55,7 @@
 			btnUcitajVozilo.Location = new System.Drawing.Point(17, 67);
 			btnUcitajVozilo.Margin = new Padding(5, 4, 5, 4);
 			btnUcitajVozilo.Name = "btnUcitajVozilo";
-			btnUcitajVozilo.Size = new System.Drawing.Size(176, 36);
+			btnUcitajVozilo.Size = new System.Drawing.Size(270, 36);
 			btnUcitajVozilo.TabIndex = 1;
 			btnUcitajVozilo.Text = "Ucitavanje vozila";
 			btnUcitajVozilo.UseVisualStyleBackColor = true;
@@ -65,7 +66,7 @@
 			btnUcitavanjeTehnickogLica.Location = new System.Drawing.Point(17, 111);
 			btnUcitavanjeTehnickogLica.Margin = new Padding(5, 4, 5, 4);
 			btnUcitavanjeTehnickogLica.Name = "btnUcitavanjeTehnickogLica";
-			btnUcitavanjeTehnickogLica.Size = new System.Drawing.Size(176, 36);
+			btnUcitavanjeTehnickogLica.Size = new System.Drawing.Size(270, 36);
 			btnUcitavanjeTehnickogLica.TabIndex = 2;
 			btnUcitavanjeTehnickogLica.Text = "Ucitaj Tehnicko Lice";
 			btnUcitavanjeTehnickogLica.UseVisualStyleBackColor = true;
@@ -76,7 +77,7 @@
 			btnUcitajStanicu.Location = new System.Drawing.Point(16, 156);
 			btnUcitajStanicu.Margin = new Padding(5, 4, 5, 4);
 			btnUcitajStanicu.Name = "btnUcitajStanicu";
-			btnUcitajStanicu.Size = new System.Drawing.Size(176, 36);
+			btnUcitajStanicu.Size = new System.Drawing.Size(270, 36);
 			btnUcitajStanicu.TabIndex = 3;
 			btnUcitajStanicu.Text = "Ucitaj staniocu";
 			btnUcitajStanicu.UseVisualStyleBackColor = true;
@@ -109,7 +110,7 @@
 			btnObjekti.Location = new System.Drawing.Point(17, 284);
 			btnObjekti.Margin = new Padding(5, 4, 5, 4);
 			btnObjekti.Name = "btnObjekti";
-			btnObjekti.Size = new System.Drawing.Size(176, 36);
+			btnObjekti.Size = new System.Drawing.Size(270, 36);
 			btnObjekti.TabIndex = 6;
 			btnObjekti.Text = "Ucitavanje objekta";
 			btnObjekti.UseVisualStyleBackColor = true;
@@ -119,7 +120,7 @@
 			// 
 			btnUcitajRadnikaUUpravi.Location = new System.Drawing.Point(17, 327);
 			btnUcitajRadnikaUUpravi.Name = "btnUcitajRadnikaUUpravi";
-			btnUcitajRadnikaUUpravi.Size = new System.Drawing.Size(238, 29);
+			btnUcitajRadnikaUUpravi.Size = new System.Drawing.Size(269, 29);
 			btnUcitajRadnikaUUpravi.TabIndex = 6;
 			btnUcitajRadnikaUUpravi.Text = "Ucitaj radnika u upravi";
 			btnUcitajRadnikaUUpravi.UseVisualStyleBackColor = true;
@@ -127,7 +128,7 @@
 			// 
 			// btnUnapredjenje
 			// 
-			btnUnapredjenje.Location = new System.Drawing.Point(571, 20);
+			btnUnapredjenje.Location = new System.Drawing.Point(970, 20);
 			btnUnapredjenje.Margin = new Padding(5, 4, 5, 4);
 			btnUnapredjenje.Name = "btnUnapredjenje";
 			btnUnapredjenje.Size = new System.Drawing.Size(176, 36);
@@ -136,11 +137,21 @@
 			btnUnapredjenje.UseVisualStyleBackColor = true;
 			btnUnapredjenje.Click += btnUnapredjenje_Click;
 			// 
+			// btnBrojTelefona
+			// 
+			btnBrojTelefona.Location = new System.Drawing.Point(17, 362);
+			btnBrojTelefona.Name = "btnBrojTelefona";
+			btnBrojTelefona.Size = new System.Drawing.Size(270, 39);
+			btnBrojTelefona.TabIndex = 7;
+			btnBrojTelefona.Text = "Ucitaj Broj Telefona";
+			btnBrojTelefona.UseVisualStyleBackColor = true;
+			btnBrojTelefona.Click += btnBrojTelefona_Click;
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new System.Drawing.Size(1066, 692);
+			ClientSize = new System.Drawing.Size(1160, 692);
 			Controls.Add(btnUnapredjenje);
 			Controls.Add(btnObjekti);
 			Controls.Add(btnUcitajRadnikaUUpravi);
@@ -150,10 +161,10 @@
 			Controls.Add(btnUcitavanjeTehnickogLica);
 			Controls.Add(btnUcitajVozilo);
 			Controls.Add(btnUcitavanjePolicajca);
+			Controls.Add(btnBrojTelefona);
 			Margin = new Padding(5, 4, 5, 4);
 			Name = "Form1";
 			Text = "Form1";
-			Load += Form1_Load;
 			ResumeLayout(false);
 		}
 
@@ -168,6 +179,8 @@
         private Button btnObjekti;
         private Button btnUcitajRadnikaUUpravi;
 		private Button btnUnapredjenje;
-	}
+        private Button btnBrojTelefona;
+    }
+
 }
 

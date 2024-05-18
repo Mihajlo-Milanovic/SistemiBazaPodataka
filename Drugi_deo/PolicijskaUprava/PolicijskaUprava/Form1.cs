@@ -11,8 +11,7 @@ using NHibernate.Criterion;
 using NHibernate.Linq;
 using PolicijskaUprava.Entiteti;
 
-namespace PolicijskaUprava
-{
+namespace PolicijskaUprava {
 	public partial class Form1 : Form {
 		public Form1() {
 			InitializeComponent();
@@ -108,10 +107,6 @@ namespace PolicijskaUprava
 			}
 		}
 
-		private void Form1_Load(object sender, EventArgs e) {
-
-		}
-
 		private void btnUcitajRadnikaUUpravi_Click(object sender, EventArgs e) {
 			try {
 				ISession s = DataLayer.GetSession();
@@ -132,6 +127,7 @@ namespace PolicijskaUprava
 				Objekat o = s.Load<Objekat>(403);
 
 				MessageBox.Show(o.ToString());
+
 
 				s.Close();
 			}
@@ -159,5 +155,26 @@ namespace PolicijskaUprava
 				MessageBox.Show(ec.Message);
 			}
 		}
+
+
+		private void btnBrojTelefona_Click(object sender, EventArgs e) {
+			try {
+				ISession s = DataLayer.GetSession();
+				BrojTelefonaId bid = new BrojTelefonaId();
+				bid.Broj = 5;
+				Objekat ps = s.Load<Objekat>(1);
+				bid.ObjekatZaBroj = ps;
+				BrojTelefona bt = s.Load<BrojTelefona>(bid);
+
+				MessageBox.Show(bt.ToString());
+
+				s.Close();
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.Message);
+			}
+
+		}
 	}
+
 }

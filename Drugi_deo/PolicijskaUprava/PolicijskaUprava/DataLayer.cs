@@ -55,7 +55,7 @@ namespace PolicijskaUprava {
 		///
 									OVO JE OSTAVLJENO DA VIDITE OBAVESTENJE
 		/// 
-		/// Potebno je da svako ponaosob update-uje bazu ili cu da to urdaim ja (Mihajlo) od ponedeljka.
+		/// Potebno je da svako ponaosob update-uje bazu ili cu da to urdaim ja (Mihajlo) od ponedeljka jer nije hitno mala je greskica.
 		/// 
 	
 
