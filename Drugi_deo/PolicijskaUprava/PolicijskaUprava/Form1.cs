@@ -13,158 +13,151 @@ using PolicijskaUprava.Entiteti;
 
 namespace PolicijskaUprava
 {
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
+	public partial class Form1 : Form {
+		public Form1() {
+			InitializeComponent();
+		}
 
-        private void btnUcitavanjePolicajca_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+		private void btnUcitavanjePolicajca_Click(object sender, EventArgs e) {
+			try {
+				ISession s = DataLayer.GetSession();
 
-                Policajac p = s.Load<Policajac>(3);
+				Policajac p = s.Load<Policajac>(304);
 
-                MessageBox.Show(p.ToString());
+				MessageBox.Show(p.ToString());
 
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.FormatExceptionMessage());
-            }
-        }
+				s.Close();
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+			}
+		}
 
-        private void btnUcitajVozilo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+		private void btnUcitajVozilo_Click(object sender, EventArgs e) {
+			try {
+				ISession s = DataLayer.GetSession();
 
-                Vozilo v = s.Load<Vozilo>("NI420GA"); // ne radi :(, ispitati Vozilo i VoziloMapiranja
+				Vozilo v = s.Load<Vozilo>("BG-456-CD");
 
-                MessageBox.Show(v.ToString());
+				MessageBox.Show(v.ToString());
 
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.FormatExceptionMessage());
-            }
-        }
+				s.Close();
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.FormatExceptionMessage());
+			}
+		}
 
-        private void btnUcitavanjeTehnickogLica_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+		private void btnUcitavanjeTehnickogLica_Click(object sender, EventArgs e) {
+			try {
+				ISession s = DataLayer.GetSession();
 
-                Tehnicko_lice tl = s.Load<Tehnicko_lice>(1); // ne radi :(, ispitati Vozilo i VoziloMapiranja
+				Tehnicko_lice tl = s.Load<Tehnicko_lice>(102);
 
-                MessageBox.Show(tl.ToString());
+				MessageBox.Show(tl.ToString());
 
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.FormatExceptionMessage());
-            }
-        }
+				s.Close();
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.FormatExceptionMessage());
+			}
+		}
 
-        private void btnUcitajStanicu_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+		private void btnUcitajStanicu_Click(object sender, EventArgs e) {
+			try {
+				ISession s = DataLayer.GetSession();
 
-                Policijska_stanica ps = s.Load<Policijska_stanica>(1);
+				Policijska_stanica ps = s.Load<Policijska_stanica>(202);
 
-                MessageBox.Show(ps.ToString());
+				MessageBox.Show(ps.ToString());
 
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.FormatExceptionMessage());
-            }
-        }
+				s.Close();
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.FormatExceptionMessage());
+			}
+		}
 
-        private void btnUcitajPZaVanredneSituacije_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+		private void btnUcitajPZaVanredneSituacije_Click(object sender, EventArgs e) {
+			try {
+				ISession s = DataLayer.GetSession();
 
-                P_za_vanredne_situacije ps = s.Load<P_za_vanredne_situacije>(8);
+				P_za_vanredne_situacije ps = s.Load<P_za_vanredne_situacije>(8);
 
-                MessageBox.Show(ps.ToString());
+				MessageBox.Show(ps.ToString());
 
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
-        }
+				s.Close();
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.Message);
+			}
+		}
 
-        private void btnUcitaj_Skolskog_policajca_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+		private void btnUcitaj_Skolskog_policajca_Click(object sender, EventArgs e) {
+			try {
+				ISession s = DataLayer.GetSession();
 
-                Skolski_policajac ps = s.Load<Skolski_policajac>(11);
+				Skolski_policajac ps = s.Load<Skolski_policajac>(11);
 
-                MessageBox.Show(ps.ToString());
+				MessageBox.Show(ps.ToString());
 
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
-        }
+				s.Close();
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.Message);
+			}
+		}
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+		private void Form1_Load(object sender, EventArgs e) {
 
-        }
+		}
 
-        private void btnUcitajRadnikaUUpravi_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
-                Radnik_u_upravi ruu = s.Load<Radnik_u_upravi>(13);
+		private void btnUcitajRadnikaUUpravi_Click(object sender, EventArgs e) {
+			try {
+				ISession s = DataLayer.GetSession();
+				Radnik_u_upravi ruu = s.Load<Radnik_u_upravi>(13);
 
-                MessageBox.Show(ruu.ToString());
+				MessageBox.Show(ruu.ToString());
 
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
-        }
-        private void btnObjekti_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+				s.Close();
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.Message);
+			}
+		}
+		private void btnObjekti_Click(object sender, EventArgs e) {
+			try {
+				ISession s = DataLayer.GetSession();
 
-                Objekat ps = s.Load<Objekat>(1);
+				Objekat o = s.Load<Objekat>(403);
 
-                MessageBox.Show(ps.ToString());
+				MessageBox.Show(o.ToString());
 
-                s.Close();
-            }   
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
-        }
-    }
+				s.Close();
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.Message);
+			}
+		}
+
+		private void btnUnapredjenje_Click(object sender, EventArgs e) {
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				UnapredjenjeId uid = new UnapredjenjeId();
+				uid.Policajac = s.Load<Policajac>(301);
+				uid.DatumSticanja = new DateTime(2022, 3, 1);
+
+				Unapredjenje u = s.Load<Unapredjenje>(uid);
+
+				MessageBox.Show(u.ToString());
+
+				s.Close();
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.Message);
+			}
+		}
+	}
 }

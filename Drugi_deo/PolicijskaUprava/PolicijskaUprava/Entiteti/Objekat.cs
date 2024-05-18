@@ -8,6 +8,7 @@
         public virtual int Povrsina { get; set; }
         public virtual string KontaktIme { get; set; }
         public virtual string KontaktPrezime { get; set; }
+
         public virtual Policijska_stanica PolicijskaStanica { get; set; }
 
         public override string ToString()
@@ -17,7 +18,7 @@
                    "Povrsina: " + Povrsina + "\n" +
                    "Kontakt ime: " + KontaktIme + "\n" +
                    "Kontakt prezime: " + KontaktPrezime + "\n" +
-                   "Stanica: " + PolicijskaStanica.ToString();
+                   "\n\nStanica: \n" + PolicijskaStanica.ToString();
         }
     }
 }

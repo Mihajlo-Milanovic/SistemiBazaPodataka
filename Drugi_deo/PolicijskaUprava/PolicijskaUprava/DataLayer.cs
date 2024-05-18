@@ -1,7 +1,9 @@
-﻿namespace PolicijskaUprava {
+﻿using NHibernate.Criterion.Lambda;
+
+namespace PolicijskaUprava {
 
 	class DataLayer {
-		private static ISessionFactory? _factory;
+		private static ISessionFactory _factory;
 		private static object lockObj;
 
 		static DataLayer() {
@@ -26,10 +28,10 @@
 		private static ISessionFactory CreateSessionFactory() {			
 
 			try {
-				// ShowSql prikazuje SQL koji je generisan, ali u .NET Core aplikacijama se prikazuju u konzoli.
-				// Ako se aplikacija pokrene sa dotnet bin\Debug\net8.0-windows\ProdavnicaIgracaka.dll, mogu da se vide
-				string cs = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18972;Password=vorkraft1";
-						//*/ConfigurationManager.ConnectionStrings["OracleCS"].ConnectionString;
+				
+				string cs = Vuksain;//definisano na dnu klase radi lakse izmene baze sa kojom se radi
+						//ConfigurationManager.ConnectionStrings["OracleCS"].ConnectionString;
+
 				var cfg = OracleManagedDataClientConfiguration.Oracle10
 							.ShowSql()
 							.ConnectionString(c => c.Is(cs));
@@ -46,5 +48,21 @@
 			}
 
 		}
+
+
+		///
+		/// VAZNO: Zavukla nam se greska pri projektovanju baze u tabeli BROJ_TELEFONA kolona broj telefona je stavljena kao NUMBER umesto VARCHAR2
+		///
+									OVO JE OSTAVLJENO DA VIDITE OBAVESTENJE
+		/// 
+		/// Potebno je da svako ponaosob update-uje bazu ili cu da to urdaim ja (Mihajlo) od ponedeljka.
+		/// 
+	
+
+
+		private const string Mihajlo = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18747;Password=Miki747M"; //treba update-ovati bazu
+		private const string Vuksain = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18972;Password=vorkraft1"; //treba update-ovati bazu
+		private const string Filip = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18842;Password=S18842"; // treba update-ovati bazu
+
 	}
 }

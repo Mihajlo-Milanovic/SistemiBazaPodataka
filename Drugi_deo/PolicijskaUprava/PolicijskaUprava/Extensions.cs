@@ -4,7 +4,7 @@ public static class Extensions {
 
     public static string FormatExceptionMessage(this Exception ex) {
         StringBuilder sb = new();
-        Exception? temp = ex;
+        Exception temp = ex;
         int indent = 0;
 
         while (temp != null) {
