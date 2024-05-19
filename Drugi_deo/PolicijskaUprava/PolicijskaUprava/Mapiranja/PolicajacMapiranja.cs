@@ -14,6 +14,9 @@
             Map(x => x.JMBG, "JMBG");
             Map(x => x.Adresa, "ADRESA");
             Map(x => x.Datum_prijema_u_sluzbu, "DATUM_PRIJEMA_U_SLUZBU");
+
+          //  HasMany(x => x.PolicajciPozornici);
+          //  HasMany(x => x.PatrolniPolicajci);
         }
     }
 }

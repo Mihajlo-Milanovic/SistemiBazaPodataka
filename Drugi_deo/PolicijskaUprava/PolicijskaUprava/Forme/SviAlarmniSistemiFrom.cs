@@ -55,5 +55,10 @@ namespace PolicijskaUprava.Forme
         {
 
         }
+
+        private void SviAlarmniSistemiFrom_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

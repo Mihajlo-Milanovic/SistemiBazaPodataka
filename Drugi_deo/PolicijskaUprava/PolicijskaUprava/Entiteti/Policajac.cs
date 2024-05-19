@@ -20,9 +20,18 @@
         public virtual string Tip { get; set; }
 
         public override string ToString() {
-            return "Ime: " + Ime + "\nPrezime:" + Prezime + "\nDatum rodnjenja:" + Datum_rodjenja + "\nJMBG: " + JMBG + "\nAdresa: " + Adresa;
+            return "Ime: " + Ime + "\nPrezime:" + Prezime + "\nDatum rodjenja:" + Datum_rodjenja + "\nJMBG: " + JMBG + "\nAdresa: " + Adresa;
         }
 
+
+        //public virtual IList<Patrolni_policajac> PatrolniPolicajci { get; set; }
+        //public virtual IList<Policajac_pozornik> PolicajciPozornici { get; set; }
+
+        //public Policajac()
+        //{
+        //    PolicajciPozornici=new List<Policajac_pozornik>();
+        //    PatrolniPolicajci=new List<Patrolni_policajac>();
+        //}
         //public Policajac()
         //{
         //    Ime = string.Empty;

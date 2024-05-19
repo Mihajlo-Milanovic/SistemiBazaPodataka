@@ -11,6 +11,9 @@
             Map(x => x.Tip, "TIP");
             Map(x => x.Proizvodjac, "PROIZVODJAC");
             Map(x => x.Model, "MODEL");
+
+            HasMany(x => x.Patrole);
+
         }
     }
 }
