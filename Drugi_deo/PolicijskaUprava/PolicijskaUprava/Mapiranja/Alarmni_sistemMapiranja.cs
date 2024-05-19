@@ -29,8 +29,13 @@ namespace PolicijskaUprava.Mapiranja
             Map(x => x.Opis_otklonjenog_kvara, "OPIS_OTKLONJENOG_KVARA");
 
             References(x => x.PripadaObjektu).Column("OBJEKAT_ID").LazyLoad();
-           
-           
+
+            HasMany(x => x.Odrzavan)
+            .KeyColumn("ALARMNI_SISTEM_ID")
+            .Cascade.All()
+            .Inverse();
+
+
         }
     }
 }

@@ -17,9 +17,9 @@
             References(x => x.PolicijskaStanica, "P_STANICA_ID");
 
             HasMany(x => x.Intervencije)
-            .KeyColumn("OBJEKAT_ID")
-            .Cascade.All()
-            .Inverse();
+           .KeyColumn("OBJEKAT_ID")
+           .Cascade.All()
+           .Inverse();
 
             HasMany(x => x.AlarmniSistemi);
         }

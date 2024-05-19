@@ -13,9 +13,7 @@ namespace PolicijskaUprava.Entiteti
         public virtual string Proizvodjac { get; set; }
         public virtual string Model { get; set; }
         public virtual DateTime Godina_proizvodnje { get; set; }
-
-
-
+        public virtual IList<Odrzava> Odrzavan { get; set; }
         public virtual DateTime Datum_instalacije { get; set; }
         public virtual DateTime Datum_poslednjeg_atesta { get; set; }
         public virtual DateTime Datum_poslednjeg_servisiranja { get; set; }
