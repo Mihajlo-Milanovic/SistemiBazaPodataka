@@ -15,7 +15,7 @@
             Map(x => x.KontaktPrezime, "KONTAKT_PREZIME");
 
             References(x => x.PolicijskaStanica, "P_STANICA_ID");
-
+            HasMany(x => x.AlarmniSistemi);
         }
     }
 }

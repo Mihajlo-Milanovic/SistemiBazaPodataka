@@ -11,6 +11,12 @@
 
         public virtual Policijska_stanica PolicijskaStanica { get; set; }
 
+        public virtual IList<Alarmni_sistem> AlarmniSistemi { get; set; }
+
+        public Objekat() { 
+            AlarmniSistemi=new List<Alarmni_sistem>();
+        
+        }
         public override string ToString()
         {
             return "Tip: " + Tip + "\n" +

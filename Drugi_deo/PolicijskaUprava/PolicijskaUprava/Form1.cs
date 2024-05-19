@@ -209,27 +209,11 @@ namespace PolicijskaUprava {
 
         }
 
-        private void btnUcitajPolicajca_pozornika_Click(object sender, EventArgs e)
+
+
+        private void UcitajPatrolnogPolBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ISession s = DataLayer.GetSession();
 
-                Policajac_pozornik ps = s.Load<Policajac_pozornik>(15);
-
-                MessageBox.Show(ps.ToString());
-
-
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
-        }
-
-        private void btnUcitajPatrolnogPolicajca_Click(object sender, EventArgs e)
-        {
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -238,12 +222,85 @@ namespace PolicijskaUprava {
 
                 MessageBox.Show(pp.ToString());
 
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.FormatExceptionMessage());
+            }
+        }
+
+        private void UcitajPatroluBtn_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Patrola p = s.Load<Patrola>(3);
+
+                MessageBox.Show(p.ToString());
 
                 s.Close();
             }
             catch (Exception ec)
             {
-                MessageBox.Show(ec.Message);
+                MessageBox.Show(ec.FormatExceptionMessage());
+            }
+        }
+
+        private void UcitajAlarmniSistemBtn_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+               // IList<Alarmni_sistem> alarmniSistemi = s.QueryOver<Alarmni_sistem>().List<Alarmni_sistem>();
+
+                Alarmni_sistem al = s.Load<Alarmni_sistem>(4);
+
+                //foreach(Alarmni_sistem a in alarmniSistemi)
+                //{
+                //    if(a.GetType() == typeof(AS_detekcije_toplotnog_odraza))
+                //    {
+                //        AS_detekcije_toplotnog_odraza to = (AS_detekcije_toplotnog_odraza)a;
+                //    }
+                //    else if(a.GetType() == typeof(AS_detekcije_pokreta))
+                //    {
+                //        AS_detekcije_pokreta dp = (AS_detekcije_pokreta)a;
+                //    }
+                //    else
+                //    {
+                //        Ultrazvucni_AS u = (Ultrazvucni_AS)a;
+                //    }
+                //}
+
+                MessageBox.Show(al.ToString());
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.FormatExceptionMessage());
+            }
+        }
+
+        private void UcitajPPozornikaBtn_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Policajac_pozornik pp = s.Load<Policajac_pozornik>(15);
+
+                MessageBox.Show(pp.ToString());
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.FormatExceptionMessage());
             }
         }
     }
