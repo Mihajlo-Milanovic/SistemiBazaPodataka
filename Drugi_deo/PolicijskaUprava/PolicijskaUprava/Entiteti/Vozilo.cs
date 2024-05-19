@@ -8,6 +8,8 @@
         public virtual String Proizvodjac { get; set; }
         public virtual String Model { get; set; }
 
+        public virtual IList<Patrola>Patrole{ get; set; }
+
         public Vozilo() {
             Reg_oznaka = string.Empty;
             Boja = string.Empty;

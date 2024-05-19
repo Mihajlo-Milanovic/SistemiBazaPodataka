@@ -10,6 +10,9 @@ namespace PolicijskaUprava.Mapiranja
             KeyColumn("POLICAJAC_ID");
 
             Map(x => x.Vrsta_oruzja).Column("VRSTA_ORUZJA");
+
+            HasMany(x => x.SefPatrole).KeyColumn("SEF_ID").LazyLoad().Inverse().Cascade.All();
+            HasMany(x => x.PomocnikPatrole).KeyColumn("POMOCNIK_ID").LazyLoad().Inverse().Cascade.All();
         }
     }
 }

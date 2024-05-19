@@ -1,4 +1,6 @@
-﻿namespace PolicijskaUprava.Entiteti
+﻿using PolicijskaUprava.Veze_Vise_Na_Vise;
+
+namespace PolicijskaUprava.Entiteti
 {
     public class Objekat
     {
@@ -10,6 +12,8 @@
         public virtual string KontaktPrezime { get; set; }
 
         public virtual Policijska_stanica PolicijskaStanica { get; set; }
+
+        public virtual IList<PolicijskaIntervencija> Intervencije { get; set; }
 
         public override string ToString()
         {

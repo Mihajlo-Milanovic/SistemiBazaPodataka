@@ -4,6 +4,8 @@
     {
         public virtual string Vrsta_oruzja { get; set; }
 
+        public virtual IList<Patrola> SefPatrole { get; set; }
+        public virtual IList<Patrola> PomocnikPatrole { get; set; }
         public Patrolni_policajac() : base()
         {
             Vrsta_oruzja = string.Empty;

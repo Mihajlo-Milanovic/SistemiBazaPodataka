@@ -15,7 +15,7 @@ namespace PolicijskaUprava.Forme
         public Policajci()
         {
             InitializeComponent();
-            PopuniTabelu();
+            //PopuniTabelu();
         }
 
         //public void PopuniTabelu()
@@ -89,4 +89,3 @@ namespace PolicijskaUprava.Forme
         //    return policajci;
         }
     }
-}
