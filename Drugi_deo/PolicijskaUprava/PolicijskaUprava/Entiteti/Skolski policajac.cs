@@ -19,7 +19,12 @@
             Telefon_skole = string.Empty;
         }
 
-        public Skolski_policajac(string naziv_skole,string tip_skole,string adresa_skole,string kontakt_ime,string kontakt_prezime,string telefon_skole) : base()
+        public Skolski_policajac(int id, string ime, string ime_roditelja, string prezime, DateTime datum_rodjenja,
+            string jmbg, string adresa, DateTime datum_prijema_u_sluzbu, Policijska_stanica stanica, Policijska_stanica
+            sefuje, Policijska_stanica zamenik, string tip,string naziv_skole,string tip_skole,string adresa_skole,
+            string kontakt_ime,string kontakt_prezime,string telefon_skole) 
+            : base(id, ime, ime_roditelja, prezime, datum_rodjenja,
+             jmbg, adresa, datum_prijema_u_sluzbu, stanica, sefuje, zamenik, tip)
         {
             Naziv_skole=naziv_skole;
             Tip_skole=tip_skole;

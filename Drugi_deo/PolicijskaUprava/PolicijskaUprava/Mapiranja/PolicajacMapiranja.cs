@@ -5,7 +5,7 @@
         public PolicajacMapiranja() {
             Table("POLICAJAC");
 
-            Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();/// proveriti!!!!!!
+            Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();
 
             Map(x => x.Ime, "IME");
             Map(x => x.Ime_roditelja, "IME_RODITELJA");
@@ -17,6 +17,14 @@
 
           //  HasMany(x => x.PolicajciPozornici);
           //  HasMany(x => x.PatrolniPolicajci);
-        }
+       
+            Map(x => x.Tip, "TIP");
+
+
+			//STANICA_ID,SEF_STANICE,ZAMENIK_STANICE
+			References(x => x.Stanica).Column("STANICA_ID").LazyLoad();
+			References(x => x.SefujeStanicom).Column("SEF_STANICE").LazyLoad();
+			References(x => x.ZamenikStanice).Column("ZAMENIK_STANICE").LazyLoad();
+		}
     }
 }

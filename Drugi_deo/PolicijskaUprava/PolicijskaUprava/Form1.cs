@@ -11,8 +11,7 @@ using NHibernate.Criterion;
 using NHibernate.Linq;
 using PolicijskaUprava.Entiteti;
 
-namespace PolicijskaUprava
-{
+namespace PolicijskaUprava {
     public partial class Form1 : Form
     {
         public Form1()
@@ -30,11 +29,12 @@ namespace PolicijskaUprava
 
                 MessageBox.Show(p.ToString());
 
+
                 s.Close();
             }
-            catch (Exception ec)
+            catch (Exception ex)
             {
-                MessageBox.Show(ec.FormatExceptionMessage());
+                MessageBox.Show(ex.FormatExceptionMessage());
             }
         }
 
@@ -44,7 +44,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                Vozilo v = s.Load<Vozilo>("NI420GA"); // ne radi :(, ispitati Vozilo i VoziloMapiranja
+                Vozilo v = s.Load<Vozilo>("BG-456-CD");
 
                 MessageBox.Show(v.ToString());
 
@@ -62,7 +62,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                Tehnicko_lice tl = s.Load<Tehnicko_lice>(1); // ne radi :(, ispitati Vozilo i VoziloMapiranja
+                Tehnicko_lice tl = s.Load<Tehnicko_lice>(102);
 
                 MessageBox.Show(tl.ToString());
 
@@ -80,7 +80,7 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                Policijska_stanica ps = s.Load<Policijska_stanica>(1);
+                Policijska_stanica ps = s.Load<Policijska_stanica>(202);
 
                 MessageBox.Show(ps.ToString());
 
@@ -128,11 +128,6 @@ namespace PolicijskaUprava
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnUcitajRadnikaUUpravi_Click(object sender, EventArgs e)
         {
             try
@@ -155,9 +150,10 @@ namespace PolicijskaUprava
             {
                 ISession s = DataLayer.GetSession();
 
-                Objekat ps = s.Load<Objekat>(1);
+                Objekat o = s.Load<Objekat>(403);
 
-                MessageBox.Show(ps.ToString());
+                MessageBox.Show(o.ToString());
+
 
                 s.Close();
             }
@@ -166,6 +162,54 @@ namespace PolicijskaUprava
                 MessageBox.Show(ec.Message);
             }
         }
+
+        private void btnUnapredjenje_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                UnapredjenjeId uid = new UnapredjenjeId();
+                uid.Policajac = s.Load<Policajac>(301);
+                uid.DatumSticanja = new DateTime(2022, 3, 1);
+
+                Unapredjenje u = s.Load<Unapredjenje>(uid);
+
+                MessageBox.Show(u.ToString());
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+
+        private void btnBrojTelefona_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                BrojTelefonaId bid = new BrojTelefonaId();
+                bid.Broj = "5";
+                Objekat ps = s.Load<Objekat>(1);
+                bid.ObjekatZaBroj = ps;
+                BrojTelefona bt = s.Load<BrojTelefona>(bid);
+
+                MessageBox.Show(bt.ToString());
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+
+        }
+
+
 
         private void UcitajPatrolnogPolBtn_Click(object sender, EventArgs e)
         {
@@ -260,4 +304,5 @@ namespace PolicijskaUprava
             }
         }
     }
+
 }

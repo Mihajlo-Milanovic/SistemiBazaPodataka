@@ -58,11 +58,12 @@
             lvLista.GridLines = true;
             lvLista.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             lvLista.ImeMode = ImeMode.NoControl;
-            lvLista.Location = new System.Drawing.Point(16, 18);
-            lvLista.Margin = new Padding(4, 5, 4, 5);
+
+            lvLista.Location = new System.Drawing.Point(14, 14);
+            lvLista.Margin = new Padding(4, 3, 4, 3);
             lvLista.MultiSelect = false;
             lvLista.Name = "lvLista";
-            lvLista.Size = new System.Drawing.Size(644, 544);
+            lvLista.Size = new System.Drawing.Size(564, 409);
             lvLista.TabIndex = 0;
             lvLista.UseCompatibleStateImageBehavior = false;
             lvLista.View = View.Details;
@@ -150,10 +151,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Sitka Banner", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            label1.Location = new System.Drawing.Point(669, 18);
+
+            label1.Location = new System.Drawing.Point(586, 14);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(175, 120);
+            label1.Size = new System.Drawing.Size(138, 95);
             label1.TabIndex = 3;
             label1.Text = "U tabeli su prikazani\r\n svi alarmni sistemi.\r\nBrisanjem alarmnog\r\nsistema iz ove tabele bice \r\ntrajno izbrisan iz sistema.";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -166,10 +168,11 @@
             btnObrisiAlarmniSistem.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnObrisiAlarmniSistem.FlatStyle = FlatStyle.Flat;
             btnObrisiAlarmniSistem.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnObrisiAlarmniSistem.Location = new System.Drawing.Point(673, 183);
-            btnObrisiAlarmniSistem.Margin = new Padding(4, 5, 4, 5);
+
+            btnObrisiAlarmniSistem.Location = new System.Drawing.Point(589, 137);
+            btnObrisiAlarmniSistem.Margin = new Padding(4, 3, 4, 3);
             btnObrisiAlarmniSistem.Name = "btnObrisiAlarmniSistem";
-            btnObrisiAlarmniSistem.Size = new System.Drawing.Size(213, 75);
+            btnObrisiAlarmniSistem.Size = new System.Drawing.Size(187, 57);
             btnObrisiAlarmniSistem.TabIndex = 4;
             btnObrisiAlarmniSistem.Text = "Obrisi alarmni sistem";
             btnObrisiAlarmniSistem.UseVisualStyleBackColor = false;
@@ -177,18 +180,17 @@
             // 
             // SviAlarmniSistemiFrom
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = System.Drawing.Color.SkyBlue;
-            ClientSize = new System.Drawing.Size(903, 583);
+            ClientSize = new System.Drawing.Size(790, 437);
             Controls.Add(btnObrisiAlarmniSistem);
             Controls.Add(label1);
             Controls.Add(lvLista);
-            Margin = new Padding(4, 5, 4, 5);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "SviAlarmniSistemiFrom";
             Text = "Alarmni sistem";
-            Load += SviAlarmniSistemiFrom_Load;
             ResumeLayout(false);
             PerformLayout();
         }

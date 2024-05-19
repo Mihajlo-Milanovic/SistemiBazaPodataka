@@ -42,6 +42,8 @@ namespace PolicijskaUprava
             UcitajAlarmniSistemBtn = new Button();
             UcitajPatroluBtn = new Button();
             UcitajPPozornikaBtn = new Button();
+            btnUnapredjenje = new Button();
+            btnBrojTelefona = new Button();
             SuspendLayout();
             // 
             // btnUcitavanjePolicajca
@@ -49,7 +51,7 @@ namespace PolicijskaUprava
             btnUcitavanjePolicajca.Location = new System.Drawing.Point(17, 20);
             btnUcitavanjePolicajca.Margin = new Padding(5, 4, 5, 4);
             btnUcitavanjePolicajca.Name = "btnUcitavanjePolicajca";
-            btnUcitavanjePolicajca.Size = new System.Drawing.Size(269, 36);
+            btnUcitavanjePolicajca.Size = new System.Drawing.Size(306, 36);
             btnUcitavanjePolicajca.TabIndex = 0;
             btnUcitavanjePolicajca.Text = "Ucitaj policajca";
             btnUcitavanjePolicajca.UseVisualStyleBackColor = true;
@@ -60,7 +62,7 @@ namespace PolicijskaUprava
             btnUcitajVozilo.Location = new System.Drawing.Point(17, 67);
             btnUcitajVozilo.Margin = new Padding(5, 4, 5, 4);
             btnUcitajVozilo.Name = "btnUcitajVozilo";
-            btnUcitajVozilo.Size = new System.Drawing.Size(269, 36);
+            btnUcitajVozilo.Size = new System.Drawing.Size(306, 36);
             btnUcitajVozilo.TabIndex = 1;
             btnUcitajVozilo.Text = "Ucitaj vozilo";
             btnUcitajVozilo.UseVisualStyleBackColor = true;
@@ -71,7 +73,7 @@ namespace PolicijskaUprava
             btnUcitavanjeTehnickogLica.Location = new System.Drawing.Point(17, 111);
             btnUcitavanjeTehnickogLica.Margin = new Padding(5, 4, 5, 4);
             btnUcitavanjeTehnickogLica.Name = "btnUcitavanjeTehnickogLica";
-            btnUcitavanjeTehnickogLica.Size = new System.Drawing.Size(269, 36);
+            btnUcitavanjeTehnickogLica.Size = new System.Drawing.Size(306, 36);
             btnUcitavanjeTehnickogLica.TabIndex = 2;
             btnUcitavanjeTehnickogLica.Text = "Ucitaj tehnicko lice";
             btnUcitavanjeTehnickogLica.UseVisualStyleBackColor = true;
@@ -82,7 +84,7 @@ namespace PolicijskaUprava
             btnUcitajStanicu.Location = new System.Drawing.Point(16, 156);
             btnUcitajStanicu.Margin = new Padding(5, 4, 5, 4);
             btnUcitajStanicu.Name = "btnUcitajStanicu";
-            btnUcitajStanicu.Size = new System.Drawing.Size(270, 36);
+            btnUcitajStanicu.Size = new System.Drawing.Size(306, 36);
             btnUcitajStanicu.TabIndex = 3;
             btnUcitajStanicu.Text = "Ucitaj stanicu";
             btnUcitajStanicu.UseVisualStyleBackColor = true;
@@ -93,7 +95,7 @@ namespace PolicijskaUprava
             btnUcitajPZaVanredneSituacije.Location = new System.Drawing.Point(16, 201);
             btnUcitajPZaVanredneSituacije.Margin = new Padding(5, 4, 5, 4);
             btnUcitajPZaVanredneSituacije.Name = "btnUcitajPZaVanredneSituacije";
-            btnUcitajPZaVanredneSituacije.Size = new System.Drawing.Size(270, 36);
+            btnUcitajPZaVanredneSituacije.Size = new System.Drawing.Size(306, 36);
             btnUcitajPZaVanredneSituacije.TabIndex = 4;
             btnUcitajPZaVanredneSituacije.Text = "Ucitaj policajca za vanredne situacije";
             btnUcitajPZaVanredneSituacije.UseVisualStyleBackColor = true;
@@ -104,7 +106,7 @@ namespace PolicijskaUprava
             btnUcitaj_Skolskog_policajca.Location = new System.Drawing.Point(17, 245);
             btnUcitaj_Skolskog_policajca.Margin = new Padding(3, 4, 3, 4);
             btnUcitaj_Skolskog_policajca.Name = "btnUcitaj_Skolskog_policajca";
-            btnUcitaj_Skolskog_policajca.Size = new System.Drawing.Size(269, 31);
+            btnUcitaj_Skolskog_policajca.Size = new System.Drawing.Size(305, 31);
             btnUcitaj_Skolskog_policajca.TabIndex = 5;
             btnUcitaj_Skolskog_policajca.Text = "Ucitaj skolskog policajca";
             btnUcitaj_Skolskog_policajca.UseVisualStyleBackColor = true;
@@ -115,7 +117,7 @@ namespace PolicijskaUprava
             btnObjekti.Location = new System.Drawing.Point(17, 284);
             btnObjekti.Margin = new Padding(5, 4, 5, 4);
             btnObjekti.Name = "btnObjekti";
-            btnObjekti.Size = new System.Drawing.Size(268, 36);
+            btnObjekti.Size = new System.Drawing.Size(306, 36);
             btnObjekti.TabIndex = 6;
             btnObjekti.Text = "Ucitaj objekat";
             btnObjekti.UseVisualStyleBackColor = true;
@@ -123,9 +125,9 @@ namespace PolicijskaUprava
             // 
             // btnUcitajRadnikaUUpravi
             // 
-            btnUcitajRadnikaUUpravi.Location = new System.Drawing.Point(16, 327);
+            btnUcitajRadnikaUUpravi.Location = new System.Drawing.Point(17, 327);
             btnUcitajRadnikaUUpravi.Name = "btnUcitajRadnikaUUpravi";
-            btnUcitajRadnikaUUpravi.Size = new System.Drawing.Size(270, 29);
+            btnUcitajRadnikaUUpravi.Size = new System.Drawing.Size(305, 29);
             btnUcitajRadnikaUUpravi.TabIndex = 6;
             btnUcitajRadnikaUUpravi.Text = "Ucitaj radnika u upravi";
             btnUcitajRadnikaUUpravi.UseVisualStyleBackColor = true;
@@ -133,9 +135,10 @@ namespace PolicijskaUprava
             // 
             // UcitajPatrolnogPolBtn
             // 
-            UcitajPatrolnogPolBtn.Location = new System.Drawing.Point(17, 397);
+            UcitajPatrolnogPolBtn.Location = new System.Drawing.Point(19, 500);
+            UcitajPatrolnogPolBtn.Margin = new Padding(3, 4, 3, 4);
             UcitajPatrolnogPolBtn.Name = "UcitajPatrolnogPolBtn";
-            UcitajPatrolnogPolBtn.Size = new System.Drawing.Size(269, 29);
+            UcitajPatrolnogPolBtn.Size = new System.Drawing.Size(307, 39);
             UcitajPatrolnogPolBtn.TabIndex = 8;
             UcitajPatrolnogPolBtn.Text = "Ucitaj patrolnog policajca";
             UcitajPatrolnogPolBtn.UseVisualStyleBackColor = true;
@@ -143,9 +146,10 @@ namespace PolicijskaUprava
             // 
             // UcitajAlarmniSistemBtn
             // 
-            UcitajAlarmniSistemBtn.Location = new System.Drawing.Point(14, 467);
+            UcitajAlarmniSistemBtn.Location = new System.Drawing.Point(20, 594);
+            UcitajAlarmniSistemBtn.Margin = new Padding(3, 4, 3, 4);
             UcitajAlarmniSistemBtn.Name = "UcitajAlarmniSistemBtn";
-            UcitajAlarmniSistemBtn.Size = new System.Drawing.Size(272, 29);
+            UcitajAlarmniSistemBtn.Size = new System.Drawing.Size(311, 39);
             UcitajAlarmniSistemBtn.TabIndex = 9;
             UcitajAlarmniSistemBtn.Text = "Ucitaj alarmni sistem";
             UcitajAlarmniSistemBtn.UseVisualStyleBackColor = true;
@@ -153,9 +157,10 @@ namespace PolicijskaUprava
             // 
             // UcitajPatroluBtn
             // 
-            UcitajPatroluBtn.Location = new System.Drawing.Point(17, 432);
+            UcitajPatroluBtn.Location = new System.Drawing.Point(20, 547);
+            UcitajPatroluBtn.Margin = new Padding(3, 4, 3, 4);
             UcitajPatroluBtn.Name = "UcitajPatroluBtn";
-            UcitajPatroluBtn.Size = new System.Drawing.Size(269, 29);
+            UcitajPatroluBtn.Size = new System.Drawing.Size(307, 39);
             UcitajPatroluBtn.TabIndex = 10;
             UcitajPatroluBtn.Text = "Ucitaj patrolu";
             UcitajPatroluBtn.UseVisualStyleBackColor = true;
@@ -163,23 +168,46 @@ namespace PolicijskaUprava
             // 
             // UcitajPPozornikaBtn
             // 
-            UcitajPPozornikaBtn.Location = new System.Drawing.Point(17, 362);
+            UcitajPPozornikaBtn.Location = new System.Drawing.Point(17, 453);
+            UcitajPPozornikaBtn.Margin = new Padding(3, 4, 3, 4);
             UcitajPPozornikaBtn.Name = "UcitajPPozornikaBtn";
-            UcitajPPozornikaBtn.Size = new System.Drawing.Size(268, 29);
+            UcitajPPozornikaBtn.Size = new System.Drawing.Size(306, 39);
             UcitajPPozornikaBtn.TabIndex = 12;
             UcitajPPozornikaBtn.Text = "Ucitaj policajca pozornika";
             UcitajPPozornikaBtn.UseVisualStyleBackColor = true;
             UcitajPPozornikaBtn.Click += UcitajPPozornikaBtn_Click;
             // 
+            // btnUnapredjenje
+            // 
+            btnUnapredjenje.Location = new System.Drawing.Point(16, 409);
+            btnUnapredjenje.Margin = new Padding(5, 4, 5, 4);
+            btnUnapredjenje.Name = "btnUnapredjenje";
+            btnUnapredjenje.Size = new System.Drawing.Size(306, 36);
+            btnUnapredjenje.TabIndex = 7;
+            btnUnapredjenje.Text = "Ucitaj Unapredjenje";
+            btnUnapredjenje.UseVisualStyleBackColor = true;
+            btnUnapredjenje.Click += btnUnapredjenje_Click;
+            // 
+            // btnBrojTelefona
+            // 
+            btnBrojTelefona.Location = new System.Drawing.Point(17, 363);
+            btnBrojTelefona.Name = "btnBrojTelefona";
+            btnBrojTelefona.Size = new System.Drawing.Size(306, 39);
+            btnBrojTelefona.TabIndex = 7;
+            btnBrojTelefona.Text = "Ucitaj Broj Telefona";
+            btnBrojTelefona.UseVisualStyleBackColor = true;
+            btnBrojTelefona.Click += btnBrojTelefona_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1066, 692);
+            ClientSize = new System.Drawing.Size(1160, 692);
             Controls.Add(UcitajPPozornikaBtn);
             Controls.Add(UcitajPatroluBtn);
             Controls.Add(UcitajAlarmniSistemBtn);
             Controls.Add(UcitajPatrolnogPolBtn);
+            Controls.Add(btnUnapredjenje);
             Controls.Add(btnObjekti);
             Controls.Add(btnUcitajRadnikaUUpravi);
             Controls.Add(btnUcitaj_Skolskog_policajca);
@@ -188,10 +216,10 @@ namespace PolicijskaUprava
             Controls.Add(btnUcitavanjeTehnickogLica);
             Controls.Add(btnUcitajVozilo);
             Controls.Add(btnUcitavanjePolicajca);
+            Controls.Add(btnBrojTelefona);
             Margin = new Padding(5, 4, 5, 4);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
             ResumeLayout(false);
         }
 
@@ -213,6 +241,9 @@ namespace PolicijskaUprava
         private Button UcitajAlarmniSistemBtn;
         private Button UcitajPatroluBtn;
         private Button UcitajPPozornikaBtn;
+		private Button btnUnapredjenje;
+        private Button btnBrojTelefona;
     }
+
 }
 
