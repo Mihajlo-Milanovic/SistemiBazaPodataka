@@ -11,6 +11,9 @@
         public virtual IList<Patrola>Patrole{ get; set; }
 
         public Vozilo() {
+
+            Patrole = new List<Patrola>();
+
             Reg_oznaka = string.Empty;
             Boja = string.Empty;
             Tip = string.Empty;

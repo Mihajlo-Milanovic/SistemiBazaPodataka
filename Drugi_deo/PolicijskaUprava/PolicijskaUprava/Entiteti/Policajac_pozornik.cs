@@ -1,9 +1,15 @@
-﻿namespace PolicijskaUprava.Entiteti
-{
-    public class Policajac_pozornik : Policajac
-    {
-        public virtual string Naziv_ulice { get; set; }
 
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PolicijskaUprava.Entiteti {
+    public class Policajac_pozornik : Policajac {
+
+        public virtual string Naziv_ulice { get; set; }
+        public virtual Policajac Policajac { get; set; }
         public Policajac_pozornik() : base()
         {
             Naziv_ulice = string.Empty;
@@ -20,5 +26,6 @@
         {
             return base.ToString() + "\nNaziv ulice: " + Naziv_ulice;
         }
+
     }
 }

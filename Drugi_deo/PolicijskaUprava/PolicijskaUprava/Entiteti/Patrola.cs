@@ -1,10 +1,3 @@
-﻿using PolicijskaUprava.Veze_Vise_Na_Vise;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace PolicijskaUprava.Entiteti
 {
     public class Patrola
@@ -21,7 +14,12 @@ namespace PolicijskaUprava.Entiteti
             RegOznakaVozila = regOznakaVozila;
             SefId = sefId;
             PomocnikId = pomocnikId;
+            Intervencije = new List<PolicijskaIntervencija>();
         }
         public Patrola() { }
+        public override string ToString()
+        {
+            return "Redni broj: " + RedniBroj.ToString() + "\nVozilo:" + RegOznakaVozila.Proizvodjac;
+        }
     }
 }

@@ -58,6 +58,7 @@
             lvLista.GridLines = true;
             lvLista.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             lvLista.ImeMode = ImeMode.NoControl;
+
             lvLista.Location = new System.Drawing.Point(14, 14);
             lvLista.Margin = new Padding(4, 3, 4, 3);
             lvLista.MultiSelect = false;
@@ -150,6 +151,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Sitka Banner", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+
             label1.Location = new System.Drawing.Point(586, 14);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
@@ -166,6 +168,7 @@
             btnObrisiAlarmniSistem.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnObrisiAlarmniSistem.FlatStyle = FlatStyle.Flat;
             btnObrisiAlarmniSistem.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+
             btnObrisiAlarmniSistem.Location = new System.Drawing.Point(589, 137);
             btnObrisiAlarmniSistem.Margin = new Padding(4, 3, 4, 3);
             btnObrisiAlarmniSistem.Name = "btnObrisiAlarmniSistem";

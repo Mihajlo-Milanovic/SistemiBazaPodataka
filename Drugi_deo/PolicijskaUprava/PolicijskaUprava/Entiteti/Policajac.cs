@@ -10,12 +10,29 @@
         public virtual string JMBG { get; set; }
         public virtual string Adresa { get; set; }
         public virtual DateTime Datum_prijema_u_sluzbu { get; set; }
-		public virtual Policijska_stanica Stanica { get; set; }
-		public virtual Policijska_stanica SefujeStanicom { get; set; }
-		public virtual Policijska_stanica ZamenikStanice { get; set; }
-		public virtual string Tip { get; set; }
+        public virtual Policijska_stanica Stanica { get; set; }
+        public virtual Policijska_stanica SefujeStanicom { get; set; }
+        public virtual Policijska_stanica ZamenikStanice { get; set; }
+        public virtual string Tip { get; set; }
 
-        public override string ToString() {
+        //public virtual IList<Patrolni_policajac> PatrolniPolicajci { get; set; }
+        //public virtual IList<Policajac_pozornik> PolicajciPozornici { get; set; }
+
+        //public Policajac()
+        //{
+        //    PolicajciPozornici=new List<Policajac_pozornik>();
+        //    PatrolniPolicajci=new List<Patrolni_policajac>();
+        //}
+        //public Policajac()
+        //{
+        //    Ime = string.Empty;
+        //    Prezime = string.Empty;
+        //    Ime_roditelja = string.Empty;
+        //    JMBG = string.Empty;
+        //    Adresa = string.Empty;
+        //}
+        public override string ToString()
+        { 
             return "Ime: " + Ime
                 + "\nPrezime:" + Prezime
                 + "\nDatum rodnjenja:" + Datum_rodjenja

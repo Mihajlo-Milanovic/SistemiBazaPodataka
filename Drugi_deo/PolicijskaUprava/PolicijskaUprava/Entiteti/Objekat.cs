@@ -15,6 +15,13 @@ namespace PolicijskaUprava.Entiteti
 
         public virtual IList<PolicijskaIntervencija> Intervencije { get; set; }
 
+        public virtual IList<Alarmni_sistem> AlarmniSistemi { get; set; }
+
+        public Objekat() { 
+            AlarmniSistemi=new List<Alarmni_sistem>();
+            Intervencije = new List<PolicijskaIntervencija>();
+        
+        }
         public override string ToString()
         {
             return "Tip: " + Tip + "\n" +

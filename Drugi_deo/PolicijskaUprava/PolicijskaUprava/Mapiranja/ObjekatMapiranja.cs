@@ -21,6 +21,7 @@
             .Cascade.All()
             .Inverse();
 
+            HasMany(x => x.AlarmniSistemi);
         }
     }
 }
