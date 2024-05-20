@@ -29,7 +29,7 @@ namespace PolicijskaUprava {
 
 			try {
 				
-				string cs = Filip;//definisano na dnu klase radi lakse izmene baze sa kojom se radi
+				string cs = Vuksain;//definisano na dnu klase radi lakse izmene baze sa kojom se radi
 						//ConfigurationManager.ConnectionStrings["OracleCS"].ConnectionString;
 
 				var cfg = OracleManagedDataClientConfiguration.Oracle10
