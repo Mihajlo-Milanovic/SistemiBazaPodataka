@@ -56,7 +56,7 @@
             ListaPolicajaca.Margin = new Padding(4, 3, 4, 3);
             ListaPolicajaca.MultiSelect = false;
             ListaPolicajaca.Name = "ListaPolicajaca";
-            ListaPolicajaca.Size = new System.Drawing.Size(1006, 285);
+            ListaPolicajaca.Size = new System.Drawing.Size(1125, 285);
             ListaPolicajaca.TabIndex = 1;
             ListaPolicajaca.UseCompatibleStateImageBehavior = false;
             ListaPolicajaca.View = View.Details;
@@ -114,6 +114,7 @@
             // Tip
             // 
             Tip.Text = "Tip";
+            Tip.Width = 190;
             // 
             // btnDodajPolicajca
             // 
@@ -130,14 +131,13 @@
             btnDodajPolicajca.TabIndex = 5;
             btnDodajPolicajca.Text = "Dodatj policajca";
             btnDodajPolicajca.UseVisualStyleBackColor = false;
-            btnDodajPolicajca.Click += btnDodajPolicajca_Click;
             // 
             // Policajci
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
-            ClientSize = new System.Drawing.Size(1032, 450);
+            ClientSize = new System.Drawing.Size(1151, 450);
             Controls.Add(btnDodajPolicajca);
             Controls.Add(ListaPolicajaca);
             Name = "Policajci";

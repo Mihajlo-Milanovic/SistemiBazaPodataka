@@ -53,7 +53,7 @@ namespace PolicijskaUprava {
 		///
 		/// VAZNO: Zavukla nam se greska pri projektovanju baze u tabeli BROJ_TELEFONA kolona broj telefona je stavljena kao NUMBER umesto VARCHAR2
 		///
-		////							OVO JE OSTAVLJENO DA VIDITE OBAVESTENJE
+		///							OVO JE OSTAVLJENO DA VIDITE OBAVESTENJE
 		/// 
 		/// Potebno je da svako ponaosob update-uje bazu ili cu da to urdaim ja (Mihajlo) od ponedeljka jer nije hitno mala je greskica.
 		/// 
@@ -61,7 +61,7 @@ namespace PolicijskaUprava {
 
 
 		private const string Mihajlo = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18747;Password=Miki747M"; //treba update-ovati bazu
-		private const string Vuksain = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18972;Password=vorkraft1"; //treba update-ovati bazu
+		private const string Vuksain = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18972;Password=vorkraft1";
 		private const string Filip = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18842;Password=S18842"; // treba update-ovati bazu
 
 	}

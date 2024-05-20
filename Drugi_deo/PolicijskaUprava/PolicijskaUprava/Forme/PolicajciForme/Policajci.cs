@@ -23,7 +23,7 @@ namespace PolicijskaUprava.Forme
         public void PopuniTabelu()
         {
             ListaPolicajaca.Items.Clear();
-            List<Policajac> policajci = vratiSvePolicajce();
+            policajci = DTOManager.vratiSvePolicajce();
 
             foreach (Policajac p in policajci)
             {
@@ -31,8 +31,7 @@ namespace PolicijskaUprava.Forme
                 string Zamenik = p.ZamenikStanice != null ? p.ZamenikStanice.Id.ToString() : "NIJE ZAMENIK";
 
                 ListViewItem item = new ListViewItem(new string[] {p.Id.ToString(), p.Ime, p.Ime_roditelja, p.Prezime, p.JMBG, p.Datum_rodjenja.ToShortDateString(), p.Adresa,
-                        p.Datum_prijema_u_sluzbu.ToShortDateString(), p.Stanica.Naziv, Sefuje,
-                    Zamenik, p.Tip});
+                        p.DatumPrijemaUSluzbu.ToShortDateString(), p.Stanica.Naziv, Sefuje,Zamenik, p.Tip});
                 ListaPolicajaca.Items.Add(item);
 
             }
@@ -54,57 +53,7 @@ namespace PolicijskaUprava.Forme
 
 
         //// OVO TREBA DA IDE U DTOManager I DA SE NAPRAVI NOVA KLASA PolicajacPregled !!!!!!!!
-        public List<Policajac> vratiSvePolicajce()
-        {
-            List<Policajac> Policajci = new List<Policajac>();
-            try
-            {
-                ISession s = DataLayer.GetSession();
-
-                IList<Policajac> sviPolicajci = s.CreateQuery("from Policajac").List<Policajac>();
-
-                foreach (Policajac p in sviPolicajci)
-                {
-                    if (p.GetType() == typeof(P_za_vanredne_situacije))
-                    {
-                        P_za_vanredne_situacije policajac = (P_za_vanredne_situacije)p;
-                        Policajci.Add(policajac);
-                    }
-                    else if (p.GetType() == typeof(Patrolni_policajac))
-                    {
-                        Patrolni_policajac policajac = (Patrolni_policajac)p;
-                        Policajci.Add(policajac);
-                    }
-                    else if (p.GetType() == typeof(Policajac_pozornik))
-                    {
-                        Policajac_pozornik policajac = (Policajac_pozornik)p;
-                        Policajci.Add(policajac);
-                    }
-                    else if (p.GetType() == typeof(Radnik_u_upravi))
-                    {
-                        Radnik_u_upravi policajac = (Radnik_u_upravi)p;
-                        Policajci.Add(policajac);
-                    }
-                    else //(p.GetType() == typeof(Skolski_policajac))
-                    {
-                        Skolski_policajac policajac = (Skolski_policajac)p;
-                        Policajci.Add(policajac);
-                    }
-                   
-
-
-                }
-
-                s.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.FormatExceptionMessage();
-            }
-
-            return Policajci;
-        }
-
+       
 
     }
 }
