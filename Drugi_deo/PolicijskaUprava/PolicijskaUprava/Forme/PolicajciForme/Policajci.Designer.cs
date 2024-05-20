@@ -56,7 +56,7 @@
             ListaPolicajaca.Margin = new Padding(4, 3, 4, 3);
             ListaPolicajaca.MultiSelect = false;
             ListaPolicajaca.Name = "ListaPolicajaca";
-            ListaPolicajaca.Size = new System.Drawing.Size(483, 409);
+            ListaPolicajaca.Size = new System.Drawing.Size(1006, 285);
             ListaPolicajaca.TabIndex = 1;
             ListaPolicajaca.UseCompatibleStateImageBehavior = false;
             ListaPolicajaca.View = View.Details;
@@ -123,21 +123,20 @@
             btnDodajPolicajca.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnDodajPolicajca.FlatStyle = FlatStyle.Flat;
             btnDodajPolicajca.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnDodajPolicajca.Location = new System.Drawing.Point(600, 12);
+            btnDodajPolicajca.Location = new System.Drawing.Point(13, 303);
             btnDodajPolicajca.Margin = new Padding(4, 3, 4, 3);
             btnDodajPolicajca.Name = "btnDodajPolicajca";
             btnDodajPolicajca.Size = new System.Drawing.Size(187, 57);
             btnDodajPolicajca.TabIndex = 5;
             btnDodajPolicajca.Text = "Dodatj policajca";
             btnDodajPolicajca.UseVisualStyleBackColor = false;
-            btnDodajPolicajca.Click += btnDodajPolicajca_Click;
             // 
             // Policajci
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
-            ClientSize = new System.Drawing.Size(800, 450);
+            ClientSize = new System.Drawing.Size(1032, 450);
             Controls.Add(btnDodajPolicajca);
             Controls.Add(ListaPolicajaca);
             Name = "Policajci";

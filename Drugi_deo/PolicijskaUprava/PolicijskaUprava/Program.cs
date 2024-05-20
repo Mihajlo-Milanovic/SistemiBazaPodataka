@@ -8,8 +8,8 @@
 		static void Main() {
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			//Application.Run(new Forme.PocetnaStranica());
-			Application.Run(new Form1());// forma za testiranje funkcionalnosti
+			Application.Run(new Forme.PocetnaStranica());
+			//Application.Run(new Form1());// forma za testiranje funkcionalnosti
 		}
 	}
 }
