@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PolicijskaUprava.Mapiranja
 {
-    public class Policajac_pozornikMapiranja : SubclassMap<Policajac_pozornik>
+    public class Policajac_pozornikMapiranja : SubclassMap<PolicajacPozornik>
     {
         public Policajac_pozornikMapiranja()
         {
@@ -14,7 +14,7 @@ namespace PolicijskaUprava.Mapiranja
             Table("POLICAJAC_POZORNIK");
             KeyColumn("POLICAJAC_ID");
 
-            Map(x => x.Naziv_ulice).Column("NAZIV_ULICE");
+            Map(x => x.NazivUlice).Column("NAZIV_ULICE");
             // References(x => x.Policajac);
         }
     }

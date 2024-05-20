@@ -69,7 +69,7 @@
             // 
             Ime.Text = "Ime";
             // 
-            // Ime_roditelja
+            // ImeRoditelja
             // 
             Ime_roditelja.Text = "Ime roditelja";
             Ime_roditelja.Width = 80;
@@ -82,7 +82,7 @@
             // 
             JMBG.Text = "JMBG";
             // 
-            // Datum_rodjenja
+            // DatumRodjenja
             // 
             Datum_rodjenja.Text = "Datum rodjenja";
             Datum_rodjenja.Width = 100;

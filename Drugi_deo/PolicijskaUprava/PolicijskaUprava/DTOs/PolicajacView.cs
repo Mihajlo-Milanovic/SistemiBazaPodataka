@@ -55,5 +55,27 @@ namespace PolicijskaUprava.DTOs {
 			ZamenikStaniceNaziv = zamenik.Naziv;
 			Tip = tip;
 		}
+
+		public PolicajacView(Policajac p){ 
+		
+			Id = p.Id;
+			Ime = p.Ime;
+			ImeRoditelja = p.ImeRoditelja;
+			Prezime = p.Prezime;
+			DatumRodjenja = p.DatumRodjenja;
+			JMBG= p.JMBG;
+			Adresa = p.Adresa;
+			DatumPrijemaUSluzbu = p.DatumPrijemaUSluzbu;
+			Tip = p.Tip;
+
+			StanicaId = p.Stanica.Id;
+			StanicaNaziv = p.Stanica.Naziv;
+
+			SefujeStanicomId = p.SefujeStanicom.Id;
+			SefujeStanicomNaziv = p.SefujeStanicom.Naziv;
+			
+			ZamenikStaniceId = p.ZamenikStanice.Id;
+			ZamenikStaniceNaziv = p.ZamenikStanice.Naziv;
+		}
 	}
 }

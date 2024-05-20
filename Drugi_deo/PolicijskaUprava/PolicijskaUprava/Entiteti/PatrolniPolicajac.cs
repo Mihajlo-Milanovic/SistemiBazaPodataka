@@ -7,34 +7,34 @@ using System.Threading.Tasks;
 namespace PolicijskaUprava.Entiteti
 
 {
-    public class Patrolni_policajac : Policajac
+    public class PatrolniPolicajac : Policajac
     {
-        public virtual string Vrsta_oruzja { get; set; }
+        public virtual string VrstaOruzja { get; set; }
+
         public virtual IList<Patrola> SefPatrole { get; set; }
         public virtual IList<Patrola> PomocnikPatrole { get; set; }
 
-        public virtual Policajac Policajac { get; set; }
 
-        public Patrolni_policajac() : base()
+        public PatrolniPolicajac() : base()
         {
-            Vrsta_oruzja = string.Empty;
+            VrstaOruzja = string.Empty;
             SefPatrole = new List<Patrola>();
             PomocnikPatrole = new List<Patrola>();
         }
-        public Patrolni_policajac(int id, string ime, string ime_roditelja, string prezime, DateTime datum_rodjenja,
-            string jmbg, string adresa, DateTime datum_prijema_u_sluzbu, Policijska_stanica stanica,
-            Policijska_stanica sefuje, Policijska_stanica zamenik, string tip,string vrsta_oruzja, IList<Patrola> sefovi,IList<Patrola> pomocnici)
+        public PatrolniPolicajac(int id, string ime, string ime_roditelja, string prezime, DateTime datum_rodjenja,
+            string jmbg, string adresa, DateTime datum_prijema_u_sluzbu, PolicijskaStanica stanica,
+            PolicijskaStanica sefuje, PolicijskaStanica zamenik, string tip,string vrsta_oruzja, IList<Patrola> sefovi,IList<Patrola> pomocnici)
             : base(id, ime, ime_roditelja, prezime, datum_rodjenja,
              jmbg, adresa, datum_prijema_u_sluzbu, stanica, sefuje,
              zamenik, tip)
         {
-            Vrsta_oruzja = Vrsta_oruzja;
+            VrstaOruzja = VrstaOruzja;
             SefPatrole = sefovi;
             PomocnikPatrole = pomocnici;
         }
         public override string ToString()
         {
-            return base.ToString() + "\nVrsta oruzja: " + Vrsta_oruzja;
+            return base.ToString() + "\nVrsta oruzja: " + VrstaOruzja;
         }
     }
 }

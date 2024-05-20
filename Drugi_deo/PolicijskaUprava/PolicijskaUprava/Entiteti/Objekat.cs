@@ -11,7 +11,7 @@ namespace PolicijskaUprava.Entiteti
         public virtual string KontaktIme { get; set; }
         public virtual string KontaktPrezime { get; set; }
 
-        public virtual Policijska_stanica PolicijskaStanica { get; set; }
+        public virtual PolicijskaStanica PolicijskaStanica { get; set; }
 
         public virtual IList<PolicijskaIntervencija> Intervencije { get; set; }
 

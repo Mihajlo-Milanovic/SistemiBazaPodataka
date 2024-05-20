@@ -8,9 +8,9 @@
             Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();
 
             Map(x => x.Ime, "IME");
-            Map(x => x.Ime_roditelja, "IME_RODITELJA");
+            Map(x => x.ImeRoditelja, "IME_RODITELJA");
             Map(x => x.Prezime, "PREZIME");
-            Map(x => x.Datum_rodjenja, "DATUM_RODJENJA");
+            Map(x => x.DatumRodjenja, "DATUM_RODJENJA");
             Map(x => x.JMBG, "JMBG");
             Map(x => x.Adresa, "ADRESA");
             Map(x => x.DatumPrijemaUSluzbu, "DATUM_PRIJEMA_U_SLUZBU");

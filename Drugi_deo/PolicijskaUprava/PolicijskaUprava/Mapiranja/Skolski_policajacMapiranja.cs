@@ -1,6 +1,6 @@
 ﻿namespace PolicijskaUprava.Mapiranja
 {
-    public class Skolski_policajacMapiranja : SubclassMap<Skolski_policajac>
+    public class Skolski_policajacMapiranja : SubclassMap<SkolskiPolicajac>
     {
 
         public Skolski_policajacMapiranja()
@@ -9,12 +9,12 @@
 
             KeyColumn("POLICAJAC_ID");
 
-            Map(x => x.Naziv_skole).Column("NAZIV_SKOLE");
-            Map(x => x.Tip_skole).Column("TIP_SKOLE");
-            Map(x => x.Adresa_skole).Column("ADRESA_SKOLE");
-            Map(x => x.Kontakt_ime).Column("KONTAKT_IME");
-            Map(x => x.Kontakt_prezime).Column("KONTAKT_PREZIME");
-            Map(x => x.Telefon_skole).Column("TELEFON_SKOLE");
+            Map(x => x.NazivSkole).Column("NAZIV_SKOLE");
+            Map(x => x.TipSkole).Column("TIP_SKOLE");
+            Map(x => x.AdresaSkole).Column("ADRESA_SKOLE");
+            Map(x => x.KontaktIme).Column("KONTAKT_IME");
+            Map(x => x.KontaktPrezime).Column("KONTAKT_PREZIME");
+            Map(x => x.TelefonSkole).Column("TELEFON_SKOLE");
 
 
         }

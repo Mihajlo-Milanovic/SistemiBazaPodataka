@@ -80,7 +80,7 @@ namespace PolicijskaUprava {
             {
                 ISession s = DataLayer.GetSession();
 
-                Policijska_stanica ps = s.Load<Policijska_stanica>(202);
+                PolicijskaStanica ps = s.Load<PolicijskaStanica>(202);
 
                 MessageBox.Show(ps.ToString());
 
@@ -98,7 +98,7 @@ namespace PolicijskaUprava {
             {
                 ISession s = DataLayer.GetSession();
 
-                P_za_vanredne_situacije ps = s.Load<P_za_vanredne_situacije>(8);
+                PZaVanredneSituacije ps = s.Load<PZaVanredneSituacije>(8);
 
                 MessageBox.Show(ps.ToString());
 
@@ -116,7 +116,7 @@ namespace PolicijskaUprava {
             {
                 ISession s = DataLayer.GetSession();
 
-                Skolski_policajac ps = s.Load<Skolski_policajac>(11);
+                SkolskiPolicajac ps = s.Load<SkolskiPolicajac>(11);
 
                 MessageBox.Show(ps.ToString());
 
@@ -133,7 +133,7 @@ namespace PolicijskaUprava {
             try
             {
                 ISession s = DataLayer.GetSession();
-                Radnik_u_upravi ruu = s.Load<Radnik_u_upravi>(13);
+                RadnikUUpravi ruu = s.Load<RadnikUUpravi>(13);
 
                 MessageBox.Show(ruu.ToString());
 
@@ -218,7 +218,7 @@ namespace PolicijskaUprava {
             {
                 ISession s = DataLayer.GetSession();
 
-                Patrolni_policajac pp = s.Load<Patrolni_policajac>(9);
+                PatrolniPolicajac pp = s.Load<PatrolniPolicajac>(9);
 
                 MessageBox.Show(pp.ToString());
 
@@ -292,7 +292,7 @@ namespace PolicijskaUprava {
             {
                 ISession s = DataLayer.GetSession();
 
-                Policajac_pozornik pp = s.Load<Policajac_pozornik>(15);
+                PolicajacPozornik pp = s.Load<PolicajacPozornik>(15);
 
                 MessageBox.Show(pp.ToString());
 

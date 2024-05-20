@@ -1,5 +1,5 @@
 ﻿namespace PolicijskaUprava.Entiteti {
-    public class Policijska_stanica {
+    public class PolicijskaStanica {
         public virtual int Id { get; set; }
         public virtual string Naziv { get; set; }
         public virtual string Opstina { get; set; }
@@ -10,7 +10,7 @@
         public virtual IList<Objekat> Objekti { get; set; }
 		public virtual IList<Policajac> Zaposleni { get; set; }
 
-		public Policijska_stanica() {
+		public PolicijskaStanica() {
             Naziv = string.Empty;
             Opstina = string.Empty;
             Adresa = string.Empty;
@@ -19,7 +19,7 @@
             Zaposleni = new List<Policajac>();
         }
 
-        public Policijska_stanica(int id, string naziv, string opstina, string adresa,
+        public PolicijskaStanica(int id, string naziv, string opstina, string adresa,
                                     DateTime datum_osnivanja, int broj_vozila, IList<Objekat> objekti, IList<Policajac> zaposleni) {
             
             Id = id;

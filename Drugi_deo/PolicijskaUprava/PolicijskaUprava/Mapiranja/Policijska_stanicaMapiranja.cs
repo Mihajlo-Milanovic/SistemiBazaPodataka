@@ -1,6 +1,6 @@
 ﻿namespace PolicijskaUprava.Mapiranja
 {
-    class Policijska_stanicaMapiranja : ClassMap<Policijska_stanica>
+    class Policijska_stanicaMapiranja : ClassMap<PolicijskaStanica>
     {
         public Policijska_stanicaMapiranja()
         {

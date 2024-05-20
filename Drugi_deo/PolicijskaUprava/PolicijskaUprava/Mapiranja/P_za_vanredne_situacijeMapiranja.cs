@@ -1,7 +1,7 @@
 ﻿namespace PolicijskaUprava.Mapiranja
 {
     
-    public class P_za_vanredne_situacijeMapiranja : SubclassMap<P_za_vanredne_situacije>
+    public class P_za_vanredne_situacijeMapiranja : SubclassMap<PZaVanredneSituacije>
     {
         public P_za_vanredne_situacijeMapiranja()
         {

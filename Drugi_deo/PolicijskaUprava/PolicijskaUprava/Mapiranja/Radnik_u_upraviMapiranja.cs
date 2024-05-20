@@ -1,7 +1,7 @@
 ﻿namespace PolicijskaUprava.Mapiranja
 {
      
-    public class Radnik_u_upraviMapiranja : SubclassMap<Radnik_u_upravi>
+    public class Radnik_u_upraviMapiranja : SubclassMap<RadnikUUpravi>
     {
         public Radnik_u_upraviMapiranja()
         {
