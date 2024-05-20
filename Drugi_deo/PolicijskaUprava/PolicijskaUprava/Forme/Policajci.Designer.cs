@@ -91,7 +91,7 @@
             // 
             Adresa.Text = "Adresa";
             // 
-            // Datum_prijema_u_sluzbu
+            // DatumPrijemaUSluzbu
             // 
             Datum_prijema_u_sluzbu.Text = "Datum prijema u sluzbu";
             Datum_prijema_u_sluzbu.Width = 145;

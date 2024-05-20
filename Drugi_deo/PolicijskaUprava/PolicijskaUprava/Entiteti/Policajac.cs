@@ -9,28 +9,13 @@
         public virtual DateTime Datum_rodjenja { get; set; }
         public virtual string JMBG { get; set; }
         public virtual string Adresa { get; set; }
-        public virtual DateTime Datum_prijema_u_sluzbu { get; set; }
+        public virtual DateTime DatumPrijemaUSluzbu { get; set; }
         public virtual Policijska_stanica Stanica { get; set; }
         public virtual Policijska_stanica SefujeStanicom { get; set; }
         public virtual Policijska_stanica ZamenikStanice { get; set; }
         public virtual string Tip { get; set; }
 
-        //public virtual IList<Patrolni_policajac> PatrolniPolicajci { get; set; }
-        //public virtual IList<Policajac_pozornik> PolicajciPozornici { get; set; }
-
-        //public Policajac()
-        //{
-        //    PolicajciPozornici=new List<Policajac_pozornik>();
-        //    PatrolniPolicajci=new List<Patrolni_policajac>();
-        //}
-        //public Policajac()
-        //{
-        //    Ime = string.Empty;
-        //    Prezime = string.Empty;
-        //    Ime_roditelja = string.Empty;
-        //    JMBG = string.Empty;
-        //    Adresa = string.Empty;
-        //}
+      
         public override string ToString()
         { 
             return "Ime: " + Ime
@@ -39,9 +24,9 @@
                 + "\nJMBG: " + JMBG
                 + "\nAdresa: " + Adresa
                 + "\nTip: " + Tip 
-                + "\n\nRadi u stanici: \n" + Stanica
-                + "\n\nJe sef stanice: \n" + SefujeStanicom
-				+ "\n\nZamenik u stanici: \n" + ZamenikStanice;
+                + "\n\nRadi u stanici sa ID: \n" + Stanica.Id
+                + "\n\nJe sef stanice sa ID: \n" + SefujeStanicom.Id
+				+ "\n\nZamenik u stanici sa ID: \n" + ZamenikStanice.Id;
         }
 
         public Policajac()
@@ -65,7 +50,7 @@
             Datum_rodjenja = datum_rodjenja;
             JMBG = jmbg;
             Adresa = adresa;
-            Datum_prijema_u_sluzbu = datum_prijema_u_sluzbu;
+            DatumPrijemaUSluzbu = datum_prijema_u_sluzbu;
             Stanica = stanica;
             SefujeStanicom = sefuje;
             ZamenikStanice = zamenik;

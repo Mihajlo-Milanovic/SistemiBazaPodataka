@@ -1,14 +1,4 @@
-﻿/*CREATE TABLE POLICIJSKA_STANICA(
-    ID NUMBER PRIMARY KEY,
-    NAZIV VARCHAR2(30),
-    OPSTINA VARCHAR2(30),
-    ADRESA VARCHAR2(30),
-    DATUM_OSNIVANJA DATE,
-    BROJ_VOZILA NUMBER
-);
-*/
-
-namespace PolicijskaUprava.Entiteti {
+﻿namespace PolicijskaUprava.Entiteti {
     public class Policijska_stanica {
         public virtual int Id { get; set; }
         public virtual string Naziv { get; set; }
@@ -43,26 +33,22 @@ namespace PolicijskaUprava.Entiteti {
         }
 
         public override string ToString() {
-            string output = "Naziv: " + Naziv +
-                    "\nOpstina:" + Opstina +
-                    "\nAdresa:" + Adresa +
-                    "\nDatum osnivanja: " + Datum_osnivanja +
-                    "\nBroj vozila: " + BrojVozila;
+            string output = "Naziv: " + Naziv
+                    + "\nOpstina:" + Opstina
+                    + "\nAdresa:" + Adresa
+                    + "\nDatum osnivanja: " + Datum_osnivanja
+                    + "\nBroj vozila: " + BrojVozila
+                    + "\n\nCuvani objekti: ";
 
-            /**
-             * ULAZI U BESKONACNU PETLJU
-             */
-                    //"\n\nCuvani objekti: ";
-
-            /*
+            
             foreach (var objekat in Objekti) {
-                output += "\n\t" + objekat.ToString();
+                output += "\n\t" + objekat.Id;
             }
             output += "\n\nZaposleni: ";
 			foreach (var z in Zaposleni) {
-				output += "\n\t" + z.ToString();
+				output += "\n\t" + z.Id;
 			}
-            */
+            
 			return output;
         }
 

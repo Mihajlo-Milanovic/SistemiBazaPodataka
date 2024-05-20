@@ -17,12 +17,12 @@ namespace PolicijskaUprava.DTOs {
 		public virtual DateTime DatumPoslednjegServisiranja { get; set; }
 		public virtual string OpisOtklonjenogKvara { get; set; }
 		public virtual string Tip { get; set; }
-		public virtual Objekat PripadaObjektu { get; set; }
+		public virtual int PripadaObjektuId { get; set; }
 
 		//public virtual IList<Odrzava> Odrzavan { get; set; }
 
 
-		AlarmniSistemView() { }
+		AlarmniSistemView() {}
 
 		AlarmniSistemView(int id, string serijskiBroj, string proizvodjac, string model, DateTime godinaProizvodnje, DateTime datumInstalacije,
 			DateTime datumPoslednjegAtesta, DateTime datumPoslednjegServisiranja, string opisOtklonjenogKvara, string tip, Objekat pripadaObjektu) {
@@ -37,7 +37,7 @@ namespace PolicijskaUprava.DTOs {
 			DatumPoslednjegServisiranja = datumPoslednjegServisiranja;
 			OpisOtklonjenogKvara = opisOtklonjenogKvara;
 			Tip = tip;
-			PripadaObjektu = pripadaObjektu;
+			PripadaObjektuId = pripadaObjektu.Id;
 		}
 	}
 }

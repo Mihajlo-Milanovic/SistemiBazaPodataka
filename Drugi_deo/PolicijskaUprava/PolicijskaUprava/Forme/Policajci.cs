@@ -26,7 +26,7 @@ namespace PolicijskaUprava.Forme
         //    foreach (Policajac p in podaci)
         //    {
         //        ListViewItem item = new ListViewItem(new string[] { p.Ime, p.Ime_roditelja, p.Prezime,p.Datum_rodjenja.ToShortDateString(), p.Adresa, p.JMBG,
-        //                p.Datum_prijema_u_sluzbu.ToShortDateString(), p.Stanica.Naziv, p.SefujeStanicom.Naziv == null ? p.SefujeStanicom.Naziv: " ", 
+        //                p.DatumPrijemaUSluzbu.ToShortDateString(), p.Stanica.Naziv, p.SefujeStanicom.Naziv == null ? p.SefujeStanicom.Naziv: " ", 
         //            p.ZamenikStanice.Naziv == null ? p.ZamenikStanice.Naziv : " ", p.Tip});
         //        ListaPolicajaca.Items.Add(item);
 
@@ -70,7 +70,7 @@ namespace PolicijskaUprava.Forme
         //            if (p is P_za_vanredne_situacije PZVS)
         //            {
         //                P_za_vanredne_situacije pzvs = new P_za_vanredne_situacije(p.Id, p.Ime, p.Ime_roditelja,
-        //                    p.Prezime, p.Datum_rodjenja, p.JMBG, p.Adresa, p.Datum_prijema_u_sluzbu, p.Stanica, p.SefujeStanicom
+        //                    p.Prezime, p.Datum_rodjenja, p.JMBG, p.Adresa, p.DatumPrijemaUSluzbu, p.Stanica, p.SefujeStanicom
         //                    , p.ZamenikStanice, p.Tip, PZVS.Kurs, PZVS.Vestina, PZVS.Datum_zavrsetka_kursa, PZVS.Sertifikat,
         //                    PZVS.Datum_sticanja_sertifikata);
 
