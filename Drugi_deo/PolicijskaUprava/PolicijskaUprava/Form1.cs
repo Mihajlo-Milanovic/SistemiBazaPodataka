@@ -98,7 +98,7 @@ namespace PolicijskaUprava {
             {
                 ISession s = DataLayer.GetSession();
 
-                PZaVanredneSituacije ps = s.Load<PZaVanredneSituacije>(8);
+                PZaVanredneSituacije ps = s.Load<PZaVanredneSituacije>(10);
 
                 MessageBox.Show(ps.ToString());
 

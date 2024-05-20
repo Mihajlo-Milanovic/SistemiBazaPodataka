@@ -22,9 +22,9 @@
 
 
 			//STANICA_ID,SEF_STANICE,ZAMENIK_STANICE
-			References(x => x.Stanica).Column("STANICA_ID").LazyLoad();
-			References(x => x.SefujeStanicom).Column("SEF_STANICE").LazyLoad();
-			References(x => x.ZamenikStanice).Column("ZAMENIK_STANICE").LazyLoad();
+			References(x => x.Stanica).Column("STANICA_ID").Not.LazyLoad();
+			References(x => x.SefujeStanicom).Column("SEF_STANICE").Not.LazyLoad();
+			References(x => x.ZamenikStanice).Column("ZAMENIK_STANICE").Not.LazyLoad();
 		}
     }
 }
