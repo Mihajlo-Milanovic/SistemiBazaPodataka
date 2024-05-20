@@ -13,7 +13,6 @@ namespace PolicijskaUprava.Entiteti
         public virtual string Proizvodjac { get; set; }
         public virtual string Model { get; set; }
         public virtual DateTime Godina_proizvodnje { get; set; }
-        public virtual IList<Odrzava> Odrzavan { get; set; }
         public virtual DateTime Datum_instalacije { get; set; }
         public virtual DateTime Datum_poslednjeg_atesta { get; set; }
         public virtual DateTime Datum_poslednjeg_servisiranja { get; set; }
@@ -21,9 +20,13 @@ namespace PolicijskaUprava.Entiteti
         public virtual string Tip { get; set; }
 
         public virtual Objekat PripadaObjektu { get; set; }
+        public virtual IList<Odrzava> Odrzavan { get; set; }
+
         public override string ToString()
         {
-            return "Serijski broj: " + Serijski_broj + "\nProizvodjac: " + Proizvodjac + "\nModel: " + Model;    
+            return "Serijski broj: " + Serijski_broj
+                + "\nProizvodjac: " + Proizvodjac
+                + "\nModel: " + Model;    
         }
     }
 }
