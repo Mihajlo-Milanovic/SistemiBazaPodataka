@@ -17,8 +17,9 @@
     public class ObrazovanjeId
     {
         public virtual string Skola { get; set; }
-        public virtual Policajac PolicajacObrazovanje { get; set; }
         public virtual DateTime DatumDiplomiranja { get; set; }
+        public virtual Policajac PolicajacObrazovanje { get; set; }
+
         public override bool Equals(object obj)
         {
             if (Object.ReferenceEquals(this, obj))

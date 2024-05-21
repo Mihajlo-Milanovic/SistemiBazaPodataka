@@ -5,7 +5,7 @@
         public VoziloMapiranja() {
             Table("VOZILO");
 
-            Id(x => x.Reg_oznaka, "REG_OZNAKA");
+            Id(x => x.RegOznaka, "REG_OZNAKA");
 
             Map(x => x.Boja, "BOJA");
             Map(x => x.Tip, "TIP");

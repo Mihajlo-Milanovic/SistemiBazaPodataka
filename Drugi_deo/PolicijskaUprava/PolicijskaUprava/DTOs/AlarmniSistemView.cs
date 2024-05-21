@@ -2,7 +2,6 @@
 	public class AlarmniSistemView {
 
 
-
 		#region Properties
 
 		public virtual int Id { get; set; }

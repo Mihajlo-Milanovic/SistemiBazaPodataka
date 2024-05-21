@@ -2,7 +2,7 @@
 
     public class Vozilo {
 
-        public virtual String Reg_oznaka { get; set; }
+        public virtual String RegOznaka { get; set; }
         public virtual String Boja { get; set; }
         public virtual String Tip { get; set; }
         public virtual String Proizvodjac { get; set; }
@@ -14,7 +14,7 @@
 
             Patrole = new List<Patrola>();
 
-            Reg_oznaka = string.Empty;
+            RegOznaka = string.Empty;
             Boja = string.Empty;
             Tip = string.Empty;
             Proizvodjac = string.Empty;
@@ -23,7 +23,7 @@
 
         //public Vozilo(string reg_oznaka, string boja, string tip, string proiz, string model)
         //{
-        //    Reg_oznaka = reg_oznaka;
+        //    RegOznaka = reg_oznaka;
         //    Boja = boja;
         //    Tip = tip;
         //    Proizvodjac = proiz;
@@ -31,7 +31,7 @@
         //}
 
         public override string ToString() {
-            return "Registarska oznaka: " + Reg_oznaka + "\nBoja: " + Boja + "\nTip: " + Tip + "\nProizvodjac: " + Proizvodjac + "\nModel: " + Model;
+            return "Registarska oznaka: " + RegOznaka + "\nBoja: " + Boja + "\nTip: " + Tip + "\nProizvodjac: " + Proizvodjac + "\nModel: " + Model;
         }
     }
 }
