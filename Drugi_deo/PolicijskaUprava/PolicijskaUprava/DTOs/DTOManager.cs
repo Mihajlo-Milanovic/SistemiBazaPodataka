@@ -1,7 +1,6 @@
 ﻿
 
-namespace PolicijskaUprava.DTOs
-{
+namespace PolicijskaUprava.DTOs {
     public class DTOManager {
         public static List<PolicajacView> vratiSvePolicajce() {
             List<PolicajacView> Policajci = new();
@@ -103,6 +102,20 @@ namespace PolicijskaUprava.DTOs
             catch (Exception ex) {
                 MessageBox.Show(ex.FormatExceptionMessage());
                 return false;
+
+            }
+        }
+
+        public static void DodajPolicijskuStanicu(PolicijskaStanica stanica) {
+
+            try {
+                ISession s = DataLayer.GetSession();
+
+                s.SaveOrUpdate(stanica);
+            }
+            catch (Exception ec) {
+                ec.FormatExceptionMessage();
+
             }
 
         }
@@ -129,25 +142,41 @@ namespace PolicijskaUprava.DTOs
             }
         }
 
-		public static bool izmeniTehnickoLice(string ime, string prezime, int id) {
+        public static bool izmeniTehnickoLice(string ime, string prezime, int id) {
 
-			TehnickoLice tl = new(ime, prezime, id);
+            TehnickoLice tl = new(ime, prezime, id);
 
-			try {
-				ISession s = DataLayer.GetSession();
+            try {
+                ISession s = DataLayer.GetSession();
 
-				s.Update(tl);
+                s.Update(tl);
 
-				s.Flush();
+                s.Flush();
 
-				s.Close();
+                s.Close();
 
-				return true;
-			}
-			catch (Exception ex) {
-				MessageBox.Show(ex.FormatExceptionMessage());
-				return false;
-			}
-		}
-	}
+                return true;
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.FormatExceptionMessage());
+                return false;
+            }
+        }
+
+        public static void ObrisiPolicistkuStanicuID(int ID) {
+            try {
+                ISession s = DataLayer.GetSession();
+
+                PolicijskaStanica PS = s.Load<PolicijskaStanica>(ID);
+
+                s.Delete(PS);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec) {
+                ec.FormatExceptionMessage();
+            }
+        }
+    }
 }
