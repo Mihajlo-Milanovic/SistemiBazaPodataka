@@ -27,7 +27,7 @@
                    "Povrsina: " + Povrsina + "\n" +
                    "Kontakt ime: " + KontaktIme + "\n" +
                    "Kontakt prezime: " + KontaktPrezime + "\n" +
-                   "\n\nStanica: \n" + PolicijskaStanica.ToString();
+                   "\n\nStanica ID: \n" + PolicijskaStanica.Id;
         }
     }
 }

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace PolicijskaUprava.DTOs {
 	public class PolicajacView {
 
+		#region Properties
+
 		public virtual int Id { get; set; }
 		public virtual string Ime { get; set; }
 		public virtual string ImeRoditelja { get; set; }
@@ -22,6 +24,10 @@ namespace PolicijskaUprava.DTOs {
 		public virtual int ZamenikStaniceId { get; set; }
 		public virtual string ZamenikStaniceNaziv { get; set; }
 		public virtual string Tip { get; set; }
+
+		#endregion
+
+		#region Constructors
 
 		public PolicajacView() {
 			Ime = string.Empty;
@@ -96,5 +102,7 @@ namespace PolicijskaUprava.DTOs {
 				ZamenikStaniceNaziv = null;
 			}
 		}
+
+		#endregion
 	}
 }

@@ -7,12 +7,19 @@ using System.Threading.Tasks;
 namespace PolicijskaUprava.DTOs {
 	public class SkolskiPolicajacView : PolicajacView{
 
+
+		#region Properties
+
 		public virtual string NazivSkole { get; set; }
 		public virtual string TipSkole { get; set; }
 		public virtual string AdresaSkole { get; set; }
 		public virtual string KontaktIme { get; set; }
 		public virtual string KontaktPrezime { get; set; }
 		public virtual string TelefonSkole { get; set; }
+
+		#endregion
+
+		#region Constructors
 
 		public SkolskiPolicajacView() : base() {
 			NazivSkole = string.Empty;
@@ -21,20 +28,6 @@ namespace PolicijskaUprava.DTOs {
 			KontaktIme = string.Empty;
 			KontaktPrezime = string.Empty;
 			TelefonSkole = string.Empty;
-		}
-
-		public SkolskiPolicajacView(int id, string ime, string imeRoditelja, string prezime, DateTime datumRodjenja,
-			string jmbg, string adresa, DateTime datumPrijemaUSluzbu, PolicijskaStanicaView stanica, PolicijskaStanicaView
-			sefuje, PolicijskaStanicaView zamenik, string tip, string nazivSkole, string tipSkole, string adresaSkole,
-			string kontaktIme, string kontaktPrezime, string telefonSkole)
-			: base(id, ime, imeRoditelja, prezime, datumRodjenja,
-			 jmbg, adresa, datumPrijemaUSluzbu, stanica, sefuje, zamenik, tip) {
-			NazivSkole = nazivSkole;
-			TipSkole = tipSkole;
-			AdresaSkole = adresaSkole;
-			KontaktIme = kontaktIme;
-			KontaktPrezime = kontaktPrezime;
-			TelefonSkole = telefonSkole;
 		}
 
 		public SkolskiPolicajacView(SkolskiPolicajac p) : base(p) {
@@ -46,5 +39,9 @@ namespace PolicijskaUprava.DTOs {
 			KontaktPrezime = p.KontaktPrezime;
 			TelefonSkole = p.TelefonSkole;
 		}	
+
+		#endregion
+
+
 	}
 }

@@ -1,4 +1,5 @@
 ﻿namespace PolicijskaUprava.Entiteti {
+
 	public class Unapredjenje {
 	
 		public virtual UnapredjenjeId Id { get; set; }	
