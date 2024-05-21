@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace PolicijskaUprava.Forme
 {
-    public partial class Policajci : Form
+    public partial class PolicajciForm : Form
     {
         public static List<PolicajacView> policajci;
-        public Policajci()
+        public PolicajciForm()
         {
             InitializeComponent();
             PopuniTabelu();
@@ -37,7 +37,7 @@ namespace PolicijskaUprava.Forme
 
         private void btnDodajPolicajca_Click_1(object sender, EventArgs e)
         {
-
+            
         }
 
 

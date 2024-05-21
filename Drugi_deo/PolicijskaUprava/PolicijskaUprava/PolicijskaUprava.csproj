@@ -42,7 +42,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forme\PolicajciForme\" />
     <Folder Include="Resource\" />
   </ItemGroup>
 </Project>
