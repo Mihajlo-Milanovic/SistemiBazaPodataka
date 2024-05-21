@@ -16,6 +16,7 @@
             Naziv = string.Empty;
             Opstina = string.Empty;
             Adresa = string.Empty;
+            BrojVozila = 0;
             Datum_osnivanja = DateTime.Now;
             Objekti = new List<Objekat>();
             Zaposleni = new List<Policajac>();

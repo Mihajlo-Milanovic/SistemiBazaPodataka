@@ -77,5 +77,43 @@ namespace PolicijskaUprava.DTOs
             return Stanice;
         }
 
+        public static void DodajPolicijskuStanicu(PolicijskaStanica stanica)
+        {
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                s.SaveOrUpdate(stanica);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                ec.FormatExceptionMessage();
+            }
+
+        }
+
+        public static void ObrisiPolicistkuStanicuID(int ID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                PolicijskaStanica PS = s.Load<PolicijskaStanica>(ID);
+
+                s.Delete(PS);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                ec.FormatExceptionMessage();
+            }
+        }
     }
 }

@@ -36,6 +36,7 @@
             Datum_osnivanja = new ColumnHeader();
             Broj_vozila = new ColumnHeader();
             btnDodajPolicijskeStenice = new Button();
+            btnObrisiPolicijskuStanicu = new Button();
             SuspendLayout();
             // 
             // ListeStanice
@@ -96,7 +97,24 @@
             btnDodajPolicijskeStenice.TabIndex = 6;
             btnDodajPolicijskeStenice.Text = "Dodatj policijsku stanicu";
             btnDodajPolicijskeStenice.UseVisualStyleBackColor = false;
-            btnDodajPolicijskeStenice.Click += btnDodajPolicijskeStenice_Click;
+            btnDodajPolicijskeStenice.Click += btnDodajPolicijskeStanice_Click;
+            // 
+            // btnObrisiPolicijskuStanicu
+            // 
+            btnObrisiPolicijskuStanicu.BackColor = System.Drawing.Color.DeepSkyBlue;
+            btnObrisiPolicijskuStanicu.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
+            btnObrisiPolicijskuStanicu.FlatAppearance.BorderSize = 3;
+            btnObrisiPolicijskuStanicu.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
+            btnObrisiPolicijskuStanicu.FlatStyle = FlatStyle.Flat;
+            btnObrisiPolicijskuStanicu.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            btnObrisiPolicijskuStanicu.Location = new System.Drawing.Point(207, 215);
+            btnObrisiPolicijskuStanicu.Margin = new Padding(4, 3, 4, 3);
+            btnObrisiPolicijskuStanicu.Name = "btnObrisiPolicijskuStanicu";
+            btnObrisiPolicijskuStanicu.Size = new System.Drawing.Size(187, 57);
+            btnObrisiPolicijskuStanicu.TabIndex = 7;
+            btnObrisiPolicijskuStanicu.Text = "Obrisi policijsku stanicu";
+            btnObrisiPolicijskuStanicu.UseVisualStyleBackColor = false;
+            btnObrisiPolicijskuStanicu.Click += btnObrisiPolicijskuStanicu_Click;
             // 
             // PolicijskeStaniceFrom
             // 
@@ -104,6 +122,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
             ClientSize = new System.Drawing.Size(779, 421);
+            Controls.Add(btnObrisiPolicijskuStanicu);
             Controls.Add(btnDodajPolicijskeStenice);
             Controls.Add(ListeStanice);
             Margin = new Padding(4, 3, 4, 3);
@@ -122,5 +141,6 @@
         private ColumnHeader Datum_osnivanja;
         private ColumnHeader Broj_vozila;
         private Button btnDodajPolicijskeStenice;
+        private Button btnObrisiPolicijskuStanicu;
     }
 }
