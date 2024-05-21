@@ -1,4 +1,6 @@
-﻿namespace PolicijskaUprava.Forme
+﻿using PolicijskaUprava.Forme.PolicajciForme;
+
+namespace PolicijskaUprava.Forme
 {
     public partial class PolicijskeStaniceFrom : Form
     {
@@ -33,10 +35,10 @@
 
         private void btnObrisiPolicijskuStanicu_Click(object sender, EventArgs e)
         {
-            
+
             if (ListeStanice.SelectedItems.Count > 0)
             {
-               
+
                 // Uzmete prvu označenu vrstu
                 ListViewItem selectedItem = ListeStanice.SelectedItems[0];
 
@@ -47,14 +49,51 @@
                 MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
                 DialogResult result = MessageBox.Show(poruka, title, buttons);
 
-                if(result == DialogResult.OK)
-                DTOManager.ObrisiPolicistkuStanicuID(id);
+                if (result == DialogResult.OK)
+                    DTOManager.ObrisiPolicistkuStanicuID(id);
                 PopuniTabelu();
             }
             else
             {
                 MessageBox.Show("Mora da se selektuje neka policijska stanica!");
                 return;
+            }
+        }
+
+        private void btnIzmeniStanicu_Click(object sender, EventArgs e)
+        {
+            if (ListeStanice.SelectedItems.Count > 0)
+            {
+
+                // Uzmete prvu označenu vrstu
+                ListViewItem selectedItem = ListeStanice.SelectedItems[0];
+
+                PolicijskaStanicaView stanica = new PolicijskaStanicaView
+                {
+                    Id = Convert.ToInt32(selectedItem.SubItems[0].Text),
+                    Naziv = selectedItem.SubItems[1].Text,
+                    Opstina = selectedItem.SubItems[2].Text,
+                    Adresa = selectedItem.SubItems[3].Text,
+                    DatumOsnivanja = DateTime.Parse(selectedItem.SubItems[4].Text),
+                    BrojVozila = Convert.ToInt32(selectedItem.SubItems[5].Text)
+                };
+                IzmeniPolicijskuStanicu forma = new(stanica);
+                forma.ShowDialog();
+                PopuniTabelu();
+            }
+        }
+
+        private void btnDodajPolicajca_Click(object sender, EventArgs e)
+        {
+            if (ListeStanice.SelectedItems.Count > 0)
+            {
+
+                ListViewItem selectedItem = ListeStanice.SelectedItems[0];
+
+                int IDStanice = Convert.ToInt32(selectedItem.SubItems[0].Text);
+
+                DodajPolicajcaForm forma = new DodajPolicajcaForm(IDStanice);
+                forma.ShowDialog();
             }
         }
     }

@@ -115,5 +115,24 @@ namespace PolicijskaUprava.DTOs
                 ec.FormatExceptionMessage();
             }
         }
+
+        public static void ObrisiPolicajcaID(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Policajac P = s.Load<Policajac>(id);
+
+                s.Delete(P);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                ec.FormatExceptionMessage();
+            }
+        }
     }
 }
