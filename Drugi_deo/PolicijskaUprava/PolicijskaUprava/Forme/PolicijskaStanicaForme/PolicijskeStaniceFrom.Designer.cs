@@ -35,6 +35,7 @@
             Adresa = new ColumnHeader();
             Datum_osnivanja = new ColumnHeader();
             Broj_vozila = new ColumnHeader();
+            btnDodajPolicijskeStenice = new Button();
             SuspendLayout();
             // 
             // ListeStanice
@@ -80,12 +81,30 @@
             Broj_vozila.Text = "Broj vozila";
             Broj_vozila.Width = 100;
             // 
+            // btnDodajPolicijskeStenice
+            // 
+            btnDodajPolicijskeStenice.BackColor = System.Drawing.Color.DeepSkyBlue;
+            btnDodajPolicijskeStenice.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
+            btnDodajPolicijskeStenice.FlatAppearance.BorderSize = 3;
+            btnDodajPolicijskeStenice.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
+            btnDodajPolicijskeStenice.FlatStyle = FlatStyle.Flat;
+            btnDodajPolicijskeStenice.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            btnDodajPolicijskeStenice.Location = new System.Drawing.Point(12, 215);
+            btnDodajPolicijskeStenice.Margin = new Padding(4, 3, 4, 3);
+            btnDodajPolicijskeStenice.Name = "btnDodajPolicijskeStenice";
+            btnDodajPolicijskeStenice.Size = new System.Drawing.Size(187, 57);
+            btnDodajPolicijskeStenice.TabIndex = 6;
+            btnDodajPolicijskeStenice.Text = "Dodatj policijsku stanicu";
+            btnDodajPolicijskeStenice.UseVisualStyleBackColor = false;
+            btnDodajPolicijskeStenice.Click += btnDodajPolicijskeStenice_Click;
+            // 
             // PolicijskeStaniceFrom
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
             ClientSize = new System.Drawing.Size(779, 421);
+            Controls.Add(btnDodajPolicijskeStenice);
             Controls.Add(ListeStanice);
             Margin = new Padding(4, 3, 4, 3);
             Name = "PolicijskeStaniceFrom";
@@ -102,5 +121,6 @@
         private ColumnHeader Adresa;
         private ColumnHeader Datum_osnivanja;
         private ColumnHeader Broj_vozila;
+        private Button btnDodajPolicijskeStenice;
     }
 }

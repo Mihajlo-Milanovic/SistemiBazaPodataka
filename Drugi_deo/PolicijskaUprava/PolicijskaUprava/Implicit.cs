@@ -13,3 +13,4 @@ global using System.Windows.Forms;
 global using PolicijskaUprava.Mapiranja;
 global using PolicijskaUprava.Veze_Vise_Na_Vise;
 global using PolicijskaUprava.DTOs;
+global using PolicijskaUprava.Forme.PolicijskaStanicaForme;
