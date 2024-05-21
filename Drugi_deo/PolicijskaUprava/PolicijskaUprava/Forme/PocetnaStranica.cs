@@ -1,15 +1,4 @@
-﻿using NHibernate.Linq.Visitors.ResultOperatorProcessors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace PolicijskaUprava.Forme {
+﻿namespace PolicijskaUprava.Forme {
 
     public partial class PocetnaStranica : Form {
 
@@ -27,7 +16,7 @@ namespace PolicijskaUprava.Forme {
         }
 
         private void btnPolicajac_Click(object sender, EventArgs e) {
-            Policajci P = new Policajci();
+            PolicajciForm P = new PolicajciForm();
             P.ShowDialog();
         }
 
@@ -50,8 +39,10 @@ namespace PolicijskaUprava.Forme {
         }
 
         private void btnTehnickoLice_Click(object sender, EventArgs e) {
-            SvaTehnickaLicaFrom STLF = new SvaTehnickaLicaFrom();
+            //SvaTehnickaLicaFrom STLF = new SvaTehnickaLicaFrom();
+            TehnickaLicaForm STLF = new();
             STLF.ShowDialog();
+            
         }
     }
 }

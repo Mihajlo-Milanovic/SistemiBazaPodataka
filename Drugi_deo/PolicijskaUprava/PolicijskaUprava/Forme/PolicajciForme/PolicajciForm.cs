@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace PolicijskaUprava.Forme
 {
-    public partial class Policajci : Form
+    public partial class PolicajciForm : Form
     {
         public static List<PolicajacView> policajci;
-        public Policajci()
+        public PolicajciForm()
         {
             InitializeComponent();
             PopuniTabelu();
@@ -56,9 +56,9 @@ namespace PolicijskaUprava.Forme
             }
             else
             {
-                MessageBox.Show("Mora da se selektuje neka policijska stanica!");
+                MessageBox.Show("Mora da se selektuje neki policajac!");
                 return;
             }
-        }
+      }
     }
 }

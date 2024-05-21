@@ -1,6 +1,6 @@
 ﻿namespace PolicijskaUprava.Forme
 {
-    partial class Policajci
+    partial class PolicajciForm
     {
         /// <summary>
         /// Required designer variable.
