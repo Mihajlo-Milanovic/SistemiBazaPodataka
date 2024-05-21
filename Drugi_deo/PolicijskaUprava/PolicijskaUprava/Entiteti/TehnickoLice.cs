@@ -10,8 +10,17 @@
 
         public TehnickoLice() { }
 
+        public TehnickoLice(string ime, string prezime, int id = -1) {
+
+            Id = id;
+            Ime = ime;
+            Prezime = prezime;
+        }
+
         public override string ToString() {
-            return "ID tehnickog lica: " + Id;
+            return "ID tehnickog lica: " + Id
+                + "\nIme: " + Ime
+                + "\nPrezime: " + Prezime;
         }
     }
 }
