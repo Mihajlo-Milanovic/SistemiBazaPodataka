@@ -1,6 +1,6 @@
 ﻿namespace PolicijskaUprava.Mapiranja {
 
-    class Tehnicko_liceMapiranja : ClassMap<Tehnicko_lice> {
+    class Tehnicko_liceMapiranja : ClassMap<TehnickoLice> {
     
         public Tehnicko_liceMapiranja() {
             Table("TEHNICKO_LICE");

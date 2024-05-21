@@ -15,10 +15,10 @@ namespace PolicijskaUprava.Veze_Vise_Na_Vise
     }
     public class OdrzavaId
     {
-        public virtual Tehnicko_lice Tehnicar { get; set; }
-        public virtual Alarmni_sistem AlarmniSistem { get; set; }
+        public virtual TehnickoLice Tehnicar { get; set; }
+        public virtual AlarmniSistem AlarmniSistem { get; set; }
 
-        public OdrzavaId(Tehnicko_lice tehnicar, Alarmni_sistem alarmni) 
+        public OdrzavaId(TehnickoLice tehnicar, AlarmniSistem alarmni) 
         {
             Tehnicar = tehnicar ;
             AlarmniSistem = alarmni;

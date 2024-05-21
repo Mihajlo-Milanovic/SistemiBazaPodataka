@@ -1,5 +1,7 @@
 ﻿namespace PolicijskaUprava.Entiteti {
+
     public class PolicijskaStanica {
+    
         public virtual int Id { get; set; }
         public virtual string Naziv { get; set; }
         public virtual string Opstina { get; set; }

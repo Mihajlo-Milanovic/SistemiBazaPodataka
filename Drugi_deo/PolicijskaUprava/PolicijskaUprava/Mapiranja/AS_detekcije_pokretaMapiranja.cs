@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PolicijskaUprava.Mapiranja
 {
-    public class AS_detekcije_pokretaMapiranja : SubclassMap<AS_detekcije_pokreta>
+    public class AS_detekcije_pokretaMapiranja : SubclassMap<ASDetekcijePokreta>
     {
         public AS_detekcije_pokretaMapiranja()
         {

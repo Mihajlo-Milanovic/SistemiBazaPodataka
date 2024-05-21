@@ -258,7 +258,7 @@ namespace PolicijskaUprava {
 
                // IList<Alarmni_sistem> alarmniSistemi = s.QueryOver<Alarmni_sistem>().List<Alarmni_sistem>();
 
-                Alarmni_sistem al = s.Load<Alarmni_sistem>(4);
+                AlarmniSistem al = s.Load<AlarmniSistem>(4);
 
                 //foreach(Alarmni_sistem a in alarmniSistemi)
                 //{

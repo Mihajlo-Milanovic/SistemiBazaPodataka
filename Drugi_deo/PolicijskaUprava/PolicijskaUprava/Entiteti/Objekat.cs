@@ -1,6 +1,4 @@
-﻿using PolicijskaUprava.Veze_Vise_Na_Vise;
-
-namespace PolicijskaUprava.Entiteti
+﻿namespace PolicijskaUprava.Entiteti
 {
     public class Objekat
     {
@@ -15,10 +13,10 @@ namespace PolicijskaUprava.Entiteti
 
         public virtual IList<PolicijskaIntervencija> Intervencije { get; set; }
 
-        public virtual IList<Alarmni_sistem> AlarmniSistemi { get; set; }
+        public virtual IList<AlarmniSistem> AlarmniSistemi { get; set; }
 
         public Objekat() { 
-            AlarmniSistemi=new List<Alarmni_sistem>();
+            AlarmniSistemi=new List<AlarmniSistem>();
             Intervencije = new List<PolicijskaIntervencija>();
         
         }

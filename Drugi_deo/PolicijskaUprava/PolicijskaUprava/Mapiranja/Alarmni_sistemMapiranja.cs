@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PolicijskaUprava.Mapiranja
 {
-    class Alarmni_sistemMapiranja : ClassMap<Alarmni_sistem>
+    class Alarmni_sistemMapiranja : ClassMap<AlarmniSistem>
     {
         public Alarmni_sistemMapiranja()
         {
@@ -17,16 +17,16 @@ namespace PolicijskaUprava.Mapiranja
 
             Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();
            
-            Map(x => x.Serijski_broj, "SERIJSKI_BROJ");
+            Map(x => x.SerijskiBroj, "SERIJSKI_BROJ");
             Map(x => x.Proizvodjac, "PROIZVODJAC");
             Map(x => x.Model, "MODEL");
-            Map(x => x.Godina_proizvodnje, "GODINA_PROIZVODNJE");
+            Map(x => x.GodinaProizvodnje, "GODINA_PROIZVODNJE");
 
 
-            Map(x => x.Datum_instalacije, "DATUM_INSTALACIJE");
-            Map(x => x.Datum_poslednjeg_atesta, "DATUM_POSLEDNJEG_ATESTA");
-            Map(x => x.Datum_poslednjeg_servisiranja, "DATUM_POSLEDNJEG_SERVISIRANJA");
-            Map(x => x.Opis_otklonjenog_kvara, "OPIS_OTKLONJENOG_KVARA");
+            Map(x => x.DatumInstalacije, "DATUM_INSTALACIJE");
+            Map(x => x.DatumPoslednjegAtesta, "DATUM_POSLEDNJEG_ATESTA");
+            Map(x => x.DatumPoslednjegServisiranja, "DATUM_POSLEDNJEG_SERVISIRANJA");
+            Map(x => x.OpisOtklonjenogKvara, "OPIS_OTKLONJENOG_KVARA");
 
             References(x => x.PripadaObjektu).Column("OBJEKAT_ID").LazyLoad();
 
