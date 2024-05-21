@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listView1 = new ListView();
+            ListeStanice = new ListView();
             ID = new ColumnHeader();
             Naziv = new ColumnHeader();
             Opstina = new ColumnHeader();
@@ -37,18 +37,18 @@
             Broj_vozila = new ColumnHeader();
             SuspendLayout();
             // 
-            // listView1
+            // ListeStanice
             // 
-            listView1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            listView1.Columns.AddRange(new ColumnHeader[] { ID, Naziv, Opstina, Adresa, Datum_osnivanja, Broj_vozila });
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Location = new System.Drawing.Point(12, 12);
-            listView1.Name = "listView1";
-            listView1.Size = new System.Drawing.Size(755, 197);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            ListeStanice.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            ListeStanice.Columns.AddRange(new ColumnHeader[] { ID, Naziv, Opstina, Adresa, Datum_osnivanja, Broj_vozila });
+            ListeStanice.FullRowSelect = true;
+            ListeStanice.GridLines = true;
+            ListeStanice.Location = new System.Drawing.Point(12, 12);
+            ListeStanice.Name = "ListeStanice";
+            ListeStanice.Size = new System.Drawing.Size(755, 197);
+            ListeStanice.TabIndex = 0;
+            ListeStanice.UseCompatibleStateImageBehavior = false;
+            ListeStanice.View = View.Details;
             // 
             // ID
             // 
@@ -86,7 +86,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
             ClientSize = new System.Drawing.Size(779, 421);
-            Controls.Add(listView1);
+            Controls.Add(ListeStanice);
             Margin = new Padding(4, 3, 4, 3);
             Name = "PolicijskeStaniceFrom";
             Text = "PolicijskeStaniceFrom";
@@ -95,7 +95,7 @@
 
         #endregion
 
-        private ListView listView1;
+        private ListView ListeStanice;
         private ColumnHeader ID;
         private ColumnHeader Naziv;
         private ColumnHeader Opstina;

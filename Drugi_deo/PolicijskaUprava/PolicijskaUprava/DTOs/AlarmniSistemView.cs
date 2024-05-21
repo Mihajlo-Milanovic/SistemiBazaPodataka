@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PolicijskaUprava.DTOs {
+﻿namespace PolicijskaUprava.DTOs {
 	public class AlarmniSistemView {
+
+
+
+		#region Properties
 
 		public virtual int Id { get; set; }
 		public virtual string SerijskiBroj { get; set; }
@@ -17,12 +15,14 @@ namespace PolicijskaUprava.DTOs {
 		public virtual DateTime DatumPoslednjegServisiranja { get; set; }
 		public virtual string OpisOtklonjenogKvara { get; set; }
 		public virtual string Tip { get; set; }
+
 		public virtual int PripadaObjektuId { get; set; }
 
-		//public virtual IList<Odrzava> Odrzavan { get; set; }
+		#endregion
 
+		#region Constructors
 
-		public AlarmniSistemView() {}
+		public AlarmniSistemView() { }
 
 		//AlarmniSistemView(int id, string serijskiBroj, string proizvodjac, string model, DateTime godinaProizvodnje, DateTime datumInstalacije,
 		//	DateTime datumPoslednjegAtesta, DateTime datumPoslednjegServisiranja, string opisOtklonjenogKvara, string tip, Objekat pripadaObjektu) {
@@ -53,7 +53,13 @@ namespace PolicijskaUprava.DTOs {
 			OpisOtklonjenogKvara = a.OpisOtklonjenogKvara;
 			Tip = a.Tip;
 
-			PripadaObjektuId = a.PripadaObjektu.Id;
+			if (a.PripadaObjektu != null)
+				PripadaObjektuId = a.PripadaObjektu.Id;
+			else
+				PripadaObjektuId = -1;
 		}
+
+		#endregion
+
 	}
 }

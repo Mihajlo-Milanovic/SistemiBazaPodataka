@@ -13,7 +13,7 @@ namespace PolicijskaUprava.Forme
 {
     public partial class Policajci : Form
     {
-        public static List<Policajac> policajci;
+        public static List<PolicajacView> policajci;
         public Policajci()
         {
             InitializeComponent();
@@ -25,21 +25,17 @@ namespace PolicijskaUprava.Forme
             ListaPolicajaca.Items.Clear();
             policajci = DTOManager.vratiSvePolicajce();
 
-            foreach (Policajac p in policajci)
+            foreach (var p in policajci)
             {
-                string Sefuje = p.SefujeStanicom != null ? p.SefujeStanicom.Id.ToString() : "NIJE SEF";
-                string Zamenik = p.ZamenikStanice != null ? p.ZamenikStanice.Id.ToString() : "NIJE ZAMENIK";
-
                 ListViewItem item = new ListViewItem(new string[] {p.Id.ToString(), p.Ime, p.ImeRoditelja, p.Prezime, p.JMBG, p.DatumRodjenja.ToShortDateString(), p.Adresa,
-                        p.DatumPrijemaUSluzbu.ToShortDateString(), p.Stanica.Naziv, Sefuje,Zamenik, p.Tip});
+                        p.DatumPrijemaUSluzbu.ToShortDateString(), p.StanicaNaziv, p.SefujeStanicomNaziv,p.ZamenikStaniceNaziv, p.Tip});
                 ListaPolicajaca.Items.Add(item);
 
             }
             ListaPolicajaca.Refresh();
         }
 
-
-        private void btnDodajPolicajca_Click(object sender, EventArgs e)
+        private void btnDodajPolicajca_Click_1(object sender, EventArgs e)
         {
 
         }
@@ -53,7 +49,7 @@ namespace PolicijskaUprava.Forme
 
 
         //// OVO TREBA DA IDE U DTOManager I DA SE NAPRAVI NOVA KLASA PolicajacPregled !!!!!!!!
-       
+
 
     }
 }

@@ -4,9 +4,9 @@ namespace PolicijskaUprava.DTOs
 {
     public class DTOManager
     {
-        public static List<Policajac> vratiSvePolicajce()
+        public static List<PolicajacView> vratiSvePolicajce()
         {
-            List<Policajac> Policajci = new List<Policajac>();
+            List<PolicajacView> Policajci = new();
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -15,32 +15,32 @@ namespace PolicijskaUprava.DTOs
 
                 foreach (var p in sviPolicajci)
                 {
-                    
-                    //if (p.GetType() == typeof(Patrolni_policajac))
-                    //{
-                    //    Patrolni_policajac policajac = (Patrolni_policajac)p;
-                    //    Policajci.Add(policajac);
-                    //}
-                    //else if (p.GetType() == typeof(Policajac_pozornik))
-                    //{
-                    //    Policajac_pozornik policajac = (Policajac_pozornik)p;
-                    //    Policajci.Add(policajac);
-                    //}
-                    //else if (p.GetType() == typeof(Radnik_u_upravi))
-                    //{
-                    //    Radnik_u_upravi policajac = (Radnik_u_upravi)p;
-                    //    Policajci.Add(policajac);
-                    //}
-                    //else if(p.GetType() == typeof(Skolski_policajac))
-                    //{
-                    //    Skolski_policajac policajac = (Skolski_policajac)p;
-                    //    Policajci.Add(policajac);
-                    //}
-                    //else if (p.GetType() == typeof(P_za_vanredne_situacije))
-                    //{
-                    //    P_za_vanredne_situacije policajac = (P_za_vanredne_situacije)p;
-                    //    Policajci.Add(policajac);
-                    //}
+
+                    if (p.GetType() == typeof(PatrolniPolicajac))
+                    {
+                        PatrolniPolicajacView policajac = new((PatrolniPolicajac)p);
+                        Policajci.Add(policajac);
+                    }
+                    else if (p.GetType() == typeof(PolicajacPozornik))
+                    {
+                        PolicajacPozornikView policajac = new((PolicajacPozornik)p);
+                        Policajci.Add(policajac);
+                    }
+                    else if (p.GetType() == typeof(RadnikUUpravi))
+                    {
+                        RadnikUUpraviView policajac = new ((RadnikUUpravi)p);
+                        Policajci.Add(policajac);
+                    }
+                    else if (p.GetType() == typeof(SkolskiPolicajac))
+                    {
+                        SkolskiPolicajacView policajac = new((SkolskiPolicajac)p);
+                        Policajci.Add(policajac);
+                    }
+                    else if (p.GetType() == typeof(PZaVanredneSituacije))
+                    {
+                        PZaVanredneSituacijeView policajac = new((PZaVanredneSituacije)p);
+                        Policajci.Add(policajac);
+                    }
 
                 }
 
@@ -52,6 +52,29 @@ namespace PolicijskaUprava.DTOs
             }
 
             return Policajci;
+        }
+        public static List<PolicijskaStanicaView> vratiSvePolicijskeStanice()
+        {
+            List<PolicijskaStanicaView> Stanice = new();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IList<PolicijskaStanica> sveStanice = s.CreateQuery("from PolicijskaStanica").List<PolicijskaStanica>();
+
+                foreach (var sS in sveStanice)
+                {
+                    Stanice.Add(new PolicijskaStanicaView(sS));
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.FormatExceptionMessage());
+            }
+
+            return Stanice;
         }
 
     }

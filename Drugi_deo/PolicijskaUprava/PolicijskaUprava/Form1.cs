@@ -62,7 +62,7 @@ namespace PolicijskaUprava {
             {
                 ISession s = DataLayer.GetSession();
 
-                Tehnicko_lice tl = s.Load<Tehnicko_lice>(102);
+                TehnickoLice tl = s.Load<TehnickoLice>(102);
 
                 MessageBox.Show(tl.ToString());
 

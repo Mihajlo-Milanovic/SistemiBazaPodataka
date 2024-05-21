@@ -69,7 +69,7 @@
             // 
             Ime.Text = "Ime";
             // 
-            // ImeRoditelja
+            // Ime_roditelja
             // 
             Ime_roditelja.Text = "Ime roditelja";
             Ime_roditelja.Width = 80;
@@ -82,7 +82,7 @@
             // 
             JMBG.Text = "JMBG";
             // 
-            // DatumRodjenja
+            // Datum_rodjenja
             // 
             Datum_rodjenja.Text = "Datum rodjenja";
             Datum_rodjenja.Width = 100;
@@ -131,6 +131,7 @@
             btnDodajPolicajca.TabIndex = 5;
             btnDodajPolicajca.Text = "Dodatj policajca";
             btnDodajPolicajca.UseVisualStyleBackColor = false;
+            btnDodajPolicajca.Click += btnDodajPolicajca_Click_1;
             // 
             // Policajci
             // 
