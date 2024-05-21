@@ -10,7 +10,14 @@ U nastavku ce biti navedene sve promene nad bazom.
 ALTER TABLE "ALARMNI_SISTEM" ADD CONSTRAINT "ALARMNI_SISTEM_TIP_CHK" 
 CHECK (TIP IN ('ULTRAZVUCNI','DETEKCIJEA POKRETA', 'DETEKCIJA TOPLOTNOG ODRAZA')) ENABLE;
 
+ALTER TABLE BROJ_TELEFONA
+MODIFY BROJ VARCHAR2(20);
 
+ALTER TABLE TEHNICKO_LICE
+ADD (
+    IME VARCHAR2(20),
+    PREZIME VARCHAR2(20)
+);
 ---------------------------------------------------------------------------------------------------------
  --------------------------------------------SEQUENCES----------------------------------------------------
  ---------------------------------------------------------------------------------------------------------

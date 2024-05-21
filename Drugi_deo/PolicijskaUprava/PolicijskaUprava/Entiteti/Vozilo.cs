@@ -21,14 +21,14 @@
             Model = string.Empty;
         }
 
-        //public Vozilo(string reg_oznaka, string boja, string tip, string proiz, string model)
-        //{
-        //    RegOznaka = reg_oznaka;
-        //    Boja = boja;
-        //    Tip = tip;
-        //    Proizvodjac = proiz;
-        //    Model = model;
-        //}
+        public Vozilo(string reg_oznaka, string boja, string tip, string proiz, string model)
+        {
+            RegOznaka = reg_oznaka;
+            Boja = boja;
+            Tip = tip;
+            Proizvodjac = proiz;
+            Model = model;
+        }
 
         public override string ToString() {
             return "Registarska oznaka: " + RegOznaka + "\nBoja: " + Boja + "\nTip: " + Tip + "\nProizvodjac: " + Proizvodjac + "\nModel: " + Model;

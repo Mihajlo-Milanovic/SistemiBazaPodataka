@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PolicijskaUprava.Forme
 {
-    public partial class SvaTehnickaLicaFrom : Form
+    public partial class SvaTehnickaLicaForm : Form
     {
-        public SvaTehnickaLicaFrom()
+        public SvaTehnickaLicaForm()
         {
             InitializeComponent();
         }

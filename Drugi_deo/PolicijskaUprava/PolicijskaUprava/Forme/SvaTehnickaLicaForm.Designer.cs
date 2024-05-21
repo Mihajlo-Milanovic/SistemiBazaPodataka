@@ -1,6 +1,6 @@
 ﻿namespace PolicijskaUprava.Forme
 {
-    partial class SvaTehnickaLicaFrom
+    partial class SvaTehnickaLicaForm
     {
         /// <summary>
         /// Required designer variable.

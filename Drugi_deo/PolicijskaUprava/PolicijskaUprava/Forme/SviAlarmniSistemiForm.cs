@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PolicijskaUprava.Forme
 {
-    public partial class SviAlarmniSistemiFrom : Form
+    public partial class SviAlarmniSistemiForm : Form
     {
-        public SviAlarmniSistemiFrom()
+        public SviAlarmniSistemiForm()
         {
             InitializeComponent();
             PopuniTabelu();

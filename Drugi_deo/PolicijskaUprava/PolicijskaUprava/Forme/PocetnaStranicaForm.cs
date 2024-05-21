@@ -1,4 +1,5 @@
 ﻿using NHibernate.Linq.Visitors.ResultOperatorProcessors;
+using PolicijskaUprava.Forme.PolicajciForme;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +12,9 @@ using System.Windows.Forms;
 
 namespace PolicijskaUprava.Forme {
 
-    public partial class PocetnaStranica : Form {
+    public partial class PocetnaStranicaForm : Form {
 
-        public PocetnaStranica() {
+        public PocetnaStranicaForm() {
             InitializeComponent();
         }
 
@@ -40,17 +41,17 @@ namespace PolicijskaUprava.Forme {
         }
 
         private void btnVozilo_Click(object sender, EventArgs e) {
-            MessageBox.Show("Ovde ide forma VozilaFrom...");
+           new VozilaForm().ShowDialog();
         }
 
         private void btnAlarmniSistem_Click(object sender, EventArgs e) {
 
-            SviAlarmniSistemiFrom SASF = new SviAlarmniSistemiFrom();
+            SviAlarmniSistemiForm SASF = new SviAlarmniSistemiForm();
             SASF.ShowDialog();
         }
 
         private void btnTehnickoLice_Click(object sender, EventArgs e) {
-            SvaTehnickaLicaFrom STLF = new SvaTehnickaLicaFrom();
+            SvaTehnickaLicaForm STLF = new SvaTehnickaLicaForm();
             STLF.ShowDialog();
         }
     }
