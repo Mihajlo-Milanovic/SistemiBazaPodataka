@@ -1,6 +1,6 @@
 ﻿namespace PolicijskaUprava.Entiteti
 {
-    public abstract class AlarmniSistem
+    public class AlarmniSistem
     {
         public virtual int Id { get; set; }
         public virtual string SerijskiBroj { get; set; }

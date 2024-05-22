@@ -1,5 +1,8 @@
 ﻿
 
+using NHibernate.Criterion;
+using NHibernate.Util;
+
 namespace PolicijskaUprava.DTOs {
     public class DTOManager {
         public static List<PolicajacView> vratiSvePolicajce() {
@@ -142,14 +145,12 @@ namespace PolicijskaUprava.DTOs {
             }
         }
 
-        public static bool izmeniTehnickoLice(string ime, string prezime, int id) {
-
-            TehnickoLice tl = new(ime, prezime, id);
+        public static bool izmeniTehnickoLice(TehnickoLice t) {
 
             try {
                 ISession s = DataLayer.GetSession();
 
-                s.Update(tl);
+                s.Update(t);
 
                 s.Flush();
 
@@ -178,5 +179,118 @@ namespace PolicijskaUprava.DTOs {
                 ec.FormatExceptionMessage();
             }
         }
-    }
+
+        public static List<AlarmniSistemView> vratiSveAlarmneSistemeZaObjekat(int id) {
+
+            List<AlarmniSistemView> asv = new();
+
+            Objekat o = new();
+            o.Id = id;
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				IList<AlarmniSistem> alarmniSistemi = s.CreateCriteria<AlarmniSistem>()
+                                                        .Add(Restrictions.Eq("PripadaObjektu", o))
+                                                        .List<AlarmniSistem>();
+
+                foreach (var aa in alarmniSistemi) 
+                	asv.Add(new AlarmniSistemView(aa));
+
+
+				s.Close();
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+			}
+
+			return asv;
+        }
+
+        public static AlarmniSistem vratiAlarmniSistem(int id) {
+
+            IList<AlarmniSistem> a = null;
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				string hql = "from AlarmniSistem a where a.Id = :value";
+				IQuery query = s.CreateQuery(hql);
+				query.SetParameter("value", id);
+
+				a = query.List<AlarmniSistem>();
+
+                s.Close();
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+			}
+
+                if (a != null)
+                    return a.First();
+                else
+                    return null;
+		}
+
+        public static bool dodajAlarmniSistem(AlarmniSistem a) {
+
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				s.Save(a);
+
+				s.Flush();
+
+				s.Close();
+
+				return true;
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+			}
+		}
+
+		public static bool izmeniAlarmniSistem(AlarmniSistem a) {
+
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				s.SaveOrUpdate(a);
+
+				s.Flush();
+
+				s.Close();
+
+				return true;
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+			}
+		}
+
+        public static bool obrisiAlarmniSistem(AlarmniSistem a) {
+
+			try {
+
+                ISession s = DataLayer.GetSession();
+
+                s.Delete(a);
+
+                s.Flush();
+
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.FormatExceptionMessage());
+                return false;
+            }
+
+        }
+	}
 }

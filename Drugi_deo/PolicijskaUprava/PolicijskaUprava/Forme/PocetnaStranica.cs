@@ -1,4 +1,6 @@
-﻿namespace PolicijskaUprava.Forme {
+﻿using PolicijskaUprava.Forme.AlarmniSistemForme;
+
+namespace PolicijskaUprava.Forme {
 
     public partial class PocetnaStranica : Form {
 
@@ -34,8 +36,8 @@
 
         private void btnAlarmniSistem_Click(object sender, EventArgs e) {
 
-            SviAlarmniSistemiFrom SASF = new SviAlarmniSistemiFrom();
-            SASF.ShowDialog();
+            AlarmniSistemForm ASF = new(4);
+            ASF.ShowDialog();
         }
 
         private void btnTehnickoLice_Click(object sender, EventArgs e) {

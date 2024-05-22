@@ -1,5 +1,5 @@
 ﻿namespace PolicijskaUprava.DTOs {
-	public class AlarmniSistemView {
+	public class AlarmniSistemView : IComparable<AlarmniSistemView> {
 
 
 		#region Properties
@@ -13,7 +13,7 @@
 		public virtual DateTime DatumPoslednjegAtesta { get; set; }
 		public virtual DateTime DatumPoslednjegServisiranja { get; set; }
 		public virtual string OpisOtklonjenogKvara { get; set; }
-		public virtual string Tip { get; set; }
+		//public virtual string Tip { get; set; }
 
 		public virtual int PripadaObjektuId { get; set; }
 
@@ -50,7 +50,7 @@
 			DatumPoslednjegAtesta = a.DatumPoslednjegAtesta;
 			DatumPoslednjegServisiranja = a.DatumPoslednjegServisiranja;
 			OpisOtklonjenogKvara = a.OpisOtklonjenogKvara;
-			Tip = a.Tip;
+			//Tip = a.Tip;
 
 			if (a.PripadaObjektu != null)
 				PripadaObjektuId = a.PripadaObjektu.Id;
@@ -59,6 +59,17 @@
 		}
 
 		#endregion
+
+
+		public int CompareTo(AlarmniSistemView other) {
+
+			if (this.Id < other.Id)
+				return -1;
+			else if (this.Id > other.Id)
+				return 1;
+			else
+				return 0;
+		}
 
 	}
 }
