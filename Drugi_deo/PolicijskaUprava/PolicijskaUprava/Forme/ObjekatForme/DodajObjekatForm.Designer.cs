@@ -56,117 +56,119 @@
             groupBox1.Controls.Add(lblPovrsina);
             groupBox1.Controls.Add(txtTip);
             groupBox1.Controls.Add(lblTip);
-            groupBox1.Location = new System.Drawing.Point(12, 31);
+            groupBox1.Location = new System.Drawing.Point(14, 29);
             groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new System.Drawing.Size(425, 307);
+            groupBox1.Size = new System.Drawing.Size(478, 292);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Podaci o objektu";
             // 
             // txtPrezime
             // 
-            txtPrezime.Location = new System.Drawing.Point(258, 245);
+            txtPrezime.Location = new System.Drawing.Point(290, 233);
             txtPrezime.Margin = new Padding(3, 4, 3, 4);
             txtPrezime.Name = "txtPrezime";
-            txtPrezime.Size = new System.Drawing.Size(137, 27);
+            txtPrezime.Size = new System.Drawing.Size(154, 27);
             txtPrezime.TabIndex = 11;
             // 
             // lblPrezime
             // 
             lblPrezime.AutoSize = true;
-            lblPrezime.Location = new System.Drawing.Point(65, 248);
+            lblPrezime.Location = new System.Drawing.Point(73, 236);
             lblPrezime.Name = "lblPrezime";
-            lblPrezime.Size = new System.Drawing.Size(187, 20);
+            lblPrezime.Size = new System.Drawing.Size(204, 19);
             lblPrezime.TabIndex = 9;
             lblPrezime.Text = "Prezime odgovorne osobe:";
             // 
             // txtIme
             // 
-            txtIme.Location = new System.Drawing.Point(258, 197);
+            txtIme.Location = new System.Drawing.Point(290, 187);
             txtIme.Margin = new Padding(3, 4, 3, 4);
             txtIme.Name = "txtIme";
-            txtIme.Size = new System.Drawing.Size(137, 27);
+            txtIme.Size = new System.Drawing.Size(154, 27);
             txtIme.TabIndex = 8;
             // 
             // lblIme
             // 
             lblIme.AutoSize = true;
-            lblIme.Location = new System.Drawing.Point(93, 200);
+            lblIme.Location = new System.Drawing.Point(105, 190);
             lblIme.Name = "lblIme";
-            lblIme.Size = new System.Drawing.Size(159, 20);
+            lblIme.Size = new System.Drawing.Size(171, 19);
             lblIme.TabIndex = 7;
             lblIme.Text = "Ime odgovorne osobe:";
             // 
             // numPovrsina
             // 
-            numPovrsina.Location = new System.Drawing.Point(258, 149);
+            numPovrsina.Location = new System.Drawing.Point(290, 142);
             numPovrsina.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numPovrsina.Name = "numPovrsina";
-            numPovrsina.Size = new System.Drawing.Size(137, 27);
+            numPovrsina.Size = new System.Drawing.Size(154, 27);
             numPovrsina.TabIndex = 6;
             // 
             // txtAdresa
             // 
-            txtAdresa.Location = new System.Drawing.Point(258, 102);
+            txtAdresa.Location = new System.Drawing.Point(290, 97);
             txtAdresa.Margin = new Padding(3, 4, 3, 4);
             txtAdresa.Name = "txtAdresa";
-            txtAdresa.Size = new System.Drawing.Size(137, 27);
+            txtAdresa.Size = new System.Drawing.Size(154, 27);
             txtAdresa.TabIndex = 5;
             // 
             // lblAdresa
             // 
             lblAdresa.AutoSize = true;
-            lblAdresa.Location = new System.Drawing.Point(195, 109);
+            lblAdresa.Location = new System.Drawing.Point(219, 104);
             lblAdresa.Name = "lblAdresa";
-            lblAdresa.Size = new System.Drawing.Size(62, 20);
+            lblAdresa.Size = new System.Drawing.Size(71, 19);
             lblAdresa.TabIndex = 4;
             lblAdresa.Text = "Adresa: ";
             // 
             // lblPovrsina
             // 
             lblPovrsina.AutoSize = true;
-            lblPovrsina.Location = new System.Drawing.Point(186, 156);
+            lblPovrsina.Location = new System.Drawing.Point(209, 148);
             lblPovrsina.Name = "lblPovrsina";
-            lblPovrsina.Size = new System.Drawing.Size(66, 20);
+            lblPovrsina.Size = new System.Drawing.Size(77, 19);
             lblPovrsina.TabIndex = 4;
             lblPovrsina.Text = "Povrsina:";
             // 
             // txtTip
             // 
-            txtTip.Location = new System.Drawing.Point(258, 54);
+            txtTip.Location = new System.Drawing.Point(290, 51);
             txtTip.Margin = new Padding(3, 4, 3, 4);
             txtTip.Name = "txtTip";
-            txtTip.Size = new System.Drawing.Size(137, 27);
+            txtTip.Size = new System.Drawing.Size(154, 27);
             txtTip.TabIndex = 1;
             // 
             // lblTip
             // 
             lblTip.AutoSize = true;
-            lblTip.Location = new System.Drawing.Point(219, 61);
+            lblTip.Location = new System.Drawing.Point(246, 58);
             lblTip.Name = "lblTip";
-            lblTip.Size = new System.Drawing.Size(33, 20);
+            lblTip.Size = new System.Drawing.Size(35, 19);
             lblTip.TabIndex = 0;
             lblTip.Text = "Tip:";
             // 
             // btnDodaj
             // 
-            btnDodaj.Location = new System.Drawing.Point(69, 335);
+            btnDodaj.Location = new System.Drawing.Point(78, 318);
             btnDodaj.Name = "btnDodaj";
-            btnDodaj.Size = new System.Drawing.Size(307, 61);
+            btnDodaj.Size = new System.Drawing.Size(345, 58);
             btnDodaj.TabIndex = 2;
-            btnDodaj.Text = "DODAJ!!!";
+            btnDodaj.Text = "Dodaj";
             btnDodaj.UseVisualStyleBackColor = true;
             btnDodaj.Click += btnDodaj_Click;
             // 
             // DodajObjekatForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 450);
+            BackColor = System.Drawing.Color.DeepSkyBlue;
+            ClientSize = new System.Drawing.Size(900, 428);
             Controls.Add(btnDodaj);
             Controls.Add(groupBox1);
+            Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             Name = "DodajObjekatForm";
             Text = "DodajObjekatForm";
             groupBox1.ResumeLayout(false);

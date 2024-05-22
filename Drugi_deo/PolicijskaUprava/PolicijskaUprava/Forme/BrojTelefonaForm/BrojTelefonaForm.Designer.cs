@@ -31,49 +31,67 @@
             components = new System.ComponentModel.Container();
             dgvBrojevi = new DataGridView();
             bindingSource1 = new BindingSource(components);
-            label1 = new Label();
+            btnDodaj = new Button();
+            btnObrisi = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvBrojevi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // dgvBrojevi
             // 
+            dgvBrojevi.BackgroundColor = System.Drawing.Color.SkyBlue;
             dgvBrojevi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBrojevi.Location = new System.Drawing.Point(33, 29);
+            dgvBrojevi.Location = new System.Drawing.Point(37, 28);
             dgvBrojevi.Name = "dgvBrojevi";
             dgvBrojevi.RowHeadersWidth = 51;
-            dgvBrojevi.Size = new System.Drawing.Size(723, 188);
+            dgvBrojevi.Size = new System.Drawing.Size(813, 179);
             dgvBrojevi.TabIndex = 0;
             // 
-            // label1
+            // btnDodaj
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(321, 254);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(147, 20);
-            label1.TabIndex = 1;
-            label1.Text = "NIJE ZAVRSENO !!!!!!!";
+            btnDodaj.BackColor = System.Drawing.Color.Cyan;
+            btnDodaj.Location = new System.Drawing.Point(234, 239);
+            btnDodaj.Name = "btnDodaj";
+            btnDodaj.Size = new System.Drawing.Size(148, 70);
+            btnDodaj.TabIndex = 2;
+            btnDodaj.Text = "Dodaj novi broj";
+            btnDodaj.UseVisualStyleBackColor = false;
+            btnDodaj.Click += btnDodaj_Click;
+            // 
+            // btnObrisi
+            // 
+            btnObrisi.BackColor = System.Drawing.Color.Cyan;
+            btnObrisi.Location = new System.Drawing.Point(473, 239);
+            btnObrisi.Name = "btnObrisi";
+            btnObrisi.Size = new System.Drawing.Size(148, 70);
+            btnObrisi.TabIndex = 3;
+            btnObrisi.Text = "Obrisi broj";
+            btnObrisi.UseVisualStyleBackColor = false;
+            btnObrisi.Click += btnObrisi_Click;
             // 
             // BrojTelefonaForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 450);
-            Controls.Add(label1);
+            BackColor = System.Drawing.Color.DeepSkyBlue;
+            ClientSize = new System.Drawing.Size(900, 428);
+            Controls.Add(btnObrisi);
+            Controls.Add(btnDodaj);
             Controls.Add(dgvBrojevi);
+            Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             Name = "BrojTelefonaForm";
             Text = "BrojTelefonaForm";
             Load += BrojTelefonaForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBrojevi).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dgvBrojevi;
         private BindingSource bindingSource1;
-        private Label label1;
+        private Button btnDodaj;
+        private Button btnObrisi;
     }
 }

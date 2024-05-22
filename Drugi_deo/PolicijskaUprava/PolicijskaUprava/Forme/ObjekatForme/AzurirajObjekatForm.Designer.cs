@@ -56,41 +56,48 @@
             gbxParametri.Controls.Add(lblPovrsina);
             gbxParametri.Controls.Add(txtIme);
             gbxParametri.Controls.Add(label3);
-            gbxParametri.Location = new System.Drawing.Point(57, 35);
+            gbxParametri.Location = new System.Drawing.Point(64, 33);
+            gbxParametri.Margin = new Padding(4, 3, 4, 3);
             gbxParametri.Name = "gbxParametri";
-            gbxParametri.Size = new System.Drawing.Size(371, 363);
+            gbxParametri.Padding = new Padding(4, 3, 4, 3);
+            gbxParametri.Size = new System.Drawing.Size(418, 345);
             gbxParametri.TabIndex = 14;
             gbxParametri.TabStop = false;
             gbxParametri.Text = "Parametri";
             // 
             // numPovrsina
             // 
-            numPovrsina.Location = new System.Drawing.Point(182, 111);
+            numPovrsina.Location = new System.Drawing.Point(204, 105);
+            numPovrsina.Margin = new Padding(4, 3, 4, 3);
+            numPovrsina.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numPovrsina.Name = "numPovrsina";
-            numPovrsina.Size = new System.Drawing.Size(125, 27);
+            numPovrsina.Size = new System.Drawing.Size(140, 27);
             numPovrsina.TabIndex = 10;
             // 
             // txtTip
             // 
-            txtTip.Location = new System.Drawing.Point(182, 165);
+            txtTip.Location = new System.Drawing.Point(204, 157);
+            txtTip.Margin = new Padding(4, 3, 4, 3);
             txtTip.Name = "txtTip";
-            txtTip.Size = new System.Drawing.Size(125, 27);
+            txtTip.Size = new System.Drawing.Size(140, 27);
             txtTip.TabIndex = 4;
             // 
             // txtAdresa
             // 
-            txtAdresa.Location = new System.Drawing.Point(182, 54);
+            txtAdresa.Location = new System.Drawing.Point(204, 51);
+            txtAdresa.Margin = new Padding(4, 3, 4, 3);
             txtAdresa.Name = "txtAdresa";
-            txtAdresa.Size = new System.Drawing.Size(125, 27);
+            txtAdresa.Size = new System.Drawing.Size(140, 27);
             txtAdresa.TabIndex = 0;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.ForeColor = System.Drawing.Color.Black;
-            label5.Location = new System.Drawing.Point(55, 295);
+            label5.Location = new System.Drawing.Point(62, 280);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(121, 20);
+            label5.Size = new System.Drawing.Size(131, 19);
             label5.TabIndex = 9;
             label5.Text = "Kontakt prezime:";
             // 
@@ -98,26 +105,29 @@
             // 
             lblAdresa.AutoSize = true;
             lblAdresa.ForeColor = System.Drawing.Color.Black;
-            lblAdresa.Location = new System.Drawing.Point(118, 61);
+            lblAdresa.Location = new System.Drawing.Point(132, 58);
+            lblAdresa.Margin = new Padding(4, 0, 4, 0);
             lblAdresa.Name = "lblAdresa";
-            lblAdresa.Size = new System.Drawing.Size(58, 20);
+            lblAdresa.Size = new System.Drawing.Size(66, 19);
             lblAdresa.TabIndex = 1;
             lblAdresa.Text = "Adresa:";
             // 
             // txtPrezime
             // 
-            txtPrezime.Location = new System.Drawing.Point(182, 288);
+            txtPrezime.Location = new System.Drawing.Point(204, 274);
+            txtPrezime.Margin = new Padding(4, 3, 4, 3);
             txtPrezime.Name = "txtPrezime";
-            txtPrezime.Size = new System.Drawing.Size(125, 27);
+            txtPrezime.Size = new System.Drawing.Size(140, 27);
             txtPrezime.TabIndex = 8;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.ForeColor = System.Drawing.Color.Black;
-            label4.Location = new System.Drawing.Point(84, 232);
+            label4.Location = new System.Drawing.Point(95, 220);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(92, 20);
+            label4.Size = new System.Drawing.Size(99, 19);
             label4.TabIndex = 7;
             label4.Text = "Kontakt ime:";
             // 
@@ -125,46 +135,54 @@
             // 
             lblPovrsina.AutoSize = true;
             lblPovrsina.ForeColor = System.Drawing.Color.Black;
-            lblPovrsina.Location = new System.Drawing.Point(110, 118);
+            lblPovrsina.Location = new System.Drawing.Point(123, 112);
+            lblPovrsina.Margin = new Padding(4, 0, 4, 0);
             lblPovrsina.Name = "lblPovrsina";
-            lblPovrsina.Size = new System.Drawing.Size(66, 20);
+            lblPovrsina.Size = new System.Drawing.Size(77, 19);
             lblPovrsina.TabIndex = 3;
             lblPovrsina.Text = "Povrsina:";
             // 
             // txtIme
             // 
-            txtIme.Location = new System.Drawing.Point(182, 225);
+            txtIme.Location = new System.Drawing.Point(204, 214);
+            txtIme.Margin = new Padding(4, 3, 4, 3);
             txtIme.Name = "txtIme";
-            txtIme.Size = new System.Drawing.Size(125, 27);
+            txtIme.Size = new System.Drawing.Size(140, 27);
             txtIme.TabIndex = 6;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.ForeColor = System.Drawing.Color.Black;
-            label3.Location = new System.Drawing.Point(143, 168);
+            label3.Location = new System.Drawing.Point(161, 160);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(33, 20);
+            label3.Size = new System.Drawing.Size(35, 19);
             label3.TabIndex = 5;
             label3.Text = "Tip:";
             // 
             // btnAzuriraj
             // 
-            btnAzuriraj.Location = new System.Drawing.Point(446, 330);
+            btnAzuriraj.BackColor = System.Drawing.Color.Cyan;
+            btnAzuriraj.Location = new System.Drawing.Point(501, 314);
+            btnAzuriraj.Margin = new Padding(4, 3, 4, 3);
             btnAzuriraj.Name = "btnAzuriraj";
-            btnAzuriraj.Size = new System.Drawing.Size(135, 69);
+            btnAzuriraj.Size = new System.Drawing.Size(152, 66);
             btnAzuriraj.TabIndex = 15;
             btnAzuriraj.Text = "Azuriraj";
-            btnAzuriraj.UseVisualStyleBackColor = true;
+            btnAzuriraj.UseVisualStyleBackColor = false;
             btnAzuriraj.Click += btnAzuriraj_Click;
             // 
             // AzurirajObjekatForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 450);
+            BackColor = System.Drawing.Color.DeepSkyBlue;
+            ClientSize = new System.Drawing.Size(900, 428);
             Controls.Add(btnAzuriraj);
             Controls.Add(gbxParametri);
+            Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "AzurirajObjekatForm";
             Text = "Azuriraj objekat";
             gbxParametri.ResumeLayout(false);

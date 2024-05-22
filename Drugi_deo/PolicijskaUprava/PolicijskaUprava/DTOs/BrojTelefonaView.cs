@@ -10,6 +10,10 @@
 		#region Constructors
 
 		public BrojTelefonaView() { }
+		public BrojTelefonaView(string bt)
+		{
+			Broj = bt;
+		}
 
 		public BrojTelefonaView(BrojTelefona b) {
 

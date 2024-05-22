@@ -441,5 +441,45 @@ namespace PolicijskaUprava.DTOs
                 return null;
             }
         }
+
+        public static void dodajBrojTelefonaZaObjekat(BrojTelefonaView btv, int idObjekta)
+        {
+            try 
+            {
+                ISession s = DataLayer.GetSession();
+                BrojTelefona bt = new BrojTelefona();
+                bt.Id.Broj = btv.Broj;
+                bt.Id.ObjekatZaBroj = s.Load<Objekat>(idObjekta);
+                
+                s.Save(bt);
+                s.Flush();
+                s.Close();
+            }
+            catch(Exception ex) 
+            {
+                ex.FormatExceptionMessage();
+            }
+            
+        }
+
+        public static void ObrisiBroj(string broj,int idObjekta)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                BrojTelefona bt = new BrojTelefona();
+                bt.Id.Broj = broj;
+                bt.Id.ObjekatZaBroj = s.Load<Objekat>(idObjekta);
+
+                s.Delete(bt);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                ex.FormatExceptionMessage();
+            }
+        }
     }
 }

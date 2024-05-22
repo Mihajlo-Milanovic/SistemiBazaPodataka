@@ -105,7 +105,6 @@
         }
         private void btnBroj_Click(object sender, EventArgs e)
         {
-            /*TODO*/
             new BrojTelefonaForm.BrojTelefonaForm((int)dgvObjekti.SelectedRows[0].Cells[0].Value).ShowDialog();
         }
     }

@@ -45,10 +45,11 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             dgvObjekti.BackgroundColor = System.Drawing.Color.LightCyan;
             dgvObjekti.BorderStyle = BorderStyle.Fixed3D;
             dgvObjekti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvObjekti.Location = new System.Drawing.Point(32, 27);
+            dgvObjekti.Location = new System.Drawing.Point(36, 26);
+            dgvObjekti.Margin = new Padding(4, 3, 4, 3);
             dgvObjekti.Name = "dgvObjekti";
             dgvObjekti.RowHeadersWidth = 51;
-            dgvObjekti.Size = new System.Drawing.Size(904, 188);
+            dgvObjekti.Size = new System.Drawing.Size(1203, 179);
             dgvObjekti.TabIndex = 0;
             dgvObjekti.CellClick += dgvObjekti_CellClick;
             dgvObjekti.RowHeaderMouseClick += dgvObjekti_RowHeaderMouseClick;
@@ -56,9 +57,10 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             // btnDodaj
             // 
             btnDodaj.BackColor = System.Drawing.Color.Cyan;
-            btnDodaj.Location = new System.Drawing.Point(32, 238);
+            btnDodaj.Location = new System.Drawing.Point(82, 226);
+            btnDodaj.Margin = new Padding(4, 3, 4, 3);
             btnDodaj.Name = "btnDodaj";
-            btnDodaj.Size = new System.Drawing.Size(158, 61);
+            btnDodaj.Size = new System.Drawing.Size(177, 58);
             btnDodaj.TabIndex = 1;
             btnDodaj.Text = "Dodaj";
             btnDodaj.UseVisualStyleBackColor = false;
@@ -67,9 +69,10 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             // btnAzuriraj
             // 
             btnAzuriraj.BackColor = System.Drawing.Color.Cyan;
-            btnAzuriraj.Location = new System.Drawing.Point(209, 238);
+            btnAzuriraj.Location = new System.Drawing.Point(396, 226);
+            btnAzuriraj.Margin = new Padding(4, 3, 4, 3);
             btnAzuriraj.Name = "btnAzuriraj";
-            btnAzuriraj.Size = new System.Drawing.Size(158, 61);
+            btnAzuriraj.Size = new System.Drawing.Size(177, 58);
             btnAzuriraj.TabIndex = 2;
             btnAzuriraj.Text = "Azuriraj";
             btnAzuriraj.UseVisualStyleBackColor = false;
@@ -78,9 +81,10 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             // btnObrisi
             // 
             btnObrisi.BackColor = System.Drawing.Color.Cyan;
-            btnObrisi.Location = new System.Drawing.Point(386, 238);
+            btnObrisi.Location = new System.Drawing.Point(713, 226);
+            btnObrisi.Margin = new Padding(4, 3, 4, 3);
             btnObrisi.Name = "btnObrisi";
-            btnObrisi.Size = new System.Drawing.Size(158, 61);
+            btnObrisi.Size = new System.Drawing.Size(177, 58);
             btnObrisi.TabIndex = 3;
             btnObrisi.Text = "Obrisi";
             btnObrisi.UseVisualStyleBackColor = false;
@@ -89,25 +93,28 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             // btnBroj
             // 
             btnBroj.BackColor = System.Drawing.Color.Cyan;
-            btnBroj.Location = new System.Drawing.Point(564, 238);
+            btnBroj.Location = new System.Drawing.Point(1012, 226);
+            btnBroj.Margin = new Padding(4, 3, 4, 3);
             btnBroj.Name = "btnBroj";
-            btnBroj.Size = new System.Drawing.Size(158, 61);
+            btnBroj.Size = new System.Drawing.Size(177, 58);
             btnBroj.TabIndex = 4;
             btnBroj.Text = "Dodaj broj telefona odgovorne osobe";
             btnBroj.UseVisualStyleBackColor = false;
-            btnBroj.Click += this.btnBroj_Click;
+            btnBroj.Click += btnBroj_Click;
             // 
             // ObjekatForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
-            ClientSize = new System.Drawing.Size(966, 441);
+            ClientSize = new System.Drawing.Size(1279, 419);
             Controls.Add(btnBroj);
             Controls.Add(btnObrisi);
             Controls.Add(btnAzuriraj);
             Controls.Add(btnDodaj);
             Controls.Add(dgvObjekti);
+            Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "ObjekatForm";
             Text = "Objekat forma";
             Load += ObekatForm_Load;
