@@ -39,6 +39,7 @@
             btnObrisiPolicijskuStanicu = new Button();
             btnIzmeniStanicu = new Button();
             btnDodajPolicajca = new Button();
+            btnDodajObjekat = new Button();
             SuspendLayout();
             // 
             // ListeStanice
@@ -47,9 +48,10 @@
             ListeStanice.Columns.AddRange(new ColumnHeader[] { ID, Naziv, Opstina, Adresa, Datum_osnivanja, Broj_vozila });
             ListeStanice.FullRowSelect = true;
             ListeStanice.GridLines = true;
-            ListeStanice.Location = new System.Drawing.Point(12, 12);
+            ListeStanice.Location = new System.Drawing.Point(14, 16);
+            ListeStanice.Margin = new Padding(3, 4, 3, 4);
             ListeStanice.Name = "ListeStanice";
-            ListeStanice.Size = new System.Drawing.Size(755, 197);
+            ListeStanice.Size = new System.Drawing.Size(862, 261);
             ListeStanice.TabIndex = 0;
             ListeStanice.UseCompatibleStateImageBehavior = false;
             ListeStanice.View = View.Details;
@@ -92,12 +94,12 @@
             btnDodajPolicijskeStenice.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnDodajPolicijskeStenice.FlatStyle = FlatStyle.Flat;
             btnDodajPolicijskeStenice.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnDodajPolicijskeStenice.Location = new System.Drawing.Point(12, 215);
-            btnDodajPolicijskeStenice.Margin = new Padding(4, 3, 4, 3);
+            btnDodajPolicijskeStenice.Location = new System.Drawing.Point(14, 287);
+            btnDodajPolicijskeStenice.Margin = new Padding(5, 4, 5, 4);
             btnDodajPolicijskeStenice.Name = "btnDodajPolicijskeStenice";
-            btnDodajPolicijskeStenice.Size = new System.Drawing.Size(187, 57);
+            btnDodajPolicijskeStenice.Size = new System.Drawing.Size(214, 76);
             btnDodajPolicijskeStenice.TabIndex = 6;
-            btnDodajPolicijskeStenice.Text = "Dodatj policijsku stanicu";
+            btnDodajPolicijskeStenice.Text = "Dodaj policijsku stanicu";
             btnDodajPolicijskeStenice.UseVisualStyleBackColor = false;
             btnDodajPolicijskeStenice.Click += btnDodajPolicijskeStanice_Click;
             // 
@@ -109,10 +111,10 @@
             btnObrisiPolicijskuStanicu.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnObrisiPolicijskuStanicu.FlatStyle = FlatStyle.Flat;
             btnObrisiPolicijskuStanicu.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnObrisiPolicijskuStanicu.Location = new System.Drawing.Point(207, 215);
-            btnObrisiPolicijskuStanicu.Margin = new Padding(4, 3, 4, 3);
+            btnObrisiPolicijskuStanicu.Location = new System.Drawing.Point(237, 287);
+            btnObrisiPolicijskuStanicu.Margin = new Padding(5, 4, 5, 4);
             btnObrisiPolicijskuStanicu.Name = "btnObrisiPolicijskuStanicu";
-            btnObrisiPolicijskuStanicu.Size = new System.Drawing.Size(187, 57);
+            btnObrisiPolicijskuStanicu.Size = new System.Drawing.Size(214, 76);
             btnObrisiPolicijskuStanicu.TabIndex = 7;
             btnObrisiPolicijskuStanicu.Text = "Obrisi policijsku stanicu";
             btnObrisiPolicijskuStanicu.UseVisualStyleBackColor = false;
@@ -126,10 +128,10 @@
             btnIzmeniStanicu.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnIzmeniStanicu.FlatStyle = FlatStyle.Flat;
             btnIzmeniStanicu.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnIzmeniStanicu.Location = new System.Drawing.Point(402, 215);
-            btnIzmeniStanicu.Margin = new Padding(4, 3, 4, 3);
+            btnIzmeniStanicu.Location = new System.Drawing.Point(459, 287);
+            btnIzmeniStanicu.Margin = new Padding(5, 4, 5, 4);
             btnIzmeniStanicu.Name = "btnIzmeniStanicu";
-            btnIzmeniStanicu.Size = new System.Drawing.Size(187, 57);
+            btnIzmeniStanicu.Size = new System.Drawing.Size(214, 76);
             btnIzmeniStanicu.TabIndex = 8;
             btnIzmeniStanicu.Text = "Izmeni policijsku stanicu";
             btnIzmeniStanicu.UseVisualStyleBackColor = false;
@@ -143,27 +145,42 @@
             btnDodajPolicajca.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnDodajPolicajca.FlatStyle = FlatStyle.Flat;
             btnDodajPolicajca.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnDodajPolicajca.Location = new System.Drawing.Point(13, 278);
-            btnDodajPolicajca.Margin = new Padding(4, 3, 4, 3);
+            btnDodajPolicajca.Location = new System.Drawing.Point(15, 371);
+            btnDodajPolicajca.Margin = new Padding(5, 4, 5, 4);
             btnDodajPolicajca.Name = "btnDodajPolicajca";
-            btnDodajPolicajca.Size = new System.Drawing.Size(187, 57);
+            btnDodajPolicajca.Size = new System.Drawing.Size(214, 76);
             btnDodajPolicajca.TabIndex = 9;
-            btnDodajPolicajca.Text = "Dodatj policajca";
+            btnDodajPolicajca.Text = "Dodaj policajca";
             btnDodajPolicajca.UseVisualStyleBackColor = false;
             btnDodajPolicajca.Click += btnDodajPolicajca_Click;
             // 
+            // btnDodajObjekat
+            // 
+            btnDodajObjekat.BackColor = System.Drawing.Color.DeepSkyBlue;
+            btnDodajObjekat.FlatStyle = FlatStyle.Flat;
+            btnDodajObjekat.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnDodajObjekat.Location = new System.Drawing.Point(237, 371);
+            btnDodajObjekat.Margin = new Padding(5, 4, 5, 4);
+            btnDodajObjekat.Name = "btnDodajObjekat";
+            btnDodajObjekat.Size = new System.Drawing.Size(214, 76);
+            btnDodajObjekat.TabIndex = 10;
+            btnDodajObjekat.Text = "Dodaj objekat za stanicu";
+            btnDodajObjekat.UseVisualStyleBackColor = false;
+            btnDodajObjekat.Click += btnDodajObjekat_Click;
+            // 
             // PolicijskeStaniceFrom
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
-            ClientSize = new System.Drawing.Size(779, 421);
+            ClientSize = new System.Drawing.Size(890, 561);
+            Controls.Add(btnDodajObjekat);
             Controls.Add(btnDodajPolicajca);
             Controls.Add(btnIzmeniStanicu);
             Controls.Add(btnObrisiPolicijskuStanicu);
             Controls.Add(btnDodajPolicijskeStenice);
             Controls.Add(ListeStanice);
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(5, 4, 5, 4);
             Name = "PolicijskeStaniceFrom";
             Text = "PolicijskeStaniceFrom";
             ResumeLayout(false);
@@ -182,5 +199,6 @@
         private Button btnObrisiPolicijskuStanicu;
         private Button btnIzmeniStanicu;
         private Button btnDodajPolicajca;
+        private Button btnDodajObjekat;
     }
 }
