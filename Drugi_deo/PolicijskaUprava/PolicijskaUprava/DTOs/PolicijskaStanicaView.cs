@@ -38,7 +38,7 @@
 			Naziv = p.Naziv;
 			Opstina = p.Opstina;
 			Adresa = p.Adresa;
-			DatumOsnivanja = p.Datum_osnivanja;
+			DatumOsnivanja = p.DatumOsnivanja;
 			BrojVozila = p.BrojVozila;
 		}
 

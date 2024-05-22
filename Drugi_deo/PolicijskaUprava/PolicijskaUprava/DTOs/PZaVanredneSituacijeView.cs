@@ -37,9 +37,9 @@
 
 			Kurs = p.Kurs;
 			Vestina = p.Vestina;
-			DatumZavrsetkaKursa = p.Datum_zavrsetka_kursa;
+			DatumZavrsetkaKursa = p.DatumZavrsetkaKursa;
 			Sertifikat = p.Sertifikat;
-			DatumSticanjaSertifikata = p.Datum_sticanja_sertifikata;
+			DatumSticanjaSertifikata = p.DatumSticanjaSertifikata;
 		}
 
 		#endregion

@@ -40,17 +40,17 @@
             SefujeStanicom = new PolicijskaStanica();
             ZamenikStanice = new PolicijskaStanica();
         }
-        public Policajac(int id,string ime, string ime_roditelja, string prezime, DateTime datum_rodjenja,
-            string jmbg, string adresa,DateTime datum_prijema_u_sluzbu, PolicijskaStanica stanica, PolicijskaStanica sefuje, PolicijskaStanica zamenik,string tip)
+        public Policajac(int id,string ime, string imeRoditelja, string prezime, DateTime datumRodjenja,
+            string jmbg, string adresa,DateTime datumPrijemaUSluzbu, PolicijskaStanica stanica, PolicijskaStanica sefuje, PolicijskaStanica zamenik,string tip)
         {
             Id = id;
             Ime = ime;
-            ImeRoditelja = ime_roditelja;
+            ImeRoditelja = imeRoditelja;
             Prezime = prezime;
-            DatumRodjenja = datum_rodjenja;
+            DatumRodjenja = datumRodjenja;
             JMBG = jmbg;
             Adresa = adresa;
-            DatumPrijemaUSluzbu = datum_prijema_u_sluzbu;
+            DatumPrijemaUSluzbu = datumPrijemaUSluzbu;
             Stanica = stanica;
             SefujeStanicom = sefuje;
             ZamenikStanice = zamenik;

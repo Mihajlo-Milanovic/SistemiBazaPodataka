@@ -15,14 +15,14 @@ namespace PolicijskaUprava.Entiteti
             SefPatrole = new List<Patrola>();
             PomocnikPatrole = new List<Patrola>();
         }
-        public PatrolniPolicajac(int id, string ime, string ime_roditelja, string prezime, DateTime datum_rodjenja,
-            string jmbg, string adresa, DateTime datum_prijema_u_sluzbu, PolicijskaStanica stanica,
-            PolicijskaStanica sefuje, PolicijskaStanica zamenik, string tip,string vrsta_oruzja, IList<Patrola> sefovi,IList<Patrola> pomocnici)
-            : base(id, ime, ime_roditelja, prezime, datum_rodjenja,
-             jmbg, adresa, datum_prijema_u_sluzbu, stanica, sefuje,
+        public PatrolniPolicajac(int id, string ime, string imeRoditelja, string prezime, DateTime datumRodjenja,
+            string jmbg, string adresa, DateTime datumPrijemaUSluzbu, PolicijskaStanica stanica,
+            PolicijskaStanica sefuje, PolicijskaStanica zamenik, string tip,string vrstaOruzja, IList<Patrola> sefovi,IList<Patrola> pomocnici)
+            : base(id, ime, imeRoditelja, prezime, datumRodjenja,
+             jmbg, adresa, datumPrijemaUSluzbu, stanica, sefuje,
              zamenik, tip)
         {
-            VrstaOruzja = VrstaOruzja;
+            VrstaOruzja = vrstaOruzja;
             SefPatrole = sefovi;
             PomocnikPatrole = pomocnici;
         }

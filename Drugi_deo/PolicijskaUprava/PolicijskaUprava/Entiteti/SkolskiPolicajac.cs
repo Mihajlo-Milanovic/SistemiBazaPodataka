@@ -19,20 +19,20 @@
             TelefonSkole = string.Empty;
         }
 
-        public SkolskiPolicajac(int id, string ime, string imeRoditelja, string prezime, DateTime datumRodjenja,
-            string jmbg, string adresa, DateTime datumPrijemaUSluzbu, PolicijskaStanica stanica, PolicijskaStanica
-            sefuje, PolicijskaStanica zamenik, string tip,string nazivSkole,string tipSkole,string adresaSkole,
-            string kontaktIme,string kontaktPrezime,string telefonSkole) 
-            : base(id, ime, imeRoditelja, prezime, datumRodjenja,
-             jmbg, adresa, datumPrijemaUSluzbu, stanica, sefuje, zamenik, tip)
-        {
-            NazivSkole=nazivSkole;
-            TipSkole=tipSkole;
-            AdresaSkole=adresaSkole;
-            KontaktIme = kontaktIme;
-            KontaktPrezime =kontaktPrezime;
-            TelefonSkole =telefonSkole;
-        }
+        //public SkolskiPolicajac(int id, string ime, string imeRoditelja, string prezime, DateTime datumRodjenja,
+        //    string jmbg, string adresa, DateTime datumPrijemaUSluzbu, PolicijskaStanica stanica, PolicijskaStanica
+        //    sefuje, PolicijskaStanica zamenik, string tip,string nazivSkole,string tipSkole,string adresaSkole,
+        //    string kontaktIme,string kontaktPrezime,string telefonSkole) 
+        //    : base(id, ime, imeRoditelja, prezime, datumRodjenja,
+        //     jmbg, adresa, datumPrijemaUSluzbu, stanica, sefuje, zamenik, tip)
+        //{
+        //    NazivSkole=nazivSkole;
+        //    TipSkole=tipSkole;
+        //    AdresaSkole=adresaSkole;
+        //    KontaktIme = kontaktIme;
+        //    KontaktPrezime =kontaktPrezime;
+        //    TelefonSkole =telefonSkole;
+        //}
 
         public override string ToString()
         {

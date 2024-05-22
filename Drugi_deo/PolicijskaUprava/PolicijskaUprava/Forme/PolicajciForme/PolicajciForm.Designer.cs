@@ -41,7 +41,7 @@
             Sefuje_stanicom = new ColumnHeader();
             Je_zamenik_u_stanici = new ColumnHeader();
             Tip = new ColumnHeader();
-            btnDodajPolicajca = new Button();
+            btnObrisiPolicajca = new Button();
             SuspendLayout();
             // 
             // ListaPolicajaca
@@ -116,22 +116,22 @@
             Tip.Text = "Tip";
             Tip.Width = 190;
             // 
-            // btnDodajPolicajca
+            // btnObrisiPolicajca
             // 
-            btnDodajPolicajca.BackColor = System.Drawing.Color.DeepSkyBlue;
-            btnDodajPolicajca.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
-            btnDodajPolicajca.FlatAppearance.BorderSize = 3;
-            btnDodajPolicajca.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
-            btnDodajPolicajca.FlatStyle = FlatStyle.Flat;
-            btnDodajPolicajca.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnDodajPolicajca.Location = new System.Drawing.Point(13, 303);
-            btnDodajPolicajca.Margin = new Padding(4, 3, 4, 3);
-            btnDodajPolicajca.Name = "btnDodajPolicajca";
-            btnDodajPolicajca.Size = new System.Drawing.Size(187, 57);
-            btnDodajPolicajca.TabIndex = 5;
-            btnDodajPolicajca.Text = "Dodatj policajca";
-            btnDodajPolicajca.UseVisualStyleBackColor = false;
-            btnDodajPolicajca.Click += btnDodajPolicajca_Click_1;
+            btnObrisiPolicajca.BackColor = System.Drawing.Color.DeepSkyBlue;
+            btnObrisiPolicajca.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
+            btnObrisiPolicajca.FlatAppearance.BorderSize = 3;
+            btnObrisiPolicajca.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
+            btnObrisiPolicajca.FlatStyle = FlatStyle.Flat;
+            btnObrisiPolicajca.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            btnObrisiPolicajca.Location = new System.Drawing.Point(13, 303);
+            btnObrisiPolicajca.Margin = new Padding(4, 3, 4, 3);
+            btnObrisiPolicajca.Name = "btnObrisiPolicajca";
+            btnObrisiPolicajca.Size = new System.Drawing.Size(187, 57);
+            btnObrisiPolicajca.TabIndex = 5;
+            btnObrisiPolicajca.Text = "Obrisi policajca";
+            btnObrisiPolicajca.UseVisualStyleBackColor = false;
+            btnObrisiPolicajca.Click += btnObrisiPolicajca_Click_1;
             // 
             // Policajci
             // 
@@ -139,7 +139,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
             ClientSize = new System.Drawing.Size(1151, 450);
-            Controls.Add(btnDodajPolicajca);
+            Controls.Add(btnObrisiPolicajca);
             Controls.Add(ListaPolicajaca);
             Name = "Policajci";
             Text = "Policajci";
@@ -161,6 +161,6 @@
         private ColumnHeader Sefuje_stanicom;
         private ColumnHeader Je_zamenik_u_stanici;
         private ColumnHeader Tip;
-        private Button btnDodajPolicajca;
+        private Button btnObrisiPolicajca;
     }
 }

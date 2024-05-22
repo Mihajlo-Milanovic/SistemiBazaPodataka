@@ -37,8 +37,20 @@
 				PolicijskaStanicaNaziv = null;
 			}
 		}
+		public ObjekatView(int id, string tip, string adresa, int povrsina, string kontaktIme, string kontaktPrezime, int policijskaStanicaId, string policijskaStanicaNaziv)
+        {
+            Id = id;
+            Tip = tip;
+            Adresa = adresa;
+            Povrsina = povrsina;
+            KontaktIme = kontaktIme;
+            KontaktPrezime = kontaktPrezime;
+            PolicijskaStanicaId = policijskaStanicaId;
+            PolicijskaStanicaNaziv = policijskaStanicaNaziv;
+        }
 
-		#endregion
 
-	}
+        #endregion
+
+    }
 }

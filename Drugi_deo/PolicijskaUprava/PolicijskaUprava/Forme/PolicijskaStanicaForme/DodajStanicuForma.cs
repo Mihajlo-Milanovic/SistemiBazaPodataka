@@ -8,6 +8,10 @@ namespace PolicijskaUprava.Forme.PolicijskaStanicaForme
         {
             InitializeComponent();
         }
+        public void DodajPolicajcaForm_Load()
+        {
+
+        }
 
 
         private void btnDodaj_Click(object sender, EventArgs e)

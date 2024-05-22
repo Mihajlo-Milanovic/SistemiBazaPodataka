@@ -14,8 +14,6 @@ namespace PolicijskaUprava.Mapiranja
 
             Id(x => x.RedniBroj, "REDNI_BROJ").GeneratedBy.TriggerIdentity();
 
-            /*Map(x => x.DuziVozilo, "REG_OZNAKA_VOZILA");*/
-
             References(x => x.SefId).Column("SEF_ID").LazyLoad();
             References(x => x.PomocnikId).Column("POMOCNIK_ID").LazyLoad();
             References(x => x.DuziVozilo).Column("REG_OZNAKA_VOZILA").LazyLoad();

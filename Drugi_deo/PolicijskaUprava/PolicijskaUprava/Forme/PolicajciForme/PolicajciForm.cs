@@ -35,21 +35,30 @@ namespace PolicijskaUprava.Forme
             ListaPolicajaca.Refresh();
         }
 
-        private void btnDodajPolicajca_Click_1(object sender, EventArgs e)
+        private void btnObrisiPolicajca_Click_1(object sender, EventArgs e)
         {
-            
-        }
+            if (ListaPolicajaca.SelectedItems.Count > 0)
+            {
 
+                // Uzmete prvu označenu vrstu
+                ListViewItem selectedItem = ListaPolicajaca.SelectedItems[0];
 
+                // Pretpostavimo da je ID kolona prva kolona (indeks 0)
+                int id = Int32.Parse(selectedItem.SubItems[0].Text);
+                string poruka = $"Da li ste sigurni da zelite da obrisete policajca sa ID-em: {id}?";
+                string title = "Pitanje";
+                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                DialogResult result = MessageBox.Show(poruka, title, buttons);
 
-
-
-
-
-
-
-        //// OVO TREBA DA IDE U DTOManager I DA SE NAPRAVI NOVA KLASA PolicajacPregled !!!!!!!!
-
-
+                if (result == DialogResult.OK)
+                    DTOManager.ObrisiPolicajcaID(id);
+                PopuniTabelu();
+            }
+            else
+            {
+                MessageBox.Show("Mora da se selektuje neki policajac!");
+                return;
+            }
+      }
     }
 }

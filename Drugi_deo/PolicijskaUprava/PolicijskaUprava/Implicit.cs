@@ -11,7 +11,12 @@ global using FluentNHibernate.Cfg.Db;
 global using System.Configuration;
 global using System.Windows.Forms;
 global using PolicijskaUprava.Mapiranja;
-global using PolicijskaUprava.Veze_Vise_Na_Vise;
+global using PolicijskaUprava.Entiteti.VezeViseNaVise;
 global using PolicijskaUprava.DTOs;
 global using PolicijskaUprava.Forme.PolicijskaStanicaForme;
 global using PolicijskaUprava.Forme.TehnickoLiceForme;
+global using PolicijskaUprava.Forme.VozilaForme;
+global using PolicijskaUprava.Forme.PolicajciForme;
+global using PolicijskaUprava.Forme.ObjekatForme;
+global using PolicijskaUprava.Forme.BrojTelefonaForm;
+

@@ -1,4 +1,4 @@
-﻿using PolicijskaUprava.Veze_Vise_Na_Vise;
+﻿using PolicijskaUprava.Entiteti.VezeViseNaVise;
 using System;
 using System.Collections.Generic;
 using System.Linq;

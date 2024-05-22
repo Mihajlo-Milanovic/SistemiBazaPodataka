@@ -9,13 +9,13 @@ namespace PolicijskaUprava.Entiteti {
             NazivUlice = string.Empty;
         }
 
-        public PolicajacPozornik(int id, string ime, string ime_roditelja, string prezime, DateTime datum_rodjenja,
-            string jmbg, string adresa, DateTime datum_prijema_u_sluzbu, PolicijskaStanica stanica,
-            PolicijskaStanica sefuje, PolicijskaStanica zamenik, string tip, string naziv_ulice)
-            : base(id, ime, ime_roditelja, prezime, datum_rodjenja,
-             jmbg, adresa, datum_prijema_u_sluzbu, stanica, sefuje, zamenik, tip)
+        public PolicajacPozornik(int id, string ime, string imeRoditelja, string prezime, DateTime datumRodjenja,
+            string jmbg, string adresa, DateTime datumPrijemaUSluzbu, PolicijskaStanica stanica,
+            PolicijskaStanica sefuje, PolicijskaStanica zamenik, string tip, string nazivUlice)
+            : base(id, ime, imeRoditelja, prezime, datumRodjenja,
+             jmbg, adresa, datumPrijemaUSluzbu, stanica, sefuje, zamenik, tip)
         {
-            NazivUlice = naziv_ulice;
+            NazivUlice = nazivUlice;
         }
 
         public override string ToString()

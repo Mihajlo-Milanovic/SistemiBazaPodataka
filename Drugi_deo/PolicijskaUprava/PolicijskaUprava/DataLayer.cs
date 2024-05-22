@@ -61,8 +61,8 @@ namespace PolicijskaUprava {
 
 
 		private const string Mihajlo = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18747;Password=Miki747M"; //treba update-ovati bazu
-		private const string Vuksain = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18972;Password=vorkraft1";
-		private const string Filip = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18842;Password=S18842"; // treba update-ovati bazu
+		private const string Vuksain = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18972;Password=vorkraft1";//treba update-ovati bazu
+		private const string Filip = "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18842;Password=S18842"; //treba update-ovati bazu
 
 	}
 }

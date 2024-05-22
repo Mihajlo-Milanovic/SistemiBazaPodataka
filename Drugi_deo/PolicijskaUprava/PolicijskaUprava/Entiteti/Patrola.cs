@@ -1,3 +1,5 @@
+using PolicijskaUprava.Entiteti.VezeViseNaVise;
+
 namespace PolicijskaUprava.Entiteti
 {
     public class Patrola
