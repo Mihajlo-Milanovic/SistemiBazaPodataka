@@ -1,7 +1,4 @@
-﻿
-
-
-namespace PolicijskaUprava.DTOs
+﻿namespace PolicijskaUprava.DTOs
 {
     public class DTOManager
     {
@@ -441,7 +438,6 @@ namespace PolicijskaUprava.DTOs
                 return null;
             }
         }
-
         public static void dodajBrojTelefonaZaObjekat(BrojTelefonaView btv, int idObjekta)
         {
             try 
@@ -462,7 +458,7 @@ namespace PolicijskaUprava.DTOs
             
         }
 
-        public static void ObrisiBroj(string broj,int idObjekta)
+        public static void ObrisiBroj(string broj, int idObjekta)
         {
             try
             {
@@ -479,6 +475,74 @@ namespace PolicijskaUprava.DTOs
             catch (Exception ex)
             {
                 ex.FormatExceptionMessage();
+            }
+        }
+        public static PolicijskaStanica VratiStanicu(int stanicaID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                PolicijskaStanica p;
+                //PolicijskaStanica ps = s.Load<PolicijskaStanica>(stanicaID);
+
+                IEnumerable<PolicijskaStanica> stanica = from ps in s.Query<PolicijskaStanica>()
+                                                             where ps.Id == stanicaID
+                                                             select ps;
+
+                p = stanica.First();
+
+                s.Flush();
+                s.Close();
+
+                return p;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.FormatExceptionMessage());
+                return null;
+            }
+        }
+
+        public static bool DodajPolicajca(Policajac p)
+        {
+
+            try
+            { 
+                ISession s = DataLayer.GetSession();
+
+                //if (p.GetType() == typeof(PatrolniPolicajac))
+                //{
+
+                //    s.Save((PatrolniPolicajac)p);
+                //}
+                //else if (p.GetType() == typeof(PolicajacPozornik))
+                //{
+                //    s.Save((PolicajacPozornik)p);
+                //}
+                //else if (p.GetType() == typeof(RadnikUUpravi))
+                //{
+                //    s.Save((RadnikUUpravi)p);
+                //}
+                //else if (p.GetType() == typeof(SkolskiPolicajac))
+                //{
+                //    s.Save((SkolskiPolicajac)p);
+                //}
+                //else if (p.GetType() == typeof(PZaVanredneSituacije))
+                //{
+                //    s.Save((PZaVanredneSituacije)p);
+                //}
+                s.Save(p);
+
+                s.Flush();
+
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.FormatExceptionMessage());
+                return false;
             }
         }
     }

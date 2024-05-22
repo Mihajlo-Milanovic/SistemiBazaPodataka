@@ -35,7 +35,7 @@ namespace PolicijskaUprava.Forme
             ListaPolicajaca.Refresh();
         }
 
-        private void btnDodajPolicajca_Click_1(object sender, EventArgs e)
+        private void btnObrisiPolicajca_Click_1(object sender, EventArgs e)
         {
             if (ListaPolicajaca.SelectedItems.Count > 0)
             {
