@@ -52,8 +52,10 @@
             rbtZamenik = new RadioButton();
             rbtSef = new RadioButton();
             gboxPolicajac = new GroupBox();
-            groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
+            gboxPatrolniPolicajac = new GroupBox();
+            label20 = new Label();
+            txtVrstaOruzija = new TextBox();
+            gboxPolicajacPozornik = new GroupBox();
             label19 = new Label();
             txtNazivUlice = new TextBox();
             gboxPolicajacUUpravi = new GroupBox();
@@ -83,17 +85,14 @@
             label9 = new Label();
             txtSertifikat = new TextBox();
             label10 = new Label();
-            gboxPatrolniPolicajac = new GroupBox();
-            label20 = new Label();
-            textBox1 = new TextBox();
+            btnDodaj = new Button();
             gbxTipoviPolicajaca.SuspendLayout();
             gboxPolicajac.SuspendLayout();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
+            gboxPatrolniPolicajac.SuspendLayout();
+            gboxPolicajacPozornik.SuspendLayout();
             gboxPolicajacUUpravi.SuspendLayout();
             gboxSkolskiPolicajac.SuspendLayout();
             gboxPZaVanredneSituacije.SuspendLayout();
-            gboxPatrolniPolicajac.SuspendLayout();
             SuspendLayout();
             // 
             // gbxTipoviPolicajaca
@@ -118,8 +117,10 @@
             btnPolicajacZaVanrednoSituacije.Size = new System.Drawing.Size(184, 19);
             btnPolicajacZaVanrednoSituacije.TabIndex = 0;
             btnPolicajacZaVanrednoSituacije.TabStop = true;
+            btnPolicajacZaVanrednoSituacije.Tag = "PZaVanrednoSituacije";
             btnPolicajacZaVanrednoSituacije.Text = "Policajac za vanredne situacije";
             btnPolicajacZaVanrednoSituacije.UseVisualStyleBackColor = true;
+            btnPolicajacZaVanrednoSituacije.CheckedChanged += btnPolicajacZaVanrednoSituacije_CheckedChanged;
             // 
             // btnPatrolniPolicajac
             // 
@@ -129,8 +130,10 @@
             btnPatrolniPolicajac.Size = new System.Drawing.Size(116, 19);
             btnPatrolniPolicajac.TabIndex = 4;
             btnPatrolniPolicajac.TabStop = true;
+            btnPatrolniPolicajac.Tag = "PatrolniPolicajac";
             btnPatrolniPolicajac.Text = "Patrolni policajac";
             btnPatrolniPolicajac.UseVisualStyleBackColor = true;
+            btnPatrolniPolicajac.CheckedChanged += btnPatrolniPolicajac_CheckedChanged;
             // 
             // btnSkolskiPolicajac
             // 
@@ -140,8 +143,10 @@
             btnSkolskiPolicajac.Size = new System.Drawing.Size(111, 19);
             btnSkolskiPolicajac.TabIndex = 1;
             btnSkolskiPolicajac.TabStop = true;
+            btnSkolskiPolicajac.Tag = "SkolskiPolicajac";
             btnSkolskiPolicajac.Text = "Skolski policajac";
             btnSkolskiPolicajac.UseVisualStyleBackColor = true;
+            btnSkolskiPolicajac.CheckedChanged += btnSkolskiPolicajac_CheckedChanged;
             // 
             // btnPolicajacPozornik
             // 
@@ -151,8 +156,10 @@
             btnPolicajacPozornik.Size = new System.Drawing.Size(121, 19);
             btnPolicajacPozornik.TabIndex = 3;
             btnPolicajacPozornik.TabStop = true;
+            btnPolicajacPozornik.Tag = "PolicajacPozornik";
             btnPolicajacPozornik.Text = "Policajac pozornik";
             btnPolicajacPozornik.UseVisualStyleBackColor = true;
+            btnPolicajacPozornik.CheckedChanged += btnPolicajacPozornik_CheckedChanged;
             // 
             // btnRdnikUUpravi
             // 
@@ -162,8 +169,10 @@
             btnRdnikUUpravi.Size = new System.Drawing.Size(107, 19);
             btnRdnikUUpravi.TabIndex = 2;
             btnRdnikUUpravi.TabStop = true;
+            btnRdnikUUpravi.Tag = "RadnikUUpravi";
             btnRdnikUUpravi.Text = "Radnik u upravi";
             btnRdnikUUpravi.UseVisualStyleBackColor = true;
+            btnRdnikUUpravi.CheckedChanged += btnRdnikUUpravi_CheckedChanged;
             // 
             // lblIme
             // 
@@ -331,35 +340,48 @@
             gboxPolicajac.Controls.Add(label6);
             gboxPolicajac.Location = new System.Drawing.Point(290, 12);
             gboxPolicajac.Name = "gboxPolicajac";
-            gboxPolicajac.Size = new System.Drawing.Size(446, 309);
+            gboxPolicajac.Size = new System.Drawing.Size(369, 309);
             gboxPolicajac.TabIndex = 30;
             gboxPolicajac.TabStop = false;
             gboxPolicajac.Text = "Policajac";
             // 
-            // groupBox1
+            // gboxPatrolniPolicajac
             // 
-            groupBox1.Controls.Add(gboxPatrolniPolicajac);
-            groupBox1.Controls.Add(groupBox2);
-            groupBox1.Controls.Add(gboxPolicajacUUpravi);
-            groupBox1.Controls.Add(gboxSkolskiPolicajac);
-            groupBox1.Controls.Add(gboxPZaVanredneSituacije);
-            groupBox1.Location = new System.Drawing.Point(12, 329);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(724, 331);
-            groupBox1.TabIndex = 31;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Tipovi";
+            gboxPatrolniPolicajac.Controls.Add(label20);
+            gboxPatrolniPolicajac.Controls.Add(txtVrstaOruzija);
+            gboxPatrolniPolicajac.Location = new System.Drawing.Point(363, 562);
+            gboxPatrolniPolicajac.Name = "gboxPatrolniPolicajac";
+            gboxPatrolniPolicajac.Size = new System.Drawing.Size(200, 73);
+            gboxPatrolniPolicajac.TabIndex = 59;
+            gboxPatrolniPolicajac.TabStop = false;
+            gboxPatrolniPolicajac.Text = "Patrolni policajac";
             // 
-            // groupBox2
+            // label20
             // 
-            groupBox2.Controls.Add(label19);
-            groupBox2.Controls.Add(txtNazivUlice);
-            groupBox2.Location = new System.Drawing.Point(508, 244);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new System.Drawing.Size(200, 75);
-            groupBox2.TabIndex = 53;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Policajac pozornik";
+            label20.AutoSize = true;
+            label20.Location = new System.Drawing.Point(10, 34);
+            label20.Name = "label20";
+            label20.Size = new System.Drawing.Size(71, 15);
+            label20.TabIndex = 38;
+            label20.Text = "Vrsta oruzja:";
+            // 
+            // txtVrstaOruzija
+            // 
+            txtVrstaOruzija.Location = new System.Drawing.Point(87, 34);
+            txtVrstaOruzija.Name = "txtVrstaOruzija";
+            txtVrstaOruzija.Size = new System.Drawing.Size(100, 23);
+            txtVrstaOruzija.TabIndex = 39;
+            // 
+            // gboxPolicajacPozornik
+            // 
+            gboxPolicajacPozornik.Controls.Add(label19);
+            gboxPolicajacPozornik.Controls.Add(txtNazivUlice);
+            gboxPolicajacPozornik.Location = new System.Drawing.Point(641, 562);
+            gboxPolicajacPozornik.Name = "gboxPolicajacPozornik";
+            gboxPolicajacPozornik.Size = new System.Drawing.Size(200, 75);
+            gboxPolicajacPozornik.TabIndex = 58;
+            gboxPolicajacPozornik.TabStop = false;
+            gboxPolicajacPozornik.Text = "Policajac pozornik";
             // 
             // label19
             // 
@@ -381,10 +403,10 @@
             // 
             gboxPolicajacUUpravi.Controls.Add(label18);
             gboxPolicajacUUpravi.Controls.Add(txtPozicija);
-            gboxPolicajacUUpravi.Location = new System.Drawing.Point(17, 244);
+            gboxPolicajacUUpravi.Location = new System.Drawing.Point(67, 564);
             gboxPolicajacUUpravi.Name = "gboxPolicajacUUpravi";
             gboxPolicajacUUpravi.Size = new System.Drawing.Size(200, 73);
-            gboxPolicajacUUpravi.TabIndex = 52;
+            gboxPolicajacUUpravi.TabIndex = 57;
             gboxPolicajacUUpravi.TabStop = false;
             gboxPolicajacUUpravi.Text = "Radnik u upravi";
             // 
@@ -418,10 +440,10 @@
             gboxSkolskiPolicajac.Controls.Add(label15);
             gboxSkolskiPolicajac.Controls.Add(txtAdresaSkole);
             gboxSkolskiPolicajac.Controls.Add(txtKontaktIme);
-            gboxSkolskiPolicajac.Location = new System.Drawing.Point(397, 22);
+            gboxSkolskiPolicajac.Location = new System.Drawing.Point(530, 340);
             gboxSkolskiPolicajac.Name = "gboxSkolskiPolicajac";
             gboxSkolskiPolicajac.Size = new System.Drawing.Size(311, 204);
-            gboxSkolskiPolicajac.TabIndex = 51;
+            gboxSkolskiPolicajac.TabIndex = 56;
             gboxSkolskiPolicajac.TabStop = false;
             gboxSkolskiPolicajac.Text = "Skolski policajac";
             // 
@@ -533,10 +555,10 @@
             gboxPZaVanredneSituacije.Controls.Add(label9);
             gboxPZaVanredneSituacije.Controls.Add(txtSertifikat);
             gboxPZaVanredneSituacije.Controls.Add(label10);
-            gboxPZaVanredneSituacije.Location = new System.Drawing.Point(17, 22);
+            gboxPZaVanredneSituacije.Location = new System.Drawing.Point(67, 340);
             gboxPZaVanredneSituacije.Name = "gboxPZaVanredneSituacije";
             gboxPZaVanredneSituacije.Size = new System.Drawing.Size(363, 204);
-            gboxPZaVanredneSituacije.TabIndex = 38;
+            gboxPZaVanredneSituacije.TabIndex = 55;
             gboxPZaVanredneSituacije.TabStop = false;
             gboxPZaVanredneSituacije.Text = "Policajac za vanredne situacije";
             // 
@@ -551,6 +573,8 @@
             // 
             // dtpDatumSticanjaSertifikata
             // 
+            dtpDatumSticanjaSertifikata.CustomFormat = "MM/dd/yyyy";
+            dtpDatumSticanjaSertifikata.Format = DateTimePickerFormat.Custom;
             dtpDatumSticanjaSertifikata.Location = new System.Drawing.Point(156, 135);
             dtpDatumSticanjaSertifikata.Name = "dtpDatumSticanjaSertifikata";
             dtpDatumSticanjaSertifikata.Size = new System.Drawing.Size(200, 23);
@@ -581,6 +605,8 @@
             // 
             // dtpDatumZavrsetkaKursa
             // 
+            dtpDatumZavrsetkaKursa.CustomFormat = "MM/dd/yyyy";
+            dtpDatumZavrsetkaKursa.Format = DateTimePickerFormat.Custom;
             dtpDatumZavrsetkaKursa.Location = new System.Drawing.Point(156, 77);
             dtpDatumZavrsetkaKursa.Name = "dtpDatumZavrsetkaKursa";
             dtpDatumZavrsetkaKursa.Size = new System.Drawing.Size(200, 23);
@@ -620,40 +646,35 @@
             label10.TabIndex = 31;
             label10.Text = "Datum zavrsetka kursa:";
             // 
-            // gboxPatrolniPolicajac
+            // btnDodaj
             // 
-            gboxPatrolniPolicajac.Controls.Add(label20);
-            gboxPatrolniPolicajac.Controls.Add(textBox1);
-            gboxPatrolniPolicajac.Location = new System.Drawing.Point(264, 246);
-            gboxPatrolniPolicajac.Name = "gboxPatrolniPolicajac";
-            gboxPatrolniPolicajac.Size = new System.Drawing.Size(200, 73);
-            gboxPatrolniPolicajac.TabIndex = 54;
-            gboxPatrolniPolicajac.TabStop = false;
-            gboxPatrolniPolicajac.Text = "Patrolni policajac";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new System.Drawing.Point(10, 34);
-            label20.Name = "label20";
-            label20.Size = new System.Drawing.Size(71, 15);
-            label20.TabIndex = 38;
-            label20.Text = "Vrsta oruzja:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new System.Drawing.Point(87, 34);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(100, 23);
-            textBox1.TabIndex = 39;
+            btnDodaj.BackColor = System.Drawing.Color.DeepSkyBlue;
+            btnDodaj.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
+            btnDodaj.FlatAppearance.BorderSize = 3;
+            btnDodaj.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
+            btnDodaj.FlatStyle = FlatStyle.Flat;
+            btnDodaj.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            btnDodaj.Location = new System.Drawing.Point(695, 264);
+            btnDodaj.Margin = new Padding(4, 3, 4, 3);
+            btnDodaj.Name = "btnDodaj";
+            btnDodaj.Size = new System.Drawing.Size(173, 57);
+            btnDodaj.TabIndex = 60;
+            btnDodaj.Text = "Dodatj ";
+            btnDodaj.UseVisualStyleBackColor = false;
+            btnDodaj.Click += btnDodaj_Click;
             // 
             // DodajPolicajcaForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
-            ClientSize = new System.Drawing.Size(743, 661);
-            Controls.Add(groupBox1);
+            ClientSize = new System.Drawing.Size(897, 661);
+            Controls.Add(btnDodaj);
+            Controls.Add(gboxPatrolniPolicajac);
+            Controls.Add(gboxPolicajacPozornik);
+            Controls.Add(gboxPolicajacUUpravi);
+            Controls.Add(gboxSkolskiPolicajac);
+            Controls.Add(gboxPZaVanredneSituacije);
             Controls.Add(gboxPolicajac);
             Controls.Add(gbxTipoviPolicajaca);
             Name = "DodajPolicajcaForm";
@@ -662,17 +683,16 @@
             gbxTipoviPolicajaca.PerformLayout();
             gboxPolicajac.ResumeLayout(false);
             gboxPolicajac.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            gboxPatrolniPolicajac.ResumeLayout(false);
+            gboxPatrolniPolicajac.PerformLayout();
+            gboxPolicajacPozornik.ResumeLayout(false);
+            gboxPolicajacPozornik.PerformLayout();
             gboxPolicajacUUpravi.ResumeLayout(false);
             gboxPolicajacUUpravi.PerformLayout();
             gboxSkolskiPolicajac.ResumeLayout(false);
             gboxSkolskiPolicajac.PerformLayout();
             gboxPZaVanredneSituacije.ResumeLayout(false);
             gboxPZaVanredneSituacije.PerformLayout();
-            gboxPatrolniPolicajac.ResumeLayout(false);
-            gboxPatrolniPolicajac.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -702,39 +722,39 @@
         private RadioButton rbtZamenik;
         private RadioButton rbtSef;
         private GroupBox gboxPolicajac;
-        private GroupBox groupBox1;
-        private DateTimePicker dtpDatumSticanjaSertifikata;
-        private Label label11;
-        private DateTimePicker dtpDatumZavrsetkaKursa;
-        private Label label9;
-        private Label label10;
-        private TextBox txtSertifikat;
-        private Label label2;
-        private TextBox txtVestina;
-        private Label label1;
-        private TextBox txtKurs;
-        private GroupBox gboxPZaVanredneSituacije;
-        private Label label16;
-        private TextBox txtKontaktPrezime;
-        private TextBox txtTelefonSkole;
-        private Label label17;
-        private Label label14;
-        private TextBox txtAdresaSkole;
-        private TextBox txtKontaktIme;
-        private Label label15;
-        private Label label12;
-        private TextBox txtNazivSkole;
-        private TextBox txtTipSkole;
-        private Label label13;
-        private GroupBox gboxSkolskiPolicajac;
-        private Label label18;
-        private TextBox txtPozicija;
-        private GroupBox gboxPolicajacUUpravi;
-        private GroupBox groupBox2;
-        private Label label19;
-        private TextBox txtNazivUlice;
         private GroupBox gboxPatrolniPolicajac;
         private Label label20;
-        private TextBox textBox1;
+        private TextBox txtVrstaOruzija;
+        private GroupBox gboxPolicajacPozornik;
+        private Label label19;
+        private TextBox txtNazivUlice;
+        private GroupBox gboxPolicajacUUpravi;
+        private Label label18;
+        private TextBox txtPozicija;
+        private GroupBox gboxSkolskiPolicajac;
+        private Label label16;
+        private Label label12;
+        private TextBox txtKontaktPrezime;
+        private Label label13;
+        private TextBox txtTelefonSkole;
+        private TextBox txtTipSkole;
+        private Label label17;
+        private TextBox txtNazivSkole;
+        private Label label14;
+        private Label label15;
+        private TextBox txtAdresaSkole;
+        private TextBox txtKontaktIme;
+        private GroupBox gboxPZaVanredneSituacije;
+        private Label label1;
+        private DateTimePicker dtpDatumSticanjaSertifikata;
+        private TextBox txtKurs;
+        private Label label11;
+        private TextBox txtVestina;
+        private DateTimePicker dtpDatumZavrsetkaKursa;
+        private Label label2;
+        private Label label9;
+        private TextBox txtSertifikat;
+        private Label label10;
+        private Button btnDodaj;
     }
 }

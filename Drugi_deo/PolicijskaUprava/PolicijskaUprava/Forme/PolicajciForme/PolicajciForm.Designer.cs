@@ -131,7 +131,7 @@
             btnObrisiPolicajca.TabIndex = 5;
             btnObrisiPolicajca.Text = "Obrisi policajca";
             btnObrisiPolicajca.UseVisualStyleBackColor = false;
-            btnObrisiPolicajca.Click += btnDodajPolicajca_Click_1;
+            btnObrisiPolicajca.Click += btnObrisiPolicajca_Click_1;
             // 
             // Policajci
             // 

@@ -10,9 +10,10 @@
             KeyColumn("POLICAJAC_ID");
 
             Map(x => x.Kurs).Column("KURS");
-            Map(x => x.Vestina).Column("DATUM_ZAVRSETKA_KURSA");
+            Map(x => x.Vestina).Column("VESTINA");
             Map(x => x.Sertifikat).Column("SERTIFIKAT");
             Map(x => x.Datum_sticanja_sertifikata).Column("DATUM_STICANJA_SERTIFIKATA");
+            Map(x => x.Datum_zavrsetka_kursa).Column("DATUM_ZAVRSETKA_KURSA");
         }
     }
 }
