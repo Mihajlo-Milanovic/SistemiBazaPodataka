@@ -49,7 +49,7 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             dgvObjekti.Margin = new Padding(4, 3, 4, 3);
             dgvObjekti.Name = "dgvObjekti";
             dgvObjekti.RowHeadersWidth = 51;
-            dgvObjekti.Size = new System.Drawing.Size(1203, 179);
+            dgvObjekti.Size = new System.Drawing.Size(1203, 326);
             dgvObjekti.TabIndex = 0;
             dgvObjekti.CellClick += dgvObjekti_CellClick;
             dgvObjekti.RowHeaderMouseClick += dgvObjekti_RowHeaderMouseClick;
@@ -57,7 +57,7 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             // btnDodaj
             // 
             btnDodaj.BackColor = System.Drawing.Color.Cyan;
-            btnDodaj.Location = new System.Drawing.Point(82, 226);
+            btnDodaj.Location = new System.Drawing.Point(79, 375);
             btnDodaj.Margin = new Padding(4, 3, 4, 3);
             btnDodaj.Name = "btnDodaj";
             btnDodaj.Size = new System.Drawing.Size(177, 58);
@@ -69,7 +69,7 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             // btnAzuriraj
             // 
             btnAzuriraj.BackColor = System.Drawing.Color.Cyan;
-            btnAzuriraj.Location = new System.Drawing.Point(396, 226);
+            btnAzuriraj.Location = new System.Drawing.Point(393, 375);
             btnAzuriraj.Margin = new Padding(4, 3, 4, 3);
             btnAzuriraj.Name = "btnAzuriraj";
             btnAzuriraj.Size = new System.Drawing.Size(177, 58);
@@ -81,7 +81,7 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             // btnObrisi
             // 
             btnObrisi.BackColor = System.Drawing.Color.Cyan;
-            btnObrisi.Location = new System.Drawing.Point(713, 226);
+            btnObrisi.Location = new System.Drawing.Point(710, 375);
             btnObrisi.Margin = new Padding(4, 3, 4, 3);
             btnObrisi.Name = "btnObrisi";
             btnObrisi.Size = new System.Drawing.Size(177, 58);
@@ -93,12 +93,12 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             // btnBroj
             // 
             btnBroj.BackColor = System.Drawing.Color.Cyan;
-            btnBroj.Location = new System.Drawing.Point(1012, 226);
+            btnBroj.Location = new System.Drawing.Point(1009, 375);
             btnBroj.Margin = new Padding(4, 3, 4, 3);
             btnBroj.Name = "btnBroj";
             btnBroj.Size = new System.Drawing.Size(177, 58);
             btnBroj.TabIndex = 4;
-            btnBroj.Text = "Dodaj broj telefona odgovorne osobe";
+            btnBroj.Text = "Brojevi telefona odgovorne osobe";
             btnBroj.UseVisualStyleBackColor = false;
             btnBroj.Click += btnBroj_Click;
             // 
@@ -107,7 +107,7 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
-            ClientSize = new System.Drawing.Size(1279, 419);
+            ClientSize = new System.Drawing.Size(1279, 454);
             Controls.Add(btnBroj);
             Controls.Add(btnObrisi);
             Controls.Add(btnAzuriraj);

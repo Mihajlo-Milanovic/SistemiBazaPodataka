@@ -47,10 +47,10 @@
             btnPolicajac.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnPolicajac.FlatStyle = FlatStyle.Flat;
             btnPolicajac.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnPolicajac.Location = new System.Drawing.Point(14, 29);
-            btnPolicajac.Margin = new Padding(4, 3, 4, 3);
+            btnPolicajac.Location = new System.Drawing.Point(16, 39);
+            btnPolicajac.Margin = new Padding(5, 4, 5, 4);
             btnPolicajac.Name = "btnPolicajac";
-            btnPolicajac.Size = new System.Drawing.Size(167, 48);
+            btnPolicajac.Size = new System.Drawing.Size(191, 64);
             btnPolicajac.TabIndex = 0;
             btnPolicajac.Text = "Policajci";
             btnPolicajac.UseVisualStyleBackColor = false;
@@ -64,10 +64,10 @@
             btnObjekat.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnObjekat.FlatStyle = FlatStyle.Flat;
             btnObjekat.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnObjekat.Location = new System.Drawing.Point(447, 29);
-            btnObjekat.Margin = new Padding(4, 3, 4, 3);
+            btnObjekat.Location = new System.Drawing.Point(511, 39);
+            btnObjekat.Margin = new Padding(5, 4, 5, 4);
             btnObjekat.Name = "btnObjekat";
-            btnObjekat.Size = new System.Drawing.Size(167, 48);
+            btnObjekat.Size = new System.Drawing.Size(191, 64);
             btnObjekat.TabIndex = 2;
             btnObjekat.Text = "Objekti";
             btnObjekat.UseVisualStyleBackColor = false;
@@ -81,10 +81,10 @@
             btnPatrole.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnPatrole.FlatStyle = FlatStyle.Flat;
             btnPatrole.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnPatrole.Location = new System.Drawing.Point(14, 117);
-            btnPatrole.Margin = new Padding(4, 3, 4, 3);
+            btnPatrole.Location = new System.Drawing.Point(16, 156);
+            btnPatrole.Margin = new Padding(5, 4, 5, 4);
             btnPatrole.Name = "btnPatrole";
-            btnPatrole.Size = new System.Drawing.Size(167, 48);
+            btnPatrole.Size = new System.Drawing.Size(191, 64);
             btnPatrole.TabIndex = 3;
             btnPatrole.Text = "Patrole";
             btnPatrole.UseVisualStyleBackColor = false;
@@ -98,10 +98,10 @@
             btnAlarmniSistem.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnAlarmniSistem.FlatStyle = FlatStyle.Flat;
             btnAlarmniSistem.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnAlarmniSistem.Location = new System.Drawing.Point(447, 117);
-            btnAlarmniSistem.Margin = new Padding(4, 3, 4, 3);
+            btnAlarmniSistem.Location = new System.Drawing.Point(511, 156);
+            btnAlarmniSistem.Margin = new Padding(5, 4, 5, 4);
             btnAlarmniSistem.Name = "btnAlarmniSistem";
-            btnAlarmniSistem.Size = new System.Drawing.Size(167, 48);
+            btnAlarmniSistem.Size = new System.Drawing.Size(191, 64);
             btnAlarmniSistem.TabIndex = 4;
             btnAlarmniSistem.Text = "Alarmni sistemi";
             btnAlarmniSistem.UseVisualStyleBackColor = false;
@@ -115,10 +115,10 @@
             btnTehnickoLice.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnTehnickoLice.FlatStyle = FlatStyle.Flat;
             btnTehnickoLice.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnTehnickoLice.Location = new System.Drawing.Point(447, 204);
-            btnTehnickoLice.Margin = new Padding(4, 3, 4, 3);
+            btnTehnickoLice.Location = new System.Drawing.Point(511, 272);
+            btnTehnickoLice.Margin = new Padding(5, 4, 5, 4);
             btnTehnickoLice.Name = "btnTehnickoLice";
-            btnTehnickoLice.Size = new System.Drawing.Size(167, 48);
+            btnTehnickoLice.Size = new System.Drawing.Size(191, 64);
             btnTehnickoLice.TabIndex = 5;
             btnTehnickoLice.Text = "Tehnicka lica";
             btnTehnickoLice.UseVisualStyleBackColor = false;
@@ -132,10 +132,10 @@
             btnVozilo.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnVozilo.FlatStyle = FlatStyle.Flat;
             btnVozilo.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnVozilo.Location = new System.Drawing.Point(14, 204);
-            btnVozilo.Margin = new Padding(4, 3, 4, 3);
+            btnVozilo.Location = new System.Drawing.Point(16, 272);
+            btnVozilo.Margin = new Padding(5, 4, 5, 4);
             btnVozilo.Name = "btnVozilo";
-            btnVozilo.Size = new System.Drawing.Size(167, 48);
+            btnVozilo.Size = new System.Drawing.Size(191, 64);
             btnVozilo.TabIndex = 7;
             btnVozilo.Text = "Vozila";
             btnVozilo.UseVisualStyleBackColor = false;
@@ -143,22 +143,23 @@
             // 
             // picPolicajskaStanica
             // 
+            picPolicajskaStanica.Image = (System.Drawing.Image)resources.GetObject("picPolicajskaStanica.Image");
             picPolicajskaStanica.ImageLocation = "";
-            picPolicajskaStanica.Location = new System.Drawing.Point(183, 12);
-            picPolicajskaStanica.Margin = new Padding(4, 3, 4, 3);
+            picPolicajskaStanica.Location = new System.Drawing.Point(233, 63);
+            picPolicajskaStanica.Margin = new Padding(5, 4, 5, 4);
             picPolicajskaStanica.Name = "picPolicajskaStanica";
             picPolicajskaStanica.Size = new System.Drawing.Size(256, 256);
-            picPolicajskaStanica.SizeMode = PictureBoxSizeMode.AutoSize;
+            picPolicajskaStanica.SizeMode = PictureBoxSizeMode.StretchImage;
             picPolicajskaStanica.TabIndex = 8;
             picPolicajskaStanica.TabStop = false;
             picPolicajskaStanica.Click += picPolicajskaStanica_Click;
             // 
-            // PocetnaStranica
+            // PocetnaStranicaForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
-            ClientSize = new System.Drawing.Size(652, 278);
+            ClientSize = new System.Drawing.Size(745, 371);
             Controls.Add(picPolicajskaStanica);
             Controls.Add(btnVozilo);
             Controls.Add(btnTehnickoLice);
@@ -169,13 +170,12 @@
             ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "PocetnaStranica";
+            Margin = new Padding(5, 4, 5, 4);
+            Name = "PocetnaStranicaForm";
             Text = "Policijska Uprava";
             Load += PocetnaStranica_Load;
             ((System.ComponentModel.ISupportInitialize)picPolicajskaStanica).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
