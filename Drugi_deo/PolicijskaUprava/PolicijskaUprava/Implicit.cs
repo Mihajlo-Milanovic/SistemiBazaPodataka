@@ -17,3 +17,6 @@ global using PolicijskaUprava.Forme.PolicijskaStanicaForme;
 global using PolicijskaUprava.Forme.TehnickoLiceForme;
 /*global using PolicijskaUprava.Forme.VozilaForme;*/
 global using PolicijskaUprava.Forme.PolicajciForme;
+global using PolicijskaUprava.Forme.ObjekatForme;
+global using PolicijskaUprava.Forme.BrojTelefonaForm;
+

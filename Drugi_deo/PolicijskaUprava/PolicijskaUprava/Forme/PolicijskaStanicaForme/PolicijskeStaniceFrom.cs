@@ -96,5 +96,18 @@ namespace PolicijskaUprava.Forme
                 forma.ShowDialog();
             }
         }
+
+        private void btnDodajObjekat_Click(object sender, EventArgs e)
+        {
+            if (ListeStanice.SelectedItems.Count == 1)
+            {
+                new ObjekatForm(Int32.Parse((ListeStanice.SelectedItems[0].SubItems[0].Text))).ShowDialog();
+            }
+            else if(ListeStanice.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Izaberite stanicu !");
+            }    
+            else MessageBox.Show("Izaberite 1 stanicu!");
+        }
     }
 }

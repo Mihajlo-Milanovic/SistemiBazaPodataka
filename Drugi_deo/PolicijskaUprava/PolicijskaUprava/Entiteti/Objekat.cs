@@ -18,8 +18,25 @@
         public Objekat() { 
             AlarmniSistemi=new List<AlarmniSistem>();
             Intervencije = new List<PolicijskaIntervencija>();
-        
         }
+        public Objekat(int id)
+        {
+            Id = id;
+        }
+        public Objekat(int id, string tip, string adresa, int povrsina, string kontaktIme, string kontaktPrezime,
+            PolicijskaStanica policijskaStanica, List<PolicijskaIntervencija> intervencije, List<AlarmniSistem> alarmniSistemi)
+        {
+            Id = id;
+            Tip = tip;
+            Adresa = adresa;
+            Povrsina = povrsina;
+            KontaktIme = kontaktIme;
+            KontaktPrezime = kontaktPrezime;
+            PolicijskaStanica = policijskaStanica;
+            Intervencije = intervencije;
+            AlarmniSistemi = alarmniSistemi;
+        }
+
         public override string ToString()
         {
             return "Tip: " + Tip + "\n" +

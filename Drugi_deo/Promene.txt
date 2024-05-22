@@ -8,7 +8,7 @@ U nastavku ce biti navedene sve promene nad bazom.
  CHECK (TIP IN ('PATROLNI POLICAJAC','POLICAJAC ZA VANREDNE SITUACIJE', 'SKOLSKI POLICAJAC', 'RADNIK U UPRAVI', 'POLICAJAC POZORNIK')) ENABLE;
 
 ALTER TABLE "ALARMNI_SISTEM" ADD CONSTRAINT "ALARMNI_SISTEM_TIP_CHK" 
-CHECK (TIP IN ('ULTRAZVUCNI','DETEKCIJEA POKRETA', 'DETEKCIJA TOPLOTNOG ODRAZA')) ENABLE;
+CHECK (TIP IN ('ULTRAZVUCNI','DETEKCIJA POKRETA', 'DETEKCIJA TOPLOTNOG ODRAZA')) ENABLE;
 
 ALTER TABLE BROJ_TELEFONA
 MODIFY BROJ VARCHAR2(20);
@@ -65,7 +65,7 @@ CREATE SEQUENCE PATROLA_ID_SEQ
   NOCACHE;
 
  ---------------------------------------------------------------------------------------------------------
- --------------------------------------------TRIGERS------------------------------------------------------
+ --------------------------------------------TRIGGERS------------------------------------------------------
  ---------------------------------------------------------------------------------------------------------
 
 
