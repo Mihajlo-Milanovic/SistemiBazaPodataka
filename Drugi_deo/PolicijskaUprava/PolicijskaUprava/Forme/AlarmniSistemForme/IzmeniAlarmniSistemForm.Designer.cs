@@ -389,6 +389,7 @@
 			Controls.Add(tbxSerijskiBroj);
 			Controls.Add(lblSerijskiBroj);
 			Name = "IzmeniAlarmniSistemForm";
+			StartPosition = FormStartPosition.CenterScreen;
 			Text = "IzmeniAlarmniSistemForm";
 			gbxUltrazvucni.ResumeLayout(false);
 			gbxUltrazvucni.PerformLayout();

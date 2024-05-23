@@ -1,6 +1,4 @@
 using NHibernate.Criterion;
-using PolicijskaUprava.Entiteti;
-using System.Collections.Generic;
 
 namespace PolicijskaUprava.DTOs {
 
@@ -449,7 +447,7 @@ namespace PolicijskaUprava.DTOs {
 				return true;
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 				return false;
 			}
 		}
@@ -497,7 +495,7 @@ namespace PolicijskaUprava.DTOs {
 				s.Close();
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 			}
 		}
 
@@ -534,9 +532,38 @@ namespace PolicijskaUprava.DTOs {
 				return true;
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 				return false;
 			}
+		}
+
+		public static List<ObjekatView> vratiObjekteZaPolicijskuStanicu(int stanicaId) {
+
+			List<ObjekatView> ov = null;
+
+			try {
+
+				ISession s = DataLayer.GetSession();
+
+				IEnumerable<Objekat> objekat = from o in s.Query<Objekat>()
+											   where o.PolicijskaStanica.Id == stanicaId
+											   select o;
+
+				ov = new();
+				foreach (var i in objekat)
+					ov.Add(new ObjekatView(i));
+
+				s.Close();
+
+				return ov;
+
+			}catch(Exception ex) {
+				
+				MessageBox.Show(ex.FormatExceptionMessage());
+			}
+
+
+			return null;
 		}
 
 		#endregion
@@ -562,7 +589,7 @@ namespace PolicijskaUprava.DTOs {
 				return list;
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 				return null;
 			}
 		}
@@ -579,7 +606,7 @@ namespace PolicijskaUprava.DTOs {
 				s.Close();
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 			}
 
 		}
@@ -597,7 +624,7 @@ namespace PolicijskaUprava.DTOs {
 				s.Close();
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 			}
 		}
 
@@ -629,7 +656,7 @@ namespace PolicijskaUprava.DTOs {
 			catch (Exception ex) {
 
 				MessageBox.Show(ex.FormatExceptionMessage());
-				return ov;
+				return null;
 			}
 
 

@@ -13,8 +13,8 @@ namespace PolicijskaUprava.Mapiranja
             Table("ODRZAVA");
             CompositeId(x => x.Id)
             .KeyReference(x => x.Tehnicar, "TEHNICAR_ID")
-            .KeyReference(x => x.AlarmniSistem, "ALARMNI_SISTEM_ID");
-            Map(x => x.PocetniDatum).Column("POCETNI_DATUM");
+            .KeyReference(x => x.AlarmniSistem, "ALARMNI_SISTEM_ID")
+            .KeyProperty(x => x.PocetniDatum, "POCETNI_DATUM");
             Map(x => x.KrajnjiDatum).Column("KRAJNJI_DATUM");
         }
     }

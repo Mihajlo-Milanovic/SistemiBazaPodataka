@@ -390,6 +390,7 @@
 			Controls.Add(tbxSerijskiBroj);
 			Controls.Add(lblSerijskiBroj);
 			Name = "DodajAlarmniSistemForm";
+			StartPosition = FormStartPosition.CenterScreen;
 			Text = "DodajAlarmniSistemForm";
 			gbxDetekcijeToplotnogOdraza.ResumeLayout(false);
 			gbxDetekcijeToplotnogOdraza.PerformLayout();
