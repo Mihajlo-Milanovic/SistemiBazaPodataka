@@ -14,15 +14,15 @@ namespace PolicijskaUprava.Forme
 
         public void PopuniTabelu()
         {
-            ListeStanice.Items.Clear();
+            lvListeStanice.Items.Clear();
             Stanice = DTOManager.vratiSvePolicijskeStanice();
 
             foreach (var s in Stanice)
             {
                 ListViewItem item = new ListViewItem(new string[] { s.Id.ToString(), s.Naziv, s.Opstina, s.Adresa, s.DatumOsnivanja.ToShortDateString(), s.BrojVozila.ToString() });
-                ListeStanice.Items.Add(item);
+                lvListeStanice.Items.Add(item);
             }
-            ListeStanice.Refresh();
+            lvListeStanice.Refresh();
         }
 
         private void btnDodajPolicijskeStanice_Click(object sender, EventArgs e)
@@ -36,11 +36,11 @@ namespace PolicijskaUprava.Forme
         private void btnObrisiPolicijskuStanicu_Click(object sender, EventArgs e)
         {
 
-            if (ListeStanice.SelectedItems.Count > 0)
+            if (lvListeStanice.SelectedItems.Count > 0)
             {
 
                 // Uzmete prvu označenu vrstu
-                ListViewItem selectedItem = ListeStanice.SelectedItems[0];
+                ListViewItem selectedItem = lvListeStanice.SelectedItems[0];
 
                 // Pretpostavimo da je ID kolona prva kolona (indeks 0)
                 int id = Int32.Parse(selectedItem.SubItems[0].Text);
@@ -62,11 +62,11 @@ namespace PolicijskaUprava.Forme
 
         private void btnIzmeniStanicu_Click(object sender, EventArgs e)
         {
-            if (ListeStanice.SelectedItems.Count > 0)
+            if (lvListeStanice.SelectedItems.Count > 0)
             {
 
                 // Uzmete prvu označenu vrstu
-                ListViewItem selectedItem = ListeStanice.SelectedItems[0];
+                ListViewItem selectedItem = lvListeStanice.SelectedItems[0];
 
                 PolicijskaStanicaView stanica = new PolicijskaStanicaView
                 {
@@ -85,10 +85,10 @@ namespace PolicijskaUprava.Forme
 
         private void btnDodajPolicajca_Click(object sender, EventArgs e)
         {
-            if (ListeStanice.SelectedItems.Count > 0)
+            if (lvListeStanice.SelectedItems.Count > 0)
             {
 
-                ListViewItem selectedItem = ListeStanice.SelectedItems[0];
+                ListViewItem selectedItem = lvListeStanice.SelectedItems[0];
 
                 int IDStanice = Convert.ToInt32(selectedItem.SubItems[0].Text);
 
@@ -97,16 +97,15 @@ namespace PolicijskaUprava.Forme
             }
         }
 
-        private void btnDodajObjekat_Click(object sender, EventArgs e)
-        {
-            if (ListeStanice.SelectedItems.Count == 1)
-            {
-                new ObjekatForm(Int32.Parse((ListeStanice.SelectedItems[0].SubItems[0].Text))).ShowDialog();
+        private void btnVidiObjekte_Click(object sender, EventArgs e) {
+
+            if (lvListeStanice.SelectedItems.Count == 1) {
+
+                new ObjekatForm(Int32.Parse((lvListeStanice.SelectedItems[0].SubItems[0].Text))).ShowDialog();
             }
-            else if(ListeStanice.SelectedItems.Count == 0)
-            {
+            else if (lvListeStanice.SelectedItems.Count == 0) {
                 MessageBox.Show("Izaberite stanicu !");
-            }    
+            }
             else MessageBox.Show("Izaberite 1 stanicu!");
         }
     }

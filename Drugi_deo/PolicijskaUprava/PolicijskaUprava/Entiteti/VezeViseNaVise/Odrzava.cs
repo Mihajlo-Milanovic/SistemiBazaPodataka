@@ -9,7 +9,6 @@ namespace PolicijskaUprava.Entiteti.VezeViseNaVise
     public class Odrzava
     {
         public virtual OdrzavaId Id { get; set; }
-        public virtual DateTime PocetniDatum { get; set; }
         public virtual DateTime KrajnjiDatum { get; set; }
 
     }
@@ -17,8 +16,9 @@ namespace PolicijskaUprava.Entiteti.VezeViseNaVise
     {
         public virtual TehnickoLice Tehnicar { get; set; }
         public virtual AlarmniSistem AlarmniSistem { get; set; }
+		public virtual DateTime PocetniDatum { get; set; }
 
-        public OdrzavaId(TehnickoLice tehnicar, AlarmniSistem alarmni)
+		public OdrzavaId(TehnickoLice tehnicar, AlarmniSistem alarmni)
         {
             Tehnicar = tehnicar;
             AlarmniSistem = alarmni;
@@ -34,9 +34,11 @@ namespace PolicijskaUprava.Entiteti.VezeViseNaVise
 
             OdrzavaId recievedObject = (OdrzavaId)obj;
 
-            if (AlarmniSistem == recievedObject.AlarmniSistem && Tehnicar == recievedObject.Tehnicar)
+            if (AlarmniSistem == recievedObject.AlarmniSistem && Tehnicar == recievedObject.Tehnicar
+                                                                && PocetniDatum == recievedObject.PocetniDatum)
                 return true;
-            return false;
+            else
+                return false;
         }
         public override int GetHashCode()
         {

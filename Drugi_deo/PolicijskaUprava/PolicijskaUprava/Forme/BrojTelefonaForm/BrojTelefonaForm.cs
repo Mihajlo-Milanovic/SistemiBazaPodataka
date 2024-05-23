@@ -23,10 +23,7 @@ namespace PolicijskaUprava.Forme.BrojTelefonaForm
             this.idObjekta = idObjekta;
             osvezi();
         }
-        private void BrojTelefonaForm_Load(object sender, EventArgs e)
-        {
-
-        }
+       
         public void osvezi()
         {
             dgvBrojevi.DataSource = DTOManager.VratiTelefoneZaObjekat(idObjekta);

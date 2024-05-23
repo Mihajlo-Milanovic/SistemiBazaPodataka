@@ -1,6 +1,16 @@
 U nastavku ce biti navedene sve promene nad bazom.
 
----------------------------------------------------------------------------------------------------------
+
+
+ODRZAVA :
+	PK(TEHNICKO_LICE_ID, ALARMNI_SISTEM_ID) --> PK(TEHNICKO_LICE_ID, ALARMNI_SISTEM_ID, POCETNI_DATUM)
+
+ALARMNI_SISTEM:
+	CHECK TIP:
+		('ULTRAZVUCNI','DETEKCIJA POKRETA', 'DETEKCIJA TOPLOTNOG ODRAZA') --> TIP IN ('ULTRAZVUCNI','DETEKCIJE POKRETA', 'DETEKCIJE TOPLOTNOG ODRAZA')
+		
+
+ ---------------------------------------------------------------------------------------------------------
  -----------------------------------------ALTER----TABLE--------------------------------------------------
  ---------------------------------------------------------------------------------------------------------
 
@@ -8,7 +18,7 @@ U nastavku ce biti navedene sve promene nad bazom.
  CHECK (TIP IN ('PATROLNI POLICAJAC','POLICAJAC ZA VANREDNE SITUACIJE', 'SKOLSKI POLICAJAC', 'RADNIK U UPRAVI', 'POLICAJAC POZORNIK')) ENABLE;
 
 ALTER TABLE "ALARMNI_SISTEM" ADD CONSTRAINT "ALARMNI_SISTEM_TIP_CHK" 
-CHECK (TIP IN ('ULTRAZVUCNI','DETEKCIJA POKRETA', 'DETEKCIJA TOPLOTNOG ODRAZA')) ENABLE;
+CHECK (TIP IN ('ULTRAZVUCNI','DETEKCIJE POKRETA', 'DETEKCIJE TOPLOTNOG ODRAZA')) ENABLE;
 
 ALTER TABLE BROJ_TELEFONA
 MODIFY BROJ VARCHAR2(20);
@@ -18,7 +28,7 @@ ADD (
     IME VARCHAR2(20),
     PREZIME VARCHAR2(20)
 );
----------------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------
  --------------------------------------------SEQUENCES----------------------------------------------------
  ---------------------------------------------------------------------------------------------------------
 
@@ -65,7 +75,7 @@ CREATE SEQUENCE PATROLA_ID_SEQ
   NOCACHE;
 
  ---------------------------------------------------------------------------------------------------------
- --------------------------------------------TRIGGERS------------------------------------------------------
+ --------------------------------------------TRIGGERS-----------------------------------------------------
  ---------------------------------------------------------------------------------------------------------
 
 

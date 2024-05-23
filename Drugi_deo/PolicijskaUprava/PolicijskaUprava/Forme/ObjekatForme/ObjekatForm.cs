@@ -3,18 +3,11 @@
     public partial class ObjekatForm : Form
     {
         public int idStanice;
-        public ObjekatForm()
-        {
-            InitializeComponent();
-        }
 
         public ObjekatForm(int idStanice)
         {
-            this.idStanice = idStanice;
             InitializeComponent();
-
-            //MessageBox.Show(idStanice.ToString());
-            // DTOManager.dodajObjekatStanici(this, idStanice);
+            this.idStanice = idStanice;
         }
 
         private void ObekatForm_Load(object sender, EventArgs e)
@@ -26,30 +19,32 @@
         }
         private void dgvObjekti_RowHeaderMouseClick(object sender, EventArgs e)
         {
-            btnDodaj.Enabled = false;
             btnAzuriraj.Enabled = true;
             btnObrisi.Enabled = true;
             btnBroj.Enabled = true;
-           // MessageBox.Show("Kliknut :" + dgvObjekti.SelectedRows[0].Cells[0].Value.ToString());
         }
+
+        
         private void dgvObjekti_CellClick(object sender, EventArgs e)
         {
-            btnDodaj.Enabled = true;
             btnAzuriraj.Enabled = false;
             btnObrisi.Enabled = false;
             btnBroj.Enabled = false;
         }
+        
         private void osvezi()
         {
-            dgvObjekti.DataSource = DTOManager.vratiSveObjekte();
+			bindingSource.DataSource = DTOManager.vratiObjekteZaPolicijskuStanicu(idStanice);
 
-            bindingSource.DataSource = dgvObjekti;
+            dgvObjekti.DataSource = bindingSource.DataSource;
         }
+
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             new DodajObjekatForm(idStanice).ShowDialog();
             osvezi();
         }
+
         private void btnAzuriraj_Click(object sender, EventArgs e)
         {
             ObjekatView obj = new ObjekatView();
@@ -81,27 +76,24 @@
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (dgvObjekti.SelectedRows.Count > 0)
-            {
-                foreach (DataGridViewRow row in dgvObjekti.SelectedRows)
-                {
-                    if (!row.IsNewRow)
-                    {
-                        string poruka = $"Da li sigurno zelite da obrisete objekat sa IDem: {(int)row.Cells[0].Value}?";
-                        string title = "Pitanje";
-                        MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                        DialogResult result = MessageBox.Show(poruka, title, buttons);
+            if (dgvObjekti.SelectedRows.Count > 0) {
 
-                        if (result == DialogResult.OK)
-                            DTOManager.ObrisiObjekat((int)row.Cells[0].Value);
-                    }
-                }
+                string poruka = $"Da li sigurno zelite da obrisete objekat sa ID: {(int)dgvObjekti.SelectedCells[0].Value}?";
+                string title = "Pitanje";
+                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                DialogResult result = MessageBox.Show(poruka, title, buttons);
+
+                if (result == DialogResult.OK) {
+
+                    DTOManager.ObrisiObjekat((int)dgvObjekti.SelectedCells[0].Value);
+					osvezi();
+				}
+
             }
-            else
-            {
+            else {
                 MessageBox.Show("Nema selektovanog reda za brisanje.");
             }
-            osvezi();
+            
         }
         private void btnBroj_Click(object sender, EventArgs e)
         {

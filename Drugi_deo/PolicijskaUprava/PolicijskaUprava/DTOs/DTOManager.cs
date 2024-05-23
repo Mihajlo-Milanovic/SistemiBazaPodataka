@@ -2,60 +2,52 @@ using NHibernate.Criterion;
 
 namespace PolicijskaUprava.DTOs {
 
-    public class DTOManager {
+	public class DTOManager {
 
 		#region Policajci
 
 		public static List<PolicajacView> vratiSvePolicajce() {
 
 
-            List<PolicajacView> Policajci = new();
-            try
-            {
-                ISession s = DataLayer.GetSession();
+			List<PolicajacView> Policajci = new();
+			try {
+				ISession s = DataLayer.GetSession();
 
-                IList<Policajac> sviPolicajci = s.CreateQuery("from Policajac").List<Policajac>();
+				IList<Policajac> sviPolicajci = s.CreateQuery("from Policajac").List<Policajac>();
 
-                foreach (var p in sviPolicajci)
-                {
+				foreach (var p in sviPolicajci) {
 
-                    if (p.GetType() == typeof(PatrolniPolicajac))
-                    {
-                        PatrolniPolicajacView policajac = new((PatrolniPolicajac)p);
-                        Policajci.Add(policajac);
-                    }
-                    else if (p.GetType() == typeof(PolicajacPozornik))
-                    {
-                        PolicajacPozornikView policajac = new((PolicajacPozornik)p);
-                        Policajci.Add(policajac);
-                    }
-                    else if (p.GetType() == typeof(RadnikUUpravi))
-                    {
-                        RadnikUUpraviView policajac = new((RadnikUUpravi)p);
-                        Policajci.Add(policajac);
-                    }
-                    else if (p.GetType() == typeof(SkolskiPolicajac))
-                    {
-                        SkolskiPolicajacView policajac = new((SkolskiPolicajac)p);
-                        Policajci.Add(policajac);
-                    }
-                    else if (p.GetType() == typeof(PZaVanredneSituacije))
-                    {
-                        PZaVanredneSituacijeView policajac = new((PZaVanredneSituacije)p);
-                        Policajci.Add(policajac);
-                    }
+					if (p.GetType() == typeof(PatrolniPolicajac)) {
+						PatrolniPolicajacView policajac = new((PatrolniPolicajac)p);
+						Policajci.Add(policajac);
+					}
+					else if (p.GetType() == typeof(PolicajacPozornik)) {
+						PolicajacPozornikView policajac = new((PolicajacPozornik)p);
+						Policajci.Add(policajac);
+					}
+					else if (p.GetType() == typeof(RadnikUUpravi)) {
+						RadnikUUpraviView policajac = new((RadnikUUpravi)p);
+						Policajci.Add(policajac);
+					}
+					else if (p.GetType() == typeof(SkolskiPolicajac)) {
+						SkolskiPolicajacView policajac = new((SkolskiPolicajac)p);
+						Policajci.Add(policajac);
+					}
+					else if (p.GetType() == typeof(PZaVanredneSituacije)) {
+						PZaVanredneSituacijeView policajac = new((PZaVanredneSituacije)p);
+						Policajci.Add(policajac);
+					}
 
-                }
+				}
 
-                s.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.FormatExceptionMessage());
-            }
+				s.Close();
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+			}
 
-            return Policajci;
-        }
+			return Policajci;
+		}
 
 		public static void ObrisiPolicajcaID(int id) {
 			try {
@@ -94,56 +86,49 @@ namespace PolicijskaUprava.DTOs {
 
 		#region Tehnicka lica
 
-		
-        public static List<TehnickoLiceView> vratiSvaTehnickaLica()
-        {
 
-            List<TehnickoLiceView> tlv = new();
-            try
-            {
-                ISession s = DataLayer.GetSession();
+		public static List<TehnickoLiceView> vratiSvaTehnickaLica() {
 
-                IList<TehnickoLice> svaTehnickaLica = s.CreateQuery("from TehnickoLice").List<TehnickoLice>();
+			List<TehnickoLiceView> tlv = new();
+			try {
+				ISession s = DataLayer.GetSession();
 
-                foreach (var t in svaTehnickaLica)
-                {
-                    tlv.Add(new TehnickoLiceView(t));
-                }
+				IList<TehnickoLice> svaTehnickaLica = s.CreateQuery("from TehnickoLice").List<TehnickoLice>();
 
-                s.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.FormatExceptionMessage());
-            }
+				foreach (var t in svaTehnickaLica) {
+					tlv.Add(new TehnickoLiceView(t));
+				}
 
-            return tlv;
-        }
+				s.Close();
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+			}
 
-        public static bool dodajTehnickoLice(string ime, string prezime)
-        {
+			return tlv;
+		}
 
-            TehnickoLice tl = new(ime, prezime);
+		public static bool dodajTehnickoLice(string ime, string prezime) {
 
-            try
-            {
-                ISession s = DataLayer.GetSession();
+			TehnickoLice tl = new(ime, prezime);
 
-                s.Save(tl);
+			try {
+				ISession s = DataLayer.GetSession();
 
-                s.Flush();
+				s.Save(tl);
 
-                s.Close();
+				s.Flush();
 
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.FormatExceptionMessage());
-                return false;
+				s.Close();
 
-            }
-        }
+				return true;
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+
+			}
+		}
 
 		public static bool obrisiTehnickoLice(int id) {
 
@@ -211,41 +196,35 @@ namespace PolicijskaUprava.DTOs {
 			return Stanice;
 		}
 
-		public static void DodajPolicijskuStanicu(PolicijskaStanica stanica)
-        {
+		public static void DodajPolicijskuStanicu(PolicijskaStanica stanica) {
 
-            try
-            {
-                ISession s = DataLayer.GetSession();
+			try {
+				ISession s = DataLayer.GetSession();
 
-                s.SaveOrUpdate(stanica);
-            }
-            catch (Exception ec)
-            {
-                ec.FormatExceptionMessage();
+				s.SaveOrUpdate(stanica);
+			}
+			catch (Exception ec) {
+				ec.FormatExceptionMessage();
 
-            }
+			}
 
-        }
+		}
 
-        public static void ObrisiPolicistkuStanicuID(int ID)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+		public static void ObrisiPolicistkuStanicuID(int ID) {
+			try {
+				ISession s = DataLayer.GetSession();
 
-                PolicijskaStanica PS = s.Load<PolicijskaStanica>(ID);
+				PolicijskaStanica PS = s.Load<PolicijskaStanica>(ID);
 
-                s.Delete(PS);
-                s.Flush();
+				s.Delete(PS);
+				s.Flush();
 
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                ec.FormatExceptionMessage();
-            }
-        }
+				s.Close();
+			}
+			catch (Exception ec) {
+				ec.FormatExceptionMessage();
+			}
+		}
 
 		public static PolicijskaStanica VratiStanicu(int stanicaID) {
 			try {
@@ -277,20 +256,20 @@ namespace PolicijskaUprava.DTOs {
 
 		public static List<AlarmniSistemView> vratiSveAlarmneSistemeZaObjekat(int id) {
 
-            List<AlarmniSistemView> asv = new();
+			List<AlarmniSistemView> asv = new();
 
-            Objekat o = new();
-            o.Id = id;
+			Objekat o = new();
+			o.Id = id;
 
 			try {
 				ISession s = DataLayer.GetSession();
 
 				IList<AlarmniSistem> alarmniSistemi = s.CreateCriteria<AlarmniSistem>()
-                                                        .Add(Restrictions.Eq("PripadaObjektu", o))
-                                                        .List<AlarmniSistem>();
+														.Add(Restrictions.Eq("PripadaObjektu", o))
+														.List<AlarmniSistem>();
 
-                foreach (var aa in alarmniSistemi) 
-                	asv.Add(new AlarmniSistemView(aa));
+				foreach (var aa in alarmniSistemi)
+					asv.Add(new AlarmniSistemView(aa));
 
 
 				s.Close();
@@ -300,11 +279,11 @@ namespace PolicijskaUprava.DTOs {
 			}
 
 			return asv;
-        }
+		}
 
-        public static AlarmniSistem vratiAlarmniSistem(int id) {
+		public static AlarmniSistem vratiAlarmniSistem(int id) {
 
-            IList<AlarmniSistem> a = null;
+			IList<AlarmniSistem> a = null;
 
 			try {
 				ISession s = DataLayer.GetSession();
@@ -315,19 +294,19 @@ namespace PolicijskaUprava.DTOs {
 
 				a = query.List<AlarmniSistem>();
 
-                s.Close();
+				s.Close();
 			}
 			catch (Exception ex) {
 				MessageBox.Show(ex.FormatExceptionMessage());
 			}
 
-                if (a != null)
-                    return a.First();
-                else
-                    return null;
+			if (a != null)
+				return a.First();
+			else
+				return null;
 		}
 
-        public static bool dodajAlarmniSistem(AlarmniSistem a) {
+		public static bool dodajAlarmniSistem(AlarmniSistem a) {
 
 
 			try {
@@ -367,27 +346,27 @@ namespace PolicijskaUprava.DTOs {
 			}
 		}
 
-        public static bool obrisiAlarmniSistem(AlarmniSistem a) {
+		public static bool obrisiAlarmniSistem(AlarmniSistem a) {
 
-            try {
+			try {
 
-                ISession s = DataLayer.GetSession();
+				ISession s = DataLayer.GetSession();
 
-                s.Delete(a);
+				s.Delete(a);
 
 
-                s.Flush();
+				s.Flush();
 
-                s.Close();
+				s.Close();
 
-                return true;
-            }
-            catch (Exception ex) {
-                MessageBox.Show(ex.FormatExceptionMessage());
-                return false;
-            }
+				return true;
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+			}
 
-        }
+		}
 
 		#endregion
 
@@ -396,7 +375,7 @@ namespace PolicijskaUprava.DTOs {
 
 		public static List<VoziloView> vratiSvaVozila() {
 			List<VoziloView> Vozila = new();
-			try 
+			try
 			{
 				ISession s = DataLayer.GetSession();
 
@@ -417,7 +396,7 @@ namespace PolicijskaUprava.DTOs {
 
 		public static void DodajVozilo(Vozilo vozilo) {
 
-			try 
+			try
 			{
 				ISession s = DataLayer.GetSession();
 
@@ -434,7 +413,7 @@ namespace PolicijskaUprava.DTOs {
 		}
 
 		public static void ObrisiVozilo(string registracija) {
-			try 
+			try
 			{
 				ISession s = DataLayer.GetSession();
 
@@ -472,7 +451,7 @@ namespace PolicijskaUprava.DTOs {
 				return true;
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 				return false;
 			}
 		}
@@ -484,7 +463,7 @@ namespace PolicijskaUprava.DTOs {
 
 		public static List<ObjekatView> vratiSveObjekte() {
 			List<ObjekatView> objekti = new();
-			try 
+			try
 			{
 				ISession s = DataLayer.GetSession();
 
@@ -522,12 +501,12 @@ namespace PolicijskaUprava.DTOs {
 				s.Close();
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 			}
 		}
 
 		public static void ObrisiObjekat(int id) {
-			try 
+			try
 			{
 				ISession s = DataLayer.GetSession();
 
@@ -561,9 +540,38 @@ namespace PolicijskaUprava.DTOs {
 				return true;
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 				return false;
 			}
+		}
+
+		public static List<ObjekatView> vratiObjekteZaPolicijskuStanicu(int stanicaId) {
+
+			List<ObjekatView> ov = null;
+
+			try {
+
+				ISession s = DataLayer.GetSession();
+
+				IEnumerable<Objekat> objekat = from o in s.Query<Objekat>()
+											   where o.PolicijskaStanica.Id == stanicaId
+											   select o;
+
+				ov = new();
+				foreach (var i in objekat)
+					ov.Add(new ObjekatView(i));
+
+				s.Close();
+
+				return ov;
+
+			} catch (Exception ex) {
+
+				MessageBox.Show(ex.FormatExceptionMessage());
+			}
+
+
+			return null;
 		}
 
 		#endregion
@@ -572,7 +580,7 @@ namespace PolicijskaUprava.DTOs {
 		#region Telefoni za objekat
 
 		public static List<BrojTelefonaView> VratiTelefoneZaObjekat(int idObjekta) {
-			try 
+			try
 			{
 				ISession s = DataLayer.GetSession();
 				List<BrojTelefonaView> list = new List<BrojTelefonaView>();
@@ -590,13 +598,13 @@ namespace PolicijskaUprava.DTOs {
 				return list;
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 				return null;
 			}
 		}
 
 		public static void dodajBrojTelefonaZaObjekat(BrojTelefonaView btv, int idObjekta) {
-			try 
+			try
 			{
 				ISession s = DataLayer.GetSession();
 				BrojTelefona bt = new BrojTelefona();
@@ -608,13 +616,13 @@ namespace PolicijskaUprava.DTOs {
 				s.Close();
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 			}
 
 		}
 
 		public static void ObrisiBroj(string broj, int idObjekta) {
-			try 
+			try
 			{
 				ISession s = DataLayer.GetSession();
 
@@ -627,77 +635,114 @@ namespace PolicijskaUprava.DTOs {
 				s.Close();
 			}
 			catch (Exception ex) {
-				ex.FormatExceptionMessage();
+				MessageBox.Show(ex.FormatExceptionMessage());
 			}
+		}
+		#endregion
+
+
+		#region Odrzavanja
+
+		public static List<OdrzavaView> vratiIstorijuOdrzavanja(int tehId) {
+
+			List<OdrzavaView> ov = null;
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				IEnumerable<Odrzava> odrzava = from o in s.Query<Odrzava>()
+											   where o.Id.Tehnicar.Id == tehId
+											   select o;
+
+				ov = new();
+				foreach (var i in odrzava)
+					ov.Add(new OdrzavaView(i));
+
+
+				s.Close();
+
+				return ov;
+			}
+			catch (Exception ex) {
+
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return null;
+			}
+
+
 		}
         #endregion
 
-        #region Unapredjenje
+        #region Unapredjenja
         public static List<UnapredjenjeView> vratiUnapredjenjaZaPolicajca(int policajacId)
         {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                List<UnapredjenjeView> ret = new List<UnapredjenjeView>();
+
+                IEnumerable<Unapredjenje> unapredjenja = from u in s.Query<Unapredjenje>()
+                                                         where u.Id.Policajac.Id == policajacId
+                                                         select u;
+                foreach (var u in unapredjenja)
+                    ret.Add(new UnapredjenjeView(u));
+
+                s.Flush();
+                s.Close();
+
+                return ret;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.FormatExceptionMessage());
+                return null;
+            }
+        }
+
+        public static void dodajUnapredjenjeZaPolicajca(UnapredjenjeView uv, int policajacId)
+		{
 			try
 			{
 				ISession s = DataLayer.GetSession();
-				List<UnapredjenjeView> ret = new List<UnapredjenjeView>();
+				Unapredjenje u = new Unapredjenje();
+				u.Cin = uv.Cin;
+				u.Id.DatumSticanja = uv.DatumSticanja;
+				u.Id.Policajac = s.Load<Policajac>(policajacId);
 
-				IEnumerable<Unapredjenje> unapredjenja = from u in s.Query<Unapredjenje>()
-														 where u.Id.Policajac.Id == policajacId
-														 select u;
-				foreach (var u in unapredjenja)
-					ret.Add(new UnapredjenjeView(u));
-
+				s.Save(u);
 				s.Flush();
 				s.Close();
-
-				return ret;
 			}
 			catch (Exception ex)
 			{
 				ex.FormatExceptionMessage();
-				return null;
 			}
-        }
+		}
 
-        public static void dodajUnapredjenjeZaPolicajca(UnapredjenjeView uv, int policajacId)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
-                Unapredjenje u = new Unapredjenje();
-                u.Cin = uv.Cin;
-				u.Id.DatumSticanja = uv.DatumSticanja;
-                u.Id.Policajac = s.Load<Policajac>(policajacId);
+		public static void obrisiUnapredjenje(DateTime datum, int policajacId)
+		{
+			try
+			{
+				ISession s = DataLayer.GetSession();
 
-                s.Save(u);
-                s.Flush();
-                s.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.FormatExceptionMessage();
-            }
-        }
+				Unapredjenje u = new Unapredjenje();
+				u.Id.DatumSticanja = datum;
+				u.Id.Policajac = s.Load<Policajac>(policajacId);
 
-        public static void obrisiUnapredjenje(DateTime datum, int policajacId)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+				s.Delete(u);
+				s.Flush();
+				s.Close();
+			}
+			catch (Exception ex)
+			{
+				ex.FormatExceptionMessage();
+			}
+		}
 
-                Unapredjenje u = new Unapredjenje();
-                u.Id.DatumSticanja = datum;
-                u.Id.Policajac= s.Load<Policajac>(policajacId);
+        #endregion
 
-                s.Delete(u);
-                s.Flush();
-                s.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.FormatExceptionMessage();
-            }
-        }
-
+        #region Obrazovanje
         public static List<ObrazovanjeView> vratiObrazovanjaZaPolicajca(int policajacId)
         {
             try
@@ -706,8 +751,8 @@ namespace PolicijskaUprava.DTOs {
                 List<ObrazovanjeView> ret = new List<ObrazovanjeView>();
 
                 IEnumerable<Obrazovanje> obrazovanja = from o in s.Query<Obrazovanje>()
-                                                         where o.Id.PolicajacObrazovanje.Id == policajacId
-                                                         select o;
+                                                       where o.Id.PolicajacObrazovanje.Id == policajacId
+                                                       select o;
                 foreach (var o in obrazovanja)
                     ret.Add(new ObrazovanjeView(o));
 
@@ -722,48 +767,46 @@ namespace PolicijskaUprava.DTOs {
                 return null;
             }
         }
-
         public static void dodajObrazovanjeZaPolicajca(ObrazovanjeView ov, int policajacId)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
-                Obrazovanje o = new Obrazovanje();
-                o.Id.DatumDiplomiranja = ov.DatumDipolomirnja;
-                o.Id.Skola = ov.Skola;
-                o.Id.PolicajacObrazovanje = s.Load<Policajac>(policajacId);
+		{
+			try
+			{
+				ISession s = DataLayer.GetSession();
+				Obrazovanje o = new Obrazovanje();
+				o.Id.DatumDiplomiranja = ov.DatumDipolomirnja;
+				o.Id.Skola = ov.Skola;
+				o.Id.PolicajacObrazovanje = s.Load<Policajac>(policajacId);
 
-                s.Save(o);
-                s.Flush();
-                s.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.FormatExceptionMessage();
-            }
-        }
+				s.Save(o);
+				s.Flush();
+				s.Close();
+			}
+			catch (Exception ex)
+			{
+				ex.FormatExceptionMessage();
+			}
+		}
 
-        public static void obrisiObrazovanje(string skola, DateTime datum, int policajacId)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+		public static void obrisiObrazovanje(string skola, DateTime datum, int policajacId)
+		{
+			try
+			{
+				ISession s = DataLayer.GetSession();
 
-                Obrazovanje o = new Obrazovanje();
-                o.Id.DatumDiplomiranja = datum;
+				Obrazovanje o = new Obrazovanje();
+				o.Id.DatumDiplomiranja = datum;
 				o.Id.Skola = skola;
-                o.Id.PolicajacObrazovanje = s.Load<Policajac>(policajacId);
+				o.Id.PolicajacObrazovanje = s.Load<Policajac>(policajacId);
 
-                s.Delete(o);
-                s.Flush();
-                s.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.FormatExceptionMessage();
-            }
-        }
-
+				s.Delete(o);
+				s.Flush();
+				s.Close();
+			}
+			catch (Exception ex)
+			{
+				ex.FormatExceptionMessage();
+			}
+		}
         #endregion
     }
 }

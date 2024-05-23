@@ -92,6 +92,7 @@
 			Controls.Add(btnDodajAS);
 			Controls.Add(dataGridView1);
 			Name = "AlarmniSistemForm";
+			StartPosition = FormStartPosition.CenterScreen;
 			Text = "AlarmniSistemForma";
 			((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
 			((System.ComponentModel.ISupportInitialize)bsAS).EndInit();

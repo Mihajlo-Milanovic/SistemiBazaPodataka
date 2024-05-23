@@ -82,8 +82,8 @@ namespace PolicijskaUprava.Forme.AlarmniSistemForme {
 							"Detekcije toplotnog odraza"];
 
 			ASTypes = ["ULTRAZVUCNI",
-						"DETEKCIJAE POKRETA",
-						"DETEKCIJA TOPLOTNOG ODRAZA"];
+						"DETEKCIJE POKRETA",
+						"DETEKCIJE TOPLOTNOG ODRAZA"];
 
 			bs.DataSource = vrsteSistema;
 

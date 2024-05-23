@@ -1,6 +1,9 @@
 ﻿namespace PolicijskaUprava.Entiteti
 {
-    public class BrojTelefona
+
+	#region BrojTelefona
+
+	public class BrojTelefona
     {
         public virtual BrojTelefonaId Id { get; set; }
 
@@ -20,10 +23,17 @@
                    Id.ObjekatZaBroj.ToString();
         }
     }
-    public class BrojTelefonaId
+
+	#endregion
+
+	#region BrojTelefonaId
+
+	public class BrojTelefonaId
     {
         public virtual string Broj { get; set; }
         public virtual Objekat ObjekatZaBroj { get; set; }
+
+        public BrojTelefonaId() { }
 
         public BrojTelefonaId(string broj, Objekat obj)
         {
@@ -31,7 +41,7 @@
             ObjekatZaBroj = obj;
         }
 
-        public BrojTelefonaId() { }
+
         public override bool Equals(object obj)
         {
             if (Object.ReferenceEquals(this, obj))
@@ -45,9 +55,12 @@
                 return true;
             return false;
         }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
         }
     }
+
+	#endregion
 }

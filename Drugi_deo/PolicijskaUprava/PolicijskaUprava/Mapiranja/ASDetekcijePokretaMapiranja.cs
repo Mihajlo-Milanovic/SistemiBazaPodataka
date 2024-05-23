@@ -4,7 +4,7 @@
     {
         public ASDetekcijePokretaMapiranja()
         {
-            DiscriminatorValue("DETEKCIJA POKRETA");
+            DiscriminatorValue("DETEKCIJE POKRETA");
 
             Map(x => x.Osetljivost, "OSETLJIVOST");
 

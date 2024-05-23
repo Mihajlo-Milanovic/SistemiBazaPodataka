@@ -8,10 +8,6 @@ namespace PolicijskaUprava.Forme {
             InitializeComponent();
         }
 
-        private void PocetnaStranica_Load(object sender, EventArgs e) {
-            return;
-        }
-
         private void picPolicajskaStanica_Click(object sender, EventArgs e) {
             PolicijskeStaniceFrom PSF = new PolicijskeStaniceFrom();
             PSF.ShowDialog();
@@ -22,10 +18,6 @@ namespace PolicijskaUprava.Forme {
             P.ShowDialog();
         }
 
-        private void btnObjekat_Click(object sender, EventArgs e) {
-            MessageBox.Show("Ovde ide forma ObjekatFrom...");
-        }
-
         private void btnPatrole_Click(object sender, EventArgs e) {
             MessageBox.Show("Ovde ide forma PatroleFrom...");
         }
@@ -34,17 +26,10 @@ namespace PolicijskaUprava.Forme {
            new VozilaForm().ShowDialog();
         }
 
-        private void btnAlarmniSistem_Click(object sender, EventArgs e) {
-
-            AlarmniSistemForm ASF = new(4);
-            ASF.ShowDialog();
-        }
-
         private void btnTehnickoLice_Click(object sender, EventArgs e) {
 
-            //SvaTehnickaLicaFrom STLF = new SvaTehnickaLicaFrom();
-            TehnickaLicaForm STLF = new();
-            STLF.ShowDialog();
+            TehnickaLicaForm tlf = new();
+            tlf.ShowDialog();
             
         }
     }
