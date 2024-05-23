@@ -102,9 +102,11 @@
             gbxTipoviPolicajaca.Controls.Add(btnSkolskiPolicajac);
             gbxTipoviPolicajaca.Controls.Add(btnPolicajacPozornik);
             gbxTipoviPolicajaca.Controls.Add(btnRdnikUUpravi);
-            gbxTipoviPolicajaca.Location = new System.Drawing.Point(12, 80);
+            gbxTipoviPolicajaca.Location = new System.Drawing.Point(14, 107);
+            gbxTipoviPolicajaca.Margin = new Padding(3, 4, 3, 4);
             gbxTipoviPolicajaca.Name = "gbxTipoviPolicajaca";
-            gbxTipoviPolicajaca.Size = new System.Drawing.Size(256, 167);
+            gbxTipoviPolicajaca.Padding = new Padding(3, 4, 3, 4);
+            gbxTipoviPolicajaca.Size = new System.Drawing.Size(293, 223);
             gbxTipoviPolicajaca.TabIndex = 6;
             gbxTipoviPolicajaca.TabStop = false;
             gbxTipoviPolicajaca.Text = "Tip policajca";
@@ -112,9 +114,10 @@
             // btnPolicajacZaVanrednoSituacije
             // 
             btnPolicajacZaVanrednoSituacije.AutoSize = true;
-            btnPolicajacZaVanrednoSituacije.Location = new System.Drawing.Point(33, 33);
+            btnPolicajacZaVanrednoSituacije.Location = new System.Drawing.Point(38, 44);
+            btnPolicajacZaVanrednoSituacije.Margin = new Padding(3, 4, 3, 4);
             btnPolicajacZaVanrednoSituacije.Name = "btnPolicajacZaVanrednoSituacije";
-            btnPolicajacZaVanrednoSituacije.Size = new System.Drawing.Size(184, 19);
+            btnPolicajacZaVanrednoSituacije.Size = new System.Drawing.Size(230, 24);
             btnPolicajacZaVanrednoSituacije.TabIndex = 0;
             btnPolicajacZaVanrednoSituacije.TabStop = true;
             btnPolicajacZaVanrednoSituacije.Tag = "PZaVanrednoSituacije";
@@ -125,9 +128,10 @@
             // btnPatrolniPolicajac
             // 
             btnPatrolniPolicajac.AutoSize = true;
-            btnPatrolniPolicajac.Location = new System.Drawing.Point(33, 133);
+            btnPatrolniPolicajac.Location = new System.Drawing.Point(38, 177);
+            btnPatrolniPolicajac.Margin = new Padding(3, 4, 3, 4);
             btnPatrolniPolicajac.Name = "btnPatrolniPolicajac";
-            btnPatrolniPolicajac.Size = new System.Drawing.Size(116, 19);
+            btnPatrolniPolicajac.Size = new System.Drawing.Size(144, 24);
             btnPatrolniPolicajac.TabIndex = 4;
             btnPatrolniPolicajac.TabStop = true;
             btnPatrolniPolicajac.Tag = "PatrolniPolicajac";
@@ -138,9 +142,10 @@
             // btnSkolskiPolicajac
             // 
             btnSkolskiPolicajac.AutoSize = true;
-            btnSkolskiPolicajac.Location = new System.Drawing.Point(33, 58);
+            btnSkolskiPolicajac.Location = new System.Drawing.Point(38, 77);
+            btnSkolskiPolicajac.Margin = new Padding(3, 4, 3, 4);
             btnSkolskiPolicajac.Name = "btnSkolskiPolicajac";
-            btnSkolskiPolicajac.Size = new System.Drawing.Size(111, 19);
+            btnSkolskiPolicajac.Size = new System.Drawing.Size(139, 24);
             btnSkolskiPolicajac.TabIndex = 1;
             btnSkolskiPolicajac.TabStop = true;
             btnSkolskiPolicajac.Tag = "SkolskiPolicajac";
@@ -151,9 +156,10 @@
             // btnPolicajacPozornik
             // 
             btnPolicajacPozornik.AutoSize = true;
-            btnPolicajacPozornik.Location = new System.Drawing.Point(33, 108);
+            btnPolicajacPozornik.Location = new System.Drawing.Point(38, 144);
+            btnPolicajacPozornik.Margin = new Padding(3, 4, 3, 4);
             btnPolicajacPozornik.Name = "btnPolicajacPozornik";
-            btnPolicajacPozornik.Size = new System.Drawing.Size(121, 19);
+            btnPolicajacPozornik.Size = new System.Drawing.Size(150, 24);
             btnPolicajacPozornik.TabIndex = 3;
             btnPolicajacPozornik.TabStop = true;
             btnPolicajacPozornik.Tag = "PolicajacPozornik";
@@ -164,9 +170,10 @@
             // btnRdnikUUpravi
             // 
             btnRdnikUUpravi.AutoSize = true;
-            btnRdnikUUpravi.Location = new System.Drawing.Point(33, 83);
+            btnRdnikUUpravi.Location = new System.Drawing.Point(38, 111);
+            btnRdnikUUpravi.Margin = new Padding(3, 4, 3, 4);
             btnRdnikUUpravi.Name = "btnRdnikUUpravi";
-            btnRdnikUUpravi.Size = new System.Drawing.Size(107, 19);
+            btnRdnikUUpravi.Size = new System.Drawing.Size(132, 24);
             btnRdnikUUpravi.TabIndex = 2;
             btnRdnikUUpravi.TabStop = true;
             btnRdnikUUpravi.Tag = "RadnikUUpravi";
@@ -177,121 +184,129 @@
             // lblIme
             // 
             lblIme.AutoSize = true;
-            lblIme.Location = new System.Drawing.Point(110, 29);
+            lblIme.Location = new System.Drawing.Point(126, 39);
             lblIme.Name = "lblIme";
-            lblIme.Size = new System.Drawing.Size(30, 15);
+            lblIme.Size = new System.Drawing.Size(37, 20);
             lblIme.TabIndex = 7;
             lblIme.Text = "Ime:";
             // 
             // txtIme
             // 
-            txtIme.Location = new System.Drawing.Point(155, 29);
+            txtIme.Location = new System.Drawing.Point(177, 39);
+            txtIme.Margin = new Padding(3, 4, 3, 4);
             txtIme.Name = "txtIme";
-            txtIme.Size = new System.Drawing.Size(100, 23);
+            txtIme.Size = new System.Drawing.Size(114, 27);
             txtIme.TabIndex = 8;
             // 
             // dtpDatumRodjenja
             // 
-            dtpDatumRodjenja.Location = new System.Drawing.Point(155, 116);
+            dtpDatumRodjenja.Location = new System.Drawing.Point(177, 155);
+            dtpDatumRodjenja.Margin = new Padding(3, 4, 3, 4);
             dtpDatumRodjenja.Name = "dtpDatumRodjenja";
-            dtpDatumRodjenja.Size = new System.Drawing.Size(200, 23);
+            dtpDatumRodjenja.Size = new System.Drawing.Size(228, 27);
             dtpDatumRodjenja.TabIndex = 11;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(100, 145);
+            label3.Location = new System.Drawing.Point(114, 193);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(40, 15);
+            label3.Size = new System.Drawing.Size(49, 20);
             label3.TabIndex = 12;
             label3.Text = "JMBG:";
             // 
             // txtImeRoditelja
             // 
-            txtImeRoditelja.Location = new System.Drawing.Point(155, 58);
+            txtImeRoditelja.Location = new System.Drawing.Point(177, 77);
+            txtImeRoditelja.Margin = new Padding(3, 4, 3, 4);
             txtImeRoditelja.Name = "txtImeRoditelja";
-            txtImeRoditelja.Size = new System.Drawing.Size(100, 23);
+            txtImeRoditelja.Size = new System.Drawing.Size(114, 27);
             txtImeRoditelja.TabIndex = 14;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(64, 58);
+            label4.Location = new System.Drawing.Point(73, 77);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(76, 15);
+            label4.Size = new System.Drawing.Size(97, 20);
             label4.TabIndex = 13;
             label4.Text = "Ime roditelja:";
             // 
             // txtPrezime
             // 
-            txtPrezime.Location = new System.Drawing.Point(155, 87);
+            txtPrezime.Location = new System.Drawing.Point(177, 116);
+            txtPrezime.Margin = new Padding(3, 4, 3, 4);
             txtPrezime.Name = "txtPrezime";
-            txtPrezime.Size = new System.Drawing.Size(100, 23);
+            txtPrezime.Size = new System.Drawing.Size(114, 27);
             txtPrezime.TabIndex = 16;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(88, 87);
+            label5.Location = new System.Drawing.Point(101, 116);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(52, 15);
+            label5.Size = new System.Drawing.Size(65, 20);
             label5.TabIndex = 15;
             label5.Text = "Prezime:";
             // 
             // txtJMBG
             // 
-            txtJMBG.Location = new System.Drawing.Point(155, 145);
+            txtJMBG.Location = new System.Drawing.Point(177, 193);
+            txtJMBG.Margin = new Padding(3, 4, 3, 4);
             txtJMBG.Name = "txtJMBG";
-            txtJMBG.Size = new System.Drawing.Size(100, 23);
+            txtJMBG.Size = new System.Drawing.Size(114, 27);
             txtJMBG.TabIndex = 18;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(48, 116);
+            label6.Location = new System.Drawing.Point(55, 155);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(92, 15);
+            label6.Size = new System.Drawing.Size(116, 20);
             label6.TabIndex = 17;
             label6.Text = "Datum rodjenja:";
             // 
             // txtAdresa
             // 
-            txtAdresa.Location = new System.Drawing.Point(155, 174);
+            txtAdresa.Location = new System.Drawing.Point(177, 232);
+            txtAdresa.Margin = new Padding(3, 4, 3, 4);
             txtAdresa.Name = "txtAdresa";
-            txtAdresa.Size = new System.Drawing.Size(100, 23);
+            txtAdresa.Size = new System.Drawing.Size(114, 27);
             txtAdresa.TabIndex = 20;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(94, 173);
+            label7.Location = new System.Drawing.Point(107, 231);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(46, 15);
+            label7.Size = new System.Drawing.Size(58, 20);
             label7.TabIndex = 19;
             label7.Text = "Adresa:";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(4, 201);
+            label8.Location = new System.Drawing.Point(5, 268);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(136, 15);
+            label8.Size = new System.Drawing.Size(170, 20);
             label8.TabIndex = 21;
             label8.Text = "Datum prijema u sluzbu:";
             // 
             // dtpDatumPrijemaUSluzbu
             // 
-            dtpDatumPrijemaUSluzbu.Location = new System.Drawing.Point(155, 201);
+            dtpDatumPrijemaUSluzbu.Location = new System.Drawing.Point(177, 268);
+            dtpDatumPrijemaUSluzbu.Margin = new Padding(3, 4, 3, 4);
             dtpDatumPrijemaUSluzbu.Name = "dtpDatumPrijemaUSluzbu";
-            dtpDatumPrijemaUSluzbu.Size = new System.Drawing.Size(200, 23);
+            dtpDatumPrijemaUSluzbu.Size = new System.Drawing.Size(228, 27);
             dtpDatumPrijemaUSluzbu.TabIndex = 23;
             // 
             // rbtPolicajac
             // 
             rbtPolicajac.AutoSize = true;
-            rbtPolicajac.Location = new System.Drawing.Point(155, 230);
+            rbtPolicajac.Location = new System.Drawing.Point(177, 307);
+            rbtPolicajac.Margin = new Padding(3, 4, 3, 4);
             rbtPolicajac.Name = "rbtPolicajac";
-            rbtPolicajac.Size = new System.Drawing.Size(72, 19);
+            rbtPolicajac.Size = new System.Drawing.Size(88, 24);
             rbtPolicajac.TabIndex = 27;
             rbtPolicajac.TabStop = true;
             rbtPolicajac.Text = "Policajac";
@@ -300,9 +315,10 @@
             // rbtZamenik
             // 
             rbtZamenik.AutoSize = true;
-            rbtZamenik.Location = new System.Drawing.Point(155, 255);
+            rbtZamenik.Location = new System.Drawing.Point(177, 340);
+            rbtZamenik.Margin = new Padding(3, 4, 3, 4);
             rbtZamenik.Name = "rbtZamenik";
-            rbtZamenik.Size = new System.Drawing.Size(71, 19);
+            rbtZamenik.Size = new System.Drawing.Size(87, 24);
             rbtZamenik.TabIndex = 28;
             rbtZamenik.TabStop = true;
             rbtZamenik.Text = "Zamenik";
@@ -311,9 +327,10 @@
             // rbtSef
             // 
             rbtSef.AutoSize = true;
-            rbtSef.Location = new System.Drawing.Point(154, 280);
+            rbtSef.Location = new System.Drawing.Point(176, 373);
+            rbtSef.Margin = new Padding(3, 4, 3, 4);
             rbtSef.Name = "rbtSef";
-            rbtSef.Size = new System.Drawing.Size(41, 19);
+            rbtSef.Size = new System.Drawing.Size(51, 24);
             rbtSef.TabIndex = 29;
             rbtSef.TabStop = true;
             rbtSef.Text = "Sef";
@@ -338,9 +355,11 @@
             gboxPolicajac.Controls.Add(txtPrezime);
             gboxPolicajac.Controls.Add(txtJMBG);
             gboxPolicajac.Controls.Add(label6);
-            gboxPolicajac.Location = new System.Drawing.Point(290, 12);
+            gboxPolicajac.Location = new System.Drawing.Point(331, 16);
+            gboxPolicajac.Margin = new Padding(3, 4, 3, 4);
             gboxPolicajac.Name = "gboxPolicajac";
-            gboxPolicajac.Size = new System.Drawing.Size(369, 309);
+            gboxPolicajac.Padding = new Padding(3, 4, 3, 4);
+            gboxPolicajac.Size = new System.Drawing.Size(422, 412);
             gboxPolicajac.TabIndex = 30;
             gboxPolicajac.TabStop = false;
             gboxPolicajac.Text = "Policajac";
@@ -349,9 +368,11 @@
             // 
             gboxPatrolniPolicajac.Controls.Add(label20);
             gboxPatrolniPolicajac.Controls.Add(txtVrstaOruzija);
-            gboxPatrolniPolicajac.Location = new System.Drawing.Point(363, 562);
+            gboxPatrolniPolicajac.Location = new System.Drawing.Point(415, 749);
+            gboxPatrolniPolicajac.Margin = new Padding(3, 4, 3, 4);
             gboxPatrolniPolicajac.Name = "gboxPatrolniPolicajac";
-            gboxPatrolniPolicajac.Size = new System.Drawing.Size(200, 73);
+            gboxPatrolniPolicajac.Padding = new Padding(3, 4, 3, 4);
+            gboxPatrolniPolicajac.Size = new System.Drawing.Size(229, 97);
             gboxPatrolniPolicajac.TabIndex = 59;
             gboxPatrolniPolicajac.TabStop = false;
             gboxPatrolniPolicajac.Text = "Patrolni policajac";
@@ -359,26 +380,29 @@
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new System.Drawing.Point(10, 34);
+            label20.Location = new System.Drawing.Point(11, 45);
             label20.Name = "label20";
-            label20.Size = new System.Drawing.Size(71, 15);
+            label20.Size = new System.Drawing.Size(89, 20);
             label20.TabIndex = 38;
             label20.Text = "Vrsta oruzja:";
             // 
             // txtVrstaOruzija
             // 
-            txtVrstaOruzija.Location = new System.Drawing.Point(87, 34);
+            txtVrstaOruzija.Location = new System.Drawing.Point(99, 45);
+            txtVrstaOruzija.Margin = new Padding(3, 4, 3, 4);
             txtVrstaOruzija.Name = "txtVrstaOruzija";
-            txtVrstaOruzija.Size = new System.Drawing.Size(100, 23);
+            txtVrstaOruzija.Size = new System.Drawing.Size(114, 27);
             txtVrstaOruzija.TabIndex = 39;
             // 
             // gboxPolicajacPozornik
             // 
             gboxPolicajacPozornik.Controls.Add(label19);
             gboxPolicajacPozornik.Controls.Add(txtNazivUlice);
-            gboxPolicajacPozornik.Location = new System.Drawing.Point(641, 562);
+            gboxPolicajacPozornik.Location = new System.Drawing.Point(733, 749);
+            gboxPolicajacPozornik.Margin = new Padding(3, 4, 3, 4);
             gboxPolicajacPozornik.Name = "gboxPolicajacPozornik";
-            gboxPolicajacPozornik.Size = new System.Drawing.Size(200, 75);
+            gboxPolicajacPozornik.Padding = new Padding(3, 4, 3, 4);
+            gboxPolicajacPozornik.Size = new System.Drawing.Size(229, 100);
             gboxPolicajacPozornik.TabIndex = 58;
             gboxPolicajacPozornik.TabStop = false;
             gboxPolicajacPozornik.Text = "Policajac pozornik";
@@ -386,26 +410,29 @@
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new System.Drawing.Point(10, 36);
+            label19.Location = new System.Drawing.Point(11, 48);
             label19.Name = "label19";
-            label19.Size = new System.Drawing.Size(67, 15);
+            label19.Size = new System.Drawing.Size(84, 20);
             label19.TabIndex = 38;
             label19.Text = "Naziv ulice:";
             // 
             // txtNazivUlice
             // 
-            txtNazivUlice.Location = new System.Drawing.Point(83, 36);
+            txtNazivUlice.Location = new System.Drawing.Point(95, 48);
+            txtNazivUlice.Margin = new Padding(3, 4, 3, 4);
             txtNazivUlice.Name = "txtNazivUlice";
-            txtNazivUlice.Size = new System.Drawing.Size(100, 23);
+            txtNazivUlice.Size = new System.Drawing.Size(114, 27);
             txtNazivUlice.TabIndex = 39;
             // 
             // gboxPolicajacUUpravi
             // 
             gboxPolicajacUUpravi.Controls.Add(label18);
             gboxPolicajacUUpravi.Controls.Add(txtPozicija);
-            gboxPolicajacUUpravi.Location = new System.Drawing.Point(67, 564);
+            gboxPolicajacUUpravi.Location = new System.Drawing.Point(77, 752);
+            gboxPolicajacUUpravi.Margin = new Padding(3, 4, 3, 4);
             gboxPolicajacUUpravi.Name = "gboxPolicajacUUpravi";
-            gboxPolicajacUUpravi.Size = new System.Drawing.Size(200, 73);
+            gboxPolicajacUUpravi.Padding = new Padding(3, 4, 3, 4);
+            gboxPolicajacUUpravi.Size = new System.Drawing.Size(229, 97);
             gboxPolicajacUUpravi.TabIndex = 57;
             gboxPolicajacUUpravi.TabStop = false;
             gboxPolicajacUUpravi.Text = "Radnik u upravi";
@@ -413,17 +440,18 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new System.Drawing.Point(27, 36);
+            label18.Location = new System.Drawing.Point(31, 48);
             label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(50, 15);
+            label18.Size = new System.Drawing.Size(62, 20);
             label18.TabIndex = 38;
             label18.Text = "Pozicija:";
             // 
             // txtPozicija
             // 
-            txtPozicija.Location = new System.Drawing.Point(83, 36);
+            txtPozicija.Location = new System.Drawing.Point(95, 48);
+            txtPozicija.Margin = new Padding(3, 4, 3, 4);
             txtPozicija.Name = "txtPozicija";
-            txtPozicija.Size = new System.Drawing.Size(100, 23);
+            txtPozicija.Size = new System.Drawing.Size(114, 27);
             txtPozicija.TabIndex = 39;
             // 
             // gboxSkolskiPolicajac
@@ -440,9 +468,11 @@
             gboxSkolskiPolicajac.Controls.Add(label15);
             gboxSkolskiPolicajac.Controls.Add(txtAdresaSkole);
             gboxSkolskiPolicajac.Controls.Add(txtKontaktIme);
-            gboxSkolskiPolicajac.Location = new System.Drawing.Point(530, 340);
+            gboxSkolskiPolicajac.Location = new System.Drawing.Point(606, 453);
+            gboxSkolskiPolicajac.Margin = new Padding(3, 4, 3, 4);
             gboxSkolskiPolicajac.Name = "gboxSkolskiPolicajac";
-            gboxSkolskiPolicajac.Size = new System.Drawing.Size(311, 204);
+            gboxSkolskiPolicajac.Padding = new Padding(3, 4, 3, 4);
+            gboxSkolskiPolicajac.Size = new System.Drawing.Size(355, 272);
             gboxSkolskiPolicajac.TabIndex = 56;
             gboxSkolskiPolicajac.TabStop = false;
             gboxSkolskiPolicajac.Text = "Skolski policajac";
@@ -450,97 +480,103 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new System.Drawing.Point(20, 142);
+            label16.Location = new System.Drawing.Point(23, 189);
             label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(96, 15);
+            label16.Size = new System.Drawing.Size(121, 20);
             label16.TabIndex = 47;
             label16.Text = "Kontakt prezime:";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new System.Drawing.Point(47, 26);
+            label12.Location = new System.Drawing.Point(54, 35);
             label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(69, 15);
+            label12.Size = new System.Drawing.Size(87, 20);
             label12.TabIndex = 39;
             label12.Text = "Naziv skole:";
             // 
             // txtKontaktPrezime
             // 
-            txtKontaktPrezime.Location = new System.Drawing.Point(125, 142);
+            txtKontaktPrezime.Location = new System.Drawing.Point(143, 189);
+            txtKontaktPrezime.Margin = new Padding(3, 4, 3, 4);
             txtKontaktPrezime.Name = "txtKontaktPrezime";
-            txtKontaktPrezime.Size = new System.Drawing.Size(100, 23);
+            txtKontaktPrezime.Size = new System.Drawing.Size(114, 27);
             txtKontaktPrezime.TabIndex = 48;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(60, 55);
+            label13.Location = new System.Drawing.Point(69, 73);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(56, 15);
+            label13.Size = new System.Drawing.Size(71, 20);
             label13.TabIndex = 41;
             label13.Text = "Tip skole:";
             // 
             // txtTelefonSkole
             // 
-            txtTelefonSkole.Location = new System.Drawing.Point(125, 171);
+            txtTelefonSkole.Location = new System.Drawing.Point(143, 228);
+            txtTelefonSkole.Margin = new Padding(3, 4, 3, 4);
             txtTelefonSkole.Name = "txtTelefonSkole";
-            txtTelefonSkole.Size = new System.Drawing.Size(100, 23);
+            txtTelefonSkole.Size = new System.Drawing.Size(114, 27);
             txtTelefonSkole.TabIndex = 50;
             // 
             // txtTipSkole
             // 
-            txtTipSkole.Location = new System.Drawing.Point(125, 55);
+            txtTipSkole.Location = new System.Drawing.Point(143, 73);
+            txtTipSkole.Margin = new Padding(3, 4, 3, 4);
             txtTipSkole.Name = "txtTipSkole";
-            txtTipSkole.Size = new System.Drawing.Size(100, 23);
+            txtTipSkole.Size = new System.Drawing.Size(114, 27);
             txtTipSkole.TabIndex = 42;
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new System.Drawing.Point(38, 171);
+            label17.Location = new System.Drawing.Point(43, 228);
             label17.Name = "label17";
-            label17.Size = new System.Drawing.Size(78, 15);
+            label17.Size = new System.Drawing.Size(99, 20);
             label17.TabIndex = 49;
             label17.Text = "Telefon skole:";
             // 
             // txtNazivSkole
             // 
-            txtNazivSkole.Location = new System.Drawing.Point(125, 26);
+            txtNazivSkole.Location = new System.Drawing.Point(143, 35);
+            txtNazivSkole.Margin = new Padding(3, 4, 3, 4);
             txtNazivSkole.Name = "txtNazivSkole";
-            txtNazivSkole.Size = new System.Drawing.Size(100, 23);
+            txtNazivSkole.Size = new System.Drawing.Size(114, 27);
             txtNazivSkole.TabIndex = 40;
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(40, 84);
+            label14.Location = new System.Drawing.Point(46, 112);
             label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(76, 15);
+            label14.Size = new System.Drawing.Size(96, 20);
             label14.TabIndex = 43;
             label14.Text = "Adresa skole:";
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new System.Drawing.Point(42, 113);
+            label15.Location = new System.Drawing.Point(48, 151);
             label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(74, 15);
+            label15.Size = new System.Drawing.Size(92, 20);
             label15.TabIndex = 45;
             label15.Text = "Kontakt ime:";
             // 
             // txtAdresaSkole
             // 
-            txtAdresaSkole.Location = new System.Drawing.Point(125, 84);
+            txtAdresaSkole.Location = new System.Drawing.Point(143, 112);
+            txtAdresaSkole.Margin = new Padding(3, 4, 3, 4);
             txtAdresaSkole.Name = "txtAdresaSkole";
-            txtAdresaSkole.Size = new System.Drawing.Size(100, 23);
+            txtAdresaSkole.Size = new System.Drawing.Size(114, 27);
             txtAdresaSkole.TabIndex = 44;
             // 
             // txtKontaktIme
             // 
-            txtKontaktIme.Location = new System.Drawing.Point(125, 113);
+            txtKontaktIme.Location = new System.Drawing.Point(143, 151);
+            txtKontaktIme.Margin = new Padding(3, 4, 3, 4);
             txtKontaktIme.Name = "txtKontaktIme";
-            txtKontaktIme.Size = new System.Drawing.Size(100, 23);
+            txtKontaktIme.Size = new System.Drawing.Size(114, 27);
             txtKontaktIme.TabIndex = 46;
             // 
             // gboxPZaVanredneSituacije
@@ -555,9 +591,11 @@
             gboxPZaVanredneSituacije.Controls.Add(label9);
             gboxPZaVanredneSituacije.Controls.Add(txtSertifikat);
             gboxPZaVanredneSituacije.Controls.Add(label10);
-            gboxPZaVanredneSituacije.Location = new System.Drawing.Point(67, 340);
+            gboxPZaVanredneSituacije.Location = new System.Drawing.Point(77, 453);
+            gboxPZaVanredneSituacije.Margin = new Padding(3, 4, 3, 4);
             gboxPZaVanredneSituacije.Name = "gboxPZaVanredneSituacije";
-            gboxPZaVanredneSituacije.Size = new System.Drawing.Size(363, 204);
+            gboxPZaVanredneSituacije.Padding = new Padding(3, 4, 3, 4);
+            gboxPZaVanredneSituacije.Size = new System.Drawing.Size(415, 272);
             gboxPZaVanredneSituacije.TabIndex = 55;
             gboxPZaVanredneSituacije.TabStop = false;
             gboxPZaVanredneSituacije.Text = "Policajac za vanredne situacije";
@@ -565,9 +603,9 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(117, 19);
+            label1.Location = new System.Drawing.Point(134, 25);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(33, 15);
+            label1.Size = new System.Drawing.Size(40, 20);
             label1.TabIndex = 30;
             label1.Text = "Kurs:";
             // 
@@ -575,74 +613,79 @@
             // 
             dtpDatumSticanjaSertifikata.CustomFormat = "MM/dd/yyyy";
             dtpDatumSticanjaSertifikata.Format = DateTimePickerFormat.Custom;
-            dtpDatumSticanjaSertifikata.Location = new System.Drawing.Point(156, 135);
+            dtpDatumSticanjaSertifikata.Location = new System.Drawing.Point(178, 180);
+            dtpDatumSticanjaSertifikata.Margin = new Padding(3, 4, 3, 4);
             dtpDatumSticanjaSertifikata.Name = "dtpDatumSticanjaSertifikata";
-            dtpDatumSticanjaSertifikata.Size = new System.Drawing.Size(200, 23);
+            dtpDatumSticanjaSertifikata.Size = new System.Drawing.Size(228, 27);
             dtpDatumSticanjaSertifikata.TabIndex = 36;
             // 
             // txtKurs
             // 
-            txtKurs.Location = new System.Drawing.Point(156, 19);
+            txtKurs.Location = new System.Drawing.Point(178, 25);
+            txtKurs.Margin = new Padding(3, 4, 3, 4);
             txtKurs.Name = "txtKurs";
-            txtKurs.Size = new System.Drawing.Size(100, 23);
+            txtKurs.Size = new System.Drawing.Size(114, 27);
             txtKurs.TabIndex = 31;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new System.Drawing.Point(10, 135);
+            label11.Location = new System.Drawing.Point(11, 180);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(143, 15);
+            label11.Size = new System.Drawing.Size(180, 20);
             label11.TabIndex = 37;
             label11.Text = "Datum sticanja sertifikata:";
             // 
             // txtVestina
             // 
-            txtVestina.Location = new System.Drawing.Point(156, 48);
+            txtVestina.Location = new System.Drawing.Point(178, 64);
+            txtVestina.Margin = new Padding(3, 4, 3, 4);
             txtVestina.Name = "txtVestina";
-            txtVestina.Size = new System.Drawing.Size(100, 23);
+            txtVestina.Size = new System.Drawing.Size(114, 27);
             txtVestina.TabIndex = 33;
             // 
             // dtpDatumZavrsetkaKursa
             // 
             dtpDatumZavrsetkaKursa.CustomFormat = "MM/dd/yyyy";
             dtpDatumZavrsetkaKursa.Format = DateTimePickerFormat.Custom;
-            dtpDatumZavrsetkaKursa.Location = new System.Drawing.Point(156, 77);
+            dtpDatumZavrsetkaKursa.Location = new System.Drawing.Point(178, 103);
+            dtpDatumZavrsetkaKursa.Margin = new Padding(3, 4, 3, 4);
             dtpDatumZavrsetkaKursa.Name = "dtpDatumZavrsetkaKursa";
-            dtpDatumZavrsetkaKursa.Size = new System.Drawing.Size(200, 23);
+            dtpDatumZavrsetkaKursa.Size = new System.Drawing.Size(228, 27);
             dtpDatumZavrsetkaKursa.TabIndex = 30;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(106, 48);
+            label2.Location = new System.Drawing.Point(121, 64);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(47, 15);
+            label2.Size = new System.Drawing.Size(59, 20);
             label2.TabIndex = 32;
             label2.Text = "Vestina:";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(97, 106);
+            label9.Location = new System.Drawing.Point(111, 141);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(56, 15);
+            label9.Size = new System.Drawing.Size(71, 20);
             label9.TabIndex = 34;
             label9.Text = "Sertifikat:";
             // 
             // txtSertifikat
             // 
-            txtSertifikat.Location = new System.Drawing.Point(156, 106);
+            txtSertifikat.Location = new System.Drawing.Point(178, 141);
+            txtSertifikat.Margin = new Padding(3, 4, 3, 4);
             txtSertifikat.Name = "txtSertifikat";
-            txtSertifikat.Size = new System.Drawing.Size(100, 23);
+            txtSertifikat.Size = new System.Drawing.Size(114, 27);
             txtSertifikat.TabIndex = 35;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(25, 77);
+            label10.Location = new System.Drawing.Point(29, 103);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(128, 15);
+            label10.Size = new System.Drawing.Size(160, 20);
             label10.TabIndex = 31;
             label10.Text = "Datum zavrsetka kursa:";
             // 
@@ -654,10 +697,10 @@
             btnDodaj.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnDodaj.FlatStyle = FlatStyle.Flat;
             btnDodaj.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnDodaj.Location = new System.Drawing.Point(695, 264);
-            btnDodaj.Margin = new Padding(4, 3, 4, 3);
+            btnDodaj.Location = new System.Drawing.Point(794, 352);
+            btnDodaj.Margin = new Padding(5, 4, 5, 4);
             btnDodaj.Name = "btnDodaj";
-            btnDodaj.Size = new System.Drawing.Size(173, 57);
+            btnDodaj.Size = new System.Drawing.Size(198, 76);
             btnDodaj.TabIndex = 60;
             btnDodaj.Text = "Dodatj ";
             btnDodaj.UseVisualStyleBackColor = false;
@@ -665,10 +708,10 @@
             // 
             // DodajPolicajcaForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
-            ClientSize = new System.Drawing.Size(897, 661);
+            ClientSize = new System.Drawing.Size(1025, 881);
             Controls.Add(btnDodaj);
             Controls.Add(gboxPatrolniPolicajac);
             Controls.Add(gboxPolicajacPozornik);
@@ -677,6 +720,7 @@
             Controls.Add(gboxPZaVanredneSituacije);
             Controls.Add(gboxPolicajac);
             Controls.Add(gbxTipoviPolicajaca);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "DodajPolicajcaForm";
             Text = "DodajPolicajcaForm";
             gbxTipoviPolicajaca.ResumeLayout(false);
