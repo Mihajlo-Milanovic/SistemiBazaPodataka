@@ -32,9 +32,9 @@
 			// 
 			// btnDodajTehnickoLice
 			// 
-			btnDodajTehnickoLice.Location = new System.Drawing.Point(169, 177);
+			btnDodajTehnickoLice.Location = new System.Drawing.Point(119, 170);
 			btnDodajTehnickoLice.Name = "btnDodajTehnickoLice";
-			btnDodajTehnickoLice.Size = new System.Drawing.Size(94, 29);
+			btnDodajTehnickoLice.Size = new System.Drawing.Size(200, 50);
 			btnDodajTehnickoLice.TabIndex = 3;
 			btnDodajTehnickoLice.Text = "Dodaj";
 			btnDodajTehnickoLice.UseVisualStyleBackColor = true;
@@ -76,6 +76,7 @@
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
+			BackColor = System.Drawing.Color.SkyBlue;
 			ClientSize = new System.Drawing.Size(430, 268);
 			Controls.Add(tbxPrezime);
 			Controls.Add(lblPrezime);
@@ -83,6 +84,7 @@
 			Controls.Add(lblIme);
 			Controls.Add(btnDodajTehnickoLice);
 			Name = "DodajTehnickoLiceForm";
+			StartPosition = FormStartPosition.CenterScreen;
 			Text = "DodajTehnickoLice";
 			ResumeLayout(false);
 			PerformLayout();

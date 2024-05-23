@@ -29,6 +29,7 @@
 			btnDodajTehnickoLice = new Button();
 			btnObrisiTehnickoLice = new Button();
 			btnIzmeniTehnickoLice = new Button();
+			btnIstorijaOdrzavanja = new Button();
 			((System.ComponentModel.ISupportInitialize)dgvListaTehnickihLica).BeginInit();
 			((System.ComponentModel.ISupportInitialize)bsTehnickoLice).BeginInit();
 			SuspendLayout();
@@ -80,16 +81,30 @@
 			btnIzmeniTehnickoLice.UseVisualStyleBackColor = true;
 			btnIzmeniTehnickoLice.Click += btnIzmeniTehnickoLice_Click;
 			// 
+			// btnIstorijaOdrzavanja
+			// 
+			btnIstorijaOdrzavanja.AutoSize = true;
+			btnIstorijaOdrzavanja.Location = new System.Drawing.Point(477, 180);
+			btnIstorijaOdrzavanja.Name = "btnIstorijaOdrzavanja";
+			btnIstorijaOdrzavanja.Size = new System.Drawing.Size(150, 50);
+			btnIstorijaOdrzavanja.TabIndex = 4;
+			btnIstorijaOdrzavanja.Text = "Istorija odrzavanja";
+			btnIstorijaOdrzavanja.UseVisualStyleBackColor = true;
+			btnIstorijaOdrzavanja.Click += btnIstorijaOdrzavanja_Click;
+			// 
 			// TehnickaLicaForm
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
+			BackColor = System.Drawing.Color.SkyBlue;
 			ClientSize = new System.Drawing.Size(639, 336);
+			Controls.Add(btnIstorijaOdrzavanja);
 			Controls.Add(btnIzmeniTehnickoLice);
 			Controls.Add(btnObrisiTehnickoLice);
 			Controls.Add(btnDodajTehnickoLice);
 			Controls.Add(dgvListaTehnickihLica);
 			Name = "TehnickaLicaForm";
+			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Tehnicka lica";
 			((System.ComponentModel.ISupportInitialize)dgvListaTehnickihLica).EndInit();
 			((System.ComponentModel.ISupportInitialize)bsTehnickoLice).EndInit();
@@ -104,5 +119,6 @@
 		private Button btnDodajTehnickoLice;
 		private Button btnObrisiTehnickoLice;
 		private Button btnIzmeniTehnickoLice;
+		private Button btnIstorijaOdrzavanja;
 	}
 }

@@ -1,4 +1,6 @@
-﻿namespace PolicijskaUprava.Forme.TehnickoLiceForme {
+﻿using PolicijskaUprava.Forme.OdrzavaForme;
+
+namespace PolicijskaUprava.Forme.TehnickoLiceForme {
 	public partial class TehnickaLicaForm : Form {
 
 		public TehnickaLicaForm() {
@@ -45,6 +47,15 @@
 			dgvListaTehnickihLica.Rows[rIndex].Cells[1].Value = t.Ime;
 			dgvListaTehnickihLica.Rows[rIndex].Cells[2].Value = t.Prezime;
 
+		}
+
+		private void btnIstorijaOdrzavanja_Click(object sender, EventArgs e) {
+
+			int rIndex = dgvListaTehnickihLica.SelectedCells[0].RowIndex;
+
+			int Id = (int)dgvListaTehnickihLica.Rows[rIndex].Cells[0].Value;
+
+			new OdrzavaForm(Id, 0, true).Show();
 		}
 	}
 }

@@ -49,12 +49,12 @@
 			btnIzmeni.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
 			btnIzmeni.FlatAppearance.BorderSize = 3;
 			btnIzmeni.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
-			btnIzmeni.FlatStyle = FlatStyle.Flat;
+			btnIzmeni.FlatStyle = FlatStyle.System;
 			btnIzmeni.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-			btnIzmeni.Location = new System.Drawing.Point(327, 269);
+			btnIzmeni.Location = new System.Drawing.Point(61, 360);
 			btnIzmeni.Margin = new Padding(5, 4, 5, 4);
 			btnIzmeni.Name = "btnIzmeni";
-			btnIzmeni.Size = new System.Drawing.Size(198, 76);
+			btnIzmeni.Size = new System.Drawing.Size(200, 50);
 			btnIzmeni.TabIndex = 9;
 			btnIzmeni.Text = "Izmeni";
 			btnIzmeni.UseVisualStyleBackColor = false;
@@ -173,7 +173,7 @@
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = System.Drawing.Color.SkyBlue;
-			ClientSize = new System.Drawing.Size(536, 360);
+			ClientSize = new System.Drawing.Size(332, 423);
 			Controls.Add(btnIzmeni);
 			Controls.Add(groupBox1);
 			Margin = new Padding(3, 4, 3, 4);

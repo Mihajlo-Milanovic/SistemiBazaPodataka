@@ -1,4 +1,5 @@
 using NHibernate.Criterion;
+using PolicijskaUprava.Entiteti;
 
 namespace PolicijskaUprava.DTOs {
 
@@ -254,6 +255,41 @@ namespace PolicijskaUprava.DTOs {
 
 		#region Alarmni sistemi
 
+		public static List<AlarmniSistemView> vratiSveAlarmneSisteme() {
+
+			List<AlarmniSistemView> asv = new();
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				IEnumerable<AlarmniSistem> alarmniSistemi = from aa in s.Query<AlarmniSistem>() 
+															select aa;
+
+				foreach (var a in alarmniSistemi) {
+
+					asv.Add(new AlarmniSistemView(a));
+
+					//if (a.GetType() == typeof(AlarmniSistemId))
+					//	asv.Add(new AlarmniSistemView(a));
+					//else if (a.GetType() == typeof(UltrazvucniAS))
+					//	asv.Add(new UltrazvucniASView((UltrazvucniAS)a));
+					//else if (a.GetType() == typeof(ASDetekcijePokreta))
+					//	asv.Add(new ASDetekcijePokretaView((ASDetekcijePokreta)a));
+					//else if (a.GetType() == typeof(ASDetekcijeToplotnogOdraza))
+					//	asv.Add(new ASDetekcijeToplotnogOdrazaView((ASDetekcijeToplotnogOdraza)a));
+
+				}
+
+				s.Close();
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+			}
+
+			return asv;
+
+		}
+
 		public static List<AlarmniSistemView> vratiSveAlarmneSistemeZaObjekat(int id) {
 
 			List<AlarmniSistemView> asv = new();
@@ -288,7 +324,7 @@ namespace PolicijskaUprava.DTOs {
 			try {
 				ISession s = DataLayer.GetSession();
 
-				string hql = "from AlarmniSistem a where a.Id = :value";
+				string hql = "from AlarmniSistemId a where a.Id = :value";
 				IQuery query = s.CreateQuery(hql);
 				query.SetParameter("value", id);
 
@@ -633,7 +669,7 @@ namespace PolicijskaUprava.DTOs {
 
 		#region Odrzavanja
 
-		public static List<OdrzavaView> vratiIstorijuOdrzavanja(int tehId) {
+		public static List<OdrzavaView> vratiIstorijuOdrzavanjaZaTehnickoLice(int tehId) {
 
 			List<OdrzavaView> ov = null;
 
@@ -645,9 +681,8 @@ namespace PolicijskaUprava.DTOs {
 											select o;
 
 				ov = new();
-				foreach(var i in odrzava) 
+				foreach (var i in odrzava) 
 					ov.Add(new OdrzavaView(i));
-				
 
 				s.Close();
 
@@ -658,8 +693,82 @@ namespace PolicijskaUprava.DTOs {
 				MessageBox.Show(ex.FormatExceptionMessage());
 				return null;
 			}
+		}
+
+		public static List<OdrzavaView> vratiIstorijuOdrzavanjaZaAlarmniSistem(int ASId) {
+
+			List<OdrzavaView> ov = null;
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				IEnumerable<Odrzava> odrzava = from o in s.Query<Odrzava>()
+											   where o.Id.AlarmniSistem.Id == ASId
+											   select o;
+
+				ov = new();
+				foreach (var i in odrzava)
+					ov.Add(new OdrzavaView(i));
 
 
+				s.Close();
+
+				return ov;
+			}
+			catch (Exception ex) {
+
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return null;
+			}
+		}
+
+		public static bool dodajOdrzava(OdrzavaView ov) {
+
+			Odrzava o = new();
+			o.Id = new();
+			o.Id.AlarmniSistem = new();
+			o.Id.AlarmniSistem.Id = ov.AlarmniSistemId;
+			o.Id.Tehnicar = new();
+			o.Id.Tehnicar.Id = ov.TehnickoLiceId;
+			o.Id.PocetniDatum = ov.Pocetak;
+			o.KrajnjiDatum = ov.Kraj;
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				s.Save(o);
+
+				s.Flush();
+
+				s.Close();
+
+				return true;
+
+			}catch(Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+			}
+			
+		}
+
+		public static bool obrisiOdrzava(Odrzava o) {
+
+			try {
+
+				ISession s = DataLayer.GetSession();
+
+				s.Delete(o);
+
+				s.Flush();
+
+				s.Close();
+
+				return true;
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+			}
 		}
 
 		#endregion

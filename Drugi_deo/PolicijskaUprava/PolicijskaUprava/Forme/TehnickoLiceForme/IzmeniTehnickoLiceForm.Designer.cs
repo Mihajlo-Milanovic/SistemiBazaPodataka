@@ -64,9 +64,9 @@
 			// 
 			// btnIzmeniTehnickoLice
 			// 
-			btnIzmeniTehnickoLice.Location = new System.Drawing.Point(170, 176);
+			btnIzmeniTehnickoLice.Location = new System.Drawing.Point(118, 167);
 			btnIzmeniTehnickoLice.Name = "btnIzmeniTehnickoLice";
-			btnIzmeniTehnickoLice.Size = new System.Drawing.Size(94, 29);
+			btnIzmeniTehnickoLice.Size = new System.Drawing.Size(200, 50);
 			btnIzmeniTehnickoLice.TabIndex = 8;
 			btnIzmeniTehnickoLice.Text = "Izmeni";
 			btnIzmeniTehnickoLice.UseVisualStyleBackColor = true;
@@ -76,6 +76,7 @@
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
+			BackColor = System.Drawing.Color.SkyBlue;
 			ClientSize = new System.Drawing.Size(431, 262);
 			Controls.Add(tbxPrezime);
 			Controls.Add(lblPrezime);
@@ -83,6 +84,7 @@
 			Controls.Add(lblIme);
 			Controls.Add(btnIzmeniTehnickoLice);
 			Name = "IzmeniTehnickoLiceForm";
+			StartPosition = FormStartPosition.CenterScreen;
 			Text = "IzmeniTehnickoLiceForm";
 			ResumeLayout(false);
 			PerformLayout();

@@ -157,14 +157,14 @@
 			btnDodaj.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
 			btnDodaj.FlatAppearance.BorderSize = 3;
 			btnDodaj.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
-			btnDodaj.FlatStyle = FlatStyle.Flat;
+			btnDodaj.FlatStyle = FlatStyle.System;
 			btnDodaj.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-			btnDodaj.Location = new System.Drawing.Point(328, 272);
+			btnDodaj.Location = new System.Drawing.Point(62, 357);
 			btnDodaj.Margin = new Padding(5, 4, 5, 4);
 			btnDodaj.Name = "btnDodaj";
-			btnDodaj.Size = new System.Drawing.Size(198, 76);
+			btnDodaj.Size = new System.Drawing.Size(200, 50);
 			btnDodaj.TabIndex = 7;
-			btnDodaj.Text = "Dodatj ";
+			btnDodaj.Text = "Dodaj ";
 			btnDodaj.UseVisualStyleBackColor = false;
 			btnDodaj.Click += btnDodaj_Click;
 			// 
@@ -173,7 +173,7 @@
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = System.Drawing.Color.SkyBlue;
-			ClientSize = new System.Drawing.Size(541, 364);
+			ClientSize = new System.Drawing.Size(334, 420);
 			Controls.Add(btnDodaj);
 			Controls.Add(groupBox1);
 			Margin = new Padding(3, 4, 3, 4);
