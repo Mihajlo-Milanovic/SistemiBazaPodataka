@@ -83,7 +83,22 @@ namespace PolicijskaUprava.Forme
             }
         }
 
-        private void btnDodajPolicajca_Click(object sender, EventArgs e)
+        private void btnVidiObjekte_Click(object sender, EventArgs e)
+        {
+
+            if (lvListeStanice.SelectedItems.Count == 1)
+            {
+
+                new ObjekatForm(Int32.Parse((lvListeStanice.SelectedItems[0].SubItems[0].Text))).ShowDialog();
+            }
+            else if (lvListeStanice.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Izaberite stanicu !");
+            }
+            else MessageBox.Show("Izaberite 1 stanicu!");
+        }
+
+        private void btnPolicajciKojiRadeTamo_Click(object sender, EventArgs e)
         {
             if (lvListeStanice.SelectedItems.Count > 0)
             {
@@ -92,21 +107,9 @@ namespace PolicijskaUprava.Forme
 
                 int IDStanice = Convert.ToInt32(selectedItem.SubItems[0].Text);
 
-                DodajPolicajcaForm forma = new DodajPolicajcaForm(IDStanice);
+                PolicajciZaStanicuForm_ forma = new PolicajciZaStanicuForm_(IDStanice);
                 forma.ShowDialog();
             }
-        }
-
-        private void btnVidiObjekte_Click(object sender, EventArgs e) {
-
-            if (lvListeStanice.SelectedItems.Count == 1) {
-
-                new ObjekatForm(Int32.Parse((lvListeStanice.SelectedItems[0].SubItems[0].Text))).ShowDialog();
-            }
-            else if (lvListeStanice.SelectedItems.Count == 0) {
-                MessageBox.Show("Izaberite stanicu !");
-            }
-            else MessageBox.Show("Izaberite 1 stanicu!");
         }
     }
 }

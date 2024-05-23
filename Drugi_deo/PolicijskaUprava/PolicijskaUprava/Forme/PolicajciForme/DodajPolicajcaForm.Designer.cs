@@ -22,6 +22,7 @@
 
 		#region Windows Form Designer generated code
 
+
 		/// <summary>
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
@@ -47,10 +48,9 @@
 			label7 = new Label();
 			label8 = new Label();
 			dtpDatumPrijemaUSluzbu = new DateTimePicker();
-			rbtPolicajac = new RadioButton();
-			rbtZamenik = new RadioButton();
-			rbtSef = new RadioButton();
 			gboxPolicajac = new GroupBox();
+			chbSef = new CheckBox();
+			chbZamenik = new CheckBox();
 			gboxPatrolniPolicajac = new GroupBox();
 			label20 = new Label();
 			txtVrstaOruzija = new TextBox();
@@ -299,50 +299,13 @@
 			dtpDatumPrijemaUSluzbu.Size = new System.Drawing.Size(228, 27);
 			dtpDatumPrijemaUSluzbu.TabIndex = 23;
 			// 
-			// rbtPolicajac
-			// 
-			rbtPolicajac.AutoSize = true;
-			rbtPolicajac.Location = new System.Drawing.Point(177, 307);
-			rbtPolicajac.Margin = new Padding(3, 4, 3, 4);
-			rbtPolicajac.Name = "rbtPolicajac";
-			rbtPolicajac.Size = new System.Drawing.Size(88, 24);
-			rbtPolicajac.TabIndex = 27;
-			rbtPolicajac.TabStop = true;
-			rbtPolicajac.Text = "Policajac";
-			rbtPolicajac.UseVisualStyleBackColor = true;
-			// 
-			// rbtZamenik
-			// 
-			rbtZamenik.AutoSize = true;
-			rbtZamenik.Location = new System.Drawing.Point(177, 340);
-			rbtZamenik.Margin = new Padding(3, 4, 3, 4);
-			rbtZamenik.Name = "rbtZamenik";
-			rbtZamenik.Size = new System.Drawing.Size(87, 24);
-			rbtZamenik.TabIndex = 28;
-			rbtZamenik.TabStop = true;
-			rbtZamenik.Text = "Zamenik";
-			rbtZamenik.UseVisualStyleBackColor = true;
-			// 
-			// rbtSef
-			// 
-			rbtSef.AutoSize = true;
-			rbtSef.Location = new System.Drawing.Point(176, 373);
-			rbtSef.Margin = new Padding(3, 4, 3, 4);
-			rbtSef.Name = "rbtSef";
-			rbtSef.Size = new System.Drawing.Size(51, 24);
-			rbtSef.TabIndex = 29;
-			rbtSef.TabStop = true;
-			rbtSef.Text = "Sef";
-			rbtSef.UseVisualStyleBackColor = true;
-			// 
 			// gboxPolicajac
 			// 
+			gboxPolicajac.Controls.Add(chbSef);
+			gboxPolicajac.Controls.Add(chbZamenik);
 			gboxPolicajac.Controls.Add(lblIme);
-			gboxPolicajac.Controls.Add(rbtSef);
 			gboxPolicajac.Controls.Add(txtIme);
-			gboxPolicajac.Controls.Add(rbtZamenik);
 			gboxPolicajac.Controls.Add(dtpDatumRodjenja);
-			gboxPolicajac.Controls.Add(rbtPolicajac);
 			gboxPolicajac.Controls.Add(label3);
 			gboxPolicajac.Controls.Add(dtpDatumPrijemaUSluzbu);
 			gboxPolicajac.Controls.Add(label4);
@@ -362,6 +325,28 @@
 			gboxPolicajac.TabIndex = 30;
 			gboxPolicajac.TabStop = false;
 			gboxPolicajac.Text = "Policajac";
+			// 
+			// chbSef
+			// 
+			chbSef.AutoSize = true;
+			chbSef.Location = new System.Drawing.Point(177, 344);
+			chbSef.Name = "chbSef";
+			chbSef.Size = new System.Drawing.Size(52, 24);
+			chbSef.TabIndex = 31;
+			chbSef.Text = "Sef";
+			chbSef.UseVisualStyleBackColor = true;
+			chbSef.CheckedChanged += chbSef_CheckedChanged_1;
+			// 
+			// chbZamenik
+			// 
+			chbZamenik.AutoSize = true;
+			chbZamenik.Location = new System.Drawing.Point(177, 314);
+			chbZamenik.Name = "chbZamenik";
+			chbZamenik.Size = new System.Drawing.Size(88, 24);
+			chbZamenik.TabIndex = 30;
+			chbZamenik.Text = "Zamenik";
+			chbZamenik.UseVisualStyleBackColor = true;
+			chbZamenik.CheckedChanged += chbZamenik_CheckedChanged;
 			// 
 			// gboxPatrolniPolicajac
 			// 
@@ -694,7 +679,7 @@
 			btnDodaj.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
 			btnDodaj.FlatAppearance.BorderSize = 3;
 			btnDodaj.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
-			btnDodaj.FlatStyle = FlatStyle.System;
+			btnDodaj.FlatStyle = FlatStyle.Flat;
 			btnDodaj.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
 			btnDodaj.Location = new System.Drawing.Point(794, 352);
 			btnDodaj.Margin = new Padding(5, 4, 5, 4);
@@ -721,7 +706,6 @@
 			Controls.Add(gbxTipoviPolicajaca);
 			Margin = new Padding(3, 4, 3, 4);
 			Name = "DodajPolicajcaForm";
-			StartPosition = FormStartPosition.CenterScreen;
 			Text = "DodajPolicajcaForm";
 			gbxTipoviPolicajaca.ResumeLayout(false);
 			gbxTipoviPolicajaca.PerformLayout();
@@ -762,9 +746,6 @@
         private Label label7;
         private Label label8;
         private DateTimePicker dtpDatumPrijemaUSluzbu;
-        private RadioButton rbtPolicajac;
-        private RadioButton rbtZamenik;
-        private RadioButton rbtSef;
         private GroupBox gboxPolicajac;
         private GroupBox gboxPatrolniPolicajac;
         private Label label20;
@@ -800,5 +781,7 @@
         private TextBox txtSertifikat;
         private Label label10;
         private Button btnDodaj;
+        private CheckBox chbSef;
+        private CheckBox chbZamenik;
     }
 }
