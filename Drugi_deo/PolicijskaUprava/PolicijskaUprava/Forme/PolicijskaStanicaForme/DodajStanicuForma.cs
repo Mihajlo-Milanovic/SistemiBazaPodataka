@@ -34,8 +34,10 @@ namespace PolicijskaUprava.Forme.PolicijskaStanicaForme
                     dtpDatumOsnivanja.Value, (int)(nudBrojVozila.Value), null, null);
 
                 DTOManager.DodajPolicijskuStanicu(stanica);
-                 
+
+                this.Close();
             }
+           
         }
     }
 }

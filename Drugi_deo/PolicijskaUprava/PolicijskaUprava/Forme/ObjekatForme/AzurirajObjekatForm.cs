@@ -77,9 +77,12 @@ namespace PolicijskaUprava.Forme.ObjekatForme
                 obj.Povrsina = (int)numPovrsina.Value;
                 obj.Adresa = txtAdresa.Text;
                 obj.KontaktPrezime = txtPrezime.Text;
+                this.Close();
             }
             else
                 MessageBox.Show("Pobrkali ste loncice kolega!");
+            
         }
+        
     }
 }

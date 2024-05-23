@@ -48,10 +48,9 @@
             label7 = new Label();
             label8 = new Label();
             dtpDatumPrijemaUSluzbu = new DateTimePicker();
-            rbtPolicajac = new RadioButton();
-            rbtZamenik = new RadioButton();
-            rbtSef = new RadioButton();
             gboxPolicajac = new GroupBox();
+            chbSef = new CheckBox();
+            chbZamenik = new CheckBox();
             gboxPatrolniPolicajac = new GroupBox();
             label20 = new Label();
             txtVrstaOruzija = new TextBox();
@@ -286,47 +285,13 @@
             dtpDatumPrijemaUSluzbu.Size = new System.Drawing.Size(200, 23);
             dtpDatumPrijemaUSluzbu.TabIndex = 23;
             // 
-            // rbtPolicajac
-            // 
-            rbtPolicajac.AutoSize = true;
-            rbtPolicajac.Location = new System.Drawing.Point(155, 230);
-            rbtPolicajac.Name = "rbtPolicajac";
-            rbtPolicajac.Size = new System.Drawing.Size(72, 19);
-            rbtPolicajac.TabIndex = 27;
-            rbtPolicajac.TabStop = true;
-            rbtPolicajac.Text = "Policajac";
-            rbtPolicajac.UseVisualStyleBackColor = true;
-            // 
-            // rbtZamenik
-            // 
-            rbtZamenik.AutoSize = true;
-            rbtZamenik.Location = new System.Drawing.Point(155, 255);
-            rbtZamenik.Name = "rbtZamenik";
-            rbtZamenik.Size = new System.Drawing.Size(71, 19);
-            rbtZamenik.TabIndex = 28;
-            rbtZamenik.TabStop = true;
-            rbtZamenik.Text = "Zamenik";
-            rbtZamenik.UseVisualStyleBackColor = true;
-            // 
-            // rbtSef
-            // 
-            rbtSef.AutoSize = true;
-            rbtSef.Location = new System.Drawing.Point(154, 280);
-            rbtSef.Name = "rbtSef";
-            rbtSef.Size = new System.Drawing.Size(41, 19);
-            rbtSef.TabIndex = 29;
-            rbtSef.TabStop = true;
-            rbtSef.Text = "Sef";
-            rbtSef.UseVisualStyleBackColor = true;
-            // 
             // gboxPolicajac
             // 
+            gboxPolicajac.Controls.Add(chbSef);
+            gboxPolicajac.Controls.Add(chbZamenik);
             gboxPolicajac.Controls.Add(lblIme);
-            gboxPolicajac.Controls.Add(rbtSef);
             gboxPolicajac.Controls.Add(txtIme);
-            gboxPolicajac.Controls.Add(rbtZamenik);
             gboxPolicajac.Controls.Add(dtpDatumRodjenja);
-            gboxPolicajac.Controls.Add(rbtPolicajac);
             gboxPolicajac.Controls.Add(label3);
             gboxPolicajac.Controls.Add(dtpDatumPrijemaUSluzbu);
             gboxPolicajac.Controls.Add(label4);
@@ -344,6 +309,28 @@
             gboxPolicajac.TabIndex = 30;
             gboxPolicajac.TabStop = false;
             gboxPolicajac.Text = "Policajac";
+            // 
+            // chbSef
+            // 
+            chbSef.AutoSize = true;
+            chbSef.Location = new System.Drawing.Point(155, 253);
+            chbSef.Name = "chbSef";
+            chbSef.Size = new System.Drawing.Size(42, 19);
+            chbSef.TabIndex = 31;
+            chbSef.Text = "Sef";
+            chbSef.UseVisualStyleBackColor = true;
+            chbSef.CheckedChanged += chbSef_CheckedChanged_1;
+            // 
+            // chbZamenik
+            // 
+            chbZamenik.AutoSize = true;
+            chbZamenik.Location = new System.Drawing.Point(155, 230);
+            chbZamenik.Name = "chbZamenik";
+            chbZamenik.Size = new System.Drawing.Size(72, 19);
+            chbZamenik.TabIndex = 30;
+            chbZamenik.Text = "Zamenik";
+            chbZamenik.UseVisualStyleBackColor = true;
+            chbZamenik.CheckedChanged += chbZamenik_CheckedChanged;
             // 
             // gboxPatrolniPolicajac
             // 
@@ -718,9 +705,6 @@
         private Label label7;
         private Label label8;
         private DateTimePicker dtpDatumPrijemaUSluzbu;
-        private RadioButton rbtPolicajac;
-        private RadioButton rbtZamenik;
-        private RadioButton rbtSef;
         private GroupBox gboxPolicajac;
         private GroupBox gboxPatrolniPolicajac;
         private Label label20;
@@ -756,5 +740,7 @@
         private TextBox txtSertifikat;
         private Label label10;
         private Button btnDodaj;
+        private CheckBox chbSef;
+        private CheckBox chbZamenik;
     }
 }

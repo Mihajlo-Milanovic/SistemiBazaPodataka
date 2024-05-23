@@ -56,7 +56,7 @@
             ListaPolicajaca.Margin = new Padding(4, 3, 4, 3);
             ListaPolicajaca.MultiSelect = false;
             ListaPolicajaca.Name = "ListaPolicajaca";
-            ListaPolicajaca.Size = new System.Drawing.Size(1125, 285);
+            ListaPolicajaca.Size = new System.Drawing.Size(1136, 285);
             ListaPolicajaca.TabIndex = 1;
             ListaPolicajaca.UseCompatibleStateImageBehavior = false;
             ListaPolicajaca.View = View.Details;
@@ -133,16 +133,17 @@
             btnObrisiPolicajca.UseVisualStyleBackColor = false;
             btnObrisiPolicajca.Click += btnObrisiPolicajca_Click_1;
             // 
-            // Policajci
+            // PolicajciForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
-            ClientSize = new System.Drawing.Size(1151, 450);
+            ClientSize = new System.Drawing.Size(1179, 450);
             Controls.Add(btnObrisiPolicajca);
             Controls.Add(ListaPolicajaca);
-            Name = "Policajci";
+            Name = "PolicajciForm";
             Text = "Policajci";
+            Load += PolicajciForm_Load;
             ResumeLayout(false);
         }
 

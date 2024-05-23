@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace PolicijskaUprava.Forme.PolicajciForme
 {
@@ -58,10 +59,10 @@ namespace PolicijskaUprava.Forme.PolicajciForme
         void OnemoguciPolicajce()
         {
             foreach (Control control in this.Controls)
-            {
-                if (control is GroupBox)
+            {                                                    
+                if (control is System.Windows.Forms.GroupBox)
                 {
-                    GroupBox groupBox = (GroupBox)control;
+                    System.Windows.Forms.GroupBox groupBox = (System.Windows.Forms.GroupBox)control;
                     if (groupBox.Name != "gbxTipoviPolicajaca" && groupBox.Name != "gboxPolicajac")
                         groupBox.Enabled = false;
 
@@ -100,9 +101,9 @@ namespace PolicijskaUprava.Forme.PolicajciForme
             string gboxName = "gbox";
             foreach (Control control in gbxTipoviPolicajaca.Controls)
             {
-                if (control is RadioButton)
+                if (control is System.Windows.Forms.RadioButton)
                 {
-                    RadioButton radioButton = (RadioButton)control;
+                    System.Windows.Forms.RadioButton radioButton = (System.Windows.Forms.RadioButton)control;
 
                     if (radioButton.Checked == true)
                         gboxName += radioButton.Tag.ToString();
@@ -115,11 +116,16 @@ namespace PolicijskaUprava.Forme.PolicajciForme
         {
             string gboxName = DaZnamKojiJeGBox();
 
-            if (txtIme.Text == "" || txtImeRoditelja.Text == "" || txtPrezime.Text == "" || txtJMBG.Text == "" || txtAdresa.Text == ""
-                 || (rbtPolicajac.Checked == false && rbtZamenik.Checked == false && rbtSef.Checked == false))
+            if (txtIme.Text == "" || txtImeRoditelja.Text == "" || txtPrezime.Text == "" || txtJMBG.Text == "" || txtAdresa.Text == "")
             {
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 DialogResult result = MessageBox.Show("Mora da se popune svi podaci za policajca!", "Poruka", buttons);
+                return;
+            }
+            if (chbSef.Checked == true && DTOManager.ProveriDaliimaSefa(StanicaID) != -1)
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result = MessageBox.Show("Stanica vec ima sefa!", "Poruka", buttons);
                 return;
             }
 
@@ -146,12 +152,12 @@ namespace PolicijskaUprava.Forme.PolicajciForme
 
                         policajac = new PZaVanredneSituacije();
 
-                        policajac.Tip = "POLICAJAC ZA VANREDNE SITUACIJE";
+                        policajac.Tip = "POLICAJAC_ZA_VANREDNE_SITUACIJE";
                         ((PZaVanredneSituacije)policajac).Kurs = txtKurs.Text;
                         ((PZaVanredneSituacije)policajac).Vestina = txtVestina.Text;
-                        ((PZaVanredneSituacije)policajac).DatumZavrsetkaKursa = DateTime.Now;
+                        ((PZaVanredneSituacije)policajac).DatumZavrsetkaKursa = dtpDatumZavrsetkaKursa.Value;
                         ((PZaVanredneSituacije)policajac).Sertifikat = txtSertifikat.Text;
-                        ((PZaVanredneSituacije)policajac).DatumSticanjaSertifikata = DateTime.Now;
+                        ((PZaVanredneSituacije)policajac).DatumSticanjaSertifikata = dtpDatumSticanjaSertifikata.Value;
                         break;
 
 
@@ -209,8 +215,8 @@ namespace PolicijskaUprava.Forme.PolicajciForme
                 policajac.Adresa = txtAdresa.Text;
                 policajac.DatumPrijemaUSluzbu = dtpDatumPrijemaUSluzbu.Value;
                 policajac.Stanica = stanica;
-                policajac.SefujeStanicom = rbtSef.Checked == true ? stanica : null;
-                policajac.ZamenikStanice = rbtZamenik.Checked == true ? stanica : null;
+                policajac.SefujeStanicom = chbSef.Checked == true ? stanica : null;
+                policajac.ZamenikStanice = chbZamenik.Checked == true ? stanica : null;
 
                 if (DTOManager.DodajPolicajca(policajac))
                 {
@@ -228,6 +234,26 @@ namespace PolicijskaUprava.Forme.PolicajciForme
             {
                 MessageBox.Show(ex.FormatExceptionMessage());
             }
+            this.Close();
+        }
+
+
+        private void chbZamenik_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbZamenik.Checked)
+            {
+                chbSef.Checked = false;
+            }
+            //chbZamenik.Checked = !chbZamenik.Checked;
+        }
+
+        private void chbSef_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (chbSef.Checked)
+            {
+                chbZamenik.Checked = false;
+            }
+            //chbSef.Checked = true;
         }
     }
 }

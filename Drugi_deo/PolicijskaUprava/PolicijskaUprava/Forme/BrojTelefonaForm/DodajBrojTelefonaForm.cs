@@ -27,6 +27,7 @@ namespace PolicijskaUprava.Forme.BrojTelefonaForm
         {
             DTOManager.dodajBrojTelefonaZaObjekat(new BrojTelefonaView(txtBroj.Text), this.idObjekta);
             MessageBox.Show("Dodali ste novi broj.");
+            this.Close();
         }
     }
 }

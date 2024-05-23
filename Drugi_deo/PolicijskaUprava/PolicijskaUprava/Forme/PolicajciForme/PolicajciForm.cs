@@ -59,6 +59,11 @@ namespace PolicijskaUprava.Forme
                 MessageBox.Show("Mora da se selektuje neki policajac!");
                 return;
             }
-      }
+        }
+
+        private void PolicajciForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

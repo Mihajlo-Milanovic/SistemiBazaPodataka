@@ -51,6 +51,7 @@ namespace PolicijskaUprava.Forme.ObjekatForme
             txtTip.Text = "";
             txtIme.Text = "";
             txtPrezime.Text = "";
+            this.Close();
         }
     }
 }

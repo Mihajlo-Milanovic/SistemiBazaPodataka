@@ -80,14 +80,62 @@ namespace PolicijskaUprava.DTOs {
 			}
 		}
 
+        public static Policajac VratiPolicajca(int policajacID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Policajac policajac;
+                //PolicijskaStanica ps = s.Load<PolicijskaStanica>(stanicaID);
 
-		#endregion
+                IEnumerable<Policajac> Policajac = from P in s.Query<Policajac>()
+                                                         where P.Id == policajacID
+                                                         select P;
+
+                policajac = Policajac.First();
+
+                s.Flush();
+				s.Close();
+                return policajac;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.FormatExceptionMessage());
+                return null;
+            }
+        }
+
+        public static bool UpdatePolicajca(Policajac policajac)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+				//PolicijskaStanica ps = s.Load<PolicijskaStanica>(stanicaID);
 
 
-		#region Tehnicka lica
+
+				s.Update(policajac);
+
+                s.Flush();
+				s.Close();
+				return true;
+
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.FormatExceptionMessage());
+				return false;
+            }
+        }
+
+        #endregion
 
 
-		public static List<TehnickoLiceView> vratiSvaTehnickaLica() {
+        #region Tehnicka lica
+
+
+        public static List<TehnickoLiceView> vratiSvaTehnickaLica() {
 
 			List<TehnickoLiceView> tlv = new();
 			try {
@@ -662,7 +710,60 @@ namespace PolicijskaUprava.DTOs {
 
 		}
 
-		#endregion
-	}
+        public static List<PolicajacView> vratiPolicajceZaPolicijskuStanicu(int idStanice)
+        {
+            List<PolicajacView> pv = null;
+
+            try
+            {
+
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Policajac> policajac = from o in s.Query<Policajac>()
+                                               where o.Stanica.Id == idStanice
+                                               select o;
+
+                pv = new();
+                foreach (var i in policajac)
+                    pv.Add(new PolicajacView(i));
+
+                s.Close();
+
+                return pv;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.FormatExceptionMessage());
+				return pv;
+            }
+        }
+
+        internal static int ProveriDaliimaSefa(int stanicaId)
+        {
+			List<Policajac> policajci = new();
+
+            using (ISession s = DataLayer.GetSession())
+            {
+                IList<Policajac> Ipolicajaci = s.Query<Policajac>()
+											.Where(p => p.Stanica.Id == stanicaId)
+											.ToList();
+
+				foreach (var p in Ipolicajaci)
+					policajci.Add(p);
+
+                foreach(var p in policajci)
+				{
+					if (p.SefujeStanicom.Id == stanicaId)
+						return p.Id;
+				}
+				return -1;
+            }
+
+        }
+
+        #endregion
+    }
 
 }
