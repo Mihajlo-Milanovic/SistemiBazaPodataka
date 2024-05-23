@@ -42,6 +42,8 @@
             Je_zamenik_u_stanici = new ColumnHeader();
             Tip = new ColumnHeader();
             btnObrisiPolicajca = new Button();
+            btnUnapredjenja = new Button();
+            btnObrazovanje = new Button();
             SuspendLayout();
             // 
             // ListaPolicajaca
@@ -52,14 +54,19 @@
             ListaPolicajaca.GridLines = true;
             ListaPolicajaca.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             ListaPolicajaca.ImeMode = ImeMode.NoControl;
-            ListaPolicajaca.Location = new System.Drawing.Point(13, 12);
-            ListaPolicajaca.Margin = new Padding(4, 3, 4, 3);
+            ListaPolicajaca.Location = new System.Drawing.Point(15, 16);
+            ListaPolicajaca.Margin = new Padding(5, 4, 5, 4);
             ListaPolicajaca.MultiSelect = false;
             ListaPolicajaca.Name = "ListaPolicajaca";
+<<<<<<< HEAD
             ListaPolicajaca.Size = new System.Drawing.Size(1136, 285);
+=======
+            ListaPolicajaca.Size = new System.Drawing.Size(1285, 379);
+>>>>>>> 2618830652c68d717e88e1ca7c2cc2bfcce2412d
             ListaPolicajaca.TabIndex = 1;
             ListaPolicajaca.UseCompatibleStateImageBehavior = false;
             ListaPolicajaca.View = View.Details;
+            ListaPolicajaca.SelectedIndexChanged += ListaPolicajaca_SelectedIndexChanged;
             // 
             // ID
             // 
@@ -124,23 +131,60 @@
             btnObrisiPolicajca.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
             btnObrisiPolicajca.FlatStyle = FlatStyle.Flat;
             btnObrisiPolicajca.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            btnObrisiPolicajca.Location = new System.Drawing.Point(13, 303);
-            btnObrisiPolicajca.Margin = new Padding(4, 3, 4, 3);
+            btnObrisiPolicajca.Location = new System.Drawing.Point(15, 404);
+            btnObrisiPolicajca.Margin = new Padding(5, 4, 5, 4);
             btnObrisiPolicajca.Name = "btnObrisiPolicajca";
-            btnObrisiPolicajca.Size = new System.Drawing.Size(187, 57);
+            btnObrisiPolicajca.Size = new System.Drawing.Size(214, 76);
             btnObrisiPolicajca.TabIndex = 5;
             btnObrisiPolicajca.Text = "Obrisi policajca";
             btnObrisiPolicajca.UseVisualStyleBackColor = false;
             btnObrisiPolicajca.Click += btnObrisiPolicajca_Click_1;
             // 
+<<<<<<< HEAD
+            // PolicajciForm
+=======
+            // btnUnapredjenja
+>>>>>>> 2618830652c68d717e88e1ca7c2cc2bfcce2412d
+            // 
+            btnUnapredjenja.BackColor = System.Drawing.Color.DeepSkyBlue;
+            btnUnapredjenja.FlatStyle = FlatStyle.Flat;
+            btnUnapredjenja.Location = new System.Drawing.Point(1086, 402);
+            btnUnapredjenja.Name = "btnUnapredjenja";
+            btnUnapredjenja.Size = new System.Drawing.Size(214, 76);
+            btnUnapredjenja.TabIndex = 6;
+            btnUnapredjenja.Text = "Unapredjenja izabranog policajca";
+            btnUnapredjenja.UseVisualStyleBackColor = false;
+            btnUnapredjenja.Click += btnUnapredjenja_Click;
+            // 
+            // btnObrazovanje
+            // 
+            btnObrazovanje.BackColor = System.Drawing.Color.DeepSkyBlue;
+            btnObrazovanje.FlatStyle = FlatStyle.Flat;
+            btnObrazovanje.Location = new System.Drawing.Point(1089, 501);
+            btnObrazovanje.Name = "btnObrazovanje";
+            btnObrazovanje.Size = new System.Drawing.Size(214, 76);
+            btnObrazovanje.TabIndex = 7;
+            btnObrazovanje.Text = "Obrazovanje izabranog policajca";
+            btnObrazovanje.UseVisualStyleBackColor = false;
+            btnObrazovanje.Click += btnObrazovanje_Click;
+            // 
             // PolicajciForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.SkyBlue;
+<<<<<<< HEAD
             ClientSize = new System.Drawing.Size(1179, 450);
             Controls.Add(btnObrisiPolicajca);
             Controls.Add(ListaPolicajaca);
+=======
+            ClientSize = new System.Drawing.Size(1315, 600);
+            Controls.Add(btnObrazovanje);
+            Controls.Add(btnUnapredjenja);
+            Controls.Add(btnObrisiPolicajca);
+            Controls.Add(ListaPolicajaca);
+            Margin = new Padding(3, 4, 3, 4);
+>>>>>>> 2618830652c68d717e88e1ca7c2cc2bfcce2412d
             Name = "PolicajciForm";
             Text = "Policajci";
             Load += PolicajciForm_Load;
@@ -163,5 +207,7 @@
         private ColumnHeader Je_zamenik_u_stanici;
         private ColumnHeader Tip;
         private Button btnObrisiPolicajca;
+        private Button btnUnapredjenja;
+        private Button btnObrazovanje;
     }
 }

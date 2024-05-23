@@ -1,4 +1,5 @@
 ﻿using PolicijskaUprava.Entiteti;
+using PolicijskaUprava.Forme.UnapredjenjeForme;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,8 @@ namespace PolicijskaUprava.Forme
 
         public void PopuniTabelu()
         {
+            btnUnapredjenja.Enabled = false;
+            btnObrazovanje.Enabled = false; 
             ListaPolicajaca.Items.Clear();
             policajci = DTOManager.vratiSvePolicajce();
 
@@ -61,9 +64,41 @@ namespace PolicijskaUprava.Forme
             }
         }
 
+<<<<<<< HEAD
         private void PolicajciForm_Load(object sender, EventArgs e)
         {
 
         }
+=======
+        #region UnapredjenjeBtn
+        private void btnUnapredjenja_Click(object sender, EventArgs e)
+        {
+            if (ListaPolicajaca.SelectedItems.Count == 1)
+                new UnapredjenjeForm(Int32.Parse(ListaPolicajaca.SelectedItems[0].SubItems[0].Text)).ShowDialog();
+
+        }
+        private void ListaPolicajaca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ListaPolicajaca.SelectedItems.Count == 1)
+            {
+                btnObrazovanje.Enabled = true;
+                btnUnapredjenja.Enabled = true;
+            }
+            else
+            {
+                btnObrazovanje.Enabled = false;
+                btnUnapredjenja.Enabled = false;
+            }
+        }
+        #endregion
+
+        #region ObrazovanjeBtn
+        private void btnObrazovanje_Click(object sender, EventArgs e)
+        {
+            if (ListaPolicajaca.SelectedItems.Count == 1)
+                new ObrazovanjeForm(Int32.Parse(ListaPolicajaca.SelectedItems[0].SubItems[0].Text)).ShowDialog();
+        }
+        #endregion
+>>>>>>> 2618830652c68d717e88e1ca7c2cc2bfcce2412d
     }
 }

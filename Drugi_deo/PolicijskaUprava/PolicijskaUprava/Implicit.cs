@@ -19,4 +19,5 @@ global using PolicijskaUprava.Forme.VozilaForme;
 global using PolicijskaUprava.Forme.PolicajciForme;
 global using PolicijskaUprava.Forme.ObjekatForme;
 global using PolicijskaUprava.Forme.BrojTelefonaForm;
+global using PolicijskaUprava.Forme.Obrazovanje;
 
