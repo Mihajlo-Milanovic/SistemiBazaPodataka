@@ -81,36 +81,31 @@ namespace PolicijskaUprava.DTOs {
 			}
 		}
 
-        public static Policajac VratiPolicajca(int policajacID)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
-                Policajac policajac;
-                //PolicijskaStanica ps = s.Load<PolicijskaStanica>(stanicaID);
+		public static Policajac VratiPolicajca(int policajacID) {
+			try {
+				ISession s = DataLayer.GetSession();
+				Policajac policajac;
+				//PolicijskaStanica ps = s.Load<PolicijskaStanica>(stanicaID);
 
-                IEnumerable<Policajac> Policajac = from P in s.Query<Policajac>()
-                                                         where P.Id == policajacID
-                                                         select P;
+				IEnumerable<Policajac> Policajac = from P in s.Query<Policajac>()
+												   where P.Id == policajacID
+												   select P;
 
-                policajac = Policajac.First();
+				policajac = Policajac.First();
 
-                s.Flush();
+				s.Flush();
 				s.Close();
-                return policajac;
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.FormatExceptionMessage());
-                return null;
-            }
-        }
+				return policajac;
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.FormatExceptionMessage());
+				return null;
+			}
+		}
 
-        public static bool UpdatePolicajca(Policajac policajac)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
+		public static bool UpdatePolicajca(Policajac policajac) {
+			try {
+				ISession s = DataLayer.GetSession();
 
 				//PolicijskaStanica ps = s.Load<PolicijskaStanica>(stanicaID);
 
@@ -118,17 +113,16 @@ namespace PolicijskaUprava.DTOs {
 
 				s.Update(policajac);
 
-                s.Flush();
+				s.Flush();
 				s.Close();
 				return true;
 
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.FormatExceptionMessage());
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.FormatExceptionMessage());
 				return false;
-            }
-        }
+			}
+		}
 
 		public static List<PolicajacView> vratiPolicajceZaPolicijskuStanicu(int idStanice) {
 			List<PolicajacView> pv = null;
@@ -157,7 +151,7 @@ namespace PolicijskaUprava.DTOs {
 			}
 		}
 
-		internal static int ProveriDaliimaSefa(int stanicaId) {
+		public static int ProveriDaliimaSefa(int stanicaId) {
 			List<Policajac> policajci = new();
 
 			using (ISession s = DataLayer.GetSession()) {
@@ -175,6 +169,28 @@ namespace PolicijskaUprava.DTOs {
 				return -1;
 			}
 
+		}
+
+		public static List<PatrolniPolicajacView> vratiSvePatrolnePolicajce(){
+
+			List<PatrolniPolicajacView> ppv = new();
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				IEnumerable<PatrolniPolicajac> patPol = from pp in s.Query<PatrolniPolicajac>()
+														select pp;
+
+				foreach(var p in patPol) {
+					ppv.Add(new PatrolniPolicajacView(p));
+				}
+
+				return ppv;
+
+			} catch(Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return ppv;
+			}
 		}
 
 		#endregion
@@ -1019,6 +1035,113 @@ namespace PolicijskaUprava.DTOs {
 			}
 		}
 
-        #endregion
-    }
+		#endregion
+
+
+		#region Patrole
+
+		public static List<PatrolaView> vratiSvePatrole() {
+
+			List<PatrolaView> pv = null;
+			try {
+				ISession s = DataLayer.GetSession();
+
+				IEnumerable<Patrola> patrole = from p in s.Query<Patrola>() select p;
+
+				pv = new List<PatrolaView>();
+				foreach(Patrola p in patrole) {
+					pv.Add(new PatrolaView(p));
+				}
+
+				s.Close();
+
+				return pv;
+
+			}catch(Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return pv;
+			}
+		}
+
+		public static bool dodajPatrolu(PatrolaView pv) {
+
+
+				Patrola patrola = new();
+				patrola.RedniBroj = pv.RedniBroj;
+				patrola.DuziVozilo = new();
+				patrola.DuziVozilo.RegOznaka = pv.RegOznakaVozila;
+				patrola.SefId = new();
+				patrola.SefId.Id = pv.SefId;
+				patrola.PomocnikId = new();
+				patrola.PomocnikId.Id = pv.PomocnikId;
+
+			try {
+
+				ISession s = DataLayer.GetSession();
+
+				s.Save(patrola);
+
+				s.Flush();
+
+				s.Close();
+
+				return true;
+			}catch(Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+			}
+		}
+
+		public static bool obrisiPatrolu(PatrolaView pv) {
+
+			Patrola p = new();
+			p.RedniBroj = pv.RedniBroj;
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				s.Delete(p);
+
+				s.Flush();
+
+				s.Close();
+
+				return true;
+
+			}catch(Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+			}
+
+		}
+
+		public static bool izmeniPatrolu(PatrolaView pv) {
+
+			Patrola p = new();
+
+			p.RedniBroj = pv.RedniBroj;
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				p.DuziVozilo = s.Load<Vozilo>(pv.RegOznakaVozila);
+				p.SefId = s.Load<PatrolniPolicajac>(pv.SefId);
+				p.PomocnikId = s.Load<PatrolniPolicajac>(pv.PomocnikId);
+
+				s.Update(p);
+
+				s.Flush();
+
+				s.Close();
+
+				return true;
+
+			}catch(Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+			}
+		}
+
+		#endregion
+	}
 }

@@ -3,10 +3,9 @@ namespace PolicijskaUprava.Entiteti
 {
     public class PatrolniPolicajac : Policajac
     {
-        public virtual string VrstaOruzja { get; set; }
-
         public virtual IList<Patrola> SefPatrole { get; set; }
         public virtual IList<Patrola> PomocnikPatrole { get; set; }
+        public virtual string VrstaOruzja { get; set; }
 
 
         public PatrolniPolicajac() : base()

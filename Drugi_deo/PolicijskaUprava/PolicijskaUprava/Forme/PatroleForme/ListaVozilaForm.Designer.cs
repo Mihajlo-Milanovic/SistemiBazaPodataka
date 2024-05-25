@@ -1,5 +1,5 @@
-﻿namespace PolicijskaUprava.Forme.OdrzavaForme {
-	partial class SpisakAlarmnihSistemaForm {
+﻿namespace PolicijskaUprava.Forme.PatroleForm {
+	partial class ListaVozilaForm {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -31,31 +31,25 @@
 			// 
 			dataGridView1.AllowUserToAddRows = false;
 			dataGridView1.AllowUserToDeleteRows = false;
-			dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-			dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+			dataGridView1.AllowUserToOrderColumns = true;
 			dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dataGridView1.Dock = DockStyle.Fill;
 			dataGridView1.Location = new System.Drawing.Point(0, 0);
 			dataGridView1.MultiSelect = false;
 			dataGridView1.Name = "dataGridView1";
-			dataGridView1.ReadOnly = true;
 			dataGridView1.RowHeadersWidth = 51;
-			dataGridView1.RowTemplate.ReadOnly = true;
-			dataGridView1.Size = new System.Drawing.Size(1080, 450);
+			dataGridView1.Size = new System.Drawing.Size(800, 450);
 			dataGridView1.TabIndex = 0;
 			dataGridView1.DoubleClick += dataGridView1_DoubleClick;
 			// 
-			// SpisakAlarmnihSistemaForm
+			// ListaVozilaForm
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			AutoSize = true;
-			BackColor = System.Drawing.Color.SkyBlue;
-			ClientSize = new System.Drawing.Size(1080, 450);
+			ClientSize = new System.Drawing.Size(800, 450);
 			Controls.Add(dataGridView1);
-			Name = "SpisakAlarmnihSistemaForm";
-			StartPosition = FormStartPosition.CenterScreen;
-			Text = "SpisakAlarmnihSistemaForm";
+			Name = "ListaVozilaForm";
+			Text = "ListaVozilaForm";
 			((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
 			ResumeLayout(false);
 		}

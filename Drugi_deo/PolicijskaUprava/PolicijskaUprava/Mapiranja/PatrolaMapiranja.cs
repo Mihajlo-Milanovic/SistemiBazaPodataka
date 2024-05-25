@@ -20,8 +20,7 @@ namespace PolicijskaUprava.Mapiranja
 
             HasMany(x => x.Intervencije)
             .KeyColumn("PATROLA_ID")
-            .Cascade.All()
-            .Inverse();
+            .Cascade.All().Inverse();
         }
     }
 }

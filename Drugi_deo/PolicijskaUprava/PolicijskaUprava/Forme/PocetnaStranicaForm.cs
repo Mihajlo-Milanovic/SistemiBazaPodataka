@@ -19,7 +19,7 @@ namespace PolicijskaUprava.Forme {
         }
 
         private void btnPatrole_Click(object sender, EventArgs e) {
-            MessageBox.Show("Ovde ide forma PatroleFrom...");
+            new PatroleForme.PatroleForm().ShowDialog();
         }
 
         private void btnVozilo_Click(object sender, EventArgs e) {

@@ -1,5 +1,5 @@
-﻿namespace PolicijskaUprava.Forme.OdrzavaForme {
-	partial class SpisakAlarmnihSistemaForm {
+﻿namespace PolicijskaUprava.Forme.PatroleForme {
+	partial class ListaPatrolnihPolicajacaForm {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -40,22 +40,18 @@
 			dataGridView1.Name = "dataGridView1";
 			dataGridView1.ReadOnly = true;
 			dataGridView1.RowHeadersWidth = 51;
-			dataGridView1.RowTemplate.ReadOnly = true;
-			dataGridView1.Size = new System.Drawing.Size(1080, 450);
-			dataGridView1.TabIndex = 0;
+			dataGridView1.Size = new System.Drawing.Size(800, 450);
+			dataGridView1.TabIndex = 1;
 			dataGridView1.DoubleClick += dataGridView1_DoubleClick;
 			// 
-			// SpisakAlarmnihSistemaForm
+			// ListaPatrolnihPolicajacaForm
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			AutoSize = true;
-			BackColor = System.Drawing.Color.SkyBlue;
-			ClientSize = new System.Drawing.Size(1080, 450);
+			ClientSize = new System.Drawing.Size(800, 450);
 			Controls.Add(dataGridView1);
-			Name = "SpisakAlarmnihSistemaForm";
-			StartPosition = FormStartPosition.CenterScreen;
-			Text = "SpisakAlarmnihSistemaForm";
+			Name = "ListaPatrolnihPolicajacaForm";
+			Text = "ListaPatrolnihPolicajacaForm";
 			((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
 			ResumeLayout(false);
 		}

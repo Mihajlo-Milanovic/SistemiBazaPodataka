@@ -31,5 +31,12 @@
 		}
 
 		#endregion
+
+		public override string ToString() {
+			return "Redni broj: " + RedniBroj
+				+ "\nRegistarska oznaka vozila: " + RegOznakaVozila
+				+ "\nSef: [" + SefId + "] " + SefImeIPrezime
+				+ "\nPomocnik: [" + PomocnikId + "] " + PomocnikImeIPrezime;
+		}
 	}
 }
