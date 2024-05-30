@@ -1,29 +1,13 @@
-﻿using NHibernate.Type;
-using PolicijskaUprava.Entiteti;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-
-namespace PolicijskaUprava.Forme.PolicajciForme
+﻿namespace PolicijskaUprava.Forme.PolicajciForme
 {
     public partial class DodajPolicajcaForm : Form
     {
         int StanicaID;
+       
         public DodajPolicajcaForm()
         {
             InitializeComponent();
-        }
-        public DodajPolicajcaForm(int stanicaID)
-        {
-            InitializeComponent();
-            StanicaID = stanicaID;
+            //StanicaID = stanicaID;
             OnemoguciPolicajce();
             IzborPolicajca("PZaVanrednoSituacije");
 
@@ -122,22 +106,22 @@ namespace PolicijskaUprava.Forme.PolicajciForme
                 DialogResult result = MessageBox.Show("Mora da se popune svi podaci za policajca!", "Poruka", buttons);
                 return;
             }
-            if (chbSef.Checked == true && DTOManager.ProveriDaliimaSefa(StanicaID) != -1)
-            {
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
-                DialogResult result = MessageBox.Show("Stanica vec ima sefa!", "Poruka", buttons);
-                return;
-            }
+            //if (chbSef.Checked == true && DTOManager.ProveriDaliimaSefa(StanicaID) != -1)
+            //{
+            //    MessageBoxButtons buttons = MessageBoxButtons.OK;
+            //    DialogResult result = MessageBox.Show("Stanica vec ima sefa!", "Poruka", buttons);
+            //    return;
+            //}
 
 
-            PolicijskaStanica stanica = DTOManager.VratiStanicu(StanicaID);
+            //PolicijskaStanica stanica = DTOManager.VratiStanicu(StanicaID);
 
-            if (stanica == null)
-            {
-                MessageBoxButtons buttonss = MessageBoxButtons.OK;
-                DialogResult resultt = MessageBox.Show("Greska prilikom uzimanja stanice", "Poruka", buttonss);
-                return;
-            }
+            //if (stanica == null)
+            //{
+            //    MessageBoxButtons buttonss = MessageBoxButtons.OK;
+            //    DialogResult resultt = MessageBox.Show("Greska prilikom uzimanja stanice", "Poruka", buttonss);
+            //    return;
+            //}
 
 
             Policajac policajac;
@@ -214,9 +198,9 @@ namespace PolicijskaUprava.Forme.PolicajciForme
                 policajac.JMBG = txtJMBG.Text;
                 policajac.Adresa = txtAdresa.Text;
                 policajac.DatumPrijemaUSluzbu = dtpDatumPrijemaUSluzbu.Value;
-                policajac.Stanica = stanica;
-                policajac.SefujeStanicom = chbSef.Checked == true ? stanica : null;
-                policajac.ZamenikStanice = chbZamenik.Checked == true ? stanica : null;
+                policajac.Stanica = null;
+                policajac.SefujeStanicom = null;// chbSef.Checked == true ? stanica : null;
+                policajac.ZamenikStanice = null;//s chbZamenik.Checked == true ? stanica : null;
 
                 if (DTOManager.DodajPolicajca(policajac))
                 {
@@ -238,34 +222,34 @@ namespace PolicijskaUprava.Forme.PolicajciForme
         }
 
 
-        private void chbZamenik_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chbZamenik.Checked)
-            {
-                chbSef.Checked = false;
-            }
-            //chbZamenik.Checked = !chbZamenik.Checked;
-        }
+        //private void chbZamenik_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (chbZamenik.Checked)
+        //    {
+        //        chbSef.Checked = false;
+        //    }
+        //    //chbZamenik.Checked = !chbZamenik.Checked;
+        //}
 
-        private void chbSef_CheckedChanged_1(object sender, EventArgs e)
-        {
-            if (chbSef.Checked)
-            {
-                chbZamenik.Checked = false;
-            }
-            //chbSef.Checked = true;
-        }
+        //private void chbSef_CheckedChanged_1(object sender, EventArgs e)
+        //{
+        //    if (chbSef.Checked)
+        //    {
+        //        chbZamenik.Checked = false;
+        //    }
+        //    //chbSef.Checked = true;
+        //}
 
-        private void chbZamenik_CheckedChanged_1(object sender, EventArgs e)
-        {
-            if (chbZamenik.Checked)
-                chbSef.Checked = false;
-        }
+        //private void chbZamenik_CheckedChanged_1(object sender, EventArgs e)
+        //{
+        //    if (chbZamenik.Checked)
+        //        chbSef.Checked = false;
+        //}
 
-        private void chbSef_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chbSef.Checked)
-                chbZamenik.Checked = false;
-        }
+        //private void chbSef_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (chbSef.Checked)
+        //        chbZamenik.Checked = false;
+        //}
     }
 }

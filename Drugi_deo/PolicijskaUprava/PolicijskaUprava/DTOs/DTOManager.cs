@@ -2,6 +2,7 @@ using NHibernate.Criterion;
 using PolicijskaUprava.Entiteti;
 using PolicijskaUprava.Entiteti.VezeViseNaVise;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 
 namespace PolicijskaUprava.DTOs {
 
@@ -84,29 +85,10 @@ namespace PolicijskaUprava.DTOs {
 				s.Close();
 			}
 			catch (Exception ec) {
-				ec.FormatExceptionMessage();
+				MessageBox.Show(ec.FormatExceptionMessage());
 			}
 		}
-        /*
-		 	try {
-				ISession s = DataLayer.GetSession();
-
-				IEnumerable<Odrzava> odrzava = from o in s.Query<Odrzava>()
-											   where o.Id.Tehnicar.Id == tl.Id
-											   select o;
-
-				foreach (var o in odrzava)
-					s.Delete(o);
-
-				s.Delete(tl);
-
-				s.Flush();
-
-				s.Close();
-
-				return true;
-			}*/
-
+        
         public static bool DodajPolicajca(Policajac p) {
 
 			try {
@@ -230,6 +212,104 @@ namespace PolicijskaUprava.DTOs {
 			} catch(Exception ex) {
 				MessageBox.Show(ex.FormatExceptionMessage());
 				return ppv;
+			}
+		}
+
+		public static List<PolicajacView> vratiSveSlobodnePolicajce() {
+
+			List<PolicajacView> pv = new();
+
+			try {
+				ISession s = DataLayer.GetSession();
+
+				IEnumerable<Policajac> policajci = from p in s.Query<Policajac>()
+												   where p.SefujeStanicom == null
+														&& p.ZamenikStanice == null
+												   select p;
+
+				foreach(var p in policajci) {
+					pv.Add(new PolicajacView(p));
+				}
+
+				return pv;
+			}catch(Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return null;
+			}
+		}
+
+		public static PolicajacView vratiPolicajca(int policajacId) {
+			try {
+				ISession s = DataLayer.GetSession();
+				PolicajacView policajac;
+
+				policajac = new PolicajacView(s.Get<Policajac>(policajacId));
+
+				s.Flush();
+				s.Close();
+				return policajac;
+			}
+			catch (Exception ec) {
+				MessageBox.Show(ec.FormatExceptionMessage());
+				return null;
+			}
+		}
+
+		public static bool izmeniZaposlenjePolicajca(int pId, int sId, int poz) {
+
+
+			try {
+
+				ISession s = DataLayer.GetSession();
+
+				Policajac p = s.Get<Policajac>(pId);
+				PolicijskaStanica ps = s.Get<PolicijskaStanica>(sId);
+
+				p.SefujeStanicom = null;
+				p.ZamenikStanice = null;
+
+				switch (poz) {
+					case 1:
+						p.SefujeStanicom = ps;
+					break;
+					case 2:
+						p.ZamenikStanice = ps;
+					break;
+				}
+				s.SaveOrUpdate(p);
+				s.Flush();
+				s.Close();
+
+				return true;
+
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+			}
+		}
+
+		public static bool ukloniPolicajcaIzStanice(int pId) {
+			try {
+
+				ISession s = DataLayer.GetSession();
+
+				Policajac p = s.Get<Policajac>(pId);
+
+				p.SefujeStanicom = null;
+				p.ZamenikStanice = null;
+				p.Stanica = null;
+
+				s.SaveOrUpdate(p);
+				s.Flush();
+				s.Close();
+
+				return true;
+
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
 			}
 		}
 
@@ -413,6 +493,53 @@ namespace PolicijskaUprava.DTOs {
 				MessageBox.Show(ec.FormatExceptionMessage());
 				return null;
 			}
+		}
+
+		public static bool dodajPolicajcaStanici(int pId, int sId, int pozicija) {
+
+			try {
+
+				ISession s = DataLayer.GetSession();
+
+				Policajac p = s.Get<Policajac>(pId);
+				PolicijskaStanica ps = s.Get<PolicijskaStanica>(sId);
+
+				p.Stanica = ps;
+				switch (pozicija) {
+					case 1:
+					p.SefujeStanicom = ps;
+					break;
+					default:
+					p.ZamenikStanice = ps;
+					break;
+				}
+				s.SaveOrUpdate(p);
+				s.Flush();
+				s.Close();
+
+				return true;
+
+			}catch(Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+			}
+		}
+
+		public static bool izmeniPolicijskuStanicu(PolicijskaStanica ps) {
+
+			try {
+				ISession s = DataLayer.GetSession();
+	
+				s.Update(ps);
+				s.Flush();
+				s.Close();
+				return true;
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.FormatExceptionMessage());
+				return false;
+			}
+
 		}
 
 		#endregion

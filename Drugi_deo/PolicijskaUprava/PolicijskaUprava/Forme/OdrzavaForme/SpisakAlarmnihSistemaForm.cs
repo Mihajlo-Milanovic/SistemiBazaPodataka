@@ -27,22 +27,6 @@ namespace PolicijskaUprava.Forme.OdrzavaForme {
 
 		}
 
-		private void setUltrazvuciAS() {
-
-			//((UltrazvucniAS)alarmniSistem).GornjaGranica = (int)numGornjaGranica.Value;
-			//((UltrazvucniAS)alarmniSistem).DonjaGranica = (int)numDonjaGranica.Value;
-		}
-
-		private void setASDetekcijePokreta() {
-
-			//((ASDetekcijePokreta)alarmniSistem).Osetljivost = tbxOsetljivost.Text;
-		}
-
-		private void setASDetekcijeToplotnogOdraza() {
-
-			//((ASDetekcijeToplotnogOdraza)alarmniSistem).HorRezIcKamere = (int)numHorRezIcKamere.Value;
-			//((ASDetekcijeToplotnogOdraza)alarmniSistem).VerRezIcKamere = (int)numVerRezIcKamere.Value;
-		}
 	}
 
 }

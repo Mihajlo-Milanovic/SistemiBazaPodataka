@@ -18,10 +18,10 @@ namespace PolicijskaUprava.Forme.PolicajciForme
         {
             InitializeComponent();
         }
-        public AzurirajPolicajcaForm(Policajac policajac)
+        public AzurirajPolicajcaForm(int policajacId)
         {
             InitializeComponent();
-            Policajac = policajac;
+            Policajac = DTOManager.VratiPolicajca(policajacId);
             PopuniPodatke();
         }
 
@@ -37,8 +37,8 @@ namespace PolicijskaUprava.Forme.PolicajciForme
             txtJMBG.Text = Policajac.JMBG;
             txtAdresa.Text = Policajac.Adresa;
             dtpDatumPrijemaUSluzbu.Value = Policajac.DatumPrijemaUSluzbu;
-            chbSef.Checked = Policajac.SefujeStanicom == null ? false : true;
-            chbZamenik.Checked = Policajac.ZamenikStanice == null ? false : true;
+            //chbSef.Checked = Policajac.SefujeStanicom == null ? false : true;
+            //chbZamenik.Checked = Policajac.ZamenikStanice == null ? false : true;
 
             switch (Tip)
             {
@@ -142,12 +142,12 @@ namespace PolicijskaUprava.Forme.PolicajciForme
                 DialogResult result = MessageBox.Show("Mora da se popune svi podaci za policajca!", "Poruka", buttons);
                 return;
             }
-            if (chbSef.Checked == true && DTOManager.ProveriDaliimaSefa(Policajac.Stanica.Id) != Policajac.Id)
-            {
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
-                DialogResult result = MessageBox.Show("Stanica vec ima sefa!", "Poruka", buttons);
-                return;
-            }
+            //if (chbSef.Checked == true && DTOManager.ProveriDaliimaSefa(Policajac.Stanica.Id) != Policajac.Id)
+            //{
+            //    MessageBoxButtons buttons = MessageBoxButtons.OK;
+            //    DialogResult result = MessageBox.Show("Stanica vec ima sefa!", "Poruka", buttons);
+            //    return;
+            //}
 
 
 
@@ -215,8 +215,8 @@ namespace PolicijskaUprava.Forme.PolicajciForme
                 Policajac.Adresa = txtAdresa.Text;
                 Policajac.DatumPrijemaUSluzbu = dtpDatumPrijemaUSluzbu.Value;
                 //Policajac.Stanica = Policajac.Stanica;
-                Policajac.SefujeStanicom = chbSef.Checked == true ? Policajac.Stanica : null;
-                Policajac.ZamenikStanice = chbZamenik.Checked == true ? Policajac.Stanica : null;
+                Policajac.SefujeStanicom = null;// chbSef.Checked == true ? Policajac.Stanica : null;
+                Policajac.ZamenikStanice = null;// chbZamenik.Checked == true ? Policajac.Stanica : null;
 
                 if (DTOManager.UpdatePolicajca(Policajac))
                 {
@@ -239,23 +239,23 @@ namespace PolicijskaUprava.Forme.PolicajciForme
             }
         }
 
-        private void chbZamenik_CheckedChanged(object sender, EventArgs e)
-        {
+        //private void chbZamenik_CheckedChanged(object sender, EventArgs e)
+        //{
 
-            if (chbZamenik.Checked)
-            {
-                chbSef.Checked = false;
-            }
-        }
+        //    if (chbZamenik.Checked)
+        //    {
+        //        chbSef.Checked = false;
+        //    }
+        //}
 
-        private void chbSef_CheckedChanged(object sender, EventArgs e)
-        {
+        //private void chbSef_CheckedChanged(object sender, EventArgs e)
+        //{
 
-            if (chbSef.Checked)
-            {
-                chbZamenik.Checked = false;
-            }
-        }
+        //    if (chbSef.Checked)
+        //    {
+        //        chbZamenik.Checked = false;
+        //    }
+        //}
     }
 
 }

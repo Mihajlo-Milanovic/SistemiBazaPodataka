@@ -43,6 +43,8 @@
 			btnObrisiPolicajca = new Button();
 			btnUnapredjenja = new Button();
 			btnObrazovanje = new Button();
+			btnDodaj = new Button();
+			btnAzuriraj = new Button();
 			SuspendLayout();
 			// 
 			// ListaPolicajaca
@@ -57,7 +59,7 @@
 			ListaPolicajaca.Margin = new Padding(5, 4, 5, 4);
 			ListaPolicajaca.MultiSelect = false;
 			ListaPolicajaca.Name = "ListaPolicajaca";
-			ListaPolicajaca.Size = new System.Drawing.Size(1138, 487);
+			ListaPolicajaca.Size = new System.Drawing.Size(1331, 513);
 			ListaPolicajaca.TabIndex = 1;
 			ListaPolicajaca.UseCompatibleStateImageBehavior = false;
 			ListaPolicajaca.View = View.Details;
@@ -126,12 +128,12 @@
 			btnObrisiPolicajca.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(0, 0, 64);
 			btnObrisiPolicajca.FlatStyle = FlatStyle.System;
 			btnObrisiPolicajca.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			btnObrisiPolicajca.Location = new System.Drawing.Point(15, 511);
+			btnObrisiPolicajca.Location = new System.Drawing.Point(579, 537);
 			btnObrisiPolicajca.Margin = new Padding(5, 4, 5, 4);
 			btnObrisiPolicajca.Name = "btnObrisiPolicajca";
-			btnObrisiPolicajca.Size = new System.Drawing.Size(214, 76);
+			btnObrisiPolicajca.Size = new System.Drawing.Size(200, 50);
 			btnObrisiPolicajca.TabIndex = 5;
-			btnObrisiPolicajca.Text = "Obrisi policajca";
+			btnObrisiPolicajca.Text = "Obrisi";
 			btnObrisiPolicajca.UseVisualStyleBackColor = false;
 			btnObrisiPolicajca.Click += btnObrisiPolicajca_Click_1;
 			// 
@@ -139,11 +141,11 @@
 			// 
 			btnUnapredjenja.BackColor = System.Drawing.Color.SlateBlue;
 			btnUnapredjenja.FlatStyle = FlatStyle.System;
-			btnUnapredjenja.Location = new System.Drawing.Point(477, 510);
+			btnUnapredjenja.Location = new System.Drawing.Point(861, 538);
 			btnUnapredjenja.Name = "btnUnapredjenja";
-			btnUnapredjenja.Size = new System.Drawing.Size(214, 76);
+			btnUnapredjenja.Size = new System.Drawing.Size(200, 50);
 			btnUnapredjenja.TabIndex = 6;
-			btnUnapredjenja.Text = "Unapredjenja izabranog policajca";
+			btnUnapredjenja.Text = "Unapredjenja";
 			btnUnapredjenja.UseVisualStyleBackColor = false;
 			btnUnapredjenja.Click += btnUnapredjenja_Click;
 			// 
@@ -151,20 +153,48 @@
 			// 
 			btnObrazovanje.BackColor = System.Drawing.Color.SlateBlue;
 			btnObrazovanje.FlatStyle = FlatStyle.System;
-			btnObrazovanje.Location = new System.Drawing.Point(939, 510);
+			btnObrazovanje.Location = new System.Drawing.Point(1143, 538);
 			btnObrazovanje.Name = "btnObrazovanje";
-			btnObrazovanje.Size = new System.Drawing.Size(214, 76);
+			btnObrazovanje.Size = new System.Drawing.Size(200, 50);
 			btnObrazovanje.TabIndex = 7;
-			btnObrazovanje.Text = "Obrazovanje izabranog policajca";
+			btnObrazovanje.Text = "Obrazovanja";
 			btnObrazovanje.UseVisualStyleBackColor = false;
 			btnObrazovanje.Click += btnObrazovanje_Click;
+			// 
+			// btnDodaj
+			// 
+			btnDodaj.BackColor = System.Drawing.Color.Cyan;
+			btnDodaj.FlatStyle = FlatStyle.System;
+			btnDodaj.Location = new System.Drawing.Point(15, 537);
+			btnDodaj.Margin = new Padding(5, 4, 5, 4);
+			btnDodaj.Name = "btnDodaj";
+			btnDodaj.Size = new System.Drawing.Size(200, 50);
+			btnDodaj.TabIndex = 8;
+			btnDodaj.Text = "Dodaj";
+			btnDodaj.UseVisualStyleBackColor = false;
+			btnDodaj.Click += btnDodaj_Click;
+			// 
+			// btnAzuriraj
+			// 
+			btnAzuriraj.BackColor = System.Drawing.Color.Cyan;
+			btnAzuriraj.FlatStyle = FlatStyle.System;
+			btnAzuriraj.Location = new System.Drawing.Point(297, 537);
+			btnAzuriraj.Margin = new Padding(5, 4, 5, 4);
+			btnAzuriraj.Name = "btnAzuriraj";
+			btnAzuriraj.Size = new System.Drawing.Size(200, 50);
+			btnAzuriraj.TabIndex = 9;
+			btnAzuriraj.Text = "Azuriraj";
+			btnAzuriraj.UseVisualStyleBackColor = false;
+			btnAzuriraj.Click += btnAzuriraj_Click;
 			// 
 			// PolicajciForm
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = System.Drawing.Color.SkyBlue;
-			ClientSize = new System.Drawing.Size(1167, 600);
+			ClientSize = new System.Drawing.Size(1360, 600);
+			Controls.Add(btnAzuriraj);
+			Controls.Add(btnDodaj);
 			Controls.Add(btnObrazovanje);
 			Controls.Add(btnUnapredjenja);
 			Controls.Add(btnObrisiPolicajca);
@@ -193,5 +223,7 @@
         private Button btnObrisiPolicajca;
         private Button btnUnapredjenja;
         private Button btnObrazovanje;
-    }
+		private Button btnDodaj;
+		private Button btnAzuriraj;
+	}
 }

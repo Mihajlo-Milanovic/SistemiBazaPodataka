@@ -13,6 +13,7 @@ namespace PolicijskaUprava.Forme.PolicajciForme
     public partial class PolicajciZaStanicuForm_ : Form
     {
         public int idStanice;
+
         public PolicajciZaStanicuForm_(int idStanice)
         {
             InitializeComponent();
@@ -29,28 +30,18 @@ namespace PolicijskaUprava.Forme.PolicajciForme
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            new DodajPolicajcaForm(idStanice).ShowDialog();
+            new DodajPolicajcaStaniciForm(idStanice).ShowDialog();
             osvezi();
         }
 
         private void btnAzuriraj_Click(object sender, EventArgs e)
         {
-            Policajac policajac = new Policajac();
 
-            if (dgvPolicajci.SelectedRows.Count == 1)
-            {
+            int rInd = dgvPolicajci.SelectedCells[0].RowIndex;
 
-                DataGridViewRow red = dgvPolicajci.SelectedRows[0];
-
-                int Id = (int)red.Cells[0].Value;
-
-                policajac = DTOManager.VratiPolicajca(Id);
-
-                new AzurirajPolicajcaForm(policajac).ShowDialog();
-
-                osvezi();
-            }
-        }
+			new AzurirajPolicajcaStaniciForm((int)dgvPolicajci.Rows[rInd].Cells[0].Value).ShowDialog();
+			osvezi();
+		}
 
         private void btnObrisi_Click(object sender, EventArgs e)
         {
@@ -65,7 +56,7 @@ namespace PolicijskaUprava.Forme.PolicajciForme
                 if (result == DialogResult.OK)
                 {
 
-                    DTOManager.ObrisiPolicajcaID((int)dgvPolicajci.SelectedCells[0].Value);
+                    DTOManager.ukloniPolicajcaIzStanice((int)dgvPolicajci.SelectedCells[0].Value);
                     osvezi();
                 }
 

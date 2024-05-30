@@ -41,11 +41,10 @@ namespace PolicijskaUprava.Forme.PolicijskaStanicaForme
 
             if (result == DialogResult.OK)
             {
-                int kurac = 0;
                 PolicijskaStanica stanica = new PolicijskaStanica(Stanica.Id, txbNaziv.Text, tbxOpstina.Text, tbxAdresa.Text,
                     dtpDatumOsnivanja.Value, (int)(nudBrojVozila.Value), null, null);
 
-                DTOManager.DodajPolicijskuStanicu(stanica);
+                DTOManager.izmeniPolicijskuStanicu(stanica);
                 this.Close();
             }
             
