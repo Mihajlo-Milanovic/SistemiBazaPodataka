@@ -51,8 +51,8 @@ namespace PolicijskaUprava.Forme.OdrzavaForme {
 			o.Id.AlarmniSistem.Id = (int)dgvOdrzava.Rows[rIndex].Cells[1].Value;
 			o.Id.PocetniDatum = (DateTime)dgvOdrzava.Rows[rIndex].Cells[2].Value;
 
-			DTOManager.obrisiOdrzava(o);
-			bs.DataSource = ds(id);
+			if(DTOManager.obrisiOdrzava(o))
+				bs.RemoveAt(rIndex); ;
 		}
 
 		private void tehAddOdrzavanje(int id) {

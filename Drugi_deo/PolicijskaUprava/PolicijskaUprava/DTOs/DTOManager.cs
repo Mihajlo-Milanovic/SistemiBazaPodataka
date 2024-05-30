@@ -250,6 +250,13 @@ namespace PolicijskaUprava.DTOs {
 			try {
 				ISession s = DataLayer.GetSession();
 
+				IEnumerable<Odrzava> odrzava = from o in s.Query<Odrzava>()
+											   where o.Id.Tehnicar.Id == tl.Id
+											   select o;
+
+				foreach (var o in odrzava)
+					s.Delete(o);
+
 				s.Delete(tl);
 
 				s.Flush();
