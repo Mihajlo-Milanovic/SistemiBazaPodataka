@@ -14,8 +14,13 @@
             Map(x => x.DatumOsnivanja, "DATUM_OSNIVANJA");
             Map(x => x.BrojVozila, "BROJ_VOZILA");
 
-            HasMany(x => x.Objekti).KeyColumn("P_STANICA_ID").LazyLoad().Inverse().Cascade.All();
-            HasMany(x => x.Zaposleni).KeyColumn("STANICA_ID").LazyLoad().Inverse().Cascade.All();
-		}
+            HasMany(x => x.Objekti).KeyColumn("P_STANICA_ID").LazyLoad().Cascade.All();
+            HasMany(x => x.Zaposleni).KeyColumn("STANICA_ID").LazyLoad().Cascade.All();
+        }
     }
 }
+
+
+
+
+

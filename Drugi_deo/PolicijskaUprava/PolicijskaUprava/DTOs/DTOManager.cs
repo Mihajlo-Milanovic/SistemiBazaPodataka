@@ -1,5 +1,7 @@
 using NHibernate.Criterion;
 using PolicijskaUprava.Entiteti;
+using PolicijskaUprava.Entiteti.VezeViseNaVise;
+using System.Runtime.InteropServices;
 
 namespace PolicijskaUprava.DTOs {
 
@@ -18,23 +20,25 @@ namespace PolicijskaUprava.DTOs {
 
 				foreach (var p in sviPolicajci) {
 
-					if (p.GetType() == typeof(PatrolniPolicajac)) {
+					var type = p.GetType();
+
+                    if (type == typeof(PatrolniPolicajac)) {
 						PatrolniPolicajacView policajac = new((PatrolniPolicajac)p);
 						Policajci.Add(policajac);
 					}
-					else if (p.GetType() == typeof(PolicajacPozornik)) {
+					else if (type == typeof(PolicajacPozornik)) {
 						PolicajacPozornikView policajac = new((PolicajacPozornik)p);
 						Policajci.Add(policajac);
 					}
-					else if (p.GetType() == typeof(RadnikUUpravi)) {
+					else if (type == typeof(RadnikUUpravi)) {
 						RadnikUUpraviView policajac = new((RadnikUUpravi)p);
 						Policajci.Add(policajac);
 					}
-					else if (p.GetType() == typeof(SkolskiPolicajac)) {
+					else if (type == typeof(SkolskiPolicajac)) {
 						SkolskiPolicajacView policajac = new((SkolskiPolicajac)p);
 						Policajci.Add(policajac);
 					}
-					else if (p.GetType() == typeof(PZaVanredneSituacije)) {
+					else if (type == typeof(PZaVanredneSituacije)) {
 						PZaVanredneSituacijeView policajac = new((PZaVanredneSituacije)p);
 						Policajci.Add(policajac);
 					}
@@ -54,9 +58,27 @@ namespace PolicijskaUprava.DTOs {
 			try {
 				ISession s = DataLayer.GetSession();
 
-				Policajac P = s.Load<Policajac>(id);
+				Policajac p = s.Load<Policajac>(id);
 
-				s.Delete(P);
+                IEnumerable<Unapredjenje> unapredjenja = from u in s.Query<Unapredjenje>()
+                                               where u.Id.Policajac.Id == p.Id
+                                               select u;
+
+                IEnumerable<Obrazovanje> obrazovanja = from o in s.Query<Obrazovanje>()
+                                                         where o.Id.PolicajacObrazovanje.Id == p.Id
+                                                         select o;
+
+				//if()
+
+                foreach (var u in unapredjenja)
+                    s.Delete(u);
+
+                foreach (var o in obrazovanja)
+                    s.Delete(o);
+
+
+
+                s.Delete(p);
 				s.Flush();
 
 				s.Close();
@@ -65,8 +87,27 @@ namespace PolicijskaUprava.DTOs {
 				ec.FormatExceptionMessage();
 			}
 		}
+        /*
+		 	try {
+				ISession s = DataLayer.GetSession();
 
-		public static bool DodajPolicajca(Policajac p) {
+				IEnumerable<Odrzava> odrzava = from o in s.Query<Odrzava>()
+											   where o.Id.Tehnicar.Id == tl.Id
+											   select o;
+
+				foreach (var o in odrzava)
+					s.Delete(o);
+
+				s.Delete(tl);
+
+				s.Flush();
+
+				s.Close();
+
+				return true;
+			}*/
+
+        public static bool DodajPolicajca(Policajac p) {
 
 			try {
 				ISession s = DataLayer.GetSession();
@@ -159,11 +200,10 @@ namespace PolicijskaUprava.DTOs {
 											.Where(p => p.Stanica.Id == stanicaId)
 											.ToList();
 
-				foreach (var p in Ipolicajaci)
-					policajci.Add(p);
 
-				foreach (var p in policajci) {
-					if (p.SefujeStanicom.Id == stanicaId)
+
+				foreach (var p in Ipolicajaci) {
+					if (p.SefujeStanicom != null && p.SefujeStanicom.Id == stanicaId)
 						return p.Id;
 				}
 				return -1;
@@ -329,13 +369,20 @@ namespace PolicijskaUprava.DTOs {
 
 		}
 
-		public static void ObrisiPolicistkuStanicuID(int ID) {
+		public static void ObrisiPolicistkuStanicuID(int id) {
 			try {
 				ISession s = DataLayer.GetSession();
 
-				PolicijskaStanica PS = s.Load<PolicijskaStanica>(ID);
+				PolicijskaStanica ps = s.Load<PolicijskaStanica>(id);
 
-				s.Delete(PS);
+				IEnumerable<Objekat> objekti = from o in s.Query<Objekat>()
+											   where o.PolicijskaStanica.Id == id
+											   select o;
+
+				foreach (var o in objekti)
+					s.Delete(o);
+
+			    s.Delete(ps);
 				s.Flush();
 
 				s.Close();
@@ -666,7 +713,20 @@ namespace PolicijskaUprava.DTOs {
 
 				Objekat o = new Objekat(id);
 
-				s.Delete(o);
+                IEnumerable<BrojTelefona> brojeviTelefona = from bt in s.Query<BrojTelefona>()
+                                                       where bt.Id.ObjekatZaBroj.Id == o.Id
+                                                       select bt;
+                IEnumerable<AlarmniSistem> alarmniSistemi = from aa in s.Query<AlarmniSistem>()
+                                                            where  aa.PripadaObjektu.Id == o.Id
+                                                            select aa;
+
+                foreach (var bt in brojeviTelefona)
+					s.Delete(bt);
+
+                foreach (var aa in alarmniSistemi)
+                    s.Delete(aa);
+
+                s.Delete(o);
 				s.Flush();
 
 				s.Close();

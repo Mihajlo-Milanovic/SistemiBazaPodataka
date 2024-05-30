@@ -59,7 +59,7 @@ namespace PolicijskaUprava.Forme.PolicajciForme
         void OnemoguciPolicajce()
         {
             foreach (Control control in this.Controls)
-            {                                                    
+            {
                 if (control is System.Windows.Forms.GroupBox)
                 {
                     System.Windows.Forms.GroupBox groupBox = (System.Windows.Forms.GroupBox)control;
@@ -152,7 +152,7 @@ namespace PolicijskaUprava.Forme.PolicajciForme
 
                         policajac = new PZaVanredneSituacije();
 
-                        policajac.Tip = "POLICAJAC_ZA_VANREDNE_SITUACIJE";
+                        policajac.Tip = "POLICAJAC ZA VANREDNE SITUACIJE";
                         ((PZaVanredneSituacije)policajac).Kurs = txtKurs.Text;
                         ((PZaVanredneSituacije)policajac).Vestina = txtVestina.Text;
                         ((PZaVanredneSituacije)policajac).DatumZavrsetkaKursa = dtpDatumZavrsetkaKursa.Value;
@@ -186,16 +186,16 @@ namespace PolicijskaUprava.Forme.PolicajciForme
 
                     case "gboxPolicajacPozornik":
 
-                        policajac.Tip = "POLICAJAC POZORNIK";
                         policajac = new PolicajacPozornik();
+                        policajac.Tip = "POLICAJAC POZORNIK";
                         ((PolicajacPozornik)policajac).NazivUlice = txtNazivUlice.Text;
                         break;
 
 
                     case "gboxPatrolniPolicajac":
 
-                        policajac.Tip = "PATROLNI POZORNIK";
                         policajac = new PatrolniPolicajac();
+                        policajac.Tip = "PATROLNI POLICAJAC";
                         ((PatrolniPolicajac)policajac).VrstaOruzja = txtVrstaOruzija.Text;
                         break;
 
@@ -254,6 +254,18 @@ namespace PolicijskaUprava.Forme.PolicajciForme
                 chbZamenik.Checked = false;
             }
             //chbSef.Checked = true;
+        }
+
+        private void chbZamenik_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (chbZamenik.Checked)
+                chbSef.Checked = false;
+        }
+
+        private void chbSef_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbSef.Checked)
+                chbZamenik.Checked = false;
         }
     }
 }
