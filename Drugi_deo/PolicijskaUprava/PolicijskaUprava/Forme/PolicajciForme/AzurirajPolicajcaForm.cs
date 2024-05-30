@@ -156,7 +156,7 @@ namespace PolicijskaUprava.Forme.PolicajciForme
 
                 switch (gboxName)
                 {
-                    case "gboxPZaVanrednoSituacije":
+                    case "gboxPZaVanredneSituacije":
 
                         ((PZaVanredneSituacije)Policajac).Kurs = txtKurs.Text;
                         ((PZaVanredneSituacije)Policajac).Vestina = txtVestina.Text;
