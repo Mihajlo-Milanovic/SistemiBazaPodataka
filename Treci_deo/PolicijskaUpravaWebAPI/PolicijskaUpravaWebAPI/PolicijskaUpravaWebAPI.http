@@ -1,0 +1,6 @@
+@PolicijskaUpravaWebAPI_HostAddress = http://localhost:5282
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

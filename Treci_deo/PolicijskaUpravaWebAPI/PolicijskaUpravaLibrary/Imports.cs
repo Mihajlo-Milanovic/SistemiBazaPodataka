@@ -1,0 +1,14 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Reflection;
+global using System.Threading.Tasks;
+global using System.Text;
+global using NHibernate;
+global using FluentNHibernate.Cfg;
+global using FluentNHibernate.Cfg.Db;
+global using FluentNHibernate.Mapping;
+global using System.Diagnostics.CodeAnalysis;
+global using PolicijskaUpravaLibrary.Entiteti;
+global using PolicijskaUpravaLibrary.DTOs;
+global using PolicijskaUpravaLibrary.Entiteti.VezeViseNaVise;
