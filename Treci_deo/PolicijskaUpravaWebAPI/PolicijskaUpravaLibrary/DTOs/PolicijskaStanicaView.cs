@@ -21,17 +21,6 @@
 			DatumOsnivanja = DateTime.Now;
 		}
 
-		//public PolicijskaStanicaView(int id, string naziv, string opstina, string adresa,DateTime datum_osnivanja, int broj_vozila
-		//							/*, IList<Objekat> objekti, IList<Policajac> zaposleni*/) {
-
-		//	Id = id;
-		//	Naziv = naziv;
-		//	Opstina = opstina;
-		//	Adresa = adresa;
-		//	DatumOsnivanja = datum_osnivanja;
-		//	BrojVozila = broj_vozila;
-		//}
-
 		public PolicijskaStanicaView(PolicijskaStanica p) {
 
 			Id = p.Id;

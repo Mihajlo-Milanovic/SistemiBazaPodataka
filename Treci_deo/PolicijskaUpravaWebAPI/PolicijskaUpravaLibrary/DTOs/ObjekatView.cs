@@ -10,8 +10,8 @@
 		public virtual string KontaktIme { get; set; }
 		public virtual string KontaktPrezime { get; set; }
 
-		public virtual int PolicijskaStanicaId { get; set; }
-		public virtual string PolicijskaStanicaNaziv { get; set; }
+		public virtual PolicijskaStanicaView PolicijskaStanica { get; set; }
+		//public virtual List<AlarmniSistem> AlarmniSistemi { get; set; }
 
 		#endregion
 
@@ -29,15 +29,14 @@
 			KontaktPrezime = o.KontaktPrezime;
 
 			if (o.PolicijskaStanica != null) {
-				PolicijskaStanicaId = o.PolicijskaStanica.Id;
-				PolicijskaStanicaNaziv = o.PolicijskaStanica.Naziv;
+				PolicijskaStanica = new PolicijskaStanicaView(o.PolicijskaStanica);
 			}
 			else {
-				PolicijskaStanicaId = -1;
-				PolicijskaStanicaNaziv = null;
+				PolicijskaStanica = null;
 			}
 		}
-		public ObjekatView(int id, string tip, string adresa, int povrsina, string kontaktIme, string kontaktPrezime, int policijskaStanicaId, string policijskaStanicaNaziv)
+
+		public ObjekatView(int id, string tip, string adresa, int povrsina, string kontaktIme, string kontaktPrezime, PolicijskaStanicaView policijskaStanica)
         {
             Id = id;
             Tip = tip;
@@ -45,8 +44,7 @@
             Povrsina = povrsina;
             KontaktIme = kontaktIme;
             KontaktPrezime = kontaktPrezime;
-            PolicijskaStanicaId = policijskaStanicaId;
-            PolicijskaStanicaNaziv = policijskaStanicaNaziv;
+            PolicijskaStanica = policijskaStanica;
         }
 
 

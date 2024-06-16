@@ -5,20 +5,19 @@ namespace PolicijskaUpravaLibrary.Entiteti
     public class Objekat
     {
         public virtual int Id{ get; set; }
-        public virtual string Tip{ get; set; }
-        public virtual string Adresa{ get; set; }
+        public virtual string Tip{ get; set; } = string.Empty;
+        public virtual string Adresa { get; set; } = string.Empty;
         public virtual int Povrsina { get; set; }
-        public virtual string KontaktIme { get; set; }
-        public virtual string KontaktPrezime { get; set; }
+        public virtual string KontaktIme { get; set; } = string.Empty;
+        public virtual string KontaktPrezime { get; set; } = string.Empty;
 
         public virtual PolicijskaStanica PolicijskaStanica { get; set; }
 
         public virtual IList<PolicijskaIntervencija> Intervencije { get; set; }
-
         public virtual IList<AlarmniSistem> AlarmniSistemi { get; set; }
 
         public Objekat() { 
-            AlarmniSistemi=new List<AlarmniSistem>();
+            AlarmniSistemi = new List<AlarmniSistem>();
             Intervencije = new List<PolicijskaIntervencija>();
         }
         public Objekat(int id)

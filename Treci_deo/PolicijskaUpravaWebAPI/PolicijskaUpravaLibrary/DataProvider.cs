@@ -1,4 +1,6 @@
-﻿using ProdavnicaLibrary;
+﻿using FluentNHibernate.Conventions;
+using PolicijskaUpravaLibrary.Entiteti;
+using ProdavnicaLibrary;
 using System.Globalization;
 
 namespace PolicijskaUpravaLibrary;
@@ -6,6 +8,7 @@ namespace PolicijskaUpravaLibrary;
 public static class DataProvider {
 
 	#region Vozilo
+
 
 	public static async Task<Result<List<VoziloView>, ErrorMessage>> VratiSvaVozilaAsync() {
 
@@ -17,15 +20,16 @@ public static class DataProvider {
 
 			s = DataLayer.GetSession();
 
-			if(!(s?.IsConnected ?? false)) {
+			if (!(s?.IsConnected ?? false)) {
 
 				return "Nemoguće otvoriti sesiju.".ToError(403);
 			}
 
-			data = (await s.QueryOver<Vozilo>().ListAsync()).Select(p => new VoziloView(p)).ToList(); 
+			data = (await s.QueryOver<Vozilo>().ListAsync()).Select(p => new VoziloView(p)).ToList();
 
 
-		}catch(Exception) {
+		}
+		catch (Exception) {
 
 			return "Došlo je do greške prilikom prikupljanja informacija o vozilima".ToError(400);
 		}
@@ -159,10 +163,11 @@ public static class DataProvider {
 		return true;
 	}
 
+
 	#endregion
 
-
 	#region Tehnicko lice
+
 
 	public static async Task<Result<List<TehnickoLiceView>, ErrorMessage>> VratiSvaTehnickaLicaAsync() {
 
@@ -294,7 +299,14 @@ public static class DataProvider {
 				return "Nemoguće otvoriti sesiju.".ToError(403);
 			}
 
-			TehnickoLice tehnickoLice= await s.LoadAsync<TehnickoLice>(id);
+			IEnumerable<Odrzava> odrzava = from o in s.Query<Odrzava>()
+										   where o.Id.Tehnicar.Id == id
+										   select o;
+
+			foreach (var o in odrzava)
+				s.Delete(o);
+
+			TehnickoLice tehnickoLice = await s.LoadAsync<TehnickoLice>(id);
 
 			await s.DeleteAsync(tehnickoLice);
 			await s.FlushAsync();
@@ -310,8 +322,8 @@ public static class DataProvider {
 		return true;
 	}
 
-	#endregion
 
+	#endregion
 
 	#region Policajac
 
@@ -417,7 +429,7 @@ public static class DataProvider {
 
 		return id;
 	}
-	
+
 	internal async static Task<Result<PolicajacView, ErrorMessage>> VratiPolicajcaAsync(int id) {
 		ISession? s = null;
 		PolicajacView p = default!;
@@ -442,14 +454,11 @@ public static class DataProvider {
 			s?.Dispose();
 		}
 
-		return t;
+		return p;
 	}
 
 	internal async static Task<Result<bool, ErrorMessage>> IzmeniPolicajcaAsync(PolicajacView policajac) {
 		ISession? s = null;
-
-		if(policajac == null)
-			return "Losi podaci.".ToError(422);
 
 		try {
 			s = DataLayer.GetSession();
@@ -467,7 +476,7 @@ public static class DataProvider {
 			p.Adresa = policajac.Adresa;
 			p.DatumRodjenja = policajac.DatumRodjenja;
 			p.DatumPrijemaUSluzbu = policajac.DatumPrijemaUSluzbu;
-			//Izmeniti View 
+		
 
 			if (policajac.RadiUStanici != null)
 				p.Stanica = await s.LoadAsync<PolicijskaStanica>(policajac.RadiUStanici.Id);
@@ -498,7 +507,7 @@ public static class DataProvider {
 
 		return true;
 	}
-	
+
 	internal async static Task<Result<bool, ErrorMessage>> ObrisiPolicajcaAsync(int id) {
 		ISession? s = null;
 
@@ -595,13 +604,991 @@ public static class DataProvider {
 	}
 
 
-	//provera ima li sefa
+	/* TODO:
+	 * OR NOT TODO
+	 * THE QUESTION IS NOW	
+	 */
+	#region Patrolni policajac
 
-	#region Patrolni policajci
-
-		//...
+	//...
 
 	#endregion
+
+	#region Policajac pozornik
+
+	//...
+
+	#endregion
+
+	#region Policajac za vanredne situacije
+
+	//...
+
+	#endregion
+
+	#region Radnik u upravi
+
+	//...
+
+	#endregion
+
+	#region Skolski policajac
+
+	//...
+
+	#endregion
+
+	#endregion
+
+	#region Unapredjenja
+
+
+	public static async Task<Result<List<UnapredjenjeView>, ErrorMessage>> VratiUnapredjenjaZaPolicajcaAsync(int policajacId) {
+
+		List<UnapredjenjeView> data = new();
+
+		ISession? s = null;
+
+		try {
+
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			data = (await s.QueryOver<Unapredjenje>()
+					.Where(u => u.Id.Policajac.Id == policajacId)
+					.ListAsync()
+				).Select(u => new UnapredjenjeView(u)).ToList();
+
+		}
+		catch (Exception) {
+
+			return "Došlo je do greške prilikom prikupljanja informacija o unpredjenjima za datog policajca".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return data;
+	}
+
+	public static async Task<Result<bool, ErrorMessage>> SacuvajUnapredjenjeZaPolicajcaAsync(UnapredjenjeView uv, int policajacId) {
+
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Unapredjenje u = new() {
+
+				Cin = uv.Cin,
+				Id = new UnapredjenjeId() { 
+					
+					DatumSticanja = uv.DatumSticanja,
+					Policajac = await s.LoadAsync<Policajac>(policajacId)
+				}
+			};
+
+			await s.SaveAsync(u);
+			await s.FlushAsync();
+
+		}
+		catch (Exception) {
+			return "Nemoguće sačuvati unapredjnje datog policajca.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	public async static Task<Result<UnapredjenjeView, ErrorMessage>> VratiUnapredjenjeAsync(int policajacId, DateTime datumSticanja) {
+		ISession? s = null;
+		UnapredjenjeView u = default!;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Unapredjenje unapredjenje = await s.LoadAsync<Unapredjenje>(new UnapredjenjeId() {
+				DatumSticanja = datumSticanja,
+				Policajac = await s.LoadAsync<Policajac>(policajacId)
+			});
+
+			u = new UnapredjenjeView(unapredjenje);
+
+		}
+		catch (Exception) {
+			return "Nemoguće vratiti unapredjenje datog policajca.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return u;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> IzmeniUnapredjenjeZaPolicajcaAsync(UnapredjenjeView unapredjenje, int policajacId) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Unapredjenje u = await s.LoadAsync<Unapredjenje>(new UnapredjenjeId() {
+				Policajac = await s.LoadAsync<Policajac>(policajacId),
+				DatumSticanja = unapredjenje.DatumSticanja
+			});
+
+			u.Cin = unapredjenje.Cin;
+
+			await s.SaveOrUpdateAsync(u);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Nemoguće izmeniti unapredjenje datog policajca.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> ObrisiUnapredjenjeZaPolicajcaAsync(UnapredjenjeView uv, int policajacId) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Unapredjenje u = await s.LoadAsync<Unapredjenje>(new UnapredjenjeId {
+				DatumSticanja = uv.DatumSticanja,
+				Policajac = await s.LoadAsync<Policajac>(policajacId)
+			});
+
+			await s.DeleteAsync(u);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Greška prilikom brisanja unapredjenja za datog policajca".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+
+	#endregion
+
+	#region Obrazovanje
+
+
+	public static async Task<Result<List<ObrazovanjeView>, ErrorMessage>> VratiSvaObrazovanjaZaPolicajcaAsync(int policajacId) {
+
+		List<ObrazovanjeView> data = new();
+
+		ISession? s = null;
+
+		try {
+
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			data = (await s.QueryOver<Obrazovanje>()
+						.Where(o => o.Id.PolicajacObrazovanje.Id == policajacId)
+						.ListAsync()
+					).Select(o => new ObrazovanjeView(o)).ToList();
+
+		}
+		catch (Exception) {
+
+			return "Došlo je do greške prilikom prikupljanja informacija o obrazovanju za datog policajca".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return data;
+	}
+
+	public static async Task<Result<bool, ErrorMessage>> SacuvajObrazovanjeZaPolicajcaAsync(ObrazovanjeView ov, int policajacId) {
+
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Obrazovanje o = new() {
+
+				Id = new ObrazovanjeId() {
+
+					DatumDiplomiranja = ov.DatumDipolomirnja,
+					Skola = ov.Skola,
+					PolicajacObrazovanje = await s.LoadAsync<Policajac>(policajacId)
+				}
+				
+			};
+
+			await s.SaveAsync(o);
+			await s.FlushAsync();
+
+		}
+		catch (Exception) {
+			return "Nemoguće sačuvati obrazovanje datog policajca.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+
+	//NEMA SMISLA
+	/*
+	public async static Task<Result<UnapredjenjeView, ErrorMessage>> VratiUnapredjenjeAsync(int policajacId, DateTime datumSticanja) {
+		ISession? s = null;
+		UnapredjenjeView u = default!;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Unapredjenje unapredjenje = await s.LoadAsync<Unapredjenje>(new UnapredjenjeId() {
+				DatumSticanja = datumSticanja,
+				Policajac = await s.LoadAsync<Policajac>(policajacId)
+			});
+
+			u = new UnapredjenjeView(unapredjenje);
+
+		}
+		catch (Exception) {
+			return "Nemoguće vratiti unapredjenje datog policajca.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return u;
+	}
+	*/
+
+	//NEMA SMISLA
+	/*
+	public async static Task<Result<bool, ErrorMessage>> IzmeniObrazovanjeZaPolicajcaAsync(ObrazovanjeView staroObrazovanje,
+																							Obrazovanje novoObrazovanje,
+																							int policajacId) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Obrazovanje o = await s.LoadAsync<Obrazovanje>(new ObrazovanjeId() {
+				PolicajacObrazovanje = await s.LoadAsync<Policajac>(policajacId),
+				DatumDiplomiranja = staroObrazovanje.DatumDipolomirnja,
+				Skola = staroObrazovanje.Skola
+			});
+
+			o.Cin = unapredjenje.Cin;
+
+			await s.SaveOrUpdateAsync(u);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Nemoguće izmeniti obrazovanje datog policajca.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+	*/
+
+	public async static Task<Result<bool, ErrorMessage>> ObrisiObrazovanjeZaPolicajcaAsync(ObrazovanjeView ov, int policajacId) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Obrazovanje o = await s.LoadAsync<Obrazovanje>(new ObrazovanjeId{
+				DatumDiplomiranja = ov.DatumDipolomirnja,
+				Skola = ov.Skola,
+				PolicajacObrazovanje = await s.LoadAsync<Policajac>(policajacId)
+			});
+
+			await s.DeleteAsync(o);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Greška prilikom brisanja obrazovanja za datog policajca".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+
+	#endregion
+
+	#region Policijska stanica
+
+
+	public static async Task<Result<List<PolicijskaStanicaView>, ErrorMessage>> VratiSvePolicijskeStaniceLicaAsync() {
+
+		List<PolicijskaStanicaView> data = new();
+
+		ISession? s = null;
+
+		try {
+
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			data = (await s.QueryOver<PolicijskaStanica>().ListAsync()).Select(p => new PolicijskaStanicaView(p)).ToList();
+
+		}
+		catch (Exception) {
+
+			return "Došlo je do greške prilikom prikupljanja informacija o policijskim stanicama".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return data;
+	}
+
+	public static async Task<Result<int, ErrorMessage>> SacuvajPolicijskuStanicuAsync(PolicijskaStanicaView policijskaStanica) {
+
+		ISession? s = null;
+		int id = default;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			PolicijskaStanica p = new() {
+
+				Naziv = policijskaStanica.Naziv,
+				Opstina = policijskaStanica.Opstina,
+				Adresa = policijskaStanica.Adresa,
+				DatumOsnivanja = policijskaStanica.DatumOsnivanja,
+				BrojVozila = policijskaStanica.BrojVozila
+			};
+
+			await s.SaveAsync(p);
+			await s.FlushAsync();
+
+			id = p.Id;
+		}
+		catch (Exception) {
+			return "Nemoguće sačuvati policijsku stanicu.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return id;
+	}
+
+	public async static Task<Result<PolicijskaStanicaView, ErrorMessage>> VratiPolicijskuStanicuAsync(int id) {
+		ISession? s = null;
+		PolicijskaStanicaView p = default!;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			PolicijskaStanica policijskaStanica = await s.LoadAsync<PolicijskaStanica>(id);
+
+			p = new PolicijskaStanicaView(policijskaStanica);
+
+		}
+		catch (Exception) {
+			return "Nemoguće vratiti policijsku stanicu.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return p;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> IzmeniPolicijskuStanicuAsync(PolicijskaStanicaView policijskaStanica) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			PolicijskaStanica ps = await s.LoadAsync<PolicijskaStanica>(policijskaStanica.Id);
+
+			ps.Naziv = policijskaStanica.Naziv;
+			ps.Opstina = policijskaStanica.Opstina;
+			ps.Adresa = policijskaStanica.Adresa;
+			ps.DatumOsnivanja = policijskaStanica.DatumOsnivanja;
+			ps.BrojVozila = policijskaStanica.BrojVozila;
+
+			await s.SaveOrUpdateAsync(ps);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Nemoguće izmeniti policijsku stanicu.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> ObrisiPolicijskuStanicuAsync(int id) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			PolicijskaStanica policijskaStanica = await s.LoadAsync<PolicijskaStanica>(id);
+
+			IEnumerable<Objekat> objekti = from o in s.Query<Objekat>()
+										   where o.PolicijskaStanica.Id == id
+										   select o;
+
+			foreach (var o in objekti) {
+
+				IEnumerable<BrojTelefona> brojeviTelefona = from bt in s.Query<BrojTelefona>()
+															where bt.Id.ObjekatZaBroj.Id == o.Id
+															select bt;
+
+				foreach (var bt in brojeviTelefona)
+					await s.DeleteAsync(bt);
+
+
+				IEnumerable<AlarmniSistem> alarmniSistemi = from aa in s.Query<AlarmniSistem>()
+															where aa.PripadaObjektu.Id == o.Id
+															select aa;
+
+				foreach (var a in alarmniSistemi) {
+
+					IEnumerable<Odrzava> odrzavanja = from od in s.Query<Odrzava>()
+													  where od.Id.AlarmniSistem.Id == a.Id
+													  select od;
+
+					foreach (var od in odrzavanja) {
+						await s.DeleteAsync(od);
+					}
+
+					await s.DeleteAsync(a);
+				}
+
+				await s.DeleteAsync(o);
+			}
+
+			await s.DeleteAsync(policijskaStanica);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Greška prilikom brisanja policijske stanice".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> ProveriDaLiStanicaImaSefaAsync(int stanicaId) {
+
+		ISession? s = null;
+		bool ans= true;
+
+		try {
+
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			ans = (await s.QueryOver<Policajac>()
+				.Where(p => p.SefujeStanicom.Id == stanicaId)
+				.ListAsync()).IsEmpty();
+
+		}
+		catch (Exception) {
+
+			return "Došlo je do greške prilikom postojanja sefa za datu stanicu".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return ans;
+	}
+
+
+	#endregion
+
+	#region Objekat
+
+
+	public static async Task<Result<List<ObjekatView>, ErrorMessage>> VratiSveObjekteAsync() {
+
+		List<ObjekatView> data = new();
+
+		ISession? s = null;
+
+		try {
+
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			data = (await s.QueryOver<Objekat>().ListAsync()).Select(o => new ObjekatView(o)).ToList();
+
+
+		}
+		catch (Exception) {
+
+			return "Došlo je do greške prilikom prikupljanja informacija o objektima".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return data;
+	}
+
+	public static async Task<Result<int, ErrorMessage>> SacuvajObjekatAsync(ObjekatView objekat) {
+
+		ISession? s = null;
+		int id = default;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Objekat o = new() {
+
+				Tip = objekat.Tip,
+				Adresa = objekat.Adresa,
+				Povrsina = objekat.Povrsina,
+				KontaktIme = objekat.KontaktIme,
+				KontaktPrezime = objekat.KontaktPrezime,
+
+				PolicijskaStanica = await s.LoadAsync<PolicijskaStanica>(objekat.PolicijskaStanica.Id),
+			};
+
+			await s.SaveAsync(o);
+			await s.FlushAsync();
+
+			id = o.Id;
+		}
+		catch (Exception) {
+			return "Nemoguće sačuvati objekat.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return id;
+	}
+
+	public async static Task<Result<ObjekatView, ErrorMessage>> VratiObjekatAsync(int id) {
+		ISession? s = null;
+		ObjekatView o = default!;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Objekat objekat = await s.LoadAsync<Objekat>(id);
+
+			o = new ObjekatView(objekat);
+
+		}
+		catch (Exception) {
+			return "Nemoguće vratiti objekat.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return o;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> IzmeniObjekatAsync(ObjekatView objekat) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Objekat o = await s.LoadAsync<Objekat>(objekat.Id);
+
+			o.Tip = objekat.Tip;
+			o.Adresa = objekat.Adresa;
+			o.Povrsina = objekat.Povrsina;
+			o.KontaktIme = objekat.KontaktIme;
+			o.KontaktPrezime = objekat.KontaktPrezime;
+			o.PolicijskaStanica = await s.LoadAsync<PolicijskaStanica>(objekat.PolicijskaStanica.Id);
+
+			await s.SaveOrUpdateAsync(o);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Nemoguće izmeniti objekat.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> ObrisiObjekatAsync(int id) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Objekat objekat = await s.LoadAsync<Objekat>(id);
+
+
+
+			IEnumerable<BrojTelefona> brojeviTelefona = from bt in s.Query<BrojTelefona>()
+														where bt.Id.ObjekatZaBroj.Id == id
+														select bt;
+
+			foreach (var bt in brojeviTelefona)
+				await s.DeleteAsync(bt);
+
+
+			IEnumerable<AlarmniSistem> alarmniSistemi = from aa in s.Query<AlarmniSistem>()
+														where aa.PripadaObjektu.Id == id
+														select aa;
+
+			foreach (var a in alarmniSistemi) {
+
+				IEnumerable<Odrzava> odrzavanja = from od in s.Query<Odrzava>()
+												  where od.Id.AlarmniSistem.Id == a.Id
+												  select od;
+
+				foreach (var od in odrzavanja) {
+					await s.DeleteAsync(od);
+				}
+
+				await s.DeleteAsync(a);
+			}
+
+			await s.DeleteAsync(objekat);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Greška prilikom brisanja objekta".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	public async static Task<Result<List<ObjekatView>, ErrorMessage>> VratiObjekteZaPolicijskuStanicuAsync(int stanicaId) {
+
+		List<ObjekatView> data = new();
+
+		ISession? s = null;
+
+		try {
+
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			data = (await s.QueryOver<Objekat>()
+						.Where(o => o.PolicijskaStanica.Id == stanicaId)
+						.ListAsync()
+					).Select(o => new ObjekatView(o)).ToList();
+
+
+		}
+		catch (Exception) {
+
+			return "Došlo je do greške prilikom prikupljanja informacija o objektima za datu stanicu".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return data;
+	}
+
+
+	#endregion
+
+	#region Telefoni za objekat
+
+
+	public static async Task<Result<List<BrojTelefonaView>, ErrorMessage>> VratiSveTelefoneZaObjekatAsync(int objekatId) {
+
+		List<BrojTelefonaView> data = new();
+
+		ISession? s = null;
+
+		try {
+
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			data = (await s.QueryOver<BrojTelefona>().ListAsync()).Select(bt => new BrojTelefonaView(bt)).ToList();
+
+		}
+		catch (Exception) {
+
+			return "Došlo je do greške prilikom prikupljanja informacija o brojevima telefona za dati objekat".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return data;
+	}
+
+	public static async Task<Result<bool, ErrorMessage>> SacuvajBrojTelefonaZaObjekatAsync(BrojTelefonaView btv, int objekatId) {
+
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			BrojTelefona bt = new() {
+
+				Id = new() {
+					Broj = btv.Broj,
+					ObjekatZaBroj = await s.LoadAsync<Objekat>(objekatId)
+				}
+			};
+
+			await s.SaveAsync(bt);
+			await s.FlushAsync();
+
+		}
+		catch (Exception) {
+			return "Nemoguće sačuvati broj telefona.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	//NEMA SMISLA
+	/*
+	public async static Task<Result<VoziloView, ErrorMessage>> VratiBrojTelefonaAsync(int id) {
+		ISession? s = null;
+		VoziloView v = default!;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Vozilo vozilo = await s.LoadAsync<Vozilo>(id);
+
+			v = new VoziloView(vozilo);
+
+		}
+		catch (Exception) {
+			return "Nemoguće vratiti vozilo.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return v;
+	}
+	*/
+
+	//NEMA SMISLA
+	/*
+	public async static Task<Result<bool, ErrorMessage>> IzmeniBrojTelefonaZaObjekatAsync(BrojTelefonaView noviBroj,
+																							BrojTelefonaView stariBroj,
+																							int objekatId) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			BrojTelefona bt = await s.LoadAsync<BrojTelefona>(new BrojTelefonaId() { 
+				ObjekatZaBroj = await s.LoadAsync<Objekat>(objekatId),
+				Broj = stariBroj.Broj
+			});
+
+			bt.Id.Broj = noviBroj.Broj;
+
+			await s.SaveOrUpdateAsync(bt);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Nemoguće izmeniti broj telefona za dati objekat.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+	*/
+
+	public async static Task<Result<bool, ErrorMessage>> ObrisiBrojTelefonaZaObjekatAsync(BrojTelefonaView btv, int objekatId) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			BrojTelefona bt = await s.LoadAsync<BrojTelefona>(new BrojTelefonaId() { 
+				Broj = btv.Broj,
+				ObjekatZaBroj = await s.LoadAsync<Objekat>(objekatId)
+			});
+
+			await s.DeleteAsync(bt);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Greška prilikom brisanja broja telefona datog objekta".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
 
 
 	#endregion

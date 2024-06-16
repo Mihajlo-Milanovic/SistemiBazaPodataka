@@ -132,8 +132,6 @@ namespace PolicijskaUprava.DTOs {
 
 				//PolicijskaStanica ps = s.Load<PolicijskaStanica>(stanicaID);
 
-
-
 				s.Update(policajac);
 
 				s.Flush();
