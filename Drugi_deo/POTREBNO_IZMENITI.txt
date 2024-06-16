@@ -1,7 +1,0 @@
-Potrebno izmeniti:
-
-	mapiranje objekat <===> br telefona
-		nemoguce obrisati objekat ako postoji br telefona;
-
-	stanica --> vidi policajce --> dodaj policajce 
-		baca exception i umire

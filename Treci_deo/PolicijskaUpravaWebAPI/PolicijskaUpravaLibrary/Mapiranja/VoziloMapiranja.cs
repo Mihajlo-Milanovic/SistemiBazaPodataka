@@ -5,8 +5,9 @@
         public VoziloMapiranja() {
             Table("VOZILO");
 
-            Id(x => x.RegOznaka, "REG_OZNAKA");
+            Id(x => x.Id, "ID");
 
+            Map(x => x.RegOznaka, "REG_OZNAKA");
             Map(x => x.Boja, "BOJA");
             Map(x => x.Tip, "TIP");
             Map(x => x.Proizvodjac, "PROIZVODJAC");
@@ -14,8 +15,6 @@
 
 
             HasMany(x => x.Patrole).KeyColumn("REG_OZNAKA_VOZILA").LazyLoad().Inverse().Cascade.All();
-
-
 
         }
     }

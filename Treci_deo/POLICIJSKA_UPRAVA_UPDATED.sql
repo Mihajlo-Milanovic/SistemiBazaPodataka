@@ -3,7 +3,8 @@
  ---------------------------------------------------------------------------------------------------------
 
 CREATE TABLE VOZILO (
- REG_OZNAKA VARCHAR2(20) PRIMARY KEY,
+ ID NUMBER PRIMARY KEY,
+ REG_OZNAKA VARCHAR2(20),
  BOJA VARCHAR2(20),
  TIP VARCHAR2(20),
  PROIZVODJAC VARCHAR2(20),

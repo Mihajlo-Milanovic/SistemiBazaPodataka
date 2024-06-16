@@ -2,6 +2,7 @@
 
     public class Vozilo {
 
+        public virtual int Id { get; set; }
         public virtual String RegOznaka { get; set; }
         public virtual String Boja { get; set; }
         public virtual String Tip { get; set; }
@@ -21,17 +22,20 @@
             Model = string.Empty;
         }
 
-        public Vozilo(string regOznaka, string boja, string tip, string proiz, string model)
+        public Vozilo(int id, string regOznaka, string boja, string tip, string proiz, string model)
         {
+            Id = id;
             RegOznaka = regOznaka;
             Boja = boja;
             Tip = tip;
             Proizvodjac = proiz;
             Model = model;
+
+            Patrole = new List<Patrola>();
         }
 
         public override string ToString() {
-            return "Registarska oznaka: " + RegOznaka + "\nBoja: " + Boja + "\nTip: " + Tip + "\nProizvodjac: " + Proizvodjac + "\nModel: " + Model;
+            return "ID: " + Id + "\nRegistarska oznaka: " + RegOznaka + "\nBoja: " + Boja + "\nTip: " + Tip + "\nProizvodjac: " + Proizvodjac + "\nModel: " + Model;
         }
     }
 }

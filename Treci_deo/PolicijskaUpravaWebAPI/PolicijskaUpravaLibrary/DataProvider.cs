@@ -37,10 +37,10 @@ public static class DataProvider {
 		return data;
 	}
 
-	public static async Task<Result<string, ErrorMessage>> SacuvajVozilo(VoziloView vozilo) {
+	public static async Task<Result<string, ErrorMessage>> SacuvajVoziloAsync(VoziloView vozilo) {
 
 		ISession? s = null;
-		string? id = default;
+		string? id = null;
 
 		try {
 			s = DataLayer.GetSession();
@@ -63,7 +63,7 @@ public static class DataProvider {
 			id = v.RegOznaka;
 		}
 		catch (Exception) {
-			return "Nemoguće sačuvati odeljenje bez prodavnice.".ToError(400);
+			return "Nemoguće sačuvati vozilo.".ToError(400);
 		}
 		finally {
 			s?.Close();

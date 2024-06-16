@@ -5,6 +5,7 @@ namespace PolicijskaUpravaLibrary.DTOs {
 
 		#region Properties
 
+		public virtual int Id { get; set; }
 		public virtual String RegOznaka { get; set; }
 		public virtual String Boja { get; set; }
 		public virtual String Tip { get; set; }
@@ -19,6 +20,7 @@ namespace PolicijskaUpravaLibrary.DTOs {
 
 		public VoziloView(Vozilo v) {
 
+			Id = v.Id;
 			RegOznaka = v.RegOznaka;
 			Boja = v.Boja;
 			Tip = v.Tip;
