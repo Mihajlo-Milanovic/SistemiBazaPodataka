@@ -8,7 +8,7 @@
 
 //	public class DTOManager {
 
-//		#region Policajci
+		#region Policajci
 
 //		public static List<PolicajacView> vratiSvePolicajce() {
 
@@ -313,10 +313,10 @@
 //			}
 //		}
 
-//		#endregion
+		#endregion
 
 
-//		#region Tehnicka lica
+		#region Tehnicka lica
 
 
 //		public static List<TehnickoLiceView> vratiSvaTehnickaLica() {
@@ -410,10 +410,10 @@
 //			}
 //		}
 
-//		#endregion
+		#endregion
 
 
-//		#region Policijske stanice
+		#region Policijske stanice
 
 //		public static List<PolicijskaStanicaView> vratiSvePolicijskeStanice() {
 //			List<PolicijskaStanicaView> Stanice = new();
@@ -542,10 +542,10 @@
 
 //		}
 
-//		#endregion
+		#endregion
 
 
-//		#region Alarmni sistemi
+		#region Alarmni sistemi
 
 //		public static List<AlarmniSistemView> vratiSveAlarmneSisteme() {
 
@@ -696,7 +696,7 @@
 
 //		}
 
-//		#endregion
+		#endregion
 
 
 		#region Vozila
@@ -765,7 +765,7 @@
 		#endregion
 
 
-//		#region Objekat
+		#region Objekat
 
 //		public static List<ObjekatView> vratiSveObjekte() {
 //			List<ObjekatView> objekti = new();
@@ -893,10 +893,10 @@
 //			return null;
 //		}
 
-//		#endregion
+		#endregion
 
 
-//		#region Telefoni za objekat
+		#region Telefoni za objekat
 
 //		public static List<BrojTelefonaView> VratiTelefoneZaObjekat(int idObjekta) {
 //			try
@@ -957,10 +957,10 @@
 //				MessageBox.Show(ex.FormatExceptionMessage());
 //			}
 //		}
-//		#endregion
+		#endregion
 
 
-//		#region Odrzavanja
+		#region Odrzavanja
 
 //		public static List<OdrzavaView> vratiIstorijuOdrzavanjaZaTehnickoLice(int tehId) {
 
@@ -1065,10 +1065,10 @@
 //				return false;
 //			}
 //		}
-//        #endregion
+        #endregion
 
 
-//        #region Unapredjenja
+        #region Unapredjenja
 
 //        public static List<UnapredjenjeView> vratiUnapredjenjaZaPolicajca(int policajacId)
 //        {
@@ -1136,10 +1136,10 @@
 //			}
 //		}
 
-//        #endregion
+        #endregion
 
 
-//        #region Obrazovanje
+        #region Obrazovanje
 
 //        public static List<ObrazovanjeView> vratiObrazovanjaZaPolicajca(int policajacId)
 //        {
@@ -1207,10 +1207,10 @@
 //			}
 //		}
 
-//		#endregion
+		#endregion
 
 
-//		#region Patrole
+		#region Patrole
 
 //		public static List<PatrolaView> vratiSvePatrole() {
 
@@ -1314,6 +1314,6 @@
 //			}
 //		}
 
-//		#endregion
+		#endregion
 //	}
 //}
