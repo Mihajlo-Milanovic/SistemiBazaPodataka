@@ -1,6 +1,4 @@
-﻿using ProdavnicaLibrary;
-
-namespace PolicijskaUpravaLibrary;
+﻿namespace PolicijskaUpravaLibrary;
 
 internal static class Extensions {
 

@@ -1,4 +1,4 @@
-﻿namespace ProdavnicaLibrary;
+﻿namespace PolicijskaUpravaLibrary;
 
 public class ErrorMessage
 {

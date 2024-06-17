@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolicijskaUpravaWebAPI", "PolicijskaUpravaWebAPI\PolicijskaUpravaWebAPI.csproj", "{038A8DA5-988E-4716-B855-CF7DD5A7BE57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolicijskaUpravaLibrary", "PolicijskaUpravaLibrary\PolicijskaUpravaLibrary.csproj", "{C2D959D7-081F-4C96-B641-27747169C5F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolicijskaUpravaLibrary", "PolicijskaUpravaLibrary\PolicijskaUpravaLibrary.csproj", "{C2D959D7-081F-4C96-B641-27747169C5F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

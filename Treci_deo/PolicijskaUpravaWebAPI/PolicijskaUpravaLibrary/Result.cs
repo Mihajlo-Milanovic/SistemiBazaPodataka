@@ -1,4 +1,4 @@
-﻿namespace ProdavnicaLibrary;
+﻿namespace PolicijskaUpravaLibrary;
 
 public readonly struct Result<TValue, TError>
 {

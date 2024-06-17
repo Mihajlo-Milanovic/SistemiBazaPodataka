@@ -1,9 +1,4 @@
-﻿using FluentNHibernate.Conventions;
-using PolicijskaUpravaLibrary.Entiteti;
-using ProdavnicaLibrary;
-using System.Globalization;
-
-namespace PolicijskaUpravaLibrary;
+﻿namespace PolicijskaUpravaLibrary;
 
 public static class DataProvider {
 
@@ -1745,5 +1740,5 @@ public static class DataProvider {
 	#endregion
 
 
-
+	//TODO alarmni sistem i odrzavanja
 }
