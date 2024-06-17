@@ -29,5 +29,17 @@ namespace PolicijskaUpravaLibrary.DTOs {
 		}
 
 		#endregion
+
+		public Vozilo ToVozilo() {
+
+			return new Vozilo() {
+				Id = this.Id,
+				Boja = this.Boja,
+				Model = this.Model,
+				Proizvodjac = this.Proizvodjac,
+				RegOznaka = this.RegOznaka,
+				Tip = this.Tip
+			};
+		}
 	}
 }

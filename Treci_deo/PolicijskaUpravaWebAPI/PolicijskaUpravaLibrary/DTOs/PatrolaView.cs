@@ -1,15 +1,15 @@
-﻿namespace PolicijskaUpravaLibrary.DTOs {
+﻿using PolicijskaUpravaLibrary.Entiteti;
+
+namespace PolicijskaUpravaLibrary.DTOs {
 	public class PatrolaView {
 
 
 		#region Properties
 
 		public virtual int RedniBroj { get; set; }
-		public virtual string RegOznakaVozila { get; set; }
-		public virtual int SefId { get; set; }
-		public virtual string SefImeIPrezime { get; set; }
-		public virtual int PomocnikId { get; set; }
-		public virtual string PomocnikImeIPrezime { get; set; }
+		public virtual VoziloView Vozilo { get; set; }
+		public virtual PatrolniPolicajacView Sef { get; set; }
+		public virtual PatrolniPolicajacView Pomocnik { get; set; }
 
 		#endregion
 
@@ -17,26 +17,36 @@
 
 		public PatrolaView() { }
 
-		public PatrolaView(Patrola p) { 
-			
+		public PatrolaView(Patrola p) {
+
 			RedniBroj = p.RedniBroj;
 
-			RegOznakaVozila = p.DuziVozilo.RegOznaka;
+			Vozilo = new VoziloView(p.DuziVozilo);
 
-			SefId = p.SefId.Id;
-			SefImeIPrezime = p.SefId.Ime + " " + p.SefId.Prezime;
+			Sef = new PatrolniPolicajacView(p.Sef);
 
-			PomocnikId = p.PomocnikId.Id;
-			PomocnikImeIPrezime = p.PomocnikId.Ime + " " + p.PomocnikId.Prezime;
+			Pomocnik = new PatrolniPolicajacView(p.Pomocnik);
+
 		}
 
 		#endregion
 
 		public override string ToString() {
 			return "Redni broj: " + RedniBroj
-				+ "\nRegistarska oznaka vozila: " + RegOznakaVozila
-				+ "\nSef: [" + SefId + "] " + SefImeIPrezime
-				+ "\nPomocnik: [" + PomocnikId + "] " + PomocnikImeIPrezime;
+				+ "\nRegistarska oznaka vozila: " + Vozilo.RegOznaka
+				+ "\nSef: [" + Sef.Id + "] " + Sef.Ime + ' ' + Sef.Prezime
+				+ "\nPomocnik: [" + Pomocnik.Id + "] " + Pomocnik.Ime + ' ' + Pomocnik.Prezime;
+		}
+
+
+		public Patrola ToPatrola() {
+
+			return new Patrola() { 
+				RedniBroj = this.RedniBroj,
+				DuziVozilo = this.Vozilo.ToVozilo(),
+				Pomocnik = this.Pomocnik.ToPatrolniPolicajac(),
+				Sef = this.Sef.ToPatrolniPolicajac()
+			};
 		}
 	}
 }

@@ -1592,4 +1592,158 @@ public static class DataProvider {
 
 
 	#endregion
+
+	#region Patrola
+
+
+	public static async Task<Result<List<PatrolaView>, ErrorMessage>> VratiSvePatroleAsync() {
+
+		List<PatrolaView> data = new();
+
+		ISession? s = null;
+
+		try {
+
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			data = (await s.QueryOver<Patrola>().ListAsync()).Select(p => new PatrolaView(p)).ToList();
+
+
+		}
+		catch (Exception) {
+
+			return "Došlo je do greške prilikom prikupljanja informacija o patrolama".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return data;
+	}
+
+	public static async Task<Result<int, ErrorMessage>> SacuvajPatroluAsync(PatrolaView patrolaView) {
+
+		ISession? s = null;
+		int id = default;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Patrola p = patrolaView.ToPatrola();
+
+			await s.SaveAsync(p);
+			await s.FlushAsync();
+
+			id = p.RedniBroj;
+		}
+		catch (Exception) {
+			return "Nemoguće sačuvati vozilo.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return id;
+	}
+
+	public async static Task<Result<PatrolaView, ErrorMessage>> VratiPatroluAsync(int id) {
+		ISession? s = null;
+		PatrolaView p = default!;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Patrola patrola = await s.LoadAsync<Patrola>(id);
+
+			p = new PatrolaView(patrola);
+
+		}
+		catch (Exception) {
+			return "Nemoguće vratiti patrolu.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return p;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> IzmeniPatroluAsync(PatrolaView patrola) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Patrola p = await s.LoadAsync<Patrola>(patrola.RedniBroj);
+
+			p.RedniBroj = patrola.RedniBroj;
+			p.DuziVozilo = patrola.Vozilo.ToVozilo();
+			p.Sef = patrola.Sef.ToPatrolniPolicajac();
+			p.Pomocnik = patrola.Pomocnik.ToPatrolniPolicajac();
+
+			await s.SaveOrUpdateAsync(p);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Nemoguće izmeniti patrolu.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> ObrisiPatroluAsync(int id) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Patrola patrola = await s.LoadAsync<Patrola>(id);
+
+			await s.DeleteAsync(patrola);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Greška prilikom brisanja patrole".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+
+	#endregion
+
+
+
 }

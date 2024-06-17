@@ -33,5 +33,16 @@
 
 		#endregion
 
+		public PolicijskaStanica ToPolicijskaStanica() {
+
+			return new PolicijskaStanica() {
+				Id = this.Id,
+				Naziv = this.Naziv,
+				Opstina = this.Opstina,
+				Adresa = this.Adresa,
+				BrojVozila = this.BrojVozila,
+				DatumOsnivanja = this.DatumOsnivanja,
+			};
+		}
 	}
 }

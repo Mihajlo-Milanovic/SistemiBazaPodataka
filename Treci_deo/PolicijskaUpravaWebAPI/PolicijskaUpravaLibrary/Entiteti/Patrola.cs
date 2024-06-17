@@ -6,19 +6,21 @@ namespace PolicijskaUpravaLibrary.Entiteti
     {
         public virtual  int RedniBroj { get; set; }
         public virtual Vozilo DuziVozilo { get; set; }
-        public virtual PatrolniPolicajac SefId{ get; set; }
-        public virtual PatrolniPolicajac PomocnikId { get; set; }
+        public virtual PatrolniPolicajac Sef{ get; set; }
+        public virtual PatrolniPolicajac Pomocnik { get; set; }
         public virtual IList<PolicijskaIntervencija> Intervencije{ get; set; }
 
-        public Patrola(int redniBroj, Vozilo regOznakaVozila, PatrolniPolicajac sefId, PatrolniPolicajac pomocnikId)
+        public Patrola() { }
+
+        public Patrola(int redniBroj, Vozilo regOznakaVozila, PatrolniPolicajac sef, PatrolniPolicajac pomocnik)
         {
             RedniBroj = redniBroj;
             DuziVozilo = regOznakaVozila;
-            SefId = sefId;
-            PomocnikId = pomocnikId;
+            Sef = sef;
+            Pomocnik = pomocnik;
             Intervencije = new List<PolicijskaIntervencija>();
         }
-        public Patrola() { }
+
         public override string ToString()
         {
             return "Redni broj: " + RedniBroj.ToString() + "\nVozilo:" + DuziVozilo.Proizvodjac;
