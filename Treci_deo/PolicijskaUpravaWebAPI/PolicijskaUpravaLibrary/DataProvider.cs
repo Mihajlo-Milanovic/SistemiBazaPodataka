@@ -374,7 +374,7 @@ public static class DataProvider {
 		return data;
 	}
 
-	internal static async Task<Result<int, ErrorMessage>> SacuvajPolicajcaLiceAsync(PolicajacView policajac) {
+	public static async Task<Result<int, ErrorMessage>> SacuvajPolicajcaAsync(PolicajacView policajac) {
 
 		ISession? s = null;
 		int id = default;
@@ -425,7 +425,7 @@ public static class DataProvider {
 		return id;
 	}
 
-	internal async static Task<Result<PolicajacView, ErrorMessage>> VratiPolicajcaAsync(int id) {
+	public async static Task<Result<PolicajacView, ErrorMessage>> VratiPolicajcaAsync(int id) {
 		ISession? s = null;
 		PolicajacView p = default!;
 
@@ -452,7 +452,7 @@ public static class DataProvider {
 		return p;
 	}
 
-	internal async static Task<Result<bool, ErrorMessage>> IzmeniPolicajcaAsync(PolicajacView policajac) {
+	public async static Task<Result<bool, ErrorMessage>> IzmeniPolicajcaAsync(PolicajacView policajac) {
 		ISession? s = null;
 
 		try {
@@ -503,7 +503,7 @@ public static class DataProvider {
 		return true;
 	}
 
-	internal async static Task<Result<bool, ErrorMessage>> ObrisiPolicajcaAsync(int id) {
+	public async static Task<Result<bool, ErrorMessage>> ObrisiPolicajcaAsync(int id) {
 		ISession? s = null;
 
 		try {
@@ -1739,6 +1739,346 @@ public static class DataProvider {
 
 	#endregion
 
+	#region Alarmni sistem
 
-	//TODO alarmni sistem i odrzavanja
+
+	public static async Task<Result<int, ErrorMessage>> SacuvajAlarmniSistemAsync(AlarmniSistemView asv) {
+
+		ISession? s = null;
+		int id = default;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			AlarmniSistem a = asv.ToAlarmniSistem();
+
+			await s.SaveAsync(a);
+			await s.FlushAsync();
+
+			id = a.Id;
+		}
+		catch (Exception) {
+			return "Nemoguće sačuvati alarmni sistem.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return id;
+	}
+
+	public async static Task<Result<AlarmniSistemView, ErrorMessage>> VratiAlarmniSistemAsync(int id) {
+		ISession? s = null;
+		AlarmniSistemView asv = default!;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			AlarmniSistem a = await s.LoadAsync<AlarmniSistem>(id);
+
+			var type = a.GetType();
+
+			if (type == typeof(UltrazvucniAS)) {
+				asv =  new UltrazvucniASView((UltrazvucniAS)a);
+			}
+			else if (type == typeof(ASDetekcijePokreta)) {
+				asv =  new ASDetekcijePokretaView((ASDetekcijePokreta)a);
+			}
+			else //if (type == typeof(ASDetekcijeToplotnogOdraza)) {
+				asv =  new ASDetekcijeToplotnogOdrazaView((ASDetekcijeToplotnogOdraza)a);
+			//}
+			//else return null;
+
+		}
+		catch (Exception) {
+			return "Nemoguće vratiti alarmni sistem.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return asv;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> IzmeniAlarmniSistemAsync(AlarmniSistemView asv) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			AlarmniSistem a = await s.LoadAsync<AlarmniSistem>(asv.Id);
+
+			a.SerijskiBroj = asv.SerijskiBroj;
+			a.Proizvodjac = asv.Proizvodjac;
+			a.Model = asv.Model;
+			a.GodinaProizvodnje = asv.GodinaProizvodnje;
+			a.DatumPoslednjegServisiranja = asv.DatumPoslednjegServisiranja;
+			a.DatumInstalacije = asv.DatumInstalacije;
+			a.DatumPoslednjegAtesta = a.DatumPoslednjegAtesta;
+			a.OpisOtklonjenogKvara = asv.OpisOtklonjenogKvara;
+
+			a.PripadaObjektu = asv.PripadaObjektu.ToObjekat();
+
+			a.Tip = asv.VratiTip();
+
+			switch (asv.Tip) {
+				case TipAlarmnogSistema.Ultrazvucni:
+				((UltrazvucniAS)a).GornjaGranica = ((UltrazvucniASView)asv).GornjaGranica;
+				((UltrazvucniAS)a).DonjaGranica = ((UltrazvucniASView)asv).DonjaGranica;
+				break;
+				case TipAlarmnogSistema.DetekcijePokreta:
+				((ASDetekcijePokreta)a).Osetljivost = ((ASDetekcijePokretaView)asv).Osetljivost;
+				break;
+				case TipAlarmnogSistema.DetekcijeToplotnogOdraza:
+				((ASDetekcijeToplotnogOdraza)a).HorRezIcKamere = ((ASDetekcijeToplotnogOdrazaView)asv).HorRezIcKamere;
+				((ASDetekcijeToplotnogOdraza)a).VerRezIcKamere = ((ASDetekcijeToplotnogOdrazaView)asv).VerRezIcKamere;
+				break;
+
+			}
+
+			await s.SaveOrUpdateAsync(a);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Nemoguće izmeniti alarmni sistem.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> ObrisiAlarmniSistemAsync(int id) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			AlarmniSistem a = await s.LoadAsync<AlarmniSistem>(id);
+
+			IEnumerable<Odrzava> odrzavanja = from od in s.Query<Odrzava>()
+											  where od.Id.AlarmniSistem.Id == a.Id
+											  select od;
+
+			foreach (var od in odrzavanja) {
+				await s.DeleteAsync(od);
+			}
+
+			await s.DeleteAsync(a);
+
+			await s.DeleteAsync(a);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Greška prilikom brisanja alarmnog sistema".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	public static async Task<Result<List<AlarmniSistemView>, ErrorMessage>> VratiAlarmneSistemeZaObjekatAsync(int objekatId) {
+
+		List<AlarmniSistemView> data = new();
+
+		ISession? s = null;
+
+		try {
+
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			data = (await s.QueryOver<AlarmniSistem>()
+				.Where(p => p.PripadaObjektu.Id == objekatId)
+				.ListAsync())
+				.Select<AlarmniSistem, AlarmniSistemView>(a => {
+
+					var type = a.GetType();
+
+					if (type == typeof(UltrazvucniAS)) {
+						return new UltrazvucniASView((UltrazvucniAS)a);
+					}
+					else if (type == typeof(ASDetekcijePokreta)) {
+						return new ASDetekcijePokretaView((ASDetekcijePokreta)a);
+					}
+					else //if (type == typeof(ASDetekcijeToplotnogOdraza)) {
+						return new ASDetekcijeToplotnogOdrazaView((ASDetekcijeToplotnogOdraza)a);
+					//}
+					//else return null;
+
+				}).ToList();
+
+		}
+		catch (Exception) {
+
+			return "Došlo je do greške prilikom prikupljanja informacija o alarnmnim sistemima za dati objekat".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return data;
+	}
+
+
+	#endregion
+
+	#region Odrzava
+
+
+	public static async Task<Result<bool, ErrorMessage>> SacuvajOdrzavaAsync(OdrzavaView ov) {
+
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Odrzava o = ov.ToOdrzava();
+
+			await s.SaveAsync(o);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Nemoguće sačuvati odrzavanje.".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	public async static Task<Result<bool, ErrorMessage>> ObrisiOdrzavaAsync(OdrzavaView ov) {
+		ISession? s = null;
+
+		try {
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			Odrzava o = await s.LoadAsync<Odrzava>(new OdrzavaId() { 
+				AlarmniSistem = await s.LoadAsync<AlarmniSistem>(ov.AlarmniSistem.Id),
+				PocetniDatum = ov.Pocetak,
+				Tehnicar = await s.LoadAsync<TehnickoLice>(ov.TehnickoLice.Id),			
+			});
+
+			await s.DeleteAsync(o);
+			await s.FlushAsync();
+		}
+		catch (Exception) {
+			return "Greška prilikom brisanja odrzavanja".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return true;
+	}
+
+	public static async Task<Result<List<OdrzavaView>, ErrorMessage>> VratiIstorijuOdrzavanjaZaTehnickoLiceAsync(int tehnicarId) {
+
+		List<OdrzavaView> data = new();
+
+		ISession? s = null;
+
+		try {
+
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			data = (await s.QueryOver<Odrzava>()
+						.Where(p => p.Id.Tehnicar.Id == tehnicarId)
+						.ListAsync()
+					)
+					.Select<Odrzava, OdrzavaView>(o => new OdrzavaView(o)).ToList();
+
+		}
+		catch (Exception) {
+
+			return "Došlo je do greške prilikom prikupljanja informacija o istoriji odrzavanja za dato tehnicko lice".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return data;
+	}
+
+	public static async Task<Result<List<OdrzavaView>, ErrorMessage>> VratiIstorijuOdrzavanjaZaAlarmniSistemAsync(int alarmniSistemId) {
+
+		List<OdrzavaView> data = new();
+
+		ISession? s = null;
+
+		try {
+
+			s = DataLayer.GetSession();
+
+			if (!(s?.IsConnected ?? false)) {
+
+				return "Nemoguće otvoriti sesiju.".ToError(403);
+			}
+
+			data = (await s.QueryOver<Odrzava>()
+						.Where(p => p.Id.AlarmniSistem.Id == alarmniSistemId)
+						.ListAsync()
+					)
+					.Select<Odrzava, OdrzavaView>(o => new OdrzavaView(o)).ToList();
+
+		}
+		catch (Exception) {
+
+			return "Došlo je do greške prilikom prikupljanja informacija o istoriji odrzavanja za dati alarmni sistem".ToError(400);
+		}
+		finally {
+			s?.Close();
+			s?.Dispose();
+		}
+
+		return data;
+	}
+
+
+	#endregion
 }

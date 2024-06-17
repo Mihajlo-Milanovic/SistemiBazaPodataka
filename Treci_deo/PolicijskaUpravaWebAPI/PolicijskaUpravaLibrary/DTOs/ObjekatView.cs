@@ -48,7 +48,22 @@
         }
 
 
-        #endregion
+		#endregion
+
+		public Objekat ToObjekat() {
+
+			return new Objekat() {
+
+				Id = this.Id,
+				Tip = this.Tip,
+				Adresa = this.Adresa,
+				Povrsina = this.Povrsina,
+				KontaktIme = this.KontaktIme,
+				KontaktPrezime = this.KontaktPrezime,
+
+				PolicijskaStanica = this.PolicijskaStanica.ToPolicijskaStanica()
+			};
+		}
 
     }
 }

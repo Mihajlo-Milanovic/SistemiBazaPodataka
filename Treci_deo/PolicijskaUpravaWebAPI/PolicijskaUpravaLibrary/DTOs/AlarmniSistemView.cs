@@ -13,9 +13,9 @@
 		public virtual DateTime DatumPoslednjegAtesta { get; set; }
 		public virtual DateTime DatumPoslednjegServisiranja { get; set; }
 		public virtual string OpisOtklonjenogKvara { get; set; }
-		//public virtual string Tip { get; set; }
+		public virtual TipAlarmnogSistema Tip { get; set; }
 
-		public virtual int PripadaObjektuId { get; set; }
+		public virtual ObjekatView PripadaObjektu { get; set; }
 
 		#endregion
 
@@ -50,12 +50,15 @@
 			DatumPoslednjegAtesta = a.DatumPoslednjegAtesta;
 			DatumPoslednjegServisiranja = a.DatumPoslednjegServisiranja;
 			OpisOtklonjenogKvara = a.OpisOtklonjenogKvara;
-			//Tip = a.Tip;
 
-			if (a.PripadaObjektu != null)
-				PripadaObjektuId = a.PripadaObjektu.Id;
+			if (a.Tip == "ULTRAZVUCNI")
+				Tip = TipAlarmnogSistema.Ultrazvucni;
+			else if (a.Tip == "DETEKCIJE POKRETA")
+				Tip = TipAlarmnogSistema.DetekcijePokreta;
 			else
-				PripadaObjektuId = -1;
+				Tip = TipAlarmnogSistema.DetekcijeToplotnogOdraza;
+
+			PripadaObjektu = new ObjekatView(a.PripadaObjektu);
 		}
 
 		#endregion
@@ -71,5 +74,48 @@
 				return 0;
 		}
 
+		public AlarmniSistem ToAlarmniSistem() {
+
+			return new AlarmniSistem() {
+
+				Id = this.Id,
+				SerijskiBroj = this.SerijskiBroj,
+				Proizvodjac = this.Proizvodjac,
+				Model = this.Model,
+				GodinaProizvodnje = this.GodinaProizvodnje,
+				DatumInstalacije = this.DatumInstalacije,
+				DatumPoslednjegAtesta = this.DatumPoslednjegAtesta,
+				DatumPoslednjegServisiranja = this.DatumPoslednjegServisiranja,
+				OpisOtklonjenogKvara = this.OpisOtklonjenogKvara,
+
+				Tip = this.VratiTip(),
+
+				PripadaObjektu = this.PripadaObjektu.ToObjekat(),
+
+			};
+		}
+
+		public string VratiTip() {
+
+			switch (this.Tip) {
+
+				case TipAlarmnogSistema.Ultrazvucni:
+				return "ULTRAZVUCNI";
+
+				case TipAlarmnogSistema.DetekcijePokreta:
+				return "DETEKCIJE POKRETA";
+	
+				default:
+				return "DETEKCIJE TOPLOTNOG ODRAZA";
+			}
+		}
+
+	}
+
+	public enum TipAlarmnogSistema {
+
+		Ultrazvucni,
+		DetekcijePokreta,
+		DetekcijeToplotnogOdraza
 	}
 }

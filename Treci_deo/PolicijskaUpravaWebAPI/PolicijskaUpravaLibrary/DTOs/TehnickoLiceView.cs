@@ -23,8 +23,13 @@
 
 		#endregion
 
+		public TehnickoLice ToTehnickoLice() {
 
-
-
+			return new TehnickoLice() {
+				Id = this.Id,
+				Ime = this.Ime,
+				Prezime = this.Prezime
+			};
+		}
 	}
 }

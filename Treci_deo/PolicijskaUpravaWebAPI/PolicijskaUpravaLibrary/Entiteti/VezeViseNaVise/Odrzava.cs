@@ -44,5 +44,6 @@ namespace PolicijskaUpravaLibrary.Entiteti.VezeViseNaVise
         {
             return base.GetHashCode();
         }
+
     }
 }

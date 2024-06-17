@@ -52,6 +52,9 @@
 //		}
 */
 
+
+// ALMOST DONE
+
 #endregion
 
 #region Tehnicka lica
@@ -99,6 +102,8 @@
 
 #region Alarmni sistemi
 
+/*OVO MISLIM DA NE TREBA 
+ * 
 //		public static List<AlarmniSistemView> vratiSveAlarmneSisteme() {
 
 //			List<AlarmniSistemView> asv = new();
@@ -133,229 +138,17 @@
 //			return asv;
 
 //		}
+*/
 
-//		public static List<AlarmniSistemView> vratiSveAlarmneSistemeZaObjekat(int id) {
-
-//			List<AlarmniSistemView> asv = new();
-
-//			Objekat o = new();
-//			o.Id = id;
-
-//			try {
-//				ISession s = DataLayer.GetSession();
-
-//				IList<AlarmniSistem> alarmniSistemi = s.CreateCriteria<AlarmniSistem>()
-//														.Add(Restrictions.Eq("PripadaObjektu", o))
-//														.List<AlarmniSistem>();
-
-//				foreach (var aa in alarmniSistemi)
-//					asv.Add(new AlarmniSistemView(aa));
-
-
-//				s.Close();
-//			}
-//			catch (Exception ex) {
-//				MessageBox.Show(ex.FormatExceptionMessage());
-//			}
-
-//			return asv;
-//		}
-
-//		public static AlarmniSistem vratiAlarmniSistem(int id) {
-
-//			IList<AlarmniSistem> a = null;
-
-//			try {
-//				ISession s = DataLayer.GetSession();
-
-//				string hql = "from AlarmniSistemId a where a.Id = :value";
-//				IQuery query = s.CreateQuery(hql);
-//				query.SetParameter("value", id);
-
-//				a = query.List<AlarmniSistem>();
-
-//				s.Close();
-//			}
-//			catch (Exception ex) {
-//				MessageBox.Show(ex.FormatExceptionMessage());
-//			}
-
-//			if (a != null)
-//				return a.First();
-//			else
-//				return null;
-//		}
-
-//		public static bool dodajAlarmniSistem(AlarmniSistem a) {
-
-
-//			try {
-//				ISession s = DataLayer.GetSession();
-
-//				s.Save(a);
-
-//				s.Flush();
-
-//				s.Close();
-
-//				return true;
-//			}
-//			catch (Exception ex) {
-//				MessageBox.Show(ex.FormatExceptionMessage());
-//				return false;
-//			}
-//		}
-
-//		public static bool izmeniAlarmniSistem(AlarmniSistem a) {
-
-
-//			try {
-//				ISession s = DataLayer.GetSession();
-
-//				s.SaveOrUpdate(a);
-
-//				s.Flush();
-
-//				s.Close();
-
-//				return true;
-//			}
-//			catch (Exception ex) {
-//				MessageBox.Show(ex.FormatExceptionMessage());
-//				return false;
-//			}
-//		}
-
-//		public static bool obrisiAlarmniSistem(AlarmniSistem a) {
-
-//			try {
-
-//				ISession s = DataLayer.GetSession();
-
-//				s.Delete(a);
-
-
-//				s.Flush();
-
-//				s.Close();
-
-//				return true;
-//			}
-//			catch (Exception ex) {
-//				MessageBox.Show(ex.FormatExceptionMessage());
-//				return false;
-//			}
-
-//		}
+//	ALMOST DONE	
 
 #endregion
 
 
 #region Odrzavanja
 
-//		public static List<OdrzavaView> vratiIstorijuOdrzavanjaZaTehnickoLice(int tehId) {
+// DONE
 
-//			List<OdrzavaView> ov = null;
-
-//			try {
-//				ISession s = DataLayer.GetSession();
-
-//				IEnumerable<Odrzava> odrzava = from o in s.Query<Odrzava>()
-//											   where o.Id.Tehnicar.Id == tehId
-//											   select o;
-
-//				ov = new();
-
-//				foreach (var i in odrzava) 
-//					ov.Add(new OdrzavaView(i));
-
-
-//				s.Close();
-
-//				return ov;
-//			}
-//			catch (Exception ex) {
-
-//				MessageBox.Show(ex.FormatExceptionMessage());
-//				return null;
-//			}
-//		}
-
-//		public static List<OdrzavaView> vratiIstorijuOdrzavanjaZaAlarmniSistem(int ASId) {
-
-//			List<OdrzavaView> ov = null;
-
-//			try {
-//				ISession s = DataLayer.GetSession();
-
-//				IEnumerable<Odrzava> odrzava = from o in s.Query<Odrzava>()
-//											   where o.Id.AlarmniSistem.Id == ASId
-//											   select o;
-
-//				ov = new();
-//				foreach (var i in odrzava)
-//					ov.Add(new OdrzavaView(i));
-
-
-//				s.Close();
-
-//				return ov;
-//			}
-//			catch (Exception ex) {
-
-//				MessageBox.Show(ex.FormatExceptionMessage());
-//				return null;
-//			}
-//		}
-
-//		public static bool dodajOdrzava(OdrzavaView ov) {
-
-//			Odrzava o = new();
-//			o.Id = new();
-//			o.Id.AlarmniSistem = new();
-//			o.Id.AlarmniSistem.Id = ov.AlarmniSistemId;
-//			o.Id.Tehnicar = new();
-//			o.Id.Tehnicar.Id = ov.TehnickoLiceId;
-//			o.Id.PocetniDatum = ov.Pocetak;
-//			o.KrajnjiDatum = ov.Kraj;
-
-//			try {
-//				ISession s = DataLayer.GetSession();
-
-//				s.Save(o);
-
-//				s.Flush();
-
-//				s.Close();
-
-//				return true;
-
-//			}catch(Exception ex) {
-//				MessageBox.Show(ex.FormatExceptionMessage());
-//				return false;
-//			}
-
-//		}
-
-//		public static bool obrisiOdrzava(Odrzava o) {
-
-//			try {
-
-//				ISession s = DataLayer.GetSession();
-
-//				s.Delete(o);
-
-//				s.Flush();
-
-//				s.Close();
-
-//				return true;
-//			}
-//			catch (Exception ex) {
-//				MessageBox.Show(ex.FormatExceptionMessage());
-//				return false;
-//			}
-//		}
 #endregion
 
 
