@@ -16,8 +16,29 @@
 @PomocnikId = 13
 @DeletePatrolaId = 12
 
+@VratiVoziloId = 1
+@TehnickoLiceId = 7
+
 
 GET {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/PreuzmiSvaVozila
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/PreuzmiVozilo/{{VratiVoziloId}}
+
+###
+
+PUT {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/PromeniVozilo
+Content-Type: application/json
+
+{
+    "id": {{VratiVoziloId}},
+    "RegOznaka" : "11111111",
+		"Boja" : "plava",
+    "Tip" : "nesto",
+		"Proizvodjac" : "Fiat2",
+    "Model" : "Punto2"
+}
 
 ###
 
@@ -25,13 +46,102 @@ POST {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/DodajVozilo
 Content-Type: application/json
 
 {
-		"Id": 0,
+	
+    "RegOznaka" : "15742236",
 		"Boja" : "crvena",
-		"Model" : "Punto",
+    "Tip" : "hacback",
 		"Proizvodjac" : "Fiat",
-		"RegOznaka" : "157",
-		"Tip" : "hacback"
+    "Model" : "Punto"
 }
+
+###
+
+### NECE DA RADI KAZE REG_OZNAKA INVALID IDENTIFAIER
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/IzbrisiVozilo/{{VratiVoziloId}}
+
+
+### Ovo nmg jer mi ne radi swegger
+
+# PUT {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/DodajTehnickoLice
+# Content-Type: application/json
+
+# {
+#     "Id": {{TehnickoLiceId}},
+#     "Ime": "Marko",
+#     "Preziime": "Jankovic"
+# }
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/PreuzmiSvaTehnickaLica
+
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/PreuzmiTehnickoLice/{{TehnickoLiceId}}
+
+
+###
+
+# POST {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/PromeniTehnickoLice
+# Content-Type: application/json
+
+# {
+#     "Id": {{TehnickoLiceId}},
+#     "Ime": "Janko",
+#     "Preziime": "Markovic"
+# }
+
+###
+
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/PreuzmiTehnickoLice/{{TehnickoLiceId}}
+
+
+###
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/IzbrisiTehnickoLice/{{TehnickoLiceId}}
+
+###
+
+# PUT {{PolicijskaUpravaWebAPI_HostAddress}}/UnapredjenjeControllers/DodajUnapredjenjeZaPolicajca/{{PolicajacId}}
+# Content-Type: application/json
+
+# {
+#     "Cin" : "Neki cin",
+#     "DatumSticanja" : ""
+# }
+
+###
+
+### UVEK VRACA PRAZAN NIZ
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/UnapredjenjeControllers/PreuzmiSvaUnapredjenja/{{PolicajacId}}
+
+
+###
+
+### NORMALNO DA NECE JER MI NE RADI
+# PUT {{PolicijskaUpravaWebAPI_HostAddress}}/UnapredjenjeControllers/IzmeniUnapredenjeZaPolicajca/{{PolicajacId}}
+# Content-Type: application/json
+
+# {
+#      "Id" : 
+#      "Cin" : "Neki cin",
+#      "DatumSticanja" : ""
+# }
+
+
+####
+
+
+# DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/UnapredjenjeControllers/IzbrisiUnapredjenje/{{TehnickoLiceId}}
+# Content-Type: application/json
+
+# {
+#      "Id" : 
+#      "Cin" : "Neki cin",
+#      "DatumSticanja" : ""
+# }
 
 ###
 

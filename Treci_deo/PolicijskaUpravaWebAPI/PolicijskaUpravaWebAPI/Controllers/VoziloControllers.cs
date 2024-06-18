@@ -74,7 +74,7 @@ public class VoziloControllers : ControllerBase
             return StatusCode(error?.StatusCode ?? 400, error?.Message);
         }
 
-        return Ok(vozilo);
+        return Ok($"Uspesno je izmenjeno vozilo: {v.RegOznaka}");
     }
 
     [HttpDelete]
