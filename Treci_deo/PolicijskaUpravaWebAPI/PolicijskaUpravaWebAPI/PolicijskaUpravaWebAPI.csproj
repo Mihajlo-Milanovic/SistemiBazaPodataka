@@ -14,8 +14,4 @@
     <ProjectReference Include="..\PolicijskaUpravaLibrary\PolicijskaUpravaLibrary.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

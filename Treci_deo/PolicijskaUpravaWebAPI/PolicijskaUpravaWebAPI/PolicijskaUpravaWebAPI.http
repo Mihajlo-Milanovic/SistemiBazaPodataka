@@ -1,2 +1,20 @@
 @PolicijskaUpravaWebAPI_HostAddress = http://localhost:5282
 
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/PreuzmiSvaVozila
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/DodajVozilo
+Content-Type: application/json
+
+{
+		"Id": 0,
+		"Boja" : "crvena",
+		"Model" : "Punto",
+		"Proizvodjac" : "Fiat",
+		"RegOznaka" : "156",
+		"Tip" : "hacback"
+}
+
+###

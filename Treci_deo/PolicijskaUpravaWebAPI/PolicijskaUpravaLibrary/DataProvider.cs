@@ -160,7 +160,7 @@ public static class DataProvider {
 
 
 	#endregion
-
+	//
 	#region Tehnicko lice
 
 
@@ -194,7 +194,7 @@ public static class DataProvider {
 		return data;
 	}
 
-	public static async Task<Result<int, ErrorMessage>> SacuvajTehnickoLiceAsync(TehnickoLice tehnickoLice) {
+	public static async Task<Result<int, ErrorMessage>> SacuvajTehnickoLiceAsync(TehnickoLiceView tehnickoLice) {
 
 		ISession? s = null;
 		int id = default;
@@ -206,11 +206,7 @@ public static class DataProvider {
 				return "Nemoguće otvoriti sesiju.".ToError(403);
 			}
 
-			TehnickoLice t = new() {
-
-				Ime = tehnickoLice.Ime,
-				Prezime = tehnickoLice.Prezime
-			};
+			TehnickoLice t = tehnickoLice.ToTehnickoLice();
 
 			await s.SaveAsync(t);
 			await s.FlushAsync();

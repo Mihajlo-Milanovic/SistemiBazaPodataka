@@ -57,47 +57,6 @@
 
 #endregion
 
-#region Tehnicka lica
-
-// DONE
-
-#endregion
-
-#region Policijske stanice
-
-// DONE
-
-#endregion
-
-#region Vozila
-
-// DONE		
-
-#endregion
-
-#region Objekat
-
-// DONE
-
-#endregion
-
-#region Telefoni za objekat
-
-// DONE
-
-#endregion
-
-#region Unapredjenja
-
-// DONE
-
-#endregion
-
-#region Obrazovanje
-
-// DONE
-
-#endregion
 
 
 #region Alarmni sistemi
@@ -141,20 +100,6 @@
 */
 
 //	ALMOST DONE	
-
-#endregion
-
-
-#region Odrzavanja
-
-// DONE
-
-#endregion
-
-
-#region Patrole
-
-// DONE
 
 #endregion
 
