@@ -19,7 +19,7 @@ public class PolicajacControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public async Task<IActionResult> AddPatrolnogPolicajac([FromBody] PatrolniPolicajacView pv)
     {
-        var data = await DataProvider.SacuvajPolicajcaAsync(pv);
+        var data = await DataProvider.SacuvajPatrolnogPolicajcaAsync(pv);
 
         if (data.IsError)
         {
@@ -36,7 +36,7 @@ public class PolicajacControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public async Task<IActionResult> AddPolicajcaZaVanrednePolicajce([FromBody] PZaVanredneSituacijeView pv)
     {
-        var data = await DataProvider.SacuvajPolicajcaAsync(pv);
+        var data = await DataProvider.SacuvajPolicajcaZaVanredneSituacijeAsync(pv);
 
         if (data.IsError)
         {
@@ -53,7 +53,7 @@ public class PolicajacControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public async Task<IActionResult> AddSkolskiPolicajac([FromBody] SkolskiPolicajacView pv)
     {
-        var data = await DataProvider.SacuvajPolicajcaAsync(pv);
+        var data = await DataProvider.SacuvajSkolskogPolicajcaAsync(pv);
 
         if (data.IsError)
         {
@@ -70,7 +70,7 @@ public class PolicajacControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public async Task<IActionResult> AddRadnikaUUpravi([FromBody] RadnikUUpraviView pv)
     {
-        var data = await DataProvider.SacuvajPolicajcaAsync(pv);
+        var data = await DataProvider.SacuvajRadnikaUUpraviAsync(pv);
 
         if (data.IsError)
         {
@@ -87,7 +87,7 @@ public class PolicajacControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public async Task<IActionResult> AddPolicajacPozornik([FromBody] PolicajacPozornikView pv)
     {
-        var data = await DataProvider.SacuvajPolicajcaAsync(pv);
+        var data = await DataProvider.SacuvajPolicajcaPozornikaAsync(pv);
 
         if (data.IsError)
         {
@@ -113,7 +113,7 @@ public class PolicajacControllers : ControllerBase
 
         return Ok(policajci.Data);
     }
-
+    /*
     [HttpGet]
     [Route("PreuzmiPolicajca/{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -130,7 +130,7 @@ public class PolicajacControllers : ControllerBase
 
         return Ok(policajc.Data);
     }
-
+    */
     [HttpGet]
     [Route("PreuzmiPolicajceZaStanicu/{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -156,7 +156,7 @@ public class PolicajacControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public async Task<IActionResult> ChangePatrolnogPolicajac([FromBody] PatrolniPolicajacView pv)
     {
-        var data = await DataProvider.IzmeniPolicajcaAsync(pv);
+        var data = await DataProvider.IzmeniPatrolnogPolicajcaAsync(pv);
 
         if (data.IsError)
         {
@@ -173,7 +173,7 @@ public class PolicajacControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public async Task<IActionResult> ChangePZaVanredneSituacije([FromBody] PZaVanredneSituacijeView pv)
     {
-        var data = await DataProvider.IzmeniPolicajcaAsync(pv);
+        var data = await DataProvider.IzmeniPolicajcaZaVanredneSituacijeAsync(pv);
 
         if (data.IsError)
         {
@@ -190,7 +190,7 @@ public class PolicajacControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public async Task<IActionResult> ChangeSkolkiPolicajac([FromBody] SkolskiPolicajacView pv)
     {
-        var data = await DataProvider.IzmeniPolicajcaAsync(pv);
+        var data = await DataProvider.IzmeniSkolskogPolicajcaAsync(pv);
 
         if (data.IsError)
         {
@@ -207,7 +207,7 @@ public class PolicajacControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public async Task<IActionResult> ChangeRadnikUUpravi([FromBody] RadnikUUpraviView pv)
     {
-        var data = await DataProvider.IzmeniPolicajcaAsync(pv);
+        var data = await DataProvider.IzmeniRadnikaUUpraviAsync(pv);
 
         if (data.IsError)
         {
@@ -224,7 +224,7 @@ public class PolicajacControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public async Task<IActionResult> ChangePolicajcaPozornika([FromBody] PolicajacPozornikView pv)
     {
-        var data = await DataProvider.IzmeniPolicajcaAsync(pv);
+        var data = await DataProvider.IzmeniPolicajcaPozornikaAsync(pv);
 
         if (data.IsError)
         {

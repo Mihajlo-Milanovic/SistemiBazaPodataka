@@ -12,21 +12,21 @@
 
 		public PolicajacPozornikView() : base() {
 
-			Tip = TipPolicajca.Pozornik;
+			//Tip = TipPolicajca.Pozornik;
 			NazivUlice = string.Empty;
 		}
 
 		public PolicajacPozornikView(PolicajacPozornik p) : base(p) {
 
-			Tip = TipPolicajca.Pozornik;
+			//Tip = TipPolicajca.Pozornik;
 			NazivUlice = p.NazivUlice;
 		}
 
 		#endregion
 
-		public override string VratiTip() {
-			return "PATROLNI POLICAJAC";
-		}
+		//public override string VratiTip() {
+		//	return "POLICAJAC POZORNIK";
+		//}
 
 		public PolicajacPozornik ToPolicajacPozornik() {
 
@@ -39,7 +39,7 @@
 				DatumPrijemaUSluzbu = this.DatumPrijemaUSluzbu,
 				DatumRodjenja = this.DatumRodjenja,
 				ImeRoditelja = this.ImeRoditelja,
-				Tip = this.VratiTip(),
+				Tip = this.Tip,
 
 				Stanica = this.RadiUStanici?.ToPolicijskaStanica(),
 				SefujeStanicom = this.SefujeStanicom?.ToPolicijskaStanica(),

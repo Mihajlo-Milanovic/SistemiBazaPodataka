@@ -16,7 +16,7 @@
 
 		public PZaVanredneSituacijeView() : base() {
 
-			Tip = TipPolicajca.ZaVanredneSituacije;
+			//Tip = TipPolicajca.ZaVanredneSituacije;
 			Kurs = string.Empty;
 			Vestina = string.Empty;
 			Sertifikat = string.Empty;
@@ -24,7 +24,7 @@
 		
 		public PZaVanredneSituacijeView(PZaVanredneSituacije p) : base(p) {
 
-			Tip = TipPolicajca.ZaVanredneSituacije;
+			//Tip = TipPolicajca.ZaVanredneSituacije;
 			Kurs = p.Kurs;
 			Vestina = p.Vestina;
 			DatumZavrsetkaKursa = p.DatumZavrsetkaKursa;
@@ -34,9 +34,9 @@
 
 		#endregion
 
-		public override string VratiTip() {
-			return "POLICAJAC ZA VANREDNE SITUACIJE";
-		}
+		//public override string VratiTip() {
+		//	return "POLICAJAC ZA VANREDNE SITUACIJE";
+		//}
 
 		public PZaVanredneSituacije ToPZaVanredneSituacije() {
 
@@ -49,7 +49,7 @@
 				DatumPrijemaUSluzbu = this.DatumPrijemaUSluzbu,
 				DatumRodjenja = this.DatumRodjenja,
 				ImeRoditelja = this.ImeRoditelja,
-				Tip = this.VratiTip(),
+				Tip = this.Tip,
 
 				Stanica = this.RadiUStanici?.ToPolicijskaStanica(),
 				SefujeStanicom = this.SefujeStanicom?.ToPolicijskaStanica(),

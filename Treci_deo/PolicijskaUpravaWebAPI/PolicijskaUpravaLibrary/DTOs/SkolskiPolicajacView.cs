@@ -17,7 +17,7 @@
 
 		public SkolskiPolicajacView() : base() {
 
-			Tip = TipPolicajca.Skolski;
+			//Tip = TipPolicajca.Skolski;
 			NazivSkole = string.Empty;
 			TipSkole = string.Empty;
 			AdresaSkole = string.Empty;
@@ -28,7 +28,7 @@
 
 		public SkolskiPolicajacView(SkolskiPolicajac p) : base(p) {
 
-			Tip = TipPolicajca.Skolski;
+			//Tip = TipPolicajca.Skolski;
 			NazivSkole = p.NazivSkole;
 			TipSkole = p.TipSkole;
 			AdresaSkole = p.AdresaSkole;
@@ -39,9 +39,9 @@
 
 		#endregion
 
-		public override string VratiTip() {
-			return "SKOLSKI POLICAJAC";
-		}
+		//public override string VratiTip() {
+		//	return "SKOLSKI POLICAJAC";
+		//}
 
 		public SkolskiPolicajac ToSkolskiPolicajac() {
 
@@ -54,7 +54,7 @@
 				DatumPrijemaUSluzbu = this.DatumPrijemaUSluzbu,
 				DatumRodjenja = this.DatumRodjenja,
 				ImeRoditelja = this.ImeRoditelja,
-				Tip = this.VratiTip(),
+				Tip = this.Tip,
 
 				Stanica = this.RadiUStanici?.ToPolicijskaStanica(),
 				SefujeStanicom = this.SefujeStanicom?.ToPolicijskaStanica(),

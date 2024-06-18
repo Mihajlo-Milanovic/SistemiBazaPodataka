@@ -364,7 +364,7 @@ public static class DataProvider {
 		return data;
 	}
 
-	internal static async Task<Result<int, ErrorMessage>> SacuvajPolicajcaAsync(PolicajacView policajac) {
+	public static async Task<Result<int, ErrorMessage>> SacuvajPolicajcaAsync(PolicajacView policajac) {
 
 		ISession? s = null;
 		int id = default;
@@ -383,9 +383,8 @@ public static class DataProvider {
 			id = p.Id;
 
 		}
-
 		catch (Exception ex) {
-			return $"Nemoguće sačuvati policajca.\n + {ex.Message}".ToError(400);
+			return $"Nemoguće sačuvati policajca.\n + {ex.StackTrace}".ToError(400);
 		}
 		finally {
 			s?.Close();
@@ -395,7 +394,7 @@ public static class DataProvider {
 		return id;
 	}
 
-	internal async static Task<Result<PolicajacView, ErrorMessage>> VratiPolicajcaAsync(int id) {
+	public async static Task<Result<PolicajacView, ErrorMessage>> VratiPolicajcaAsync(int id) {
 		ISession? s = null;
 		PolicajacView p = default!;
 
@@ -422,7 +421,7 @@ public static class DataProvider {
 		return p;
 	}
 
-	internal async static Task<Result<bool, ErrorMessage>> IzmeniPolicajcaAsync(PolicajacView policajac) {
+	public async static Task<Result<bool, ErrorMessage>> IzmeniPolicajcaAsync(PolicajacView policajac) {
 		ISession? s = null;
 
 		try {
@@ -658,8 +657,8 @@ public static class DataProvider {
 
 			id = pp.Id;
 		}
-		catch (Exception) {
-			return "Nemoguće sačuvati policajca.".ToError(400);
+		catch (Exception ex) {
+			return $"Nemoguće sačuvati policajca. {ex.Message}".ToError(400);
 		}
 		finally {
 			s?.Close();
@@ -828,7 +827,6 @@ public static class DataProvider {
 
 			if (!(s?.IsConnected ?? false)) {
 				return "Nemoguće otvoriti sesiju.".ToError(403);
-
 			}
 
 			RadnikUUpravi pp = radnik.ToRadnikUUpravi();
@@ -838,8 +836,8 @@ public static class DataProvider {
 
 			id = pp.Id;
 		}
-		catch (Exception) {
-			return "Nemoguće sačuvati policajca.".ToError(400);
+		catch (Exception ex) {
+			return $"Nemoguće sačuvati policajca. + {ex.Message}".ToError(400);
 		}
 		finally {
 			s?.Close();
@@ -2514,7 +2512,7 @@ public static class DataProvider {
 		return data;
 	}
 
-	public static async Task<Result<List<PolicijskaIntervencijaView>, ErrorMessage>> VratiPolicijskeIntervencijeZaPatroluAsync(int patrolaId, int objekatId) {
+	public static async Task<Result<List<PolicijskaIntervencijaView>, ErrorMessage>> VratiPolicijskeIntervencijeZaPatroluIObjekatAsync(int patrolaId, int objekatId) {
 
 		List<PolicijskaIntervencijaView> data = new();
 
@@ -2547,7 +2545,9 @@ public static class DataProvider {
 		return data;
 	}
 
-	public static async Task<Result<bool, ErrorMessage>> SacuvajPolicijskuIntervencijuZaPolicajcaAsync(PolicijskaIntervencijaView piv) {
+
+
+	public static async Task<Result<bool, ErrorMessage>> SacuvajPolicijskuIntervencijuAsync(PolicijskaIntervencijaView piv) {
 
 		ISession? s = null;
 
@@ -2638,7 +2638,7 @@ public static class DataProvider {
 		return true;
 	}
 
-	public async static Task<Result<bool, ErrorMessage>> ObrisiIntervencijuAsync(PolicijskaIntervencijaView intervencija) {
+	public async static Task<Result<bool, ErrorMessage>> ObrisiPolicijskuIntervencijuAsync(PolicijskaIntervencijaView intervencija) {
 		ISession? s = null;
 
 		try {

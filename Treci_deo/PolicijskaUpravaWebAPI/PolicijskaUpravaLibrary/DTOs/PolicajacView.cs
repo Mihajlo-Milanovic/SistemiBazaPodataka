@@ -18,7 +18,7 @@ namespace PolicijskaUpravaLibrary.DTOs {
 		public virtual PolicijskaStanicaView? SefujeStanicom { get; set; } = null;
 		public virtual PolicijskaStanicaView? ZamenikStanice { get; set; } = null;
 
-		public virtual TipPolicajca Tip { get; set; }
+		public virtual string Tip { get; set; }
 
 		#endregion
 
@@ -44,23 +44,25 @@ namespace PolicijskaUpravaLibrary.DTOs {
 			Adresa = p.Adresa;
 			DatumPrijemaUSluzbu = p.DatumPrijemaUSluzbu;
 
-			switch (p.Tip) {
-				case "POLICAJAC ZA VANREDNE SITUACIJE":
-				this.Tip = TipPolicajca.ZaVanredneSituacije; 
-				break;
-				case "RADNIK U UPRAVI":
-				this.Tip = TipPolicajca.RadikUUpravi;
-				break;
-				case "SKOLSKI POLICAJAC":
-				this.Tip = TipPolicajca.Skolski;
-				break;
-				case "PATROLNI POLICAJAC":
-				this.Tip = TipPolicajca.Patrolni;
-				break;
-				default://case "POLICAJAC POZORNIK":
-				this.Tip = TipPolicajca.Pozornik;
-				break;
-			}
+			//switch (p.Tip) {
+			//	case "POLICAJAC ZA VANREDNE SITUACIJE":
+			//	this.Tip = TipPolicajca.ZaVanredneSituacije; 
+			//	break;
+			//	case "RADNIK U UPRAVI":
+			//	this.Tip = TipPolicajca.RadikUUpravi;
+			//	break;
+			//	case "SKOLSKI POLICAJAC":
+			//	this.Tip = TipPolicajca.Skolski;
+			//	break;
+			//	case "PATROLNI POLICAJAC":
+			//	this.Tip = TipPolicajca.Patrolni;
+			//	break;
+			//	default://case "POLICAJAC POZORNIK":
+			//	this.Tip = TipPolicajca.Pozornik;
+			//	break;
+			//}
+			this.Tip = p.Tip;
+
 
 			if (p.Stanica != null) {
 				RadiUStanici = new PolicijskaStanicaView(p.Stanica);
@@ -90,7 +92,7 @@ namespace PolicijskaUpravaLibrary.DTOs {
 				Prezime = this.Prezime,
 				ImeRoditelja = this.ImeRoditelja,
 				JMBG = this.JMBG,
-				Tip = this.VratiTip(),
+				Tip = this.Tip,
 
 				SefujeStanicom = this.SefujeStanicom?.ToPolicijskaStanica(),
 				Stanica = this.RadiUStanici?.ToPolicijskaStanica(),
@@ -98,30 +100,30 @@ namespace PolicijskaUpravaLibrary.DTOs {
 			};
 		}
 
-		public virtual string VratiTip() {
+		//public virtual string VratiTip() {
 
-			switch (this.Tip) {
-				case TipPolicajca.Patrolni:
-				return "PATROLNI POLICAJAC";
-				case TipPolicajca.ZaVanredneSituacije:
-				return "POLICAJAC ZA VANREDNE SITUACIJE";
-				case TipPolicajca.Skolski:
-				return "SKOLSKI POLICAJAC";
-				case TipPolicajca.RadikUUpravi:
-				return "RADNIK U UPRAVI";
-				default://case TipPolicajca.Pozornik:
-				return "POLICAJAC POZORNIK";
-			}
-		}
+		//	switch (this.Tip) {
+		//		case TipPolicajca.Patrolni:
+		//		return "PATROLNI POLICAJAC";
+		//		case TipPolicajca.ZaVanredneSituacije:
+		//		return "POLICAJAC ZA VANREDNE SITUACIJE";
+		//		case TipPolicajca.Skolski:
+		//		return "SKOLSKI POLICAJAC";
+		//		case TipPolicajca.RadikUUpravi:
+		//		return "RADNIK U UPRAVI";
+		//		default://case TipPolicajca.Pozornik:
+		//		return "POLICAJAC POZORNIK";
+		//	}
+		//}
 	}
 
-	public enum TipPolicajca { 
+	//public enum TipPolicajca { 
 	
-		Patrolni, 
-		Pozornik,
-		RadikUUpravi,
-		Skolski,
-		ZaVanredneSituacije,
+	//	Patrolni, 
+	//	Pozornik,
+	//	RadikUUpravi,
+	//	Skolski,
+	//	ZaVanredneSituacije,
 		
-	}
+	//}
 }

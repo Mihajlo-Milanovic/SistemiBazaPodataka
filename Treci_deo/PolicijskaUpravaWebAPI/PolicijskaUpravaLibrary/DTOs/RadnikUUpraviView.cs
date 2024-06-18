@@ -5,7 +5,6 @@
 		#region Properties
 
 		public virtual string Pozicija { get; set; }
-		public new TipPolicajca Tip = TipPolicajca.RadikUUpravi;
 
 		#endregion
 
@@ -13,21 +12,21 @@
 
 		public RadnikUUpraviView() : base() {
 
-			Tip = TipPolicajca.RadikUUpravi;
+			//Tip = TipPolicajca.RadikUUpravi;
 			Pozicija = string.Empty;
 		}
 
 		public RadnikUUpraviView(RadnikUUpravi r) : base(r) {
 
-			Tip = TipPolicajca.RadikUUpravi;
+			//Tip = TipPolicajca.RadikUUpravi;
 			Pozicija = r.Pozicija;
 		}
 
 		#endregion
 
-		public override string VratiTip() {
-			return "RADNIK U UPRAVI";
-		}
+		//public override string VratiTip() {
+		//	return "RADNIK U UPRAVI";
+		//}
 
 		public RadnikUUpravi ToRadnikUUpravi() {
 
@@ -40,11 +39,11 @@
 				DatumPrijemaUSluzbu = this.DatumPrijemaUSluzbu,
 				DatumRodjenja = this.DatumRodjenja,
 				ImeRoditelja = this.ImeRoditelja,
-				Tip = this.VratiTip(),
+				Tip = this.Tip,
 
-				Stanica = this.RadiUStanici?.ToPolicijskaStanica(),
-				SefujeStanicom = this.SefujeStanicom?.ToPolicijskaStanica(),
-				ZamenikStanice = this.ZamenikStanice?.ToPolicijskaStanica(),
+				//Stanica = this.RadiUStanici?.ToPolicijskaStanica(),
+				//SefujeStanicom = this.SefujeStanicom?.ToPolicijskaStanica(),
+				//ZamenikStanice = this.ZamenikStanice?.ToPolicijskaStanica(),
 
 				Pozicija = this.Pozicija,
 			};
