@@ -11,25 +11,44 @@
 		#region Constructors
 
 		public PolicajacPozornikView() : base() {
+
+			Tip = TipPolicajca.Pozornik;
 			NazivUlice = string.Empty;
 		}
 
-		//public PolicajacPozornikView(int id, string ime, string ime_roditelja, string prezime, DateTime datum_rodjenja,
-		//	string jmbg, string adresa, DateTime datum_prijema_u_sluzbu, PolicijskaStanicaView stanica,
-		//	PolicijskaStanicaView sefuje, PolicijskaStanicaView zamenik, string tip, string naziv_ulice)
-		//	: base(id, ime, ime_roditelja, prezime, datum_rodjenja,
-		//	 jmbg, adresa, datum_prijema_u_sluzbu, stanica, sefuje, zamenik, tip) {
-		//	NazivUlice = naziv_ulice;
-		//}
-
 		public PolicajacPozornikView(PolicajacPozornik p) : base(p) {
 
+			Tip = TipPolicajca.Pozornik;
 			NazivUlice = p.NazivUlice;
 		}
 
 		#endregion
 
+		public override string VratiTip() {
+			return "PATROLNI POLICAJAC";
+		}
 
+		public PolicajacPozornik ToPolicajacPozornik() {
+
+			return new PolicajacPozornik() {
+				Id = this.Id,
+				Ime = this.Ime,
+				Prezime = this.Prezime,
+				JMBG = this.JMBG,
+				Adresa = this.Adresa,
+				DatumPrijemaUSluzbu = this.DatumPrijemaUSluzbu,
+				DatumRodjenja = this.DatumRodjenja,
+				ImeRoditelja = this.ImeRoditelja,
+				Tip = this.VratiTip(),
+
+				Stanica = this.RadiUStanici?.ToPolicijskaStanica(),
+				SefujeStanicom = this.SefujeStanicom?.ToPolicijskaStanica(),
+				ZamenikStanice = this.ZamenikStanice?.ToPolicijskaStanica(),
+
+				NazivUlice = this.NazivUlice,
+			};
+
+		}
 
 	}
 }

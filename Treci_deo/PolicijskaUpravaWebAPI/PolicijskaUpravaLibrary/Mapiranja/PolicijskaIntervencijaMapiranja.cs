@@ -13,10 +13,11 @@ namespace PolicijskaUpravaLibrary.Mapiranja
         {
             Table("POLICIJSKA_INTERVENCIJA");
             CompositeId(x => x.Id)
-            .KeyReference(x => x.Broj, "PATROLA_ID")
-            .KeyReference(x => x.ObjekatId, "OBJEKAT_ID");
+            .KeyReference(x => x.Patrola, "PATROLA_ID")
+            .KeyReference(x => x.Objekat, "OBJEKAT_ID")
+            .KeyProperty(x => x.DatumIVreme, "DATUM_I_VREME");
             Map(x => x.Opis).Column("OPIS");
-            Map(x => x.DatumIVreme).Column("DATUM_I_VREME");
+        
         }
     }
 }

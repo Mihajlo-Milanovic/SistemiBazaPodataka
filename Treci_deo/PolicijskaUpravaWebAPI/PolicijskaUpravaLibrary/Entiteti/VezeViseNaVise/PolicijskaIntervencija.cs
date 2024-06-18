@@ -9,19 +9,19 @@ namespace PolicijskaUpravaLibrary.Entiteti.VezeViseNaVise
     public class PolicijskaIntervencija
     {
         public virtual PolicijskaIntervencijaId Id { get; set; }
-        public virtual DateTime DatumIVreme { get; set; }
         public virtual string Opis { get; set; }
 
     }
     public class PolicijskaIntervencijaId
     {
-        public virtual Patrola Broj { get; set; }
-        public virtual Objekat ObjekatId { get; set; }
+        public virtual Patrola Patrola { get; set; }
+        public virtual Objekat Objekat { get; set; }
+		public virtual DateTime DatumIVreme { get; set; }
 
-        public PolicijskaIntervencijaId(Patrola broj, Objekat objid)
+		public PolicijskaIntervencijaId(Patrola broj, Objekat objid)
         {
-            Broj = broj;
-            ObjekatId = objid;
+            Patrola = broj;
+            Objekat = objid;
         }
 
         public PolicijskaIntervencijaId() { }
@@ -34,7 +34,7 @@ namespace PolicijskaUpravaLibrary.Entiteti.VezeViseNaVise
 
             PolicijskaIntervencijaId recievedObject = (PolicijskaIntervencijaId)obj;
 
-            if (ObjekatId == recievedObject.ObjekatId && Broj == recievedObject.Broj)
+            if (Objekat == recievedObject.Objekat && Patrola == recievedObject.Patrola)
                 return true;
             return false;
         }

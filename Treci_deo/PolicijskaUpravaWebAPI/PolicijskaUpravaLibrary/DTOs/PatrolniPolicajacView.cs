@@ -10,27 +10,22 @@
 		#region Constructors
 
 		public PatrolniPolicajacView() : base() {
+
+			Tip = TipPolicajca.Patrolni;
 			VrstaOruzja = string.Empty;
 		}
 
-		//public PatrolniPolicajacView(int id, string ime, string ime_roditelja, string prezime, DateTime datum_rodjenja,
-		//	string jmbg, string adresa, DateTime datum_prijema_u_sluzbu, PolicijskaStanicaView stanica,
-		//	PolicijskaStanicaView sefuje, PolicijskaStanicaView zamenik, string tip, string vrsta_oruzja, IList<Patrola> sefovi, IList<Patrola> pomocnici)
-		//	: base(id, ime, ime_roditelja, prezime, datum_rodjenja,
-		//	 jmbg, adresa, datum_prijema_u_sluzbu, stanica, sefuje,
-		//	 zamenik, tip) {
-		//	VrstaOruzja = VrstaOruzja;
-		//	//SefPatrole = sefovi;
-		//	//PomocnikPatrole = pomocnici;
-		//}
-
 		public PatrolniPolicajacView(PatrolniPolicajac p) : base(p) {
 
+			Tip = TipPolicajca.Patrolni;
 			VrstaOruzja = p.VrstaOruzja;
 		}
 
-
 		#endregion
+
+		public override string VratiTip() {
+			return "PATROLNI POLICAJAC";
+		}
 
 		public PatrolniPolicajac ToPatrolniPolicajac() {
 
@@ -43,11 +38,11 @@
 				DatumPrijemaUSluzbu = this.DatumPrijemaUSluzbu,
 				DatumRodjenja = this.DatumRodjenja,
 				ImeRoditelja = this.ImeRoditelja,
-				Tip = this.Tip,
+				Tip = this.VratiTip(),
 
-				Stanica = this.RadiUStanici != null ? this.RadiUStanici.ToPolicijskaStanica() : null,
-				SefujeStanicom = this.SefujeStanicom != null ? this.SefujeStanicom.ToPolicijskaStanica() : null,
-				ZamenikStanice = this.ZamenikStanice != null ? this.ZamenikStanice.ToPolicijskaStanica() : null,
+				Stanica = this.RadiUStanici?.ToPolicijskaStanica(),
+				SefujeStanicom = this.SefujeStanicom?.ToPolicijskaStanica(),
+				ZamenikStanice = this.ZamenikStanice?.ToPolicijskaStanica(),
 
 				VrstaOruzja = this.VrstaOruzja,
 			};

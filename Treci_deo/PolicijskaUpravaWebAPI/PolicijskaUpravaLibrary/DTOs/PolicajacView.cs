@@ -1,4 +1,6 @@
-﻿namespace PolicijskaUpravaLibrary.DTOs {
+﻿using PolicijskaUpravaLibrary.Entiteti;
+
+namespace PolicijskaUpravaLibrary.DTOs {
 	public class PolicajacView {
 
 		#region Properties
@@ -16,7 +18,7 @@
 		public virtual PolicijskaStanicaView? SefujeStanicom { get; set; } = null;
 		public virtual PolicijskaStanicaView? ZamenikStanice { get; set; } = null;
 
-		public virtual string? Tip { get; set; } = null;
+		public virtual TipPolicajca Tip { get; set; }
 
 		#endregion
 
@@ -41,7 +43,24 @@
 			JMBG = p.JMBG;
 			Adresa = p.Adresa;
 			DatumPrijemaUSluzbu = p.DatumPrijemaUSluzbu;
-			Tip = p.Tip;
+
+			switch (p.Tip) {
+				case "POLICAJAC ZA VANREDNE SITUACIJE":
+				this.Tip = TipPolicajca.ZaVanredneSituacije; 
+				break;
+				case "RADNIK U UPRAVI":
+				this.Tip = TipPolicajca.RadikUUpravi;
+				break;
+				case "SKOLSKI POLICAJAC":
+				this.Tip = TipPolicajca.Skolski;
+				break;
+				case "PATROLNI POLICAJAC":
+				this.Tip = TipPolicajca.Patrolni;
+				break;
+				default://case "POLICAJAC POZORNIK":
+				this.Tip = TipPolicajca.Pozornik;
+				break;
+			}
 
 			if (p.Stanica != null) {
 				RadiUStanici = new PolicijskaStanicaView(p.Stanica);
@@ -57,5 +76,52 @@
 		}
 
 		#endregion
+
+		internal Policajac ToPolicajac() {
+			
+			
+			return new Policajac() {
+
+				Id = this.Id,
+				Adresa = this.Adresa,
+				DatumPrijemaUSluzbu = this.DatumPrijemaUSluzbu,
+				DatumRodjenja = this.DatumRodjenja,
+				Ime = this.Ime,
+				Prezime = this.Prezime,
+				ImeRoditelja = this.ImeRoditelja,
+				JMBG = this.JMBG,
+				Tip = this.VratiTip(),
+
+				SefujeStanicom = this.SefujeStanicom?.ToPolicijskaStanica(),
+				Stanica = this.RadiUStanici?.ToPolicijskaStanica(),
+				ZamenikStanice = this.ZamenikStanice?.ToPolicijskaStanica()
+			};
+		}
+
+		public virtual string VratiTip() {
+
+			switch (this.Tip) {
+				case TipPolicajca.Patrolni:
+				return "PATROLNI POLICAJAC";
+				case TipPolicajca.ZaVanredneSituacije:
+				return "POLICAJAC ZA VANREDNE SITUACIJE";
+				case TipPolicajca.Skolski:
+				return "SKOLSKI POLICAJAC";
+				case TipPolicajca.RadikUUpravi:
+				return "RADNIK U UPRAVI";
+				default://case TipPolicajca.Pozornik:
+				return "POLICAJAC POZORNIK";
+			}
+		}
+	}
+
+	public enum TipPolicajca { 
+	
+		Patrolni, 
+		Pozornik,
+		RadikUUpravi,
+		Skolski,
+		ZaVanredneSituacije,
+		
 	}
 }

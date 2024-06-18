@@ -15,26 +15,16 @@
 		#region Constructors
 
 		public PZaVanredneSituacijeView() : base() {
+
+			Tip = TipPolicajca.ZaVanredneSituacije;
 			Kurs = string.Empty;
 			Vestina = string.Empty;
 			Sertifikat = string.Empty;
 		}
-		//public PZaVanredneSituacijeView(int id, string ime, string ime_roditelja, string prezime, DateTime datum_rodjenja,
-		//	string jmbg, string adresa, DateTime datum_prijema_u_sluzbu, PolicijskaStanicaView stanica, PolicijskaStanicaView sefuje,
-		//	PolicijskaStanicaView zamenik, string tip, string kurs, string vestina, DateTime datum_zavrsetka_kursa, string sertifikat,
-		//	DateTime datum_sticanja_sertifikata)
-
-		//	: base(id, ime, ime_roditelja, prezime, datum_rodjenja,
-		//	 jmbg, adresa, datum_prijema_u_sluzbu, stanica, sefuje, zamenik, tip) {
-		//	Kurs = kurs;
-		//	Vestina = vestina;
-		//	DatumZavrsetkaKursa = datum_zavrsetka_kursa;
-		//	Sertifikat = sertifikat;
-		//	DatumSticanjaSertifikata = datum_sticanja_sertifikata;
-		//}
-
+		
 		public PZaVanredneSituacijeView(PZaVanredneSituacije p) : base(p) {
 
+			Tip = TipPolicajca.ZaVanredneSituacije;
 			Kurs = p.Kurs;
 			Vestina = p.Vestina;
 			DatumZavrsetkaKursa = p.DatumZavrsetkaKursa;
@@ -44,6 +34,34 @@
 
 		#endregion
 
+		public override string VratiTip() {
+			return "POLICAJAC ZA VANREDNE SITUACIJE";
+		}
 
+		public PZaVanredneSituacije ToPZaVanredneSituacije() {
+
+			return new PZaVanredneSituacije() {
+				Id = this.Id,
+				Ime = this.Ime,
+				Prezime = this.Prezime,
+				JMBG = this.JMBG,
+				Adresa = this.Adresa,
+				DatumPrijemaUSluzbu = this.DatumPrijemaUSluzbu,
+				DatumRodjenja = this.DatumRodjenja,
+				ImeRoditelja = this.ImeRoditelja,
+				Tip = this.VratiTip(),
+
+				Stanica = this.RadiUStanici?.ToPolicijskaStanica(),
+				SefujeStanicom = this.SefujeStanicom?.ToPolicijskaStanica(),
+				ZamenikStanice = this.ZamenikStanice?.ToPolicijskaStanica(),
+
+				DatumSticanjaSertifikata = this.DatumSticanjaSertifikata,
+				DatumZavrsetkaKursa = this.DatumZavrsetkaKursa,
+				Kurs = this.Kurs,
+				Sertifikat = this.Sertifikat,
+				Vestina = this.Vestina,
+			};
+
+		}
 	}
 }

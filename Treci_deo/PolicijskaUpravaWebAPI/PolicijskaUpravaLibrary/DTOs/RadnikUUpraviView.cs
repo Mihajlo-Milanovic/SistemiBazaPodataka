@@ -5,31 +5,50 @@
 		#region Properties
 
 		public virtual string Pozicija { get; set; }
+		public new TipPolicajca Tip = TipPolicajca.RadikUUpravi;
 
 		#endregion
 
 		#region Constructors
 
 		public RadnikUUpraviView() : base() {
+
+			Tip = TipPolicajca.RadikUUpravi;
 			Pozicija = string.Empty;
 		}
 
-		//public RadnikUUpraviView(int id, string ime, string ime_roditelja, string prezime, DateTime datum_rodjenja,
-		//	string jmbg, string adresa, DateTime datum_prijema_u_sluzbu, PolicijskaStanicaView stanica,
-		//	PolicijskaStanicaView sefuje, PolicijskaStanicaView zamenik, string tip, string pozicija)
-		//	: base(id, ime, ime_roditelja, prezime, datum_rodjenja,
-		//	 jmbg, adresa, datum_prijema_u_sluzbu, stanica,
-		//	 sefuje, zamenik, tip) {
-		//	Pozicija = pozicija;
-		//}
-
 		public RadnikUUpraviView(RadnikUUpravi r) : base(r) {
 
+			Tip = TipPolicajca.RadikUUpravi;
 			Pozicija = r.Pozicija;
 		}
 
 		#endregion
 
+		public override string VratiTip() {
+			return "RADNIK U UPRAVI";
+		}
 
+		public RadnikUUpravi ToRadnikUUpravi() {
+
+			return new RadnikUUpravi() {
+				Id = this.Id,
+				Ime = this.Ime,
+				Prezime = this.Prezime,
+				JMBG = this.JMBG,
+				Adresa = this.Adresa,
+				DatumPrijemaUSluzbu = this.DatumPrijemaUSluzbu,
+				DatumRodjenja = this.DatumRodjenja,
+				ImeRoditelja = this.ImeRoditelja,
+				Tip = this.VratiTip(),
+
+				Stanica = this.RadiUStanici?.ToPolicijskaStanica(),
+				SefujeStanicom = this.SefujeStanicom?.ToPolicijskaStanica(),
+				ZamenikStanice = this.ZamenikStanice?.ToPolicijskaStanica(),
+
+				Pozicija = this.Pozicija,
+			};
+
+		}
 	}
 }
