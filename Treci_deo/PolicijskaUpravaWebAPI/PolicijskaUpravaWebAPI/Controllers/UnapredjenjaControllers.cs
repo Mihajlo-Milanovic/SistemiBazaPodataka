@@ -81,7 +81,6 @@ public class UnapredjenjeControllers : ControllerBase
         return Ok(unapredjenje);
     }
 
-
     [HttpDelete]
     [Route("IzbrisiUnapredjenje/{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
