@@ -48,21 +48,15 @@ public static class DataProvider {
 				return "Nemoguće otvoriti sesiju.".ToError(403);
 			}
 
-			Vozilo v = new() {
-
-				RegOznaka = vozilo.RegOznaka,
-				Model = vozilo.Model,
-				Boja = vozilo.Boja,
-				Proizvodjac = vozilo.Proizvodjac,
-				Tip = vozilo.Tip
-			};
-
+			Vozilo v = vozilo.ToVozilo();
+				
+			
 			await s.SaveAsync(v);
 			await s.FlushAsync();
 
 			id = v.Id;
 		}
-		catch (Exception) {
+		catch (Exception ex) {
 			return "Nemoguće sačuvati vozilo.".ToError(400);
 		}
 		finally {
