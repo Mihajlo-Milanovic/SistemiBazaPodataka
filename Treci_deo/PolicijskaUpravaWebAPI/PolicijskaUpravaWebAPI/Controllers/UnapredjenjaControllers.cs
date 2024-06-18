@@ -52,7 +52,7 @@ public class UnapredjenjeControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> GetUnapredjnje(int idPolicajca, DateTime datumSticanja)
+    public async Task<IActionResult> GetUnapredjnje(int idPolicajca,[FromBody] DateTime datumSticanja)
     {
         (bool isError, var unapredjenje, var error) = await DataProvider.VratiUnapredjenjeAsync(idPolicajca, datumSticanja);
 

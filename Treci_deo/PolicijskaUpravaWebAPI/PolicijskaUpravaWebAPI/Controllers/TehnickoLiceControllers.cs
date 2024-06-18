@@ -45,6 +45,23 @@ public class TehnickoLiceControllers : ControllerBase
         return Ok(tehnickoLice.Data);
     }
 
+    [HttpGet]
+    [Route("PreuzmiTehnickoLice/{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<IActionResult> GetTehnickoLice(int id)
+    {
+        var tehnickoLice = await DataProvider.VratiTehnickoLiceAsync(id);
+
+        if (tehnickoLice.IsError)
+        {
+            return StatusCode(tehnickoLice.Error.StatusCode, tehnickoLice.Error.Message);
+        }
+
+        return Ok(tehnickoLice.Data);
+    }
+
     [HttpPut]
     [Route("PromeniTehnickoLice")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -61,7 +78,6 @@ public class TehnickoLiceControllers : ControllerBase
 
         return Ok(tlv);
     }
-
 
     [HttpDelete]
     [Route("IzbrisiTehnickoLice/{id}")] 
