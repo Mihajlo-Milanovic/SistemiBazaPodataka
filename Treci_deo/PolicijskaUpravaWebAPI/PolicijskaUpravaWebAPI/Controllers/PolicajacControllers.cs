@@ -13,11 +13,11 @@ namespace PolicijskaUpravaLibrary;
 public class PolicajacControllers : ControllerBase
 {
     [HttpPost]
-    [Route("DodajPolicajca")]
+    [Route("DodajPatrlonogPolicajca")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> AddPolicajac([FromBody] PolicajacView pv)
+    public async Task<IActionResult> AddPatrolnogPolicajac([FromBody] PatrolniPolicajacView pv)
     {
         var data = await DataProvider.SacuvajPolicajcaAsync(pv);
 
@@ -26,7 +26,75 @@ public class PolicajacControllers : ControllerBase
             return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
-        return StatusCode(201, $"Uspešno dodaj policajac: {pv.Id}");
+        return StatusCode(201, $"Uspešno dodat patrolni policajac: {pv.Id}");
+    }
+
+    [HttpPost]
+    [Route("DodajPolicajcaZaVanredneSituacije")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<IActionResult> AddPolicajcaZaVanrednePolicajce([FromBody] PZaVanredneSituacijeView pv)
+    {
+        var data = await DataProvider.SacuvajPolicajcaAsync(pv);
+
+        if (data.IsError)
+        {
+            return StatusCode(data.Error.StatusCode, data.Error.Message);
+        }
+
+        return StatusCode(201, $"Uspešno dodat policajac za vanredne policajce: {pv.Id}");
+    }
+
+    [HttpPost]
+    [Route("DodajSkolskogPolicajca")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<IActionResult> AddSkolskiPolicajac([FromBody] SkolskiPolicajacView pv)
+    {
+        var data = await DataProvider.SacuvajPolicajcaAsync(pv);
+
+        if (data.IsError)
+        {
+            return StatusCode(data.Error.StatusCode, data.Error.Message);
+        }
+
+        return StatusCode(201, $"Uspešno dodat skolski policajac: {pv.Id}");
+    }
+
+    [HttpPost]
+    [Route("DodajRanikUUpravi")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<IActionResult> AddRadnikaUUpravi([FromBody] RadnikUUpraviView pv)
+    {
+        var data = await DataProvider.SacuvajPolicajcaAsync(pv);
+
+        if (data.IsError)
+        {
+            return StatusCode(data.Error.StatusCode, data.Error.Message);
+        }
+
+        return StatusCode(201, $"Uspešno dodat radnik u upravi: {pv.Id}");
+    }
+
+    [HttpPost]
+    [Route("DodajPolicajcaPozornika")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<IActionResult> AddPolicajacPozornik([FromBody] PolicajacPozornikView pv)
+    {
+        var data = await DataProvider.SacuvajPolicajcaAsync(pv);
+
+        if (data.IsError)
+        {
+            return StatusCode(data.Error.StatusCode, data.Error.Message);
+        }
+
+        return StatusCode(201, $"Uspešno dodat policajac pozornik: {pv.Id}");
     }
 
     [HttpGet]
@@ -80,18 +148,87 @@ public class PolicajacControllers : ControllerBase
         return Ok(policajci.Data);
     }
 
-    [HttpPut]
-    [Route("PromeniPolicajca")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+
+    [HttpPost]
+    [Route("IzmeniPatrlonogPolicajca")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> ChangePolicajac([FromBody] PolicajacView pv)
+    public async Task<IActionResult> ChangePatrolnogPolicajac([FromBody] PatrolniPolicajacView pv)
     {
-        (bool isError, var policajac, var error) = await DataProvider.IzmeniPolicajcaAsync(pv);
+        var data = await DataProvider.IzmeniPolicajcaAsync(pv);
 
-        if (isError)
+        if (data.IsError)
         {
-            return StatusCode(error?.StatusCode ?? 400, error?.Message);
+            return StatusCode(data.Error.StatusCode, data.Error.Message);
+        }
+
+        return Ok(pv);
+    }
+
+    [HttpPost]
+    [Route("IzmeniPolicajcaZaVanredneSituacije")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<IActionResult> ChangePZaVanredneSituacije([FromBody] PZaVanredneSituacijeView pv)
+    {
+        var data = await DataProvider.IzmeniPolicajcaAsync(pv);
+
+        if (data.IsError)
+        {
+            return StatusCode(data.Error.StatusCode, data.Error.Message);
+        }
+
+        return Ok(pv);
+    }
+
+    [HttpPost]
+    [Route("IzmeniSkolskogPolicajca")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<IActionResult> ChangeSkolkiPolicajac([FromBody] SkolskiPolicajacView pv)
+    {
+        var data = await DataProvider.IzmeniPolicajcaAsync(pv);
+
+        if (data.IsError)
+        {
+            return StatusCode(data.Error.StatusCode, data.Error.Message);
+        }
+
+        return Ok(pv);
+    }
+
+    [HttpPost]
+    [Route("IzmeniRadnikUUpravi")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<IActionResult> ChangeRadnikUUpravi([FromBody] RadnikUUpraviView pv)
+    {
+        var data = await DataProvider.IzmeniPolicajcaAsync(pv);
+
+        if (data.IsError)
+        {
+            return StatusCode(data.Error.StatusCode, data.Error.Message);
+        }
+
+        return Ok(pv);
+    }
+
+    [HttpPost]
+    [Route("IzmeniPolicajcaPozornika")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<IActionResult> ChangePolicajcaPozornika([FromBody] PolicajacPozornikView pv)
+    {
+        var data = await DataProvider.IzmeniPolicajcaAsync(pv);
+
+        if (data.IsError)
+        {
+            return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
         return Ok(pv);
@@ -115,4 +252,3 @@ public class PolicajacControllers : ControllerBase
         return StatusCode(204, $"Uspešno obrisan policajac: {data.Data}.");
     }
 }
-
