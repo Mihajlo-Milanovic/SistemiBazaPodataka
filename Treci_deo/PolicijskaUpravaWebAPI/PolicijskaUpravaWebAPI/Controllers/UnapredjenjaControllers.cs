@@ -17,16 +17,16 @@ public class UnapredjenjeControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> AddUnapredjenjeZaPolicajca([FromBody] UnapredjenjeView uv,int idPolicajca)
+    public async Task<IActionResult> AddUnapredjenjeZaPolicajca([FromBody] UnapredjenjeView uv,int id)
     {
-        var data = await DataProvider.SacuvajUnapredjenjeZaPolicajcaAsync(uv,idPolicajca);
+        var data = await DataProvider.SacuvajUnapredjenjeZaPolicajcaAsync(uv,id);
 
         if (data.IsError)
         {
             return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
-        return StatusCode(204, $"Uspešno dodato unapredjenje: {data.Data} za policajca: {idPolicajca}.");
+        return Ok($"Uspešno dodato unapredjenje: {data.Data} za policajca: {id}.");
     }
 
     [HttpGet] // PROVERITI!!!!
@@ -34,9 +34,9 @@ public class UnapredjenjeControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> GetUnapredjenja(int idPolicajca)
+    public async Task<IActionResult> GetUnapredjenja(int id)
     {
-        (bool isError, var unapredjenja, var error) = await DataProvider.VratiUnapredjenjaZaPolicajcaAsync(idPolicajca);
+        (bool isError, var unapredjenja, var error) = await DataProvider.VratiUnapredjenjaZaPolicajcaAsync(id);
 
         if (isError)
         {
@@ -69,9 +69,9 @@ public class UnapredjenjeControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> GetUnapredjnje(int idPolicajca,[FromBody] UnapredjenjeView uv)
+    public async Task<IActionResult> GetUnapredjnje(int id,[FromBody] UnapredjenjeView uv)
     {
-        (bool isError, var unapredjenje, var error) = await DataProvider.IzmeniUnapredjenjeZaPolicajcaAsync(uv, idPolicajca);
+        (bool isError, var unapredjenje, var error) = await DataProvider.IzmeniUnapredjenjeZaPolicajcaAsync(uv, id);
 
         if (isError)
         {
@@ -81,15 +81,14 @@ public class UnapredjenjeControllers : ControllerBase
         return Ok(unapredjenje);
     }
 
-
     [HttpDelete]
     [Route("IzbrisiUnapredjenje/{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> DeleteUnapredjenje(int idPolicajca, [FromBody] UnapredjenjeView uv)
+    public async Task<IActionResult> DeleteUnapredjenje(int id, [FromBody] UnapredjenjeView uv)
     {
-        var data = await DataProvider.ObrisiUnapredjenjeZaPolicajcaAsync(uv, idPolicajca);
+        var data = await DataProvider.ObrisiUnapredjenjeZaPolicajcaAsync(uv, id);
 
         if (data.IsError)
         {

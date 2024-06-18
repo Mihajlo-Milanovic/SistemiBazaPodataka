@@ -23,7 +23,7 @@ public class ObjekatControllers : ControllerBase
             return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
-        return StatusCode(201, $"Uspešno dodato objekat");
+        return StatusCode(201, $"Uspešno dodato objekat sa idjem: {data.Data}");
     }
 
     [HttpGet]
@@ -44,7 +44,7 @@ public class ObjekatControllers : ControllerBase
     }
 
     [HttpGet]
-    [Route("VratiObjekat /{id}")]
+    [Route("VratiObjekat/{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -80,13 +80,13 @@ public class ObjekatControllers : ControllerBase
 
 
     [HttpDelete]
-    [Route("ObrisiObrazovanjeZaPolicajca/{id}")]  // PROVERITI!!!
+    [Route("ObrisiObjekat/{id}")]  
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> ObrisiObrazovanjeZaPolicajca([FromBody] ObrazovanjeView ov, int id)
+    public async Task<IActionResult> ObrisiObjekat(int id)
     {
-        var data = await DataProvider.ObrisiObrazovanjeZaPolicajcaAsync(ov, id);
+        var data = await DataProvider.ObrisiObjekatAsync(id);
 
         if (data.IsError)
         {
