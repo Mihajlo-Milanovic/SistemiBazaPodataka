@@ -35,10 +35,6 @@ Content-Type: application/json
 
 ###
 
-<<<<<<< HEAD
-
-
-=======
 POST {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/DodajStanicu
 Content-Type: application/json
 
