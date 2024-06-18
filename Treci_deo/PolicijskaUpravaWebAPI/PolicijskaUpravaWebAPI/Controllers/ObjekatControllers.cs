@@ -3,97 +3,98 @@ using PolicijskaUpravaLibrary;
 //using WebAPI.Code;
 using PolicijskaUpravaLibrary.DTOs;
 
-
-namespace PolicijskaUpravaLibrary;
-
+namespace WebAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class TehnickoLiceControllers : ControllerBase
+public class ObjekatControllers : ControllerBase
 {
     [HttpPost]
-    [Route("DodajTehnickoLice")]
+    [Route("DodajObjekat")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> AddTehnickoLice([FromBody] TehnickoLiceView tlv)
+    public async Task<IActionResult> SacuvajObjekat([FromBody] ObjekatView ov)
     {
-        var data = await DataProvider.SacuvajTehnickoLiceAsync(tlv);
+        var data = await DataProvider.SacuvajObjekatAsync(ov);
 
         if (data.IsError)
         {
             return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
-        return StatusCode(201, $"Uspešno dodato tehnicko lice: {tlv.Id}");
+        return StatusCode(201, $"Uspešno dodato objekat");
     }
 
     [HttpGet]
-    [Route("PreuzmiSvaTehnickaLica")]
+    [Route("VratiSveObjekte")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> GetTehnickaLica()
+    public async Task<IActionResult> VratiSveObjekte()
     {
-        var tehnickoLice= await DataProvider.VratiSvaTehnickaLicaAsync();
+        var data = await DataProvider.VratiSveObjekteAsync();
 
-        if (tehnickoLice.IsError)
+        if (data.IsError)
         {
-            return StatusCode(tehnickoLice.Error.StatusCode, tehnickoLice.Error.Message);
+            return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
-        return Ok(tehnickoLice.Data);
+        return Ok(data.Data);
     }
 
     [HttpGet]
-    [Route("PreuzmiTehnickoLice/{id}")]
+    [Route("VratiObjekat /{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> GetTehnickoLice(int id)
+    public async Task<IActionResult> VratiObjekat(int id)
     {
-        var tehnickoLice = await DataProvider.VratiTehnickoLiceAsync(id);
+        var data = await DataProvider.VratiObjekatAsync(id);
 
-        if (tehnickoLice.IsError)
+        if (data.IsError)
         {
-            return StatusCode(tehnickoLice.Error.StatusCode, tehnickoLice.Error.Message);
+            return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
-        return Ok(tehnickoLice.Data);
+        return Ok(data.Data);
     }
+
 
     [HttpPut]
-    [Route("PromeniTehnickoLice")]
+    [Route("PromeniObjekat")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> ChangeTehnickoLice([FromBody] TehnickoLiceView tlv)
+    public async Task<IActionResult> PromeniObjekat([FromBody] ObjekatView v)
     {
-        (bool isError, var tehnickoLice, var error) = await DataProvider.IzmeniTehnickoLiceAsync(tlv);
+        (bool isError, var objekat, var error) = await DataProvider.IzmeniObjekatAsync(v);
 
         if (isError)
         {
             return StatusCode(error?.StatusCode ?? 400, error?.Message);
         }
 
-        return Ok(tlv);
+        return Ok(objekat);
     }
 
+
     [HttpDelete]
-    [Route("IzbrisiTehnickoLice/{id}")] 
+    [Route("ObrisiObrazovanjeZaPolicajca/{id}")]  // PROVERITI!!!
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> DeleteTehnickoLice(int id)
+    public async Task<IActionResult> ObrisiObrazovanjeZaPolicajca([FromBody] ObrazovanjeView ov, int id)
     {
-        var data = await DataProvider.ObrisiTehnickoLiceAsync(id);
+        var data = await DataProvider.ObrisiObrazovanjeZaPolicajcaAsync(ov, id);
 
         if (data.IsError)
         {
             return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
-        return StatusCode(204, $"Uspešno obrisano tehnicko lice: {data.Data}.");
+        return StatusCode(204, $"Uspešno obrisano objekat: {data.Data}.");
     }
+
 }
 

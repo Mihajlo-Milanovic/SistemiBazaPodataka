@@ -5,7 +5,7 @@
         public VoziloMapiranja() {
             Table("VOZILO");
 
-            Id(x => x.Id, "ID");
+            Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();
 
             Map(x => x.RegOznaka, "REG_OZNAKA");
             Map(x => x.Boja, "BOJA");

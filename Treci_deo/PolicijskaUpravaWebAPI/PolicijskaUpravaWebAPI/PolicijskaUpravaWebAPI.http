@@ -1,5 +1,10 @@
 @PolicijskaUpravaWebAPI_HostAddress = http://localhost:5282
 
+@PolicajacId = 24
+@ObjekatId = 7
+@StanicaId = 10
+@DeleteStanicaId = 15
+
 
 GET {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/PreuzmiSvaVozila
 
@@ -13,8 +18,62 @@ Content-Type: application/json
 		"Boja" : "crvena",
 		"Model" : "Punto",
 		"Proizvodjac" : "Fiat",
-		"RegOznaka" : "156",
+		"RegOznaka" : "157",
 		"Tip" : "hacback"
 }
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/DodajStanicu
+Content-Type: application/json
+
+{
+  "id": 0,
+  "naziv": "Stanica 1",
+  "opstina": "Nis",
+  "adresa": "Branka Copica 22",
+  "datumOsnivanja": "2024-06-18T16:25:11.509Z",
+  "brojVozila": 10
+}
+
+###
+
+Get {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/VratiSveStanice
+
+###
+
+Get {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/VratiPolicijskuStanicu/{{StanicaId}}
+
+###
+
+Get {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/VratiObjekteZaPolicijskuStanicu/{{StanicaId}}
+
+###
+
+Get {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/ProveriDaLiStanicaImaSefa/{{StanicaId}}
+
+###
+  
+Get {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/VratiPolicajceZaStanicu/{{StanicaId}}
+
+
+###
+
+PUT {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/PromeniStanicu
+Content-Type: application/json
+
+{
+  "id": {{StanicaId}},
+  "naziv": "Stanica izmenjena",
+  "opstina": "Nis",
+  "adresa": "string",
+  "datumOsnivanja": "2024-06-18T17:00:41.102Z",
+  "brojVozila": 30
+}
+
+
+###
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/ObrisiPolicijskuStanicu/{{DeleteStanicaId}}
 
 ###
