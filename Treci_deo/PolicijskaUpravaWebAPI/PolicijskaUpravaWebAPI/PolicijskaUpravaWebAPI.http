@@ -16,8 +16,8 @@
 @PomocnikId = 13
 @DeletePatrolaId = 12
 
-@VratiVoziloId = 1
-@TehnickoLiceId = 7
+@VratiVoziloId = 2
+@TehnickoLiceId = 8
 
 
 GET {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/PreuzmiSvaVozila
@@ -56,20 +56,19 @@ Content-Type: application/json
 
 ###
 
-### NECE DA RADI KAZE REG_OZNAKA INVALID IDENTIFAIER
 DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/IzbrisiVozilo/{{VratiVoziloId}}
 
 
-### Ovo nmg jer mi ne radi swegger
+###
 
-# PUT {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/DodajTehnickoLice
-# Content-Type: application/json
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/DodajTehnickoLice
+Content-Type: application/json
 
-# {
-#     "Id": {{TehnickoLiceId}},
-#     "Ime": "Marko",
-#     "Preziime": "Jankovic"
-# }
+{
+  "id": {{TehnicarId}},
+  "ime": "marko",
+  "prezime": "markovic"
+}
 
 ###
 
@@ -83,14 +82,14 @@ GET {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/PreuzmiTehnic
 
 ###
 
-# POST {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/PromeniTehnickoLice
-# Content-Type: application/json
+PUT {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/PromeniTehnickoLice
+Content-Type: application/json
 
-# {
-#     "Id": {{TehnickoLiceId}},
-#     "Ime": "Janko",
-#     "Preziime": "Markovic"
-# }
+{
+  "id": {{TehnickoLiceId}},
+  "ime": "milan",
+  "prezime": "milanovic"
+}
 
 ###
 
@@ -104,44 +103,41 @@ DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/TehnickoLiceControllers/IzbrisiTeh
 
 ###
 
-# PUT {{PolicijskaUpravaWebAPI_HostAddress}}/UnapredjenjeControllers/DodajUnapredjenjeZaPolicajca/{{PolicajacId}}
-# Content-Type: application/json
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/UnapredjenjeControllers/DodajUnapredjenjeZaPolicajca/{{PolicajacId}}
+Content-Type: application/json
 
-# {
-#     "Cin" : "Neki cin",
-#     "DatumSticanja" : ""
-# }
+{
+  "cin": "najjaci",
+  "datumSticanja": "2024-06-18T20:44:25.570Z"
+}
 
 ###
 
-### UVEK VRACA PRAZAN NIZ
+###
 GET {{PolicijskaUpravaWebAPI_HostAddress}}/UnapredjenjeControllers/PreuzmiSvaUnapredjenja/{{PolicajacId}}
 
 
 ###
 
-### NORMALNO DA NECE JER MI NE RADI
-# PUT {{PolicijskaUpravaWebAPI_HostAddress}}/UnapredjenjeControllers/IzmeniUnapredenjeZaPolicajca/{{PolicajacId}}
-# Content-Type: application/json
+PUT {{PolicijskaUpravaWebAPI_HostAddress}}/UnapredjenjeControllers/IzmeniUnapredenjeZaPolicajca/{{PolicajacId}}
+Content-Type: application/json
 
-# {
-#      "Id" : 
-#      "Cin" : "Neki cin",
-#      "DatumSticanja" : ""
-# }
+{
+    "cin": "Viši inspektor 2",
+    "datumSticanja": "2022-03-01T00:00:00"
+  }
 
 
-####
+###
 
 
-# DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/UnapredjenjeControllers/IzbrisiUnapredjenje/{{TehnickoLiceId}}
-# Content-Type: application/json
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/UnapredjenjeControllers/IzbrisiUnapredjenje/{{PolicajacId}}
+Content-Type: application/json
 
-# {
-#      "Id" : 
-#      "Cin" : "Neki cin",
-#      "DatumSticanja" : ""
-# }
+{
+    "cin": "string",
+    "datumSticanja": "2024-06-18T20:47:35"
+}
 
 ###
 
@@ -318,7 +314,7 @@ Content-Type: application/json
 
 GET {{PolicijskaUpravaWebAPI_HostAddress}}/ObrazovanjeControllers/PreuzmiSvaObrazovanjaZaPolicajca/{{PolicajacId}}
 
-### Baca gresku, proveriti !!!
+###
 
 DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/ObrazovanjeControllers/ObrisiObrazovanjeZaPolicajca/{{PolicajacId}}
 Content-Type: application/json
