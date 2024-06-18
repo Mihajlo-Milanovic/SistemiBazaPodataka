@@ -80,7 +80,7 @@ public class PolicijskaStanicaControllers : ControllerBase
 
 
     [HttpDelete]
-    [Route("ObrisiPolicijskuStanicu/{id}")]  // PROVERITI!!!
+    [Route("ObrisiPolicijskuStanicu/{id}")]  
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]

@@ -4,6 +4,7 @@
 @ObjekatId = 7
 @StanicaId = 10
 @DeleteStanicaId = 15
+@DeleteObjekatId = 10
 
 
 GET {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/PreuzmiSvaVozila
@@ -75,5 +76,117 @@ Content-Type: application/json
 ###
 
 DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/ObrisiPolicijskuStanicu/{{DeleteStanicaId}}
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/ObjekatControllers/DodajObjekat
+Content-Type: application/json
+
+{
+  "id": 0,
+  "tip": "string",
+  "adresa": "string",
+  "povrsina": 0,
+  "kontaktIme": "string",
+  "kontaktPrezime": "string",
+  "policijskaStanica": {
+    "id": 10,
+    "naziv": "string",
+    "opstina": "string",
+    "adresa": "string",
+    "datumOsnivanja": "2024-06-18T18:14:33.158Z",
+    "brojVozila": 0
+  }
+}
+
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/ObjekatControllers/VratiSveObjekte
+
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/ObjekatControllers/VratiObjekat/{{ObjekatId}}
+
+
+###
+
+PUT {{PolicijskaUpravaWebAPI_HostAddress}}/ObjekatControllers/PromeniObjekat
+Content-Type: application/json
+
+{
+  "id": 10, 
+  "tip": "string",
+  "adresa": "string",
+  "povrsina": 0,
+  "kontaktIme": "string",
+  "kontaktPrezime": "string",
+  "policijskaStanica": {
+    "id": 10,
+    "naziv": "string",
+    "opstina": "string",
+    "adresa": "string",
+    "datumOsnivanja": "2024-06-18T18:14:33.158Z",
+    "brojVozila": 0
+  }
+}
+
+
+###Upisati rucno kada se doda novi objekat u DeleteObjekatId
+###
+
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/ObjekatControllers/ObrisiObjekat/{{DeleteObjekatId}}
+
+###
+  
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/BrojTelefonaControllers/SacuvajBrojTelefonaZaObjekat/{{ObjekatId}}
+Content-Type: application/json
+
+{
+  "broj": "123456789"
+}
+
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/BrojTelefonaControllers/VratiSveTelefoneZaObjekat/{{ObjekatId}}
+
+###
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/BrojTelefonaControllers/ObrisiBrojTelefonaZaObjekat/{{ObjekatId}}
+Content-Type: application/json
+
+{
+  "broj": "123456789"
+}
+
+###
+
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/ObrazovanjeControllers/DodajObrazovanje/{{PolicajacId}}
+Content-Type: application/json
+
+{
+  "skola": "Policijska akademija",
+  "datumDipolomirnja": "2024-06-18T18:47:21.751Z"
+}
+
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/ObrazovanjeControllers/PreuzmiSvaObrazovanjaZaPolicajca/{{PolicajacId}}
+
+### Baca gresku, proveriti !!!
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/ObrazovanjeControllers/ObrisiObrazovanjeZaPolicajca/{{PolicajacId}}
+Content-Type: application/json
+
+{
+  "skola": "Policijska akademija",
+  "datumDipolomirnja": "2024-06-18T18:47:21.751Z"
+}
+
 
 ###
