@@ -23,7 +23,7 @@ public class PolicijskaStanicaControllers : ControllerBase
             return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
-        return StatusCode(201, $"Uspešno dodata stanica");
+        return StatusCode(201, $"Uspešno dodata stanica sa idjem: {data.Data}");
     }
 
     [HttpGet]
@@ -48,7 +48,7 @@ public class PolicijskaStanicaControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> VratiObjekat(int id)
+    public async Task<IActionResult> VratiPolicijskuStanicu(int id)
     {
         var data = await DataProvider.VratiPolicijskuStanicuAsync(id);
 
@@ -80,11 +80,11 @@ public class PolicijskaStanicaControllers : ControllerBase
 
 
     [HttpDelete]
-    [Route("ObrisiPoliciskuStanicu")]  // PROVERITI!!!
+    [Route("ObrisiPolicijskuStanicu/{id}")]  // PROVERITI!!!
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> ObrisiPoliciskuStanicu(int id)
+    public async Task<IActionResult> ObrisiPolicijskuStanicu(int id)
     {
         var data = await DataProvider.ObrisiPolicijskuStanicuAsync(id);
 
@@ -101,7 +101,7 @@ public class PolicijskaStanicaControllers : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> VratiObjekteZaPolicijskuStanicuAsync(int id)
+    public async Task<IActionResult> VratiObjekteZaPolicijskuStanicu(int id)
     {
         var data = await DataProvider.VratiObjekteZaPolicijskuStanicuAsync(id);
 
