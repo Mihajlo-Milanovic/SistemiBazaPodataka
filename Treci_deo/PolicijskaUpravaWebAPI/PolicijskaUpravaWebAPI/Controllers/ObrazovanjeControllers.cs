@@ -44,7 +44,7 @@ public class ObrazovanjeControllers : ControllerBase
     }
 
     [HttpDelete]
-    [Route("ObrisiObrazovanjeZaPolicajca/{id}")]  // PROVERITI!!!
+    [Route("ObrisiObrazovanjeZaPolicajca/{id}")]  
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]

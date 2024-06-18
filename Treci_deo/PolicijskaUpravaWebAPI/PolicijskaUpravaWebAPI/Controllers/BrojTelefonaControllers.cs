@@ -23,7 +23,7 @@ public class BrojTelefonaControllers : ControllerBase
             return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
-        return StatusCode(201, $"Uspešno dodat broj telefona za objekat : {id}");
+        return StatusCode(201, $"Uspešno dodat broj telefona za objekat sa idjem: {id}");
     }
 
     [HttpGet]
@@ -44,11 +44,11 @@ public class BrojTelefonaControllers : ControllerBase
     }
 
     [HttpDelete]
-    [Route("ObrisiObrazovanjeZaPolicajca/{id}")]  // PROVERITI!!!
+    [Route("ObrisiBrojTelefonaZaObjekat/{id}")]  
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> ObrisiObrazovanjeZaPolicajca([FromBody] BrojTelefonaView ov, int id)
+    public async Task<IActionResult> ObrisiBrojTelefonaZaObjekat([FromBody] BrojTelefonaView ov, int id)
     {
         var data = await DataProvider.ObrisiBrojTelefonaZaObjekatAsync(ov, id);
 

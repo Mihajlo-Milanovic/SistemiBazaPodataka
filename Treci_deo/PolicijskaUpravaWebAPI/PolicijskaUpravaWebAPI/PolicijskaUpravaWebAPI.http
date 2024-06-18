@@ -1,5 +1,21 @@
 @PolicijskaUpravaWebAPI_HostAddress = http://localhost:5282
 
+@PolicajacId = 24
+@ObjekatId = 11
+@StanicaId = 10
+
+@DeleteStanicaId = 15
+@DeleteObjekatId = 7
+
+@TehnicarId = 5
+@AlarmniSistemId = 3
+@DeleteOdrzavanjeId = 1
+@PatrolaId = 12
+@VoziloId =11
+@SefId = 12
+@PomocnikId = 13
+@DeletePatrolaId = 12
+
 
 GET {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/PreuzmiSvaVozila
 
@@ -13,11 +29,238 @@ Content-Type: application/json
 		"Boja" : "crvena",
 		"Model" : "Punto",
 		"Proizvodjac" : "Fiat",
-		"RegOznaka" : "156",
+		"RegOznaka" : "157",
 		"Tip" : "hacback"
 }
 
 ###
 
+<<<<<<< HEAD
 
 
+=======
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/DodajStanicu
+Content-Type: application/json
+
+{
+  "id": 0,
+  "naziv": "Stanica 1",
+  "opstina": "Nis",
+  "adresa": "Branka Copica 22",
+  "datumOsnivanja": "2024-06-18T16:25:11.509Z",
+  "brojVozila": 10
+}
+
+###
+
+Get {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/VratiSveStanice
+
+###
+
+Get {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/VratiPolicijskuStanicu/{{StanicaId}}
+
+###
+
+Get {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/VratiObjekteZaPolicijskuStanicu/{{StanicaId}}
+
+###
+
+Get {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/ProveriDaLiStanicaImaSefa/{{StanicaId}}
+
+###
+  
+Get {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/VratiPolicajceZaStanicu/{{StanicaId}}
+
+
+###
+
+PUT {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/PromeniStanicu
+Content-Type: application/json
+
+{
+  "id": {{StanicaId}},
+  "naziv": "Stanica izmenjena",
+  "opstina": "Nis",
+  "adresa": "string",
+  "datumOsnivanja": "2024-06-18T17:00:41.102Z",
+  "brojVozila": 30
+}
+
+
+###
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/ObrisiPolicijskuStanicu/{{DeleteStanicaId}}
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/ObjekatControllers/DodajObjekat
+Content-Type: application/json
+
+{
+  "id": 0,
+  "tip": "string",
+  "adresa": "string",
+  "povrsina": 0,
+  "kontaktIme": "string",
+  "kontaktPrezime": "string",
+  "policijskaStanica": {
+    "id": 10,
+    "naziv": "string",
+    "opstina": "string",
+    "adresa": "string",
+    "datumOsnivanja": "2024-06-18T18:14:33.158Z",
+    "brojVozila": 0
+  }
+}
+
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/ObjekatControllers/VratiSveObjekte
+
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/ObjekatControllers/VratiObjekat/{{ObjekatId}}
+
+
+###
+
+PUT {{PolicijskaUpravaWebAPI_HostAddress}}/ObjekatControllers/PromeniObjekat
+Content-Type: application/json
+
+{
+  "id": 7, 
+  "tip": "string",
+  "adresa": "string",
+  "povrsina": 0,
+  "kontaktIme": "string",
+  "kontaktPrezime": "string",
+  "policijskaStanica": {
+    "id": 10,
+    "naziv": "string",
+    "opstina": "string",
+    "adresa": "string",
+    "datumOsnivanja": "2024-06-18T18:14:33.158Z",
+    "brojVozila": 0
+  }
+}
+
+
+###Upisati rucno kada se doda novi objekat u DeleteObjekatId
+###
+
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/ObjekatControllers/ObrisiObjekat/{{DeleteObjekatId}}
+
+###
+  
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/BrojTelefonaControllers/SacuvajBrojTelefonaZaObjekat/{{ObjekatId}}
+Content-Type: application/json
+
+{
+  "broj": "12345678910"
+}
+
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/BrojTelefonaControllers/VratiSveTelefoneZaObjekat/{{ObjekatId}}
+
+###
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/BrojTelefonaControllers/ObrisiBrojTelefonaZaObjekat/{{ObjekatId}}
+Content-Type: application/json
+
+{
+  "broj": "123456789"
+}
+
+###
+ 
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/PreuzmiIstorijuOdrzavanjaTehnickoLice/{{TehnicarId}}
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/PreuzmiIstorijuOdrzavanjaTehnickoLice/{{AlarmniSistemId}}
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/DodajOdrzavanje
+Content-Type: application/json
+
+{
+  "tehnickoLice": {{TehnicarId}},
+  "alarmniSistem": {{AlarmniSistemId}},
+  "pocetak": "2024-06-18T18:01:53.609Z",
+  "kraj": "2024-06-18T18:01:53.609Z"
+}
+
+###
+
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/ObrazovanjeControllers/DodajObrazovanje/{{PolicajacId}}
+Content-Type: application/json
+
+{
+  "skola": "Policijska akademija",
+  "datumDipolomirnja": "2024-06-18T18:47:21.751Z"
+}
+
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/ObrazovanjeControllers/PreuzmiSvaObrazovanjaZaPolicajca/{{PolicajacId}}
+
+### Baca gresku, proveriti !!!
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/ObrazovanjeControllers/ObrisiObrazovanjeZaPolicajca/{{PolicajacId}}
+Content-Type: application/json
+
+{
+  "skola": "Policijska akademija",
+  "datumDipolomirnja": "2024-06-18T18:47:21.751Z"
+}
+
+
+###
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/IzbrisiOdrzavanje/{{DeleteOdrzavanjeId}}
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/PreuzmiPatrolu/{{PatrolaId}}
+
+###
+
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/PreuzmiSvePatrole
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/DodajPatrolu
+Content-Type: application/json
+
+{
+  "redniBroj": 0,
+  "vozilo": {{VoziloId}} ,
+  "sef": {{SefId}},
+  "pomocnik": {{PomocnikId}}
+}
+
+###
+PUT {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/PromeniPatrolu
+Content-Type: application/json
+
+{
+  "redniBroj": 0,
+  "vozilo": {{VoziloId}} ,
+  "sef": {{SefId}},
+  "pomocnik": {{PomocnikId}}
+}
+###
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/IzbrisiPatrolu/{{DeletePatrolaId}}
+
+###
+
+###POST {{PolicijskaUpravaWebAPI_HostAddress}}/AlarmniSistemController/PreuzmiAlarmniSistem
