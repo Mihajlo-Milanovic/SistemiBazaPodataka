@@ -1,10 +1,20 @@
 @PolicijskaUpravaWebAPI_HostAddress = http://localhost:5282
 
 @PolicajacId = 24
-@ObjekatId = 7
+@ObjekatId = 11
 @StanicaId = 10
+
 @DeleteStanicaId = 15
-@DeleteObjekatId = 10
+@DeleteObjekatId = 7
+
+@TehnicarId = 5
+@AlarmniSistemId = 3
+@DeleteOdrzavanjeId = 1
+@PatrolaId = 12
+@VoziloId =11
+@SefId = 12
+@PomocnikId = 13
+@DeletePatrolaId = 12
 
 
 GET {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/PreuzmiSvaVozila
@@ -116,7 +126,7 @@ PUT {{PolicijskaUpravaWebAPI_HostAddress}}/ObjekatControllers/PromeniObjekat
 Content-Type: application/json
 
 {
-  "id": 10, 
+  "id": 7, 
   "tip": "string",
   "adresa": "string",
   "povrsina": 0,
@@ -145,7 +155,7 @@ POST {{PolicijskaUpravaWebAPI_HostAddress}}/BrojTelefonaControllers/SacuvajBrojT
 Content-Type: application/json
 
 {
-  "broj": "123456789"
+  "broj": "12345678910"
 }
 
 
@@ -160,6 +170,26 @@ Content-Type: application/json
 
 {
   "broj": "123456789"
+}
+
+###
+ 
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/PreuzmiIstorijuOdrzavanjaTehnickoLice/{{TehnicarId}}
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/PreuzmiIstorijuOdrzavanjaTehnickoLice/{{AlarmniSistemId}}
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/DodajOdrzavanje
+Content-Type: application/json
+
+{
+  "tehnickoLice": {{TehnicarId}},
+  "alarmniSistem": {{AlarmniSistemId}},
+  "pocetak": "2024-06-18T18:01:53.609Z",
+  "kraj": "2024-06-18T18:01:53.609Z"
 }
 
 ###
@@ -190,3 +220,43 @@ Content-Type: application/json
 
 
 ###
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/IzbrisiOdrzavanje/{{DeleteOdrzavanjeId}}
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/PreuzmiPatrolu/{{PatrolaId}}
+
+###
+
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/PreuzmiSvePatrole
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/DodajPatrolu
+Content-Type: application/json
+
+{
+  "redniBroj": 0,
+  "vozilo": {{VoziloId}} ,
+  "sef": {{SefId}},
+  "pomocnik": {{PomocnikId}}
+}
+
+###
+PUT {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/PromeniPatrolu
+Content-Type: application/json
+
+{
+  "redniBroj": 0,
+  "vozilo": {{VoziloId}} ,
+  "sef": {{SefId}},
+  "pomocnik": {{PomocnikId}}
+}
+###
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/IzbrisiPatrolu/{{DeletePatrolaId}}
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/AlarmniSistemController/PreuzmiAlarmniSistem
