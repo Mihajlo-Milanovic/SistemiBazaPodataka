@@ -25,104 +25,59 @@ public class TehnickoLiceControllers : ControllerBase
             return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
-        return StatusCode(201, $"Uspešno dodato vozilo: {tlv.Id}");
+        return StatusCode(201, $"Uspešno dodato tehnicko lice: {tlv.Id}");
     }
 
-    // TREBA DA SE DODA VAZOLO ZA NEKU PATROLU
-    //[HttpPost]
-    //[Route("DodajVozlio/{odeljenjeID}")]
-    //[ProducesResponseType(StatusCodes.Status201Created)]
-    //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-    //[ProducesResponseType(StatusCodes.Status403Forbidden)]
-    //public async Task<IActionResult> AddSlagalicaToOdeljenje(int odeljenjeID, [FromBody] SlagalicaView s)
-    //{
-    //    (bool isError, int id, var error) = await DataProvider.SacuvajSlagalicuAsync(s);
-
-    //    if (isError)
-    //    {
-    //        return StatusCode(error?.StatusCode ?? 400, error?.Message);
-    //    }
-
-    //    (bool isError2, var slagalica, var error2) = await DataProvider.VratiSlagalicuAsync(id);
-    //    (bool isError3, var odeljenje, var error3) = await DataProvider.VratiOdeljenjeDo5Async(odeljenjeID);
-
-    //    if (isError2 || isError3)
-    //    {
-    //        return StatusCode(error2?.StatusCode ?? 400, $"{error2?.Message}{Environment.NewLine}{error3?.Message}");
-    //    }
-
-    //    if (slagalica == null || odeljenje == null)
-    //    {
-    //        return BadRequest("Odeljenje ili slagalica nisu validni.");
-    //    }
-
-    //    var povezi = new ProdajeSeView
-    //    {
-    //        ProdajeOdeljenje = odeljenje,
-    //        ProdajeProzivod = slagalica
-    //    };
-
-    //    var data = await DataProvider.SacuvajProdajeSeAsync(povezi);
-
-    //    if (data.IsError)
-    //    {
-    //        return StatusCode(data.Error.StatusCode, data.Error.Message);
-    //    }
-
-    //    return StatusCode(201, $"Uspešno upisana slagalica i povezana sa odeljenjem: {data.Data}.");
-    //}
-
-
     [HttpGet]
-    [Route("PreuzmiSvaVozila")]
+    [Route("PreuzmiSvaTehnickaLica")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> GetVozila()
+    public async Task<IActionResult> GetTehnickaLica()
     {
-        var vozila = await DataProvider.VratiSvaVozilaAsync();
+        var tehnickoLice= await DataProvider.VratiSvaTehnickaLicaAsync();
 
-        if (vozila.IsError)
+        if (tehnickoLice.IsError)
         {
-            return StatusCode(vozila.Error.StatusCode, vozila.Error.Message);
+            return StatusCode(tehnickoLice.Error.StatusCode, tehnickoLice.Error.Message);
         }
 
-        return Ok(vozila.Data);
+        return Ok(tehnickoLice.Data);
     }
 
     [HttpPut]
-    [Route("PromeniVozilo")]
+    [Route("PromeniTehnickoLice")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> ChangeVozilo([FromBody] VoziloView v)
+    public async Task<IActionResult> ChangeTehnickoLice([FromBody] TehnickoLiceView tlv)
     {
-        (bool isError, var vozilo, var error) = await DataProvider.IzmeniVoziloAsync(v);
+        (bool isError, var tehnickoLice, var error) = await DataProvider.IzmeniTehnickoLiceAsync(tlv);
 
         if (isError)
         {
             return StatusCode(error?.StatusCode ?? 400, error?.Message);
         }
 
-        return Ok(vozilo);
+        return Ok(tlv);
     }
 
 
     [HttpDelete]
-    [Route("IzbrisiVozilo/{id}")]  // PROVERITI!!!
+    [Route("IzbrisiTehnickoLice/{id}")] 
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<IActionResult> DeleteVozilo(int id)
+    public async Task<IActionResult> DeleteTehnickoLice(int id)
     {
-        var data = await DataProvider.ObrisiVoziloAsync(id);
+        var data = await DataProvider.ObrisiTehnickoLiceAsync(id);
 
         if (data.IsError)
         {
             return StatusCode(data.Error.StatusCode, data.Error.Message);
         }
 
-        return StatusCode(204, $"Uspešno obrisano vozilo: {data.Data}.");
+        return StatusCode(204, $"Uspešno obrisano tehnicko lice: {data.Data}.");
     }
 }
 
