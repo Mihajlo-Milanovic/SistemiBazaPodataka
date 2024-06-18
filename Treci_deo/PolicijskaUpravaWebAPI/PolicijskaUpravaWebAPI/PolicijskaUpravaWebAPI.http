@@ -3,7 +3,16 @@
 @PolicajacId = 24
 @ObjekatId = 7
 @StanicaId = 10
-@DeleteStanicaId = 15
+@DeleteStanicaId = 15 
+
+@TehnicarId = 5
+@AlarmniSistemId = 3
+@DeleteOdrzavanjeId = 1
+@PatrolaId = 12
+@VoziloId =11
+@SefId = 12
+@PomocnikId = 13
+@DeletePatrolaId = 12
 
 
 GET {{PolicijskaUpravaWebAPI_HostAddress}}/VoziloControllers/PreuzmiSvaVozila
@@ -77,3 +86,64 @@ Content-Type: application/json
 DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/PolicijskaStanicaControllers/ObrisiPolicijskuStanicu/{{DeleteStanicaId}}
 
 ###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/PreuzmiIstorijuOdrzavanjaTehnickoLice/{{TehnicarId}}
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/PreuzmiIstorijuOdrzavanjaTehnickoLice/{{AlarmniSistemId}}
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/DodajOdrzavanje
+Content-Type: application/json
+
+{
+  "tehnickoLice": {{TehnicarId}},
+  "alarmniSistem": {{AlarmniSistemId}},
+  "pocetak": "2024-06-18T18:01:53.609Z",
+  "kraj": "2024-06-18T18:01:53.609Z"
+}
+
+###
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/OdrzavaController/IzbrisiOdrzavanje/{{DeleteOdrzavanjeId}}
+
+###
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/PreuzmiPatrolu/{{PatrolaId}}
+
+###
+
+
+GET {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/PreuzmiSvePatrole
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/DodajPatrolu
+Content-Type: application/json
+
+{
+  "redniBroj": 0,
+  "vozilo": {{VoziloId}} ,
+  "sef": {{SefId}},
+  "pomocnik": {{PomocnikId}}
+}
+
+###
+PUT {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/PromeniPatrolu
+Content-Type: application/json
+
+{
+  "redniBroj": 0,
+  "vozilo": {{VoziloId}} ,
+  "sef": {{SefId}},
+  "pomocnik": {{PomocnikId}}
+}
+###
+
+DELETE {{PolicijskaUpravaWebAPI_HostAddress}}/PatrolaController/IzbrisiPatrolu/{{DeletePatrolaId}}
+
+###
+
+POST {{PolicijskaUpravaWebAPI_HostAddress}}/AlarmniSistemController/PreuzmiAlarmniSistem

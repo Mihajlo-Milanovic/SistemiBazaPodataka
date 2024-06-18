@@ -60,6 +60,7 @@ public class OdrzavaController : ControllerBase
         return StatusCode(201, $"Uspešno dodato održavanje za tehničara ID: {o.TehnickoLice.Id} i alarmni sistem ID: {o.AlarmniSistem.Id}");
     }
 
+
     [HttpDelete]
     [Route("IzbrisiOdrzavanje")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
